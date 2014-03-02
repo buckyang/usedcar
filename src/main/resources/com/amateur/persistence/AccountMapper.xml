@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.amateur.persistence.AccountMapper">
+
+  	<cache />
+
+    <select id="getAccountByEmail" parameterType="string" resultType="Account">
+	    SELECT
+			a.account_id;
+			a.password;
+			a.nickname;
+			a.real_name;
+			a.email;
+			a.bind_email;
+			a.sex;
+			a.id_number;
+			a.phone;
+			a.bind_phone;
+			a.birthdate;
+			a.certificate_type;
+			a.certificate_number;
+			a.update_time;
+	    FROM account a
+	    WHERE a.email=#{email}
+    </select>
+    <select id="getAccountById" parameterType="int" resultType="Account">
+	    SELECT
+			a.account_id;
+			a.password;
+			a.nickname;
+			a.real_name;
+			a.email;
+			a.bind_email;
+			a.sex;
+			a.id_number;
+			a.phone;
+			a.bind_phone;
+			a.birthdate;
+			a.certificate_type;
+			a.certificate_number;
+			a.update_time;
+	    FROM account a
+	    WHERE a.account_id=#{accountId}
+    </select>    
+	<insert id="registerAccount" parameterType="Account">
+		insert into account (nickname, email, password, phone, registration_date)
+		values (#{nickname}, #{email}, #{password}, #{phone}, registrationDate)
+	</insert>
+</mapper>

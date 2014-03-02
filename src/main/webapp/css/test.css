@@ -1,0 +1,13 @@
+.greyed {
+	color: #999;
+}
+
+.redbold {
+	color: darkred;
+	font-weight: bold;
+}
+
+.greenbold {
+	color: #7c0;
+	font-weight: bold;
+}
