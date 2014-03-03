@@ -46,8 +46,10 @@ a {
 }
 
 .footer {
+    clear: both;
     border: 1px solid #333;
     padding: 10px 0;
+    margin: 10px 0;
 }
 
 .footer .about-us, .footer .companies {
@@ -61,3 +63,71 @@ p.site-info {
     text-align: center;
     padding: 5px 0;
 }
+
+.cars {
+    border: 1px solid #333;
+    height: 220px;
+    margin-top: 10px;
+}
+
+.info {
+    margin-top: 10px;
+    border: 1px solid #333;
+    padding: 5px 5px;
+}
+
+.info .messages {
+    margin-top: 5px;
+    display: inline-block;
+    width: 70%;
+    height: 100%;
+}
+
+.info .barcode {
+    display: inline-block;
+    height: 100%;
+    width: 29%;
+    border: 1px solid #333;
+    line-height: 100px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.info .messages .recommends,
+.info .messages .contract,
+.info .messages .buy,
+.info .messages .sell,
+.info .messages .loan,
+.info .messages .certificate
+{
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #333;
+    margin-top:5px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.info .messages .recommends,
+.info .messages .contract{
+    height: 230px;
+}
+
+.info .messages .recommends{
+    width: 65%;
+    vertical-align: top;
+}
+
+.info .messages .contract{
+    width: 33%;
+}
+
+.info .messages .buy,
+.info .messages .sell,
+.info .messages .loan,
+.info .messages .certificate
+{
+    width: 24.1%;
+    height: 53px;
+}
+
