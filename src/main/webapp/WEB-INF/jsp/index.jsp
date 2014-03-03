@@ -1,5 +1,5 @@
 <div class="cars">
-    <form action="search">
+    <form action="search" method="post">
         <label>我理想的座驾:</label>
         <select name="brand" id="carBrand">
             <option value="品牌">品牌</option>
@@ -21,7 +21,8 @@
             <option value="10000km">10000km</option>
             <option value="1000000km">100000km</option>
         </select>
-        <input type="radio" name="isCentificated" value="是否认证">是否认证
+        <input type="radio" name="isCertificated" value="是否认证">
+        <span class="certificate">是否认证</span>
         <input type="submit" value="搜索"/>
     </form>
 </div>
