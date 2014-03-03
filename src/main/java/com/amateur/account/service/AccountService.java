@@ -30,7 +30,7 @@ public class AccountService {
 			BeanUtils.copyProperties(registrationDTO, account);
 			account.setRegistrationDate(new Date());
 			account.setAccountId(sequenceService.getAccountId());
-			if(accountMapper.registerAccount(account)>=1){
+			if(accountMapper.registerAccount(account) ==1){
 				return true;
 			}
 		}else if(registrationDTO.getAccountType() == 2){
