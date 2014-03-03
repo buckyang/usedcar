@@ -6,46 +6,82 @@
 
   	<cache />
 
-    <select id="getAccountByEmail" parameterType="string" resultType="Account">
+    <select id="getAccountByEmail" parameterType="string" resultMap="resultAccount">
 	    SELECT
-			a.account_id;
-			a.password;
-			a.nickname;
-			a.real_name;
-			a.email;
-			a.bind_email;
-			a.sex;
-			a.id_number;
-			a.phone;
-			a.bind_phone;
-			a.birthdate;
-			a.certificate_type;
-			a.certificate_number;
-			a.update_time;
-	    FROM account a
+			a.account_id,
+			a.password,
+			a.nickname,
+			a.real_name,
+			a.email,
+			a.bind_email,
+			a.sex,
+			a.id_number,
+			a.phone,
+			a.bind_phone,
+			a.birthdate,
+			a.certificate_type,
+			a.certificate_number,
+			a.update_time,
+			a.registration_date,
+			a.account_type,
+			r.reseller_type,
+			r.reseller_name
+	    FROM account a LEFT JOIN reseller r ON a.account_id = r.reseller_id
 	    WHERE a.email=#{email}
-    </select>
-    <select id="getAccountById" parameterType="int" resultType="Account">
+    </select> 
+    <select id="getAccountById" parameterType="int" resultMap="resultAccount">
 	    SELECT
-			a.account_id;
-			a.password;
-			a.nickname;
-			a.real_name;
-			a.email;
-			a.bind_email;
-			a.sex;
-			a.id_number;
-			a.phone;
-			a.bind_phone;
-			a.birthdate;
-			a.certificate_type;
-			a.certificate_number;
-			a.update_time;
-	    FROM account a
-	    WHERE a.account_id=#{accountId}
-    </select>    
+			a.account_id,
+			a.password,
+			a.nickname,
+			a.real_name,
+			a.email,
+			a.bind_email,
+			a.sex,
+			a.id_number,
+			a.phone,
+			a.bind_phone,
+			a.birthdate,
+			a.certificate_type,
+			a.certificate_number,
+			a.update_time,
+			a.registration_date,
+			a.account_type,
+			r.reseller_type,
+			r.reseller_name
+	    FROM account a LEFT JOIN reseller r ON a.account_id = r.reseller_id
+	    WHERE a.account_id = #{accountId}
+    </select>     
+    <resultMap type="Account" id="resultAccount">
+		<result property="accountId" column="account_id" />
+		<result property="password" column="password" />
+		<result property="nickname" column="nickname" />
+		<result property="realName" column="real_name" />
+		<result property="email" column="email" />
+		<result property="bindEmail" column="bind_email" />
+		<result property="sex" column="sex" />
+		<result property="idNumber" column="id_number" />
+		<result property="phone" column="phone" />
+		<result property="bindPhone" column="bind_phone" />
+		<result property="birthdate" column="birthdate" />
+		<result property="certificateType" column="certificate_type" />
+		<result property="certificateNumber" column="certificate_number" />
+		<result property="updateTime" column="update_time" />
+		<result property="registrationDate" column="registration_date" />
+		<discriminator javaType="int" column="account_type">
+			<case value="2" resultMap="resultReseller"></case>
+		</discriminator>
+    </resultMap>
+    <resultMap type="Reseller" id="resultReseller">
+    	<result property="resellerType" column="reseller_type" />
+		<result property="resellerName" column="reseller_name" />
+    </resultMap>
 	<insert id="registerAccount" parameterType="Account">
-		insert into account (nickname, email, password, phone, registration_date)
-		values (#{nickname}, #{email}, #{password}, #{phone}, registrationDate)
+		insert into account (account_id, nickname, email, password, phone, registration_date, account_type)
+		values (#{accountId}, #{nickname}, #{email}, #{password}, #{phone}, #{registrationDate}, #{accountType})
 	</insert>
+	<insert id="registerResellerPart" parameterType="Reseller">
+		insert into reseller (reseller_id, reseller_type, reseller_name)
+		values (#{accountId}, #{resellerType}, #{resellerName})
+	</insert>	
 </mapper>

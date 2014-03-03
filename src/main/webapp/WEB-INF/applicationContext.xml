@@ -45,21 +45,6 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 
-
-	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-		<property name="mediaTypes">
-			<map>
-				<entry key="json" value="application/json" />
-				<entry key="html" value="text/html" />
-				<entry key="jsp" value="text/html" />
-			</map>
-		</property>
-		<property name="defaultViews">
-			<list>
-				<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
-			</list>
-		</property>
-	</bean>
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
 			<value>/WEB-INF/jsp/</value>
@@ -73,6 +58,7 @@
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/image/**" location="/image/" />
 	<mvc:resources mapping="/js/**" location="/image/" />
+	<mvc:resources mapping="/test/**" location="/test/" />
 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename">
 			<value>classpath:/messages</value>
@@ -103,5 +89,8 @@
 				<entry key="account" value=";10000; " />
 			</map>
 		</property>
+	</bean>
+	<bean id="siteConfiguration" class="com.amateur.configuration.SiteConfiguration">
+		<property name="resellerTypeName" value="resellerType"/>
 	</bean>
 </beans>

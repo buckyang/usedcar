@@ -12,21 +12,23 @@ public class Account implements Serializable {
 	 * 
 	 */
 	private static final long	serialVersionUID	= 260686500125121140L;
-	private Integer	accountId;
-	private String	password;
-	private String	nickname;
-	private String	realName;
-	private String	email;
-	private Boolean	bindEmail;
-	private Boolean	sex;
-	private String	idNumber;
-	private String	phone;
-	private Boolean	bindPhone;
-	private Date	birthdate;
-	private String	certificateType;
-	private String	certificateNumber;
-	private Date	updateTime;
-	private Date 	registrationDate;
+	private Integer accountId;
+	private String password;
+	private String nickname;
+	private String realName;
+	private String email;
+	private Boolean bindEmail;
+	private Boolean sex;
+	private String idNumber;
+	private String phone;
+	private Boolean bindPhone;
+	private Date birthdate;
+	private String certificateType;
+	private String certificateNumber;
+	private Date updateTime;
+	private Date registrationDate;
+	private Integer accountType;
+
 
 
 
@@ -206,6 +208,18 @@ public class Account implements Serializable {
 
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
+	}
+
+
+
+	public Integer getAccountType() {
+		return accountType;
+	}
+
+
+
+	public void setAccountType(Integer accountType) {
+		this.accountType = accountType;
 	}
 
 }

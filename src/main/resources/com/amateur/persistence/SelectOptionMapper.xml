@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.amateur.persistence.SelectOptionMapper">
+
+
+  <cache />
+
+  <select id="getSelectionOptionsByName" parameterType="string" resultType="SelectOption">
+    SELECT 
+		option_value,
+		option_display_name,
+		display_order,
+		default_selected,
+		selection_name
+    FROM select_option
+    WHERE selection_name = #{name} ORDER BY display_order
+  </select>
+  
+  </mapper>

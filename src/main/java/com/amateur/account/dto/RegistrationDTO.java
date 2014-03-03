@@ -1,25 +1,32 @@
 package com.amateur.account.dto;
 
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.Range;
+
 public class RegistrationDTO {
-	private Integer	accountId;
+
+	@Min(6)
 	private String	password;
+	@Min(6)
+	private String	repassword;
+	@NotBlank
 	private String	nickname;
+	@Email
 	private String	email;
+	@Min(11)
+	private String phone;
+	
 	private String	phoneVerifyCode;
+	@AssertTrue
 	private Boolean	acceptTerm;
-
-
-
-	public Integer getAccountId() {
-		return accountId;
-	}
-
-
-
-	public void setAccountId(Integer accountId) {
-		this.accountId = accountId;
-	}
-
+	private Integer	resellerType;
+	private String	resellerName;
+	@Range(min=1, max=2)
+	private Integer	accountType;
 
 
 	public String getPassword() {
@@ -78,5 +85,65 @@ public class RegistrationDTO {
 
 	public void setAcceptTerm(Boolean acceptTerm) {
 		this.acceptTerm = acceptTerm;
+	}
+
+
+
+	public Integer getResellerType() {
+		return resellerType;
+	}
+
+
+
+	public void setResellerType(Integer resellerType) {
+		this.resellerType = resellerType;
+	}
+
+
+
+	public String getResellerName() {
+		return resellerName;
+	}
+
+
+
+	public void setResellerName(String resellerName) {
+		this.resellerName = resellerName;
+	}
+
+
+
+	public Integer getAccountType() {
+		return accountType;
+	}
+
+
+
+	public void setAccountType(Integer accountType) {
+		this.accountType = accountType;
+	}
+
+
+
+	public String getRepassword() {
+		return repassword;
+	}
+
+
+
+	public void setRepassword(String repassword) {
+		this.repassword = repassword;
+	}
+
+
+
+	public String getPhone() {
+		return phone;
+	}
+
+
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 }
