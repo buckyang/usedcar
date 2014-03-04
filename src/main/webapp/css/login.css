@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login {
+    width: 270px;
+    height: 250px;
+    margin: 10% auto;
+    padding: 10px 20px;
+    border: 1px solid #333;
+}
+
+.login form {
+    margin-bottom: 25px;
+}
+
+
+.login form>label,
+.login form>input
+{
+    display: block;
+}
+
+.login form>label,
+.login form>input,
+.login form div
+{
+    width: 200px;
+    margin: 10px auto;
+}
+
+.login form #username {
+    margin-bottom: 25px;
+}
+
+.login form div label {
+    font-size:0.8em;
+}
+
+.login form button{
+    width: 50px;
+    font-size: 0.8em;
+    line-height: 25px;
+}
+
+.login p {
+    font-size: 0.8em;
+    margin-left: 65px
+}
+
+.login p a{
+    margin: 0px 10px;
+    color: #1576F1;
+}
+

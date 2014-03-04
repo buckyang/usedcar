@@ -5,7 +5,7 @@
         <img src="logo.png" alt="logo"/>
     </div>
     <div class="auth">
-        <a class="login" href="#">登陆</a>/
-        <a class="login" href="#">注册</a>
+        <a class="login" href="/login">登陆</a>/
+        <a class="login" href="/register">注册</a>
     </div>
 </div>
