@@ -1,0 +1,68 @@
+.register {
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+
+}
+
+.register .category{
+    border-bottom: 1px solid #333;
+}
+
+.register .category .individual{
+    border-right: 1px solid #333;
+}
+.register .category .individual,
+.register .category .merchant
+{
+    display: inline-block;
+    width: 49.5%;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.register .declaration{
+    border: 1px solid red;
+    padding: 5px;
+    text-align: center;
+    width: 21em;
+    margin-left: 30%;
+    margin-top: 10px;
+}
+
+.register form{
+    margin-left: 15%;
+    padding-bottom: 20px;
+}
+
+.register form div{
+    margin-top: 20px;
+}
+
+.register form div label{
+    width: 30%;
+    text-align: right;
+    display: inline-block;
+}
+
+.register form .agreement {
+    margin-left: 20%;
+    margin-bottom: 30px;
+}
+
+.register form .agreement label{
+    width:19em;
+}
+
+.register form input{
+    height: 20px;
+}
+
+.register form button[type="submit"] {
+    margin-left: 35%;
+    width: 4em;
+    font-size: 1em;
+}
+
+
+
+
