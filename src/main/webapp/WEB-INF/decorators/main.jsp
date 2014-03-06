@@ -10,6 +10,7 @@
     <link href="/css/reset.css" type="text/css" rel="stylesheet"/>
     <link href="/css/home.css" type="text/css" rel="stylesheet"/>
     <link href="/css/register.css" type="text/css" rel="stylesheet"/>
+    <link href="/css/sellcar.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 <div class="container">
