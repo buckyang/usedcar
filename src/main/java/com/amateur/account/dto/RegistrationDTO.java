@@ -8,7 +8,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 
 public class RegistrationDTO {
-
+	private Integer	accountId;
 	@Min(6)
 	private String	password;
 	@Min(6)
@@ -27,6 +27,19 @@ public class RegistrationDTO {
 	private String	resellerName;
 	@Range(min=1, max=2)
 	private Integer	accountType;
+
+
+
+	public Integer getAccountId() {
+		return accountId;
+	}
+
+
+
+	public void setAccountId(Integer accountId) {
+		this.accountId = accountId;
+	}
+
 
 
 	public String getPassword() {

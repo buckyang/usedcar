@@ -210,16 +210,4 @@ public class Account implements Serializable {
 		this.registrationDate = registrationDate;
 	}
 
-
-
-	public Integer getAccountType() {
-		return accountType;
-	}
-
-
-
-	public void setAccountType(Integer accountType) {
-		this.accountType = accountType;
-	}
-
 }
