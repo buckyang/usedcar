@@ -49,6 +49,7 @@ public class AccountService {
 		return false;
 	}
 
+	
 	public Account getAccountByEmail(String email) {
 		return accountMapper.getAccountByEmail(email);
 	}
