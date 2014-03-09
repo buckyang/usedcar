@@ -6,8 +6,10 @@
 		<pattern>*/js/*</pattern>
 		<pattern>*/css/*</pattern>
 		<pattern>*/image/*</pattern>
-		<pattern>*/login.jsp</pattern>
 	</excludes>
+	<decorator name="login" page="loginDecorator.jsp">
+		<pattern>*login.jsp</pattern>
+	</decorator>
 	<decorator name="main" page="main.jsp">
 		<pattern>*.jsp</pattern>
 	</decorator>

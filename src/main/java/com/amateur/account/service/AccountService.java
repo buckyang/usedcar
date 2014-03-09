@@ -52,5 +52,8 @@ public class AccountService {
 	public Account getAccountByEmail(String email) {
 		return accountMapper.getAccountByEmail(email);
 	}
-
+	
+	public Account getAccountByPhoneOrEmail(String emailOrPhone){
+		return accountMapper.getAccountByPhoneOrEmail(emailOrPhone);
+	}
 }

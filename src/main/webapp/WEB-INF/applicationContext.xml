@@ -29,7 +29,9 @@
 	<context:component-scan base-package="com.amateur" />
 
 	<mvc:interceptors>
-		<bean class="com.amateur.interceptor.ProfileInitializerInterceptor" />
+		<bean class="com.amateur.interceptor.ProfileInitializerInterceptor">
+			<property name="siteConfiguration" ref="siteConfiguration"/>
+		</bean>
 		<mvc:interceptor>
 			<mvc:mapping path="/account/**"/>
 			<mvc:mapping path="/travelgroup/newtrip*" />
@@ -92,5 +94,6 @@
 	</bean>
 	<bean id="siteConfiguration" class="com.amateur.configuration.SiteConfiguration">
 		<property name="resellerTypeName" value="resellerType"/>
+		<property name="siteName" value="二手车"/>
 	</bean>
 </beans>

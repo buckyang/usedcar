@@ -1,111 +1,51 @@
 <head>
-	<title>用户注册</title>
+	<title>二手车 -- 用户注册</title>
 </head>
 <body>
-	<div id="formsContent">
-		<form:form id="form" method="post" modelAttribute="registrationDTO">
-			<div class="header">
-		  		<h2>Form</h2>
-		  		<c:if test="${not empty message}">
-					<div id="message" class="success"><s:message code="${message}"/></div>	
-		  		</c:if>
-		  		<s:bind path="*">
-		  			<c:if test="${status.error}">
-				  		<div id="message" class="error">输入信息有误</div>
-		  			</c:if>
-		  		</s:bind>
-			</div>
-		  	<fieldset>
-		  		<legend>普通用户注册</legend>
-		  		<c:choose>
-			  		<c:when test="${registrationDTO.accountType == 1}">
-				  		<form:label path="phone">注册手机号码</form:label>
-				  		<form:input path="phone" /><form:errors path="phone" cssClass="error" /><br />
-				  		<form:label path="phoneVerifyCode">手机验证码</form:label>
-				  		<form:input path="phoneVerifyCode" /><form:errors path="phoneVerifyCode" cssClass="error" /><br />  				  				  				  		
-				  		<form:label path="nickname">用户名</form:label>
-				  		<form:input path="nickname" /><form:errors path="nickname" cssClass="error" /><br />		  				  			
-				  		<form:label path="password">密码</form:label>
-				  		<form:password path="password" /><form:errors path="password" cssClass="error" /><br />
-				  		<form:label path="repassword">确认密码</form:label>
-				  		<form:password path="repassword" /><form:errors path="repassword" cssClass="error" /><br />
-				  		<form:label path="email">电子邮箱</form:label>
-				  		<form:input path="email" /><form:errors path="email" cssClass="error" /><br />
-				  		<form:label path="acceptTerm">同意服务条款</form:label>
-				  		<form:checkbox path="acceptTerm" value="true"/><form:errors path="acceptTerm" cssClass="error" /><br />
-				  		<form:hidden path="accountType" value="1"/>
-			  		</c:when>
-			  		<c:otherwise>
-				  		<form:label path="phone">注册手机号码</form:label>
-				  		<form:input path="phone" /><br />
-				  		<form:label path="phoneVerifyCode">手机验证码</form:label>
-				  		<form:input path="phoneVerifyCode" /><br />  				  				  				  		
-				  		<form:label path="nickname">用户名</form:label>
-				  		<form:input path="nickname" /><br />	  				  			
-				  		<form:label path="password">密码</form:label>
-				  		<form:password path="password" /><br />
-				  		<form:label path="repassword">确认密码</form:label>
-				  		<form:password path="repassword" /><br />
-				  		<form:label path="email">电子邮箱</form:label>
-				  		<form:input path="email" /><br />
-				  		<form:label path="acceptTerm">同意服务条款</form:label>
-				  		<form:checkbox path="acceptTerm" value="true"/><br />
-				  		<form:hidden path="accountType" value="1"/>			  			
-			  		</c:otherwise>
-		  		</c:choose>
-		  	</fieldset>
-			<p><button type="submit">Submit</button></p>
-		</form:form>
-	</div>
-	<div>
-		<form:form id="resellerForm" method="post" modelAttribute="registrationDTO">
-		  	<fieldset>
-		  		<legend>经销商注册</legend>
-		  		<c:choose>
-			  		<c:when test="${registrationDTO.accountType == 2}">		  		
-				  		<form:label path="phone">注册手机号码</form:label>
-				  		<form:input path="phone" /><form:errors path="phone" cssClass="error" /><br />
-				  		<form:label path="phoneVerifyCode">手机验证码</form:label>
-				  		<form:input path="phoneVerifyCode" /><form:errors path="phoneVerifyCode" cssClass="error" /><br />
-				  		<form:label path="resellerName">经销商名称</form:label>
-				  		<form:input path="resellerName" /><form:errors path="resellerName" cssClass="error" /><br />
-				  		<form:radiobuttons path="resellerType" itemLabel="optionDisplayName" itemValue="optionValue" items="${preLoadBeans.resellerTypes }" />
-				  		<form:errors path="resellerType" cssClass="error" /><br />	  				  				  		  				  				  				  		
-				  		<form:label path="nickname">用户名</form:label>
-				  		<form:input path="nickname" /><form:errors path="nickname" cssClass="error" /><br />		  				  			
-				  		<form:label path="password">密码</form:label>
-				  		<form:password path="password" /><form:errors path="password" cssClass="error" /><br />
-				  		<form:label path="repassword">确认密码</form:label>
-				  		<form:password path="repassword" /><form:errors path="repassword" cssClass="error" /><br />
-				  		<form:label path="email">电子邮箱</form:label>
-				  		<form:input path="email" /><form:errors path="email" cssClass="error" /><br />
-				  		<form:label path="acceptTerm">同意服务条款</form:label>
-				  		<form:checkbox path="acceptTerm" value="true"/><form:errors path="acceptTerm" cssClass="error" /><br />
-				  		<form:hidden path="accountType" value="2"/>
-					</c:when>
-					<c:otherwise>
-				  		<form:label path="phone">注册手机号码</form:label>
-				  		<form:input path="phone" /><br />
-				  		<form:label path="phoneVerifyCode">手机验证码</form:label>
-				  		<form:input path="phoneVerifyCode" /><br />
-				  		<form:label path="resellerName">经销商名称</form:label>
-				  		<form:input path="resellerName" /><br />
-				  		<form:radiobuttons path="resellerType" itemLabel="optionDisplayName" itemValue="optionValue" items="${preLoadBeans.resellerTypes }" /><br />	  				  				  		  				  				  				  		
-				  		<form:label path="nickname">用户名</form:label>
-				  		<form:input path="nickname" /><br />				  			
-				  		<form:label path="password">密码</form:label>
-				  		<form:password path="password" /><br />
-				  		<form:label path="repassword">确认密码</form:label>
-				  		<form:password path="repassword" /><br />
-				  		<form:label path="email">电子邮箱</form:label>
-				  		<form:input path="email" /><br />
-				  		<form:label path="acceptTerm">同意服务条款</form:label>
-				  		<form:checkbox path="acceptTerm" value="true"/><br />
-				  		<form:hidden path="accountType" value="2"/>					
-					</c:otherwise>
-				</c:choose>									  		
-		  	</fieldset>
-			<p><button type="submit">Submit</button></p>
-		</form:form>
+<div class="register">
+	    <div class="category">
+	        <div class="individual">
+	            个人注册
+	        </div>
+	        <div class="merchant">
+	            经销商注册
+	        </div>
+	    </div>
+	    <p class="declaration">所有注册信息均按照相关服务条款收到法律保护</p>
+	
+		<form:form id="signonForm" method="post" modelAttribute="registrationDTO">
+	        <div class="telephone">
+	            <label for="phone"><span>*</span>注册手机号码：</label>
+	            <form:input path="phone" /><form:errors path="phone" cssClass="error" />
+	            <button>免费获取验证码</button>
+	        </div>
+	        <div class="code">
+	            <label for="phoneVerifyCode"><span>*</span>手机验证码：</label>
+	            <form:input path="phoneVerifyCode" /><form:errors path="phoneVerifyCode" cssClass="error" />
+	        </div>
+	        <div class="username">
+	            <label for="nickname"><span>*</span>用户名：</label>
+	            <form:input path="nickname" /><form:errors path="nickname" cssClass="error" />
+	        </div>
+	        <div class="password">
+	            <label for="password"><span>*</span>密码：</label>
+	            <form:password path="password" /><form:errors path="password" cssClass="error" />
+	        </div>
+	        <div class="pwd-confirm">
+	            <label for="repassword"><span>*</span>确认密码：</label>
+	            <form:password path="repassword" /><form:errors path="repassword" cssClass="error" />
+	        </div>
+	        <div class="email">
+	            <label for="email">邮箱：</label>
+	            <form:input path="email" /><form:errors path="email" cssClass="error" />
+	        </div>
+	        <div class="agreement">
+	            <label for="acceptTerm">
+	                <form:radiobutton path="acceptTerm" value="true"/><form:errors path="acceptTerm" cssClass="error" />
+	                我已阅读并同意《XXXX网服务条款》</label>
+	        </div>
+	        <form:hidden path="accountType" value="1"/>
+	        <button type="submit">注册</button>
+	    </form:form>
 	</div>	
 </body>

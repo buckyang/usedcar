@@ -8,15 +8,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.amateur.configuration.SiteConfiguration;
 import com.amateur.session.Profile;
 
 public class ProfileInitializerInterceptor extends HandlerInterceptorAdapter {
+	private static final String	SITE_CONFIGURATION	= "siteConfiguration";
 	private static Logger		logger					= Logger.getLogger(ProfileInitializerInterceptor.class);
 	public static final String	REDIRECT_ATTRIBUTES_KEY	= "tempRedirectAttributes";
 
-
+	private SiteConfiguration siteConfiguration;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -41,4 +44,25 @@ public class ProfileInitializerInterceptor extends HandlerInterceptorAdapter {
 		return super.preHandle(request, response, handler);
 	}
 
+
+
+	@Override
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+			ModelAndView modelAndView) throws Exception {
+		request.setAttribute(SITE_CONFIGURATION, getSiteConfiguration());
+		super.postHandle(request, response, handler, modelAndView);
+	}
+
+
+
+	public SiteConfiguration getSiteConfiguration() {
+		return siteConfiguration;
+	}
+
+
+
+	public void setSiteConfiguration(SiteConfiguration siteConfiguration) {
+		this.siteConfiguration = siteConfiguration;
+	}
+	
 }
