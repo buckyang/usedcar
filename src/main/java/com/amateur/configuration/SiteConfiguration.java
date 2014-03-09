@@ -13,6 +13,8 @@ public class SiteConfiguration {
 	
 	private String resellerTypeName;
 	
+	private String siteName;
+	
 	private List<SelectOption> resellerTypeMap;
 	@Autowired
 	private SelectOptionMapper selectOptionMapper;
@@ -33,6 +35,16 @@ public class SiteConfiguration {
 
 	public void setResellerTypeName(String resellerTypeName) {
 		this.resellerTypeName = resellerTypeName;
+	}
+
+
+	public String getSiteName() {
+		return siteName;
+	}
+
+
+	public void setSiteName(String siteName) {
+		this.siteName = siteName;
 	}
 
 	

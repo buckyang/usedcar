@@ -9,4 +9,5 @@ public interface AccountMapper {
 	int registerResellerPart(Reseller reseller);
 	Account getAccountByEmail(String email);
 	Account getAccountById(Integer accountId);
+	Account getAccountByPhoneOrEmail(String emailOrPhone);
 }

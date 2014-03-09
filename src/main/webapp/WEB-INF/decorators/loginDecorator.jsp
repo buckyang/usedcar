@@ -8,17 +8,9 @@
     <decorator:head/>
     <title><decorator:title default="${siteConfiguration.siteName }"/></title>
     <link href="<s:url value="/css/reset.css" />" type="text/css" rel="stylesheet"/>
-    <link href="<s:url value="/css/home.css" />" type="text/css" rel="stylesheet"/>
-    <link href='<s:url value="/css/register.css" />' type="text/css" rel="stylesheet"/>
-    <link href="<s:url value="/css/sellcar.css" />" type="text/css" rel="stylesheet"/>
+    <link href="<s:url value="/css/login.css" />" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-<div class="container">
-    <jsp:include page="/WEB-INF/jsp/sections/header.jsp"/>
-    <jsp:include page="/WEB-INF/jsp/sections/navigation.jsp"/>
     <decorator:body/>
-    <jsp:include page="/WEB-INF/jsp/sections/footer.jsp"/>
-    <p class="site-info">XXX网站备案</p>
-</div>
 </body>
 </html>

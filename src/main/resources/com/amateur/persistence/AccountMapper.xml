@@ -51,7 +51,30 @@
 			r.reseller_name
 	    FROM account a LEFT JOIN reseller r ON a.account_id = r.reseller_id
 	    WHERE a.account_id = #{accountId}
-    </select>     
+    </select>   
+    <select id="getAccountByPhoneOrEmail" parameterType="string" resultMap="resultAccount">
+	    SELECT
+			a.account_id,
+			a.password,
+			a.nickname,
+			a.real_name,
+			a.email,
+			a.bind_email,
+			a.sex,
+			a.id_number,
+			a.phone,
+			a.bind_phone,
+			a.birthdate,
+			a.certificate_type,
+			a.certificate_number,
+			a.update_time,
+			a.registration_date,
+			a.account_type,
+			r.reseller_type,
+			r.reseller_name
+	    FROM account a LEFT JOIN reseller r ON a.account_id = r.reseller_id
+	    WHERE a.phone = #{emailOrPhone} OR a.email= #{emailOrPhone}
+    </select>       
     <resultMap type="Account" id="resultAccount">
 		<result property="accountId" column="account_id" />
 		<result property="password" column="password" />
