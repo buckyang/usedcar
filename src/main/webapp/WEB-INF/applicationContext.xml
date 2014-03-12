@@ -57,6 +57,8 @@
 	</bean>
 	<mvc:view-controller path="/index.html" view-name="index" />
 	<mvc:view-controller path="/" view-name="index" />
+	<mvc:view-controller path="/sellcar" view-name="sellcar" />
+	<mvc:view-controller path="/findpassword" view-name="findpassword" />
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/image/**" location="/image/" />
 	<mvc:resources mapping="/js/**" location="/image/" />
