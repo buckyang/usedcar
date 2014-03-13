@@ -1,3 +1,11 @@
+.right-content {
+display: inline-block;
+    width: 79.212345%;
+    border-right: 1px solid #333;
+    height: 750px;
+    vertical-align: top;
+}
+
 .user-info {
     border: 1px solid #333;
     width: 100%;

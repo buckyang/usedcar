@@ -60,6 +60,9 @@
 	<mvc:view-controller path="/findpassword" view-name="findpassword" />
 	<mvc:view-controller path="/sellerregister" view-name="seller_register" />
 	<mvc:view-controller path="/secure/sellcar" view-name="secure/sellcar" />
+	<mvc:view-controller path="/secure/basicinfo" view-name="secure/basic_info" />
+	<mvc:view-controller path="/secure/detailinfo" view-name="secure/detail_info" />
+	<mvc:view-controller path="/secure/changepassword" view-name="secure/change_password" />
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/image/**" location="/image/" />
 	<mvc:resources mapping="/js/**" location="/image/" />

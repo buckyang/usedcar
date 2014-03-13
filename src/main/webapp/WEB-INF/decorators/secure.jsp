@@ -31,7 +31,7 @@
                 <a href="#">账号管理</a>
                 <ul>
                     <li><a href="/secure/basicinfo">基本信息</a></li>
-                    <li><a href="/secure/details">详细信息</a></li>
+                    <li><a href="/secure/detailinfo">详细信息</a></li>
                     <li><a href="/secure/changepassword">修改密码</a></li>
                 </ul>
             </li>
