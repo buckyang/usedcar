@@ -12,6 +12,7 @@ import com.amateur.domain.Account;
 import com.amateur.domain.Reseller;
 import com.amateur.persistence.AccountMapper;
 import com.amateur.service.SequenceService;
+import com.amateur.util.EncryptionUtil;
 
 @Service
 public class AccountService {
@@ -29,6 +30,7 @@ public class AccountService {
 			Account account = new Account();
 			BeanUtils.copyProperties(registrationDTO, account);
 			account.setRegistrationDate(new Date());
+			account.setPassword(EncryptionUtil.encryptPassword(registrationDTO.getPassword()));
 			account.setAccountId(sequenceService.getAccountId());
 			if(accountMapper.registerAccount(account) ==1){
 				return true;
@@ -37,6 +39,7 @@ public class AccountService {
 			Reseller reseller = new Reseller();
 			BeanUtils.copyProperties(registrationDTO, reseller);
 			reseller.setRegistrationDate(new Date());
+			reseller.setPassword(EncryptionUtil.encryptPassword(registrationDTO.getPassword()));
 			reseller.setAccountId(sequenceService.getAccountId());
 			
 			if(accountMapper.registerAccount(reseller) == 1){

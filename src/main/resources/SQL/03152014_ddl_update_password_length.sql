@@ -1,0 +1,1 @@
+ALTER TABLE `account` MODIFY password VARCHAR(500);

@@ -107,6 +107,7 @@ public class RegistrationController extends BaseController {
 
 
 	private void handleRegistration(RegistrationDTO registrationDTO, Profile profile) {
+		registrationDTO.setPassword(registrationDTO.getPassword().trim());
 		if (accountService.registrerAccount(registrationDTO)) {
 			profile.setAccountDatasource(accountService.getAccountByEmail(registrationDTO.getEmail()));
 			profile.setStatus(Profile.EXPLICIT_LOGIN);
