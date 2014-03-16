@@ -1,5 +1,7 @@
 package com.amateur.domain;
 
+import com.amateur.account.dto.RegistrationDTO;
+
 public class Reseller extends Account {
 	/**
 	 * 
@@ -8,7 +10,9 @@ public class Reseller extends Account {
 	private Integer	resellerType;
 	private String	resellerName;
 
-
+	public Reseller(RegistrationDTO registrationDTO, Integer accountId) {
+		super(registrationDTO, accountId);
+	}
 
 	public Integer getResellerType() {
 		return resellerType;

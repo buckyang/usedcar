@@ -31,6 +31,7 @@
 	<mvc:interceptors>
 		<bean class="com.amateur.interceptor.ProfileInitializerInterceptor">
 			<property name="siteConfiguration" ref="siteConfiguration"/>
+			<property name="accountService" ref="accountService" />
 		</bean>
 		<mvc:interceptor>
 			<mvc:mapping path="/account/**"/>

@@ -8,6 +8,7 @@ public interface AccountMapper {
 	int registerAccount(Account account);
 	int registerResellerPart(Reseller reseller);
 	Account getAccountByEmail(String email);
+	Account getAccountByProfileHash(String profileHash);
 	Account getAccountById(Integer accountId);
 	Account getAccountByPhoneOrEmail(String emailOrPhone);
 }

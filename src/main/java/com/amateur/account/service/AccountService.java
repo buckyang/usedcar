@@ -1,9 +1,6 @@
 package com.amateur.account.service;
 
-import java.util.Date;
-
 import org.apache.log4j.Logger;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +9,6 @@ import com.amateur.domain.Account;
 import com.amateur.domain.Reseller;
 import com.amateur.persistence.AccountMapper;
 import com.amateur.service.SequenceService;
-import com.amateur.util.EncryptionUtil;
 
 @Service
 public class AccountService {
@@ -27,21 +23,12 @@ public class AccountService {
 	
 	public boolean registrerAccount(RegistrationDTO registrationDTO){
 		if(registrationDTO.getAccountType() == 1){
-			Account account = new Account();
-			BeanUtils.copyProperties(registrationDTO, account);
-			account.setRegistrationDate(new Date());
-			account.setPassword(EncryptionUtil.encryptPassword(registrationDTO.getPassword()));
-			account.setAccountId(sequenceService.getAccountId());
+			Account account = new Account(registrationDTO, sequenceService.getAccountId());
 			if(accountMapper.registerAccount(account) ==1){
 				return true;
 			}
 		}else if(registrationDTO.getAccountType() == 2){
-			Reseller reseller = new Reseller();
-			BeanUtils.copyProperties(registrationDTO, reseller);
-			reseller.setRegistrationDate(new Date());
-			reseller.setPassword(EncryptionUtil.encryptPassword(registrationDTO.getPassword()));
-			reseller.setAccountId(sequenceService.getAccountId());
-			
+			Reseller reseller = new Reseller(registrationDTO, sequenceService.getAccountId());
 			if(accountMapper.registerAccount(reseller) == 1){
 				if(accountMapper.registerResellerPart(reseller) == 1){
 					return true;
@@ -58,5 +45,8 @@ public class AccountService {
 	
 	public Account getAccountByPhoneOrEmail(String emailOrPhone){
 		return accountMapper.getAccountByPhoneOrEmail(emailOrPhone);
+	}
+	public Account getAccountByProfileHash(String profileHash){
+		return accountMapper.getAccountByProfileHash(profileHash);
 	}
 }

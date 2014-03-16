@@ -3,6 +3,7 @@ package com.amateur.util;
 import java.io.File;
 import java.security.InvalidKeyException;
 import java.security.KeyFactory;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
@@ -47,7 +48,18 @@ public class EncryptionUtil implements InitializingBean {
 		} 
     	return encodedString;
     }
+    
+    public static String getMD5HashValue(String message){
+    	String hashValue = null;
+    	try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			md.update(StringUtils.getBytesUtf8(message));
+			hashValue = Base64.encodeBase64String(md.digest());
+		} catch (NoSuchAlgorithmException e) {
 
+		}
+    	return hashValue;
+    }
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		passwordPublicKeyBytes = FileUtils.readFileToByteArray(getPasswordPublicKey().getFile());
