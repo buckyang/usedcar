@@ -102,4 +102,9 @@
 		<property name="resellerTypeName" value="resellerType"/>
 		<property name="siteName" value="二手车"/>
 	</bean>
+	<bean id="encryptionUtil" class="com.amateur.util.EncryptionUtil">
+		<property name="passwordPublicKey">
+			<value>classpath:/conf/usedcar_public</value>
+		</property>
+	</bean>
 </beans>
