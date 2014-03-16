@@ -74,7 +74,13 @@ public class Profile {
 		}
 		return null;
 	}
-
+	
+	public Integer getAccountType(){
+		if (accountDatasource != null) {
+			return accountDatasource.getAccountType();
+		}
+		return null;		
+	}
 	public int getStatus() {
 		return status;
 	}

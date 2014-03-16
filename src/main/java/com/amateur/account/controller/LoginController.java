@@ -92,6 +92,10 @@ public class LoginController extends BaseController{
 			m.addAttribute("profile", profile);
 			if (loginDTO.getRememberUserName() != null && loginDTO.getRememberUserName()) {
 				response.addCookie(new Cookie(Profile.COOKIE_USER_ID, account.getProfileHash()));
+			}else{
+				Cookie cookie = new Cookie(Profile.COOKIE_USER_ID, "");
+				cookie.setMaxAge(0);
+				response.addCookie(cookie);
 			}
 		}
 	}

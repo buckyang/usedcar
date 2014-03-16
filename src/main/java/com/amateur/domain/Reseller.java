@@ -10,6 +10,10 @@ public class Reseller extends Account {
 	private Integer	resellerType;
 	private String	resellerName;
 
+	public Reseller() {
+		super();
+	}
+
 	public Reseller(RegistrationDTO registrationDTO, Integer accountId) {
 		super(registrationDTO, accountId);
 	}

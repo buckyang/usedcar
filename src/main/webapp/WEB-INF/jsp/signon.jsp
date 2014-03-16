@@ -8,7 +8,7 @@
 	            个人注册
 	        </div>
 	        <div class="merchant">
-	            经销商注册
+	        	<a href="<s:url value='/reseller_signon.html'/>">经销商注册</a>
 	        </div>
 	    </div>
 	    <p class="declaration">所有注册信息均按照相关服务条款收到法律保护</p>
@@ -41,7 +41,7 @@
 	        </div>
 	        <div class="agreement">
 	            <label for="acceptTerm">
-	                <form:radiobutton path="acceptTerm" value="true"/><form:errors path="acceptTerm" cssClass="error" />
+	                <form:checkbox path="acceptTerm" value="true"/><form:errors path="acceptTerm" cssClass="error" />
 	                我已阅读并同意《XXXX网服务条款》</label>
 	        </div>
 	        <form:hidden path="accountType" value="1"/>

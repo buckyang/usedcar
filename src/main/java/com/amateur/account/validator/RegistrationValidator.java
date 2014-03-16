@@ -3,6 +3,7 @@ package com.amateur.account.validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
@@ -22,10 +23,13 @@ public class RegistrationValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		validator.validate(target, errors);
+		RegistrationDTO registrationDTO = (RegistrationDTO) target;
+		if(registrationDTO.getAccountType() == 2){
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "resellerName", "account.resellerName.empty");
+		}
 		if(errors.hasErrors()){
 			return;
 		}
-		RegistrationDTO registrationDTO = (RegistrationDTO) target;
 		if(accountService.getAccountByEmail(registrationDTO.getEmail())!= null){
 			errors.rejectValue("email", "account.email.existing");
 		}
