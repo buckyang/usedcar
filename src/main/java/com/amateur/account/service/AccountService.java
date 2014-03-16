@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.amateur.account.dto.RegistrationDTO;
 import com.amateur.domain.Account;
+import com.amateur.domain.Address;
 import com.amateur.domain.Reseller;
 import com.amateur.persistence.AccountMapper;
 import com.amateur.service.SequenceService;

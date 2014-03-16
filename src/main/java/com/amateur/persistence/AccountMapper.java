@@ -11,6 +11,7 @@ public interface AccountMapper {
 	Account getAccountByEmail(String email);
 	Account getAccountById(Integer accountId);
 	Account getAccountByPhoneOrEmail(String emailOrPhone);
+	Account getAccountByProfileHash(String profileHash);
 	void updatePassword(Account account);
 	void updateUserInfo(Account account);
 	void updateHomeAddress(Address address);
