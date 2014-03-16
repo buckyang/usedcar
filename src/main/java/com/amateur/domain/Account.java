@@ -6,11 +6,6 @@ package com.amateur.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-import org.springframework.beans.BeanUtils;
-
-import com.amateur.account.dto.RegistrationDTO;
-import com.amateur.util.EncryptionUtil;
-
 public class Account implements Serializable {
 
 	/**
@@ -33,23 +28,7 @@ public class Account implements Serializable {
 	private Date updateTime;
 	private Date registrationDate;
 	private Integer accountType;
-	private String profileHash;
 
-
-	public Account() {
-		super();
-
-	}
-
-
-
-	public Account(RegistrationDTO registrationDTO, Integer accountId) {
-		BeanUtils.copyProperties(registrationDTO, this);
-		setRegistrationDate(new Date());
-		setPassword(EncryptionUtil.encryptPassword(registrationDTO.getPassword()));
-		setAccountId(accountId);
-		setProfileHash(EncryptionUtil.getMD5HashValue(accountId.toString()));
-	}
 
 
 
@@ -229,30 +208,6 @@ public class Account implements Serializable {
 
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
-	}
-
-
-
-	public String getProfileHash() {
-		return profileHash;
-	}
-
-
-
-	public void setProfileHash(String profileHash) {
-		this.profileHash = profileHash;
-	}
-
-
-
-	public Integer getAccountType() {
-		return accountType;
-	}
-
-
-
-	public void setAccountType(Integer accountType) {
-		this.accountType = accountType;
 	}
 
 }

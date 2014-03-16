@@ -10,9 +10,6 @@
 		        <a class="login" href="<s:url value='/signon.html'/>">注册</a>	    		
 	    	</c:when>
 	    	<c:otherwise>
-	    		<c:if test="${ profile.accountType == 2}">
-	    			[经销商]
-	    		</c:if>
 	    		<c:out value="${profile.nickname }"/><a class="login" href="<s:url value='/logout.html'/>">注销</a>
 	    	</c:otherwise>
     	</c:choose>

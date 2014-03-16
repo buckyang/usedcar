@@ -57,6 +57,10 @@ public class BaseController {
 		return null;
 	}
 
+	protected String getPostSuccessMesage(){
+		return getPostSuccessCode()==null?null:messageSource.getMessage(getPostSuccessCode(), null,null);
+	}
+	
 	protected class PostResultJSON {
 
 		public PostResultJSON(String succesMsg) {

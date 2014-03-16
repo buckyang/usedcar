@@ -1,7 +1,5 @@
 package com.amateur.account.controller;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,9 +62,9 @@ public class LoginController extends BaseController{
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@Valid @ModelAttribute("loginDTO") LoginDTO loginDTO,
-			BindingResult result,@ModelAttribute("profile")Profile profile, Model m, HttpServletResponse response) {
+			BindingResult result,@ModelAttribute("profile")Profile profile, Model m) {
 		if (!result.hasErrors()) {
-			handleLogin(loginDTO, profile, m, response);
+			handleLogin(loginDTO, profile, m);
 			return "redirect:/";
 		}
 		return "login";
@@ -75,30 +73,21 @@ public class LoginController extends BaseController{
 	@RequestMapping(value = "/login", method = RequestMethod.POST, produces="application/json")
 	@ResponseBody
 	public  PostResultJSON loginJSON(@Valid @ModelAttribute("loginDTO") LoginDTO loginDTO,
-			BindingResult result,@ModelAttribute("profile")Profile profile, Model m, HttpServletResponse response) {
+			BindingResult result,@ModelAttribute("profile")Profile profile, Model m) {
 		if (!result.hasErrors()) {
-			handleLogin(loginDTO, profile, m, response);
+			handleLogin(loginDTO, profile, m);
 		}
 		return 	processPostJSON(result);
 	}	
 
 
 
-	private void handleLogin(LoginDTO loginDTO, Profile profile, Model m, HttpServletResponse response) {
+	private void handleLogin(LoginDTO loginDTO, Profile profile, Model m) {
 		Account account = accountService.getAccountByPhoneOrEmail(loginDTO.getPhoneOrEmail());
 		if(account != null){
 			profile.setAccountDatasource(account);
 			profile.setStatus(Profile.EXPLICIT_LOGIN);
 			m.addAttribute("profile", profile);
-			Cookie cookie = new Cookie(Profile.COOKIE_USER_ID, "");
-			if (loginDTO.getRememberUserName() != null && loginDTO.getRememberUserName()) {
-				cookie.setValue(account.getProfileHash());
-				cookie.setMaxAge(3600 * 24 * 30 * 12);
-
-			}else{
-				cookie.setMaxAge(0);
-			}
-			response.addCookie(cookie);
 		}
 	}
 }

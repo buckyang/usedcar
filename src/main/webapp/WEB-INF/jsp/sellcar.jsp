@@ -1,3 +1,22 @@
+<div class="user-info">
+    <div class="logo">
+        Logo个人中心
+    </div>
+    <div class="private">
+        昵称、消息等个人相关信息
+    </div>
+</div>
+
+<div class="user-nav">
+    <ul>
+        <li><a href="#">账号管理</a></li>
+        <li><a href="#">出售二手车</a></li>
+        <li><a href="#">身份认证</a></li>
+        <li><a href="#">我的收藏</a></li>
+        <li><a href="#">我的订单</a></li>
+        <li><a href="#">买卖记录</a></li>
+    </ul>
+</div>
 
 <div class="sell">
     <form action="sellcar" method="post">

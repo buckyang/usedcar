@@ -44,10 +44,6 @@
     display: inline-block;
 }
 
-.register form div.seller-name .seller-type{
-    display: inline;
-}
-
 .register form .agreement {
     margin-left: 20%;
     margin-bottom: 30px;

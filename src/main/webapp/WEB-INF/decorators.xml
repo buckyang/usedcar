@@ -7,18 +7,10 @@
 		<pattern>*/css/*</pattern>
 		<pattern>*/image/*</pattern>
 	</excludes>
-
 	<decorator name="login" page="loginDecorator.jsp">
 		<pattern>*login.jsp</pattern>
 	</decorator>
-
-
-    <decorator name="secure" page="secure.jsp">
-        <pattern>*/secure/*.jsp</pattern>
-    </decorator>
-
 	<decorator name="main" page="main.jsp">
 		<pattern>*.jsp</pattern>
 	</decorator>
-
 </decorators>

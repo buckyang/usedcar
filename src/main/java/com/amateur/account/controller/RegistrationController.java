@@ -67,11 +67,13 @@ public class RegistrationController extends BaseController {
 	}
 
 
-	@RequestMapping(value = {"/signon", "/reseller_signon"}, method = RequestMethod.GET)
+	@RequestMapping(value = "/signon", method = RequestMethod.GET)
 	public void form() {
 	}
 
-	@RequestMapping(value =  {"/signon", "/reseller_signon"}, method = RequestMethod.GET, produces = "application/json")
+
+
+	@RequestMapping(value = "/signon", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public Map<String,Object> formJSON() {
 		Map<String,Object> returnMap = new HashMap<String,Object>();
@@ -81,7 +83,7 @@ public class RegistrationController extends BaseController {
 
 
 
-	@RequestMapping(value =  {"/signon", "/reseller_signon"}, method = RequestMethod.POST)
+	@RequestMapping(value = "/signon", method = RequestMethod.POST)
 	public void registerAccount(@Valid @ModelAttribute("registrationDTO") RegistrationDTO registrationDTO,
 			BindingResult result, @ModelAttribute("profile") Profile profile, Model m) {
 		if (!result.hasErrors()) {
@@ -92,7 +94,7 @@ public class RegistrationController extends BaseController {
 
 
 
-	@RequestMapping(value =  {"/signon", "/reseller_signon"}, method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/signon", method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
 	public PostResultJSON registerAccountJSON(@Valid @ModelAttribute("registrationDTO") RegistrationDTO registrationDTO,
 			BindingResult result, @ModelAttribute("profile") Profile profile, Model m) {
@@ -105,7 +107,6 @@ public class RegistrationController extends BaseController {
 
 
 	private void handleRegistration(RegistrationDTO registrationDTO, Profile profile) {
-		registrationDTO.setPassword(registrationDTO.getPassword().trim());
 		if (accountService.registrerAccount(registrationDTO)) {
 			profile.setAccountDatasource(accountService.getAccountByEmail(registrationDTO.getEmail()));
 			profile.setStatus(Profile.EXPLICIT_LOGIN);

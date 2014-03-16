@@ -9,7 +9,6 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import com.amateur.account.dto.LoginDTO;
 import com.amateur.account.service.AccountService;
 import com.amateur.domain.Account;
-import com.amateur.util.EncryptionUtil;
 
 
 @Component
@@ -32,7 +31,7 @@ public class LoginValidator implements Validator {
 		boolean loginFailed = true;
 		Account account = accountService.getAccountByPhoneOrEmail(loginDTO.getPhoneOrEmail().trim());
 		if(account != null){
-			if(account.getPassword().equals(EncryptionUtil.encryptPassword(loginDTO.getPassword().trim()))){
+			if(account.getPassword().equals(loginDTO.getPassword().trim())){
 				loginFailed = false;
 			}
 		}
