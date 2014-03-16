@@ -49,4 +49,23 @@ public class AccountService {
 	public Account getAccountByProfileHash(String profileHash){
 		return accountMapper.getAccountByProfileHash(profileHash);
 	}
+	public Account getAccountById(Integer accountId){
+		return accountMapper.getAccountById(accountId);
+	}
+	
+	public void updatePassword (Account account) {
+		accountMapper.updatePassword(account);
+	}
+	
+	public void updateUserInfo(Account account){
+		accountMapper.updateUserInfo(account);
+	}
+	
+	public void updateHomeAddress(Address address){
+		accountMapper.updateHomeAddress(address);
+	}
+	
+	public Address getHomeAddressByAccountId(Integer accountId){
+		return accountMapper.getHomeAddressByAccountId(accountId);
+	} 
 }
