@@ -7,7 +7,8 @@ public class LoginDTO {
 	private String	phoneOrEmail;
 	@NotBlank
 	private String	password;
-
+	
+	private Boolean rememberUserName;
 
 
 	public String getPhoneOrEmail() {
@@ -30,6 +31,18 @@ public class LoginDTO {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+
+
+	public Boolean getRememberUserName() {
+		return rememberUserName;
+	}
+
+
+
+	public void setRememberUserName(Boolean rememberUserName) {
+		this.rememberUserName = rememberUserName;
 	}
 
 }

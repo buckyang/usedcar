@@ -13,7 +13,7 @@
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/usedcar?useUnicode=true&amp;characterEncoding=utf-8" />
+		<property name="url" value="jdbc:mysql://localhost:3306/usedcar" />
 		<property name="username" value="root" />
 		<property name="password" value="123456" />
 		<property name="removeAbandoned" value="true" />
@@ -28,9 +28,10 @@
 
 	<context:component-scan base-package="com.amateur" />
 
-	 <mvc:interceptors>
+	<mvc:interceptors>
 		<bean class="com.amateur.interceptor.ProfileInitializerInterceptor">
 			<property name="siteConfiguration" ref="siteConfiguration"/>
+			<property name="accountService" ref="accountService" />
 		</bean>
 		<mvc:interceptor>
 			<mvc:mapping path="/account/**"/>
@@ -57,6 +58,12 @@
 	</bean>
 	<mvc:view-controller path="/index.html" view-name="index" />
 	<mvc:view-controller path="/" view-name="index" />
+	<mvc:view-controller path="/findpassword" view-name="findpassword" />
+	<mvc:view-controller path="/sellerregister" view-name="seller_register" />
+	<mvc:view-controller path="/secure/sellcar" view-name="secure/sellcar" />
+	<mvc:view-controller path="/secure/basicinfo" view-name="secure/basic_info" />
+	<mvc:view-controller path="/secure/detailinfo" view-name="secure/detail_info" />
+	<mvc:view-controller path="/secure/changepassword" view-name="secure/change_password" />
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/image/**" location="/image/" />
 	<mvc:resources mapping="/js/**" location="/image/" />
@@ -95,5 +102,10 @@
 	<bean id="siteConfiguration" class="com.amateur.configuration.SiteConfiguration">
 		<property name="resellerTypeName" value="resellerType"/>
 		<property name="siteName" value="二手车"/>
+	</bean>
+	<bean id="encryptionUtil" class="com.amateur.util.EncryptionUtil">
+		<property name="passwordPublicKey">
+			<value>classpath:/conf/usedcar_public</value>
+		</property>
 	</bean>
 </beans>

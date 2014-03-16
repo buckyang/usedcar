@@ -7,6 +7,7 @@ public class Profile {
 	public static final int		ANONYMOUS		= 0;
 	public static final int		EXPLICIT_LOGIN	= 1;
 	public static final int		COOKIE_LOGIN	= 2;
+	public static final String	COOKIE_USER_ID	= "USER_ID";
 
 	private int					status			= 0;
 
@@ -73,7 +74,13 @@ public class Profile {
 		}
 		return null;
 	}
-
+	
+	public Integer getAccountType(){
+		if (accountDatasource != null) {
+			return accountDatasource.getAccountType();
+		}
+		return null;		
+	}
 	public int getStatus() {
 		return status;
 	}

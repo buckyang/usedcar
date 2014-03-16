@@ -11,8 +11,8 @@
 		<form:password path="password"/>
 		<form:errors path="password" cssClass="error" />
         <div>
-            <input type="radio" name="remember" id="remember"/>
-            <label for="remember">记住用户名和密码</label>
+        	<form:checkbox path="rememberUserName" value="true"/>
+            <label for="rememberUserName">记住用户名</label>
             <button type="submit" value="登陆">登陆</button>
         </div>
 	</form:form>

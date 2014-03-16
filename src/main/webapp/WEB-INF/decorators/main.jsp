@@ -10,7 +10,6 @@
     <link href="<s:url value="/css/reset.css" />" type="text/css" rel="stylesheet"/>
     <link href="<s:url value="/css/home.css" />" type="text/css" rel="stylesheet"/>
     <link href='<s:url value="/css/register.css" />' type="text/css" rel="stylesheet"/>
-    <link href="<s:url value="/css/sellcar.css" />" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 <div class="container">
