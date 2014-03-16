@@ -90,13 +90,15 @@ public class LoginController extends BaseController{
 			profile.setAccountDatasource(account);
 			profile.setStatus(Profile.EXPLICIT_LOGIN);
 			m.addAttribute("profile", profile);
+			Cookie cookie = new Cookie(Profile.COOKIE_USER_ID, "");
 			if (loginDTO.getRememberUserName() != null && loginDTO.getRememberUserName()) {
-				response.addCookie(new Cookie(Profile.COOKIE_USER_ID, account.getProfileHash()));
+				cookie.setValue(account.getProfileHash());
+				cookie.setMaxAge(3600 * 24 * 30 * 12);
+
 			}else{
-				Cookie cookie = new Cookie(Profile.COOKIE_USER_ID, "");
 				cookie.setMaxAge(0);
-				response.addCookie(cookie);
 			}
+			response.addCookie(cookie);
 		}
 	}
 }
