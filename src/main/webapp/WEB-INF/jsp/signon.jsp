@@ -8,7 +8,7 @@
 	            个人注册
 	        </div>
 	        <div class="merchant">
-	        	<a href="<s:url value='/reseller_signon.html'/>">经销商注册</a>
+	        	<a href="<s:url value='/resellerSignon.html'/>">经销商注册</a>
 	        </div>
 	    </div>
 	    <p class="declaration">所有注册信息均按照相关服务条款收到法律保护</p>

@@ -15,7 +15,9 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.amateur.account.service.AccountService;
 import com.amateur.configuration.SiteConfiguration;
+import com.amateur.controller.BaseController;
 import com.amateur.domain.Account;
+import com.amateur.servlet.MobileRequestFilter.JsonHeadersRequest;
 import com.amateur.session.Profile;
 
 public class ProfileInitializerInterceptor extends HandlerInterceptorAdapter {
@@ -28,10 +30,33 @@ public class ProfileInitializerInterceptor extends HandlerInterceptorAdapter {
 
 
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+		if(request instanceof JsonHeadersRequest){
+			preMobileHandler(request, response);
+		}else{
+			preDeskTopHandler(request, response);
+		}
 
+		return super.preHandle(request, response, handler);
+	}
+
+	private void preMobileHandler(HttpServletRequest request, HttpServletResponse response){
+		logger.debug("Handle mobile request from[ address: " + request.getRemoteAddr() + "]");
+		String accessToken = request.getParameter(BaseController.ACCESS_TOKEN_PARAM_KEY);
+		Profile profile = new Profile();
+		if(accessToken != null){
+			Account account = accountService.getAccountByAccessToken(accessToken);
+			if(account != null){
+				profile.setAccountDatasource(account);
+				profile.setStatus(Profile.MOBILE_TOKEN_LOGIN);
+			}
+		}
+		request.getSession().setAttribute(Profile.PROFILE_KEY, profile);
+	}
+
+	@SuppressWarnings("unchecked")
+	private void preDeskTopHandler(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		if (session.getAttribute(Profile.PROFILE_KEY) == null) {
 			logger.debug("Initialize profile from[ address: " + request.getRemoteAddr() + ", "
@@ -50,8 +75,6 @@ public class ProfileInitializerInterceptor extends HandlerInterceptorAdapter {
 			}
 			session.removeAttribute(REDIRECT_ATTRIBUTES_KEY);
 		}
-
-		return super.preHandle(request, response, handler);
 	}
 
 

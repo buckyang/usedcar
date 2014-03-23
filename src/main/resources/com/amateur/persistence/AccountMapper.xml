@@ -101,7 +101,32 @@
 			r.reseller_name
 	    FROM account a LEFT JOIN reseller r ON a.account_id = r.reseller_id
 	    WHERE a.phone = #{emailOrPhone} OR a.email= #{emailOrPhone}
-    </select>       
+    </select>  
+    <select id="getAccountByAccessToken" parameterType="map" resultMap="resultAccount">
+	    SELECT
+			a.account_id, 
+			a.profile_hash,
+			a.password,
+			a.nickname,
+			a.real_name,
+			a.email,
+			a.bind_email,
+			a.sex,
+			a.id_number,
+			a.phone,
+			a.bind_phone,
+			a.birthdate,
+			a.certificate_type,
+			a.certificate_number,
+			a.update_time,
+			a.registration_date,
+			a.account_type,
+			r.reseller_type,
+			r.reseller_name
+	    FROM account a LEFT JOIN reseller r ON a.account_id = r.reseller_id
+	    	LEFT JOIN mobile_token m ON a.account_id = m.account_id
+	    WHERE m.access_token = #{accessToken} and m.valid_date > #{date}
+    </select>            
     <resultMap type="Account" id="resultAccount">
 		<result property="accountId" column="account_id" />
 		<result property="password" column="password" />
@@ -134,6 +159,26 @@
 		insert into reseller (reseller_id, reseller_type, reseller_name)
 		values (#{accountId}, #{resellerType}, #{resellerName})
 	</insert>
+	<insert id="insertMobileToken" parameterType="MobileToken">
+		insert into mobile_token (access_token,valid_date,account_id,client_identifier)
+		values (#{accessToken}, #{validDate}, #{accountId}, #{clientIdentifier})
+	</insert>
+	<update id="updateMobileToken" parameterType="MobileToken">
+		update mobile_token set
+			access_token = #{accessToken}, valid_date = #{validDate}
+		where account_id = #{accountId} and client_identifier = #{clientIdentifier}
+	</update>
+	
+	<select id="selectMobileToken" parameterType="MobileToken" resultType="MobileToken">
+		select 
+			access_token,
+			valid_date,
+			account_id,
+			client_identifier
+		from mobile_token 
+		where account_id = #{accountId} and client_identifier = #{clientIdentifier}
+	</select>
+	
 	<update id="updatePassword" parameterType="Account">
 		update account set 
 			password = #{password}

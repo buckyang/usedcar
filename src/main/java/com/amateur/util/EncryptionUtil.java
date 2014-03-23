@@ -15,6 +15,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.binary.StringUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
@@ -54,12 +55,23 @@ public class EncryptionUtil implements InitializingBean {
     	try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
 			md.update(StringUtils.getBytesUtf8(message));
-			hashValue = Base64.encodeBase64String(md.digest());
+			hashValue = Hex.encodeHexString(md.digest());
 		} catch (NoSuchAlgorithmException e) {
 
 		}
     	return hashValue;
     }
+    public static String getBase64MD5HashValue(String message){
+    	String hashValue = null;
+    	try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			md.update(StringUtils.getBytesUtf8(message));
+			hashValue = Base64.encodeBase64String(md.digest());
+		} catch (NoSuchAlgorithmException e) {
+
+		}
+    	return hashValue;
+    }    
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		passwordPublicKeyBytes = FileUtils.readFileToByteArray(getPasswordPublicKey().getFile());

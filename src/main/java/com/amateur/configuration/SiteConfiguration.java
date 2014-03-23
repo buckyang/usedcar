@@ -19,6 +19,10 @@ public class SiteConfiguration {
 	@Autowired
 	private SelectOptionMapper selectOptionMapper;
 	
+	private int cookieLoginValidDays;
+	
+	private int mobileTokenValidDays;
+	
 	
 	public List<SelectOption> getResellerTypeList() {
 		if(resellerTypeMap == null){
@@ -45,6 +49,26 @@ public class SiteConfiguration {
 
 	public void setSiteName(String siteName) {
 		this.siteName = siteName;
+	}
+
+
+	public int getCookieLoginValidDays() {
+		return cookieLoginValidDays;
+	}
+
+
+	public void setCookieLoginValidDays(int cookieLoginValidDays) {
+		this.cookieLoginValidDays = cookieLoginValidDays;
+	}
+
+
+	public int getMobileTokenValidDays() {
+		return mobileTokenValidDays;
+	}
+
+
+	public void setMobileTokenValidDays(int mobileTokenValidDays) {
+		this.mobileTokenValidDays = mobileTokenValidDays;
 	}
 
 	

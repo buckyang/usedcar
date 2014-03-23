@@ -16,11 +16,17 @@ public class SequenceService {
 	private SequenceMapper sequenceMapper;
 
 	private String account;
-	
+
+	private String product;
+
 	private Map<String, String> sequenceInitMap;
-	
-	public int getAccountId(){
+
+	public int getAccountId() {
 		return getNextId(getAccount());
+	}
+
+	public String getProductId() {
+		return getNextStringId(getProduct());
 	}
 
 	private int getNextId(String primaryKey) {
@@ -71,5 +77,12 @@ public class SequenceService {
 		this.account = account;
 	}
 
+	public String getProduct() {
+		return product;
+	}
+
+	public void setProduct(String product) {
+		this.product = product;
+	}
 
 }

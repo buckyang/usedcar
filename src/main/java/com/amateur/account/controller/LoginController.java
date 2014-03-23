@@ -1,11 +1,13 @@
 package com.amateur.account.controller;
 
+import java.util.Date;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +25,9 @@ import com.amateur.account.service.AccountService;
 import com.amateur.account.validator.LoginValidator;
 import com.amateur.controller.BaseController;
 import com.amateur.domain.Account;
+import com.amateur.domain.MobileToken;
 import com.amateur.session.Profile;
+import com.amateur.util.EncryptionUtil;
 
 @Controller
 @SessionAttributes("profile")
@@ -81,7 +85,17 @@ public class LoginController extends BaseController{
 		if (!result.hasErrors()) {
 			handleLogin(loginDTO, profile, m, response);
 		}
-		return 	processPostJSON(result);
+		Map<String, Object> processPostJSON = processPostJSON(result);
+		if(!result.hasErrors()){
+			MobileToken mobileToken = new MobileToken();
+			mobileToken.setAccountId(profile.getAccountId());
+			mobileToken.setClientIdentifier(MobileToken.DEFAULT_MOBILE_IDENTIFIER);
+			mobileToken.setAccessToken(EncryptionUtil.getMD5HashValue(profile.getAccountId() + ((Long)System.currentTimeMillis()).toString()));
+			mobileToken.setValidDate(DateUtils.addDays(new Date(), siteConfiguration.getMobileTokenValidDays()));
+			accountService.updateOrInsertMobileToken(mobileToken);
+			processPostJSON.put(ACCESS_TOKEN_PARAM_KEY, mobileToken.getAccessToken());
+		}
+		return processPostJSON;
 	}	
 
 
@@ -95,7 +109,7 @@ public class LoginController extends BaseController{
 			Cookie cookie = new Cookie(Profile.COOKIE_USER_ID, "");
 			if (loginDTO.getRememberUserName() != null && loginDTO.getRememberUserName()) {
 				cookie.setValue(account.getProfileHash());
-				cookie.setMaxAge(3600 * 24 * 30 * 12);
+				cookie.setMaxAge(3600 * siteConfiguration.getCookieLoginValidDays());
 
 			}else{
 				cookie.setMaxAge(0);

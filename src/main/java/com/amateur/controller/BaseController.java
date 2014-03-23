@@ -12,15 +12,20 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 
+import com.amateur.configuration.SiteConfiguration;
+
 public class BaseController {
 	public static final String	POST_SUCESS_KEY				= "post.sucess";
 	public static final String	EXECUTION_RESULT_PARAM_KEY	= "executionResult";
 	public static final String	MESSAGE_PARAM_KEY			= "message";
+	public static final String	ACCESS_TOKEN_PARAM_KEY		= "accessToken";
 	private static final int	MAX_ERROR_MSGS				= 3;
 	private static final String	ERROR_MSG_DELIMITER			= " ";
 	@Autowired
 	protected MessageSource		messageSource;
-
+	@Autowired
+	protected SiteConfiguration siteConfiguration;
+	
 	private static final Logger	logger						= Logger.getLogger(BaseController.class);
 
 

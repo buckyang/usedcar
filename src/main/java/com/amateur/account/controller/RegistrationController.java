@@ -1,10 +1,12 @@
 package com.amateur.account.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.validation.Valid;
 
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +24,9 @@ import com.amateur.account.service.AccountService;
 import com.amateur.account.validator.RegistrationValidator;
 import com.amateur.configuration.SiteConfiguration;
 import com.amateur.controller.BaseController;
+import com.amateur.domain.MobileToken;
 import com.amateur.session.Profile;
+import com.amateur.util.EncryptionUtil;
 
 @Controller
 @SessionAttributes("profile")
@@ -67,11 +71,11 @@ public class RegistrationController extends BaseController {
 	}
 
 
-	@RequestMapping(value = {"/signon", "/reseller_signon"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/signon", "/resellerSignon"}, method = RequestMethod.GET)
 	public void form() {
 	}
 
-	@RequestMapping(value =  {"/signon", "/reseller_signon"}, method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value =  {"/signon", "/resellerSignon"}, method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public Map<String,Object> formJSON() {
 		Map<String,Object> returnMap = new HashMap<String,Object>();
@@ -81,7 +85,7 @@ public class RegistrationController extends BaseController {
 
 
 
-	@RequestMapping(value =  {"/signon", "/reseller_signon"}, method = RequestMethod.POST)
+	@RequestMapping(value =  {"/signon", "/resellerSignon"}, method = RequestMethod.POST)
 	public void registerAccount(@Valid @ModelAttribute("registrationDTO") RegistrationDTO registrationDTO,
 			BindingResult result, @ModelAttribute("profile") Profile profile, Model m) {
 		if (!result.hasErrors()) {
@@ -92,14 +96,24 @@ public class RegistrationController extends BaseController {
 
 
 
-	@RequestMapping(value =  {"/signon", "/reseller_signon"}, method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value =  {"/signon", "/resellerSignon"}, method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
 	public Map<String, Object> registerAccountJSON(@Valid @ModelAttribute("registrationDTO") RegistrationDTO registrationDTO,
 			BindingResult result, @ModelAttribute("profile") Profile profile, Model m) {
 		if (!result.hasErrors()) {
 			handleRegistration(registrationDTO, profile);
 		}
-		return processPostJSON(result);
+		Map<String, Object> processPostJSON = processPostJSON(result);
+		if(!result.hasErrors()){
+			MobileToken mobileToken = new MobileToken();
+			mobileToken.setAccountId(profile.getAccountId());
+			mobileToken.setClientIdentifier(MobileToken.DEFAULT_MOBILE_IDENTIFIER);
+			mobileToken.setAccessToken(EncryptionUtil.getMD5HashValue(profile.getAccountId() + ((Long)System.currentTimeMillis()).toString()));
+			mobileToken.setValidDate(DateUtils.addDays(new Date(), siteConfiguration.getMobileTokenValidDays()));
+			accountService.updateOrInsertMobileToken(mobileToken);
+			processPostJSON.put(ACCESS_TOKEN_PARAM_KEY, mobileToken.getAccessToken());
+		}
+		return processPostJSON;
 	}
 
 

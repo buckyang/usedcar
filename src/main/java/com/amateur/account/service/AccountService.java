@@ -1,4 +1,9 @@
+
 package com.amateur.account.service;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.amateur.account.dto.RegistrationDTO;
 import com.amateur.domain.Account;
 import com.amateur.domain.Address;
+import com.amateur.domain.MobileToken;
 import com.amateur.domain.Reseller;
 import com.amateur.persistence.AccountMapper;
 import com.amateur.service.SequenceService;
@@ -54,6 +60,20 @@ public class AccountService {
 		return accountMapper.getAccountById(accountId);
 	}
 	
+	public Account getAccountByAccessToken(String accessToken){
+		Map<String, Object> tokenAndDateMap = new HashMap<String, Object>();
+		tokenAndDateMap.put("accessToken", accessToken);
+		tokenAndDateMap.put("date", new Date());
+		return accountMapper.getAccountByAccessToken(tokenAndDateMap);
+	}
+	
+	public void updateOrInsertMobileToken(MobileToken mobileToken){
+		if(accountMapper.selectMobileToken(mobileToken) != null){
+			accountMapper.updateMobileToken(mobileToken);
+		}else{
+			accountMapper.insertMobileToken(mobileToken);
+		}
+	}
 	public void updatePassword (Account account) {
 		accountMapper.updatePassword(account);
 	}
