@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-	xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="
      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
@@ -11,30 +13,34 @@
      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
      http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/usedcar" />
 		<property name="username" value="root" />
-		<property name="password" value="123456" />
+		<property name="password" value="admin" />
 		<property name="removeAbandoned" value="true" />
 		<property name="initialSize" value="5" />
 		<property name="maxActive" value="10" />
 	</bean>
 
 	<!-- transaction manager, use JtaTransactionManager for global tx -->
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
 	<context:component-scan base-package="com.amateur" />
 
 	<mvc:interceptors>
 		<bean class="com.amateur.interceptor.ProfileInitializerInterceptor">
-			<property name="siteConfiguration" ref="siteConfiguration"/>
+			<property name="siteConfiguration" ref="siteConfiguration" />
 			<property name="accountService" ref="accountService" />
 		</bean>
 		<mvc:interceptor>
-			<mvc:mapping path="/account/**"/>
+			<mvc:mapping path="/account/**" />
 			<mvc:mapping path="/travelgroup/newtrip*" />
 			<bean class="com.amateur.interceptor.UserAuthorizationInteceptor">
 				<property name="accountAccessDenyURL" value="/account/login" />
@@ -48,7 +54,8 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
 			<value>/WEB-INF/jsp/</value>
 		</property>
@@ -58,17 +65,24 @@
 	</bean>
 	<mvc:view-controller path="/index.html" view-name="index" />
 	<mvc:view-controller path="/" view-name="index" />
-	<mvc:view-controller path="/findpassword" view-name="findpassword" />
-	<mvc:view-controller path="/sellerregister" view-name="seller_register" />
-	<mvc:view-controller path="/secure/sellcar" view-name="secure/sellcar" />
-	<mvc:view-controller path="/secure/basicinfo" view-name="secure/basic_info" />
-	<mvc:view-controller path="/secure/detailinfo" view-name="secure/detail_info" />
-	<mvc:view-controller path="/secure/changepassword" view-name="secure/change_password" />
+	<mvc:view-controller path="/findpassword"
+		view-name="findpassword" />
+	<mvc:view-controller path="/sellerregister"
+		view-name="seller_register" />
+	<mvc:view-controller path="/secure/sellcar"
+		view-name="secure/sellcar" />
+	<mvc:view-controller path="/secure/basicinfo"
+		view-name="secure/basic_info" />
+	<mvc:view-controller path="/secure/detailinfo"
+		view-name="secure/detail_info" />
+	<mvc:view-controller path="/secure/changepassword"
+		view-name="secure/change_password" />
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/image/**" location="/image/" />
 	<mvc:resources mapping="/js/**" location="/image/" />
 	<mvc:resources mapping="/test/**" location="/test/" />
-	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename">
 			<value>classpath:/messages</value>
 		</property>
@@ -93,19 +107,24 @@
 
 	<bean id="sequenceService" class="com.amateur.service.SequenceService">
 		<property name="account" value="account" />
+		<property name="product" value="product" />
 		<property name="sequenceInitMap">
 			<map>
 				<entry key="account" value=";10000; " />
+				<entry key="product" value="prod;10000; " />
 			</map>
 		</property>
 	</bean>
 	<bean id="siteConfiguration" class="com.amateur.configuration.SiteConfiguration">
-		<property name="resellerTypeName" value="resellerType"/>
-		<property name="siteName" value="二手车"/>
+		<property name="resellerTypeName" value="resellerType" />
+		<property name="siteName" value="二手车" />
 	</bean>
 	<bean id="encryptionUtil" class="com.amateur.util.EncryptionUtil">
 		<property name="passwordPublicKey">
 			<value>classpath:/conf/usedcar_public</value>
 		</property>
 	</bean>
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+	
 </beans>
