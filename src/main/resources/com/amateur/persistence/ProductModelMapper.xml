@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.amateur.persistence.ProductModelMapper">
+
+	<cache />
+
+	<insert id="insertProductModel" parameterType="ProductModel">
+		insert into product_model 
+		(product_id, model_id, brand_name, series_name, model_display_name, series_id, brand_id)
+		values 
+		(#{productId}, #{modelId}, #{brandName}, #{seriesName}, #{modelDisplayName}, #{seriesId}, #{brandId})
+	</insert>
+	
+	<update id="updateProductModel" parameterType="ProductModel">
+	    update product_model set 
+	    	model_id = #{modelId},
+	    	brand_name = #{brandName},
+	    	series_name = #{seriesName},
+	    	model_display_name = #{modelDisplayName},
+	    	series_id = #{seriesId},
+	    	brand_id = #{brandId}
+		where product_id = #{productId}
+	</update>
+	
+	<delete id="deleteProductModel" parameterType="String">
+		delete from product_model where product_id = #{productId}
+	</delete>
+	
+</mapper>

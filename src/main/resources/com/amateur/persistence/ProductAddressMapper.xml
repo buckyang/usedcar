@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.amateur.persistence.ProductAddressMapper">
+
+	<cache />
+
+	<insert id="insertProductAddress" parameterType="ProductAddress" useGeneratedKeys="true">
+		insert into product_address
+		(province, city, county, street, product_id)
+		values
+		(#{province}, #{city}, #{county}, #{street}, #{productId})
+	</insert>
+
+	<update id="updateProdutAddress" parameterType="ProductAddress">
+	    update product_address set 
+	    	province = #{province},
+	    	city = #{city},
+	    	county = #{county},
+	    	street = #{street}
+		where product_id = #{productId}
+	</update>
+	
+	<delete id="deleteProductAddress" parameterType="Integer">
+		delete from product_address where product_id = #{productId}
+	</delete>
+	
+</mapper>

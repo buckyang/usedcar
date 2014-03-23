@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.amateur.persistence.SeriesMapper">
+
+	<cache />
+
+	<select id="getSeriesById" parameterType="int" resultMap="resultSeries">
+		SELECT
+		s.series_id,
+		s.name,
+		s.type,
+		s.type_name,
+		s.brand_id
+		FROM series	s WHERE s.series_id = #{seriesId}
+	</select>
+	
+	<resultMap type="Series" id="resultSeries">
+		<result property="seriesId" column="series_id" />
+		<result property="name" column="name" />
+		<result property="type" column="type" />
+		<result property="typeName" column="type_name" />
+		<result property="brandId" column="brand_id" />
+	</resultMap>
+	
+</mapper>

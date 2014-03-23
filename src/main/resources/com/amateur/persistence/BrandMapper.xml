@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.amateur.persistence.BrandMapper">
+
+	<cache />
+
+	<select id="getAllBrands" resultMap="resultBrand">
+		SELECT
+		b.brand_id as brandId,
+		b.brand_initial as brandInitial,
+		b.brand_name as brandName,
+		b.brand_description as brandDescription,
+		s.series_id as seriesId,
+		s.series_initial as seriesInitial,
+		s.series_name as seriesName,
+		s.type,
+		m.model_id as modelId,
+		m.sub_series as subSeries,
+		m.model_name as modelName,
+		m.displacement,
+		m.transmission_type as transmissionType,
+		m.launch_year as launchYear,
+		m.driven_type as drivenType
+		FROM brand b
+		left join series s on s.brand_id = b.brand_id
+		left join model m on m.series_id = s.series_id
+		order by b.brand_initial
+	</select>
+
+	<resultMap type="Brand" id="resultBrand">
+		<id property="brandId" column="brandId" />
+		<collection property="seriesList" ofType="Series">
+		    <id property="seriesId" column="seriesId"/>
+		    <collection property="modelList" ofType="Model">
+		        <id property="modelId" column="modelId"/>
+		    </collection>
+		</collection>
+	</resultMap>
+
+</mapper>
