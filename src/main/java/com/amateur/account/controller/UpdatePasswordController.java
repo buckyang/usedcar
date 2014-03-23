@@ -1,5 +1,7 @@
 package com.amateur.account.controller;
 
+import java.util.Map;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +71,7 @@ public class UpdatePasswordController extends BaseController {
 	
 	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST, produces="application/json")
 	@ResponseBody
-	public  PostResultJSON updatePassowrdJSON(@Valid @ModelAttribute("updatePasswordDTO") UpdatePasswordDTO updatePasswordDTO,
+	public  Map<String, Object> updatePassowrdJSON(@Valid @ModelAttribute("updatePasswordDTO") UpdatePasswordDTO updatePasswordDTO,
 			BindingResult result,@ModelAttribute("profile")Profile profile, Model m) {
 		if (!result.hasErrors()) {
 			handleUpdatePassword(updatePasswordDTO, m);

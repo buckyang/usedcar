@@ -94,7 +94,7 @@ public class RegistrationController extends BaseController {
 
 	@RequestMapping(value =  {"/signon", "/reseller_signon"}, method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
-	public PostResultJSON registerAccountJSON(@Valid @ModelAttribute("registrationDTO") RegistrationDTO registrationDTO,
+	public Map<String, Object> registerAccountJSON(@Valid @ModelAttribute("registrationDTO") RegistrationDTO registrationDTO,
 			BindingResult result, @ModelAttribute("profile") Profile profile, Model m) {
 		if (!result.hasErrors()) {
 			handleRegistration(registrationDTO, profile);

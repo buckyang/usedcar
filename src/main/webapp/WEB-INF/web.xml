@@ -24,7 +24,16 @@
     <filter-mapping>
         <filter-name>encoding-filter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>	
+    </filter-mapping>
+	<filter>
+        <filter-name>mobilefilter</filter-name>
+        <filter-class>com.amateur.servlet.MobileRequestFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>mobilefilter</filter-name>
+        <url-pattern>*.json</url-pattern>
+    </filter-mapping>
+        	
 	<filter>
         <filter-name>sitemesh</filter-name>
         <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>

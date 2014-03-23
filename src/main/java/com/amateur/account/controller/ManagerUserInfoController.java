@@ -2,6 +2,7 @@ package com.amateur.account.controller;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -109,7 +110,7 @@ public class ManagerUserInfoController extends BaseController {
 	
 	@RequestMapping(value = "/managerUserInfo", method = RequestMethod.POST, produces="application/json")
 	@ResponseBody
-	public PostResultJSON updateUserInfoJSON(
+	public Map<String, Object> updateUserInfoJSON(
 			@ModelAttribute("profile") Profile profile,
 			@Valid @ModelAttribute("managerUserInfoDTO") ManagerUserInfoDTO managerUserInfoDTO,
 			BindingResult result,Model mode) {

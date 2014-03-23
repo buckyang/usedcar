@@ -1,5 +1,7 @@
 package com.amateur.account.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -74,7 +76,7 @@ public class LoginController extends BaseController{
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST, produces="application/json")
 	@ResponseBody
-	public  PostResultJSON loginJSON(@Valid @ModelAttribute("loginDTO") LoginDTO loginDTO,
+	public  Map<String, Object> loginJSON(@Valid @ModelAttribute("loginDTO") LoginDTO loginDTO,
 			BindingResult result,@ModelAttribute("profile")Profile profile, Model m, HttpServletResponse response) {
 		if (!result.hasErrors()) {
 			handleLogin(loginDTO, profile, m, response);

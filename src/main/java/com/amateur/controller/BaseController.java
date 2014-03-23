@@ -1,9 +1,10 @@
 package com.amateur.controller;
 
-import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.NoSuchMessageException;
@@ -12,24 +13,33 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 
 public class BaseController {
-	public static final String	POST_SUCESS_KEY	= "post.sucess";
+	public static final String	POST_SUCESS_KEY				= "post.sucess";
+	public static final String	EXECUTION_RESULT_PARAM_KEY	= "executionResult";
+	public static final String	MESSAGE_PARAM_KEY			= "message";
+	private static final int	MAX_ERROR_MSGS				= 3;
+	private static final String	ERROR_MSG_DELIMITER			= " ";
 	@Autowired
-	protected MessageSource	messageSource;
+	protected MessageSource		messageSource;
+
+	private static final Logger	logger						= Logger.getLogger(BaseController.class);
 
 
 
-	protected PostResultJSON processPostJSON(BindingResult result) {
-		PostResultJSON postResultJSON = null;
+	protected Map<String, Object> processPostJSON(BindingResult result) {
+		Map<String, Object> postResultJSON = new LinkedHashMap<String, Object>();
 		if (result.hasErrors()) {
-			List<List<String>> errorList = new ArrayList<List<String>>();
 			List<ObjectError> allErrors = result.getAllErrors();
-			for (ObjectError objectError : allErrors) {
-				List<String> singleError = new ArrayList<String>();
+			StringBuilder errorMsg = new StringBuilder();
+			for(int i = 0; i < allErrors.size() &&  i< MAX_ERROR_MSGS; i++){
+				ObjectError objectError = allErrors.get(i);
+				String errorFieldOrCommand = null;
 				if (objectError instanceof FieldError) {
-					singleError.add(((FieldError) objectError).getField());
+					errorFieldOrCommand = ((FieldError)objectError).getField();
 				} else {
-					singleError.add(objectError.getObjectName());
+					errorFieldOrCommand = objectError.getObjectName();
+
 				}
+				logger.debug("Error field: " + errorFieldOrCommand);
 				String[] codes = objectError.getCodes();
 				for (String code : codes) {
 					String message = null;
@@ -38,14 +48,19 @@ public class BaseController {
 					} catch (NoSuchMessageException e) {
 					}
 					if (message != null) {
-						singleError.add(message);
+						if(i != 0){
+							errorMsg.append(ERROR_MSG_DELIMITER);
+						}
+						errorMsg.append(message);
 					}
 				}
-				errorList.add(singleError);
 			}
-			postResultJSON = new PostResultJSON(errorList);
-		} else {
-			postResultJSON = new PostResultJSON(messageSource.getMessage(getPostSuccessCode() == null ? POST_SUCESS_KEY
+			postResultJSON.put(EXECUTION_RESULT_PARAM_KEY, false);
+			postResultJSON.put(MESSAGE_PARAM_KEY, errorMsg.toString());
+			
+		}else{
+			postResultJSON.put(EXECUTION_RESULT_PARAM_KEY, true);
+			postResultJSON.put(MESSAGE_PARAM_KEY, messageSource.getMessage(getPostSuccessCode() == null ? POST_SUCESS_KEY
 					: getPostSuccessCode(), null, null));
 		}
 		return postResultJSON;
@@ -57,78 +72,9 @@ public class BaseController {
 		return null;
 	}
 
-	protected String getPostSuccessMesage(){
-		return getPostSuccessCode()==null?null:messageSource.getMessage(getPostSuccessCode(), null,null);
-	}
-	
-	protected class PostResultJSON {
-
-		public PostResultJSON(String succesMsg) {
-			super();
-			this.hasErrors = false;
-			this.succesMsg = succesMsg;
-		}
 
 
-
-		public PostResultJSON(List<List<String>> errorMsgs) {
-			super();
-			this.hasErrors = true;
-			this.errorMsgs = errorMsgs;
-		}
-
-		private boolean				hasErrors;
-		private List<List<String>>	errorMsgs;
-		private String				succesMsg;
-		private Map<String, Object>	successExtraParams;
-
-
-
-		public boolean isHasErrors() {
-			return hasErrors;
-		}
-
-
-
-		public void setHasErrors(boolean hasErrors) {
-			this.hasErrors = hasErrors;
-		}
-
-
-
-		public String getSuccesMsg() {
-			return succesMsg;
-		}
-
-
-
-		public void setSuccesMsg(String succesMsg) {
-			this.succesMsg = succesMsg;
-		}
-
-
-
-		public List<List<String>> getErrorMsgs() {
-			return errorMsgs;
-		}
-
-
-
-		public void setErrorMsgs(List<List<String>> errorMsgs) {
-			this.errorMsgs = errorMsgs;
-		}
-
-
-
-		public Map<String, Object> getSuccessExtraParams() {
-			return successExtraParams;
-		}
-
-
-
-		public void setSuccessExtraParams(Map<String, Object> successExtraParams) {
-			this.successExtraParams = successExtraParams;
-		}
-
+	protected String getPostSuccessMesage() {
+		return getPostSuccessCode() == null ? null : messageSource.getMessage(getPostSuccessCode(), null, null);
 	}
 }
