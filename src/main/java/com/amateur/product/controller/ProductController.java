@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.amateur.controller.BaseController;
-import com.amateur.domain.Model;
 import com.amateur.product.dto.UsedCarDTO;
 import com.amateur.product.service.ProductService;
 import com.amateur.session.Profile;
@@ -36,7 +35,8 @@ public class ProductController extends BaseController {
 	protected void initBinder(WebDataBinder binder) throws Exception {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
 		format.setLenient(false);
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(format, true));
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(format,
+				true));
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public class ProductController extends BaseController {
 
 	@RequestMapping(value = "/publishusedcar", method = RequestMethod.GET)
 	public String form(String productId, ModelAndView modelAndView) {
-		if(productId!=null&&!"".equalsIgnoreCase(productId)){
+		if (productId != null && !"".equalsIgnoreCase(productId)) {
 			UsedCarDTO usedCarDTO = productService.getUsedCarById(productId);
 			modelAndView.addObject("usedCarDTO", usedCarDTO);
 		}
@@ -64,21 +64,28 @@ public class ProductController extends BaseController {
 		usedCarDTO.setProvinceId(28);
 		usedCarDTO.setCityId(225);
 		usedCarDTO.setCarContact(profile.getRealName());
-		usedCarDTO.setCarContact(profile.getPhone());
+		usedCarDTO.setContactPhone(profile.getPhone());
 		usedCarDTO.setPriceType("一口价");
 		return usedCarDTO;
 	}
 
 	@RequestMapping(value = "/publishusedcar", method = RequestMethod.POST)
 	public String publishUsedCar(@Valid UsedCarDTO usedCarDTO,
-			BindingResult result) {
+			@ModelAttribute("profile") Profile profile, BindingResult result) {
 		if (result.hasErrors()) {
 			return "secure/sellcar";
 		}
-		productService.publishUsedCar(usedCarDTO);
-		return "redirect:/product/publishusedcar";
+		usedCarDTO.setAccountId(profile.getAccountId());
+		if (usedCarDTO.getProductId() != null
+				&& !"".equalsIgnoreCase(usedCarDTO.getProductId())) {
+			productService.updateUsedCar(usedCarDTO);
+			return "redirect:/product/publishusedcar";
+		} else {
+			productService.publishUsedCar(usedCarDTO);
+			return "redirect:/product/publishusedcar";
+		}
 	}
-	
+
 	@RequestMapping(value = "/deleteusedcar", method = RequestMethod.GET)
 	public String deleteUsedCar(String productId, ModelAndView modelAndView) {
 		boolean result = productService.deleteUsedCar(productId);

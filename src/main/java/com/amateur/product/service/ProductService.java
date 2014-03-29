@@ -45,28 +45,7 @@ public class ProductService {
 	public boolean publishUsedCar(UsedCarDTO usedCarDTO) {
 		logger.info("start publishing used car.");
 		usedCarDTO.setProductId(sequenceService.getProductId());
-//		usedCarDTO.setBrandName(brandService.getBrandNameById(usedCarDTO.getBrandId()));
-//		usedCarDTO.setSeriesName(brandService.getSeriesNameById(usedCarDTO.getBrandId(), usedCarDTO.getSeriesId()));
-//		usedCarDTO.setModelDisplayName(brandService.getModelDisplayNameById(usedCarDTO.getSeriesId(), usedCarDTO.getModelId()));
-		usedCarDTO.setBrandName("大众");
-		usedCarDTO.setSeriesName("高尔夫");
-		usedCarDTO.setModelDisplayName("大众  高尔夫 2.12 1.4TIS 自动豪华型");
-		StringBuilder productName = new StringBuilder();
-		productName.append(usedCarDTO.getBrandName());
-		productName.append(" ");
-		productName.append(usedCarDTO.getSeriesName());
-		productName.append(" ");
-		productName.append(usedCarDTO.getModelDisplayName());
-		usedCarDTO.setProductName(productName.toString());
-		usedCarDTO.setStatus(0);
-//		usedCarDTO.setProvince(addressService.getProvinceById(usedCarDTO.getProvinceId()));
-//		usedCarDTO.setCity(addressService.getCityById(usedCarDTO.getProvinceId(), usedCarDTO.getCityId()));
-//		usedCarDTO.setCounty(addressService.getCountyById(usedCarDTO.getCityId(), usedCarDTO.getCountyId()));
-		usedCarDTO.setProvince("四川");
-		usedCarDTO.setCity("成都");
-		usedCarDTO.setCounty("武侯区");
-		Product usedCar = new Product();
-		usedCar.copyDTO(usedCarDTO);
+		Product usedCar = convertToProduct(usedCarDTO);
 		Boolean result = true;
 		if (productMapper.insertProduct(usedCar) == 1) {
 			if (productModelMapper.insertProductModel(usedCar.getProductModel()) == 1) {
@@ -78,6 +57,61 @@ public class ProductService {
 							break;
 						}
 					}
+				}
+			}else{
+				result = false;
+			}
+		}else{
+			result = false;
+		}
+		return result;
+	}
+
+	private Product convertToProduct(UsedCarDTO usedCarDTO) {
+		// usedCarDTO.setBrandName(brandService.getBrandNameById(usedCarDTO.getBrandId()));
+		// usedCarDTO.setSeriesName(brandService.getSeriesNameById(usedCarDTO.getBrandId(),
+		// usedCarDTO.getSeriesId()));
+		// usedCarDTO.setModelDisplayName(brandService.getModelDisplayNameById(usedCarDTO.getSeriesId(),
+		// usedCarDTO.getModelId()));
+		usedCarDTO.setBrandName("大众");
+		usedCarDTO.setSeriesName("高尔夫");
+		usedCarDTO.setModelDisplayName("大众  高尔夫 2.12 1.4TIS 自动豪华型");
+		StringBuilder productName = new StringBuilder();
+		productName.append(usedCarDTO.getBrandName());
+		productName.append(" ");
+		productName.append(usedCarDTO.getSeriesName());
+		productName.append(" ");
+		productName.append(usedCarDTO.getModelDisplayName());
+		usedCarDTO.setProductName(productName.toString());
+		usedCarDTO.setStatus(0);
+		// usedCarDTO.setProvince(addressService.getProvinceById(usedCarDTO.getProvinceId()));
+		// usedCarDTO.setCity(addressService.getCityById(usedCarDTO.getProvinceId(),
+		// usedCarDTO.getCityId()));
+		// usedCarDTO.setCounty(addressService.getCountyById(usedCarDTO.getCityId(),
+		// usedCarDTO.getCountyId()));
+		usedCarDTO.setProvince("四川");
+		usedCarDTO.setCity("成都");
+		usedCarDTO.setCounty("武侯区");
+		Product usedCar = new Product();
+		usedCar.copyDTO(usedCarDTO);
+		return usedCar;
+	}
+	
+	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
+	public boolean updateUsedCar(UsedCarDTO usedCarDTO) {
+		logger.info("start updating used car.");
+		Product usedCar = convertToProduct(usedCarDTO);
+		Boolean result = true;
+		if (productMapper.updateProdut(usedCar) == 1) {
+			if (productModelMapper.updateProductModel(usedCar.getProductModel()) == 1) {
+				if(productAddressMapper.updateProdutAddress(usedCar.getProductAddress()) == 1){
+//					List<ProductImage> imageList = usedCar.getProductImageList();
+//					for(ProductImage productImage: imageList){
+//						if(productImageMapper.insertProdutImage(productImage) == 0){
+//							result = false;
+//							break;
+//						}
+//					}
 				}
 			}else{
 				result = false;
