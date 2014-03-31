@@ -1,0 +1,528 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9366865A18E91DD30050FB52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366865918E91DD30050FB52 /* Foundation.framework */; };
+		9366865F18E91DD30050FB52 /* Entity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9366865E18E91DD30050FB52 /* Entity.h */; };
+		9366866118E91DD30050FB52 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366866018E91DD30050FB52 /* Entity.m */; };
+		9366866818E91DD30050FB52 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366866718E91DD30050FB52 /* XCTest.framework */; };
+		9366866918E91DD30050FB52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366865918E91DD30050FB52 /* Foundation.framework */; };
+		9366866B18E91DD30050FB52 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366866A18E91DD30050FB52 /* UIKit.framework */; };
+		9366866E18E91DD30050FB52 /* libEntity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366865618E91DD30050FB52 /* libEntity.a */; };
+		9366867418E91DD30050FB52 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9366867218E91DD30050FB52 /* InfoPlist.strings */; };
+		9366867618E91DD30050FB52 /* EntityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366867518E91DD30050FB52 /* EntityTests.m */; };
+		936686A418E91E960050FB52 /* JSONModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366868B18E91E960050FB52 /* JSONModel+CoreData.m */; };
+		936686A518E91E960050FB52 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366868D18E91E960050FB52 /* JSONModel.m */; };
+		936686A618E91E960050FB52 /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366868F18E91E960050FB52 /* JSONModelArray.m */; };
+		936686A718E91E960050FB52 /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366869118E91E960050FB52 /* JSONModelClassProperty.m */; };
+		936686A818E91E960050FB52 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366869318E91E960050FB52 /* JSONModelError.m */; };
+		936686A918E91E960050FB52 /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366869618E91E960050FB52 /* NSArray+JSONModel.m */; };
+		936686AA18E91E960050FB52 /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366869A18E91E960050FB52 /* JSONAPI.m */; };
+		936686AB18E91E960050FB52 /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366869C18E91E960050FB52 /* JSONHTTPClient.m */; };
+		936686AC18E91E960050FB52 /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366869E18E91E960050FB52 /* JSONModel+networking.m */; };
+		936686AD18E91E960050FB52 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 936686A118E91E960050FB52 /* JSONKeyMapper.m */; };
+		936686AE18E91E960050FB52 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 936686A318E91E960050FB52 /* JSONValueTransformer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9366866C18E91DD30050FB52 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9366864E18E91DD30050FB52 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9366865518E91DD30050FB52;
+			remoteInfo = Entity;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9366865418E91DD30050FB52 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				9366865F18E91DD30050FB52 /* Entity.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9366865618E91DD30050FB52 /* libEntity.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEntity.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9366865918E91DD30050FB52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9366865D18E91DD30050FB52 /* Entity-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Entity-Prefix.pch"; sourceTree = "<group>"; };
+		9366865E18E91DD30050FB52 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		9366866018E91DD30050FB52 /* Entity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
+		9366866618E91DD30050FB52 /* EntityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9366866718E91DD30050FB52 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		9366866A18E91DD30050FB52 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		9366867118E91DD30050FB52 /* EntityTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EntityTests-Info.plist"; sourceTree = "<group>"; };
+		9366867318E91DD30050FB52 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9366867518E91DD30050FB52 /* EntityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntityTests.m; sourceTree = "<group>"; };
+		9366868A18E91E960050FB52 /* JSONModel+CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+CoreData.h"; sourceTree = "<group>"; };
+		9366868B18E91E960050FB52 /* JSONModel+CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+CoreData.m"; sourceTree = "<group>"; };
+		9366868C18E91E960050FB52 /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
+		9366868D18E91E960050FB52 /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
+		9366868E18E91E960050FB52 /* JSONModelArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelArray.h; sourceTree = "<group>"; };
+		9366868F18E91E960050FB52 /* JSONModelArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelArray.m; sourceTree = "<group>"; };
+		9366869018E91E960050FB52 /* JSONModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelClassProperty.h; sourceTree = "<group>"; };
+		9366869118E91E960050FB52 /* JSONModelClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelClassProperty.m; sourceTree = "<group>"; };
+		9366869218E91E960050FB52 /* JSONModelError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelError.h; sourceTree = "<group>"; };
+		9366869318E91E960050FB52 /* JSONModelError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelError.m; sourceTree = "<group>"; };
+		9366869518E91E960050FB52 /* NSArray+JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+JSONModel.h"; sourceTree = "<group>"; };
+		9366869618E91E960050FB52 /* NSArray+JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JSONModel.m"; sourceTree = "<group>"; };
+		9366869718E91E960050FB52 /* JSONModelLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelLib.h; sourceTree = "<group>"; };
+		9366869918E91E960050FB52 /* JSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONAPI.h; sourceTree = "<group>"; };
+		9366869A18E91E960050FB52 /* JSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONAPI.m; sourceTree = "<group>"; };
+		9366869B18E91E960050FB52 /* JSONHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHTTPClient.h; sourceTree = "<group>"; };
+		9366869C18E91E960050FB52 /* JSONHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHTTPClient.m; sourceTree = "<group>"; };
+		9366869D18E91E960050FB52 /* JSONModel+networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+networking.h"; sourceTree = "<group>"; };
+		9366869E18E91E960050FB52 /* JSONModel+networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+networking.m"; sourceTree = "<group>"; };
+		936686A018E91E960050FB52 /* JSONKeyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKeyMapper.h; sourceTree = "<group>"; };
+		936686A118E91E960050FB52 /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKeyMapper.m; sourceTree = "<group>"; };
+		936686A218E91E960050FB52 /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
+		936686A318E91E960050FB52 /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9366865318E91DD30050FB52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9366865A18E91DD30050FB52 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9366866318E91DD30050FB52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9366866818E91DD30050FB52 /* XCTest.framework in Frameworks */,
+				9366866B18E91DD30050FB52 /* UIKit.framework in Frameworks */,
+				9366866E18E91DD30050FB52 /* libEntity.a in Frameworks */,
+				9366866918E91DD30050FB52 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9366864D18E91DD30050FB52 = {
+			isa = PBXGroup;
+			children = (
+				9366865B18E91DD30050FB52 /* Entity */,
+				9366866F18E91DD30050FB52 /* EntityTests */,
+				9366865818E91DD30050FB52 /* Frameworks */,
+				9366865718E91DD30050FB52 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9366865718E91DD30050FB52 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9366865618E91DD30050FB52 /* libEntity.a */,
+				9366866618E91DD30050FB52 /* EntityTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9366865818E91DD30050FB52 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9366865918E91DD30050FB52 /* Foundation.framework */,
+				9366866718E91DD30050FB52 /* XCTest.framework */,
+				9366866A18E91DD30050FB52 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9366865B18E91DD30050FB52 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				9366868818E91E960050FB52 /* JSONModel */,
+				9366865E18E91DD30050FB52 /* Entity.h */,
+				9366866018E91DD30050FB52 /* Entity.m */,
+				9366865C18E91DD30050FB52 /* Supporting Files */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		9366865C18E91DD30050FB52 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9366865D18E91DD30050FB52 /* Entity-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9366866F18E91DD30050FB52 /* EntityTests */ = {
+			isa = PBXGroup;
+			children = (
+				9366867518E91DD30050FB52 /* EntityTests.m */,
+				9366867018E91DD30050FB52 /* Supporting Files */,
+			);
+			path = EntityTests;
+			sourceTree = "<group>";
+		};
+		9366867018E91DD30050FB52 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9366867118E91DD30050FB52 /* EntityTests-Info.plist */,
+				9366867218E91DD30050FB52 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9366868818E91E960050FB52 /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				9366868918E91E960050FB52 /* JSONModel */,
+				9366869418E91E960050FB52 /* JSONModelCategories */,
+				9366869718E91E960050FB52 /* JSONModelLib.h */,
+				9366869818E91E960050FB52 /* JSONModelNetworking */,
+				9366869F18E91E960050FB52 /* JSONModelTransformations */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		9366868918E91E960050FB52 /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				9366868A18E91E960050FB52 /* JSONModel+CoreData.h */,
+				9366868B18E91E960050FB52 /* JSONModel+CoreData.m */,
+				9366868C18E91E960050FB52 /* JSONModel.h */,
+				9366868D18E91E960050FB52 /* JSONModel.m */,
+				9366868E18E91E960050FB52 /* JSONModelArray.h */,
+				9366868F18E91E960050FB52 /* JSONModelArray.m */,
+				9366869018E91E960050FB52 /* JSONModelClassProperty.h */,
+				9366869118E91E960050FB52 /* JSONModelClassProperty.m */,
+				9366869218E91E960050FB52 /* JSONModelError.h */,
+				9366869318E91E960050FB52 /* JSONModelError.m */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		9366869418E91E960050FB52 /* JSONModelCategories */ = {
+			isa = PBXGroup;
+			children = (
+				9366869518E91E960050FB52 /* NSArray+JSONModel.h */,
+				9366869618E91E960050FB52 /* NSArray+JSONModel.m */,
+			);
+			path = JSONModelCategories;
+			sourceTree = "<group>";
+		};
+		9366869818E91E960050FB52 /* JSONModelNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				9366869918E91E960050FB52 /* JSONAPI.h */,
+				9366869A18E91E960050FB52 /* JSONAPI.m */,
+				9366869B18E91E960050FB52 /* JSONHTTPClient.h */,
+				9366869C18E91E960050FB52 /* JSONHTTPClient.m */,
+				9366869D18E91E960050FB52 /* JSONModel+networking.h */,
+				9366869E18E91E960050FB52 /* JSONModel+networking.m */,
+			);
+			path = JSONModelNetworking;
+			sourceTree = "<group>";
+		};
+		9366869F18E91E960050FB52 /* JSONModelTransformations */ = {
+			isa = PBXGroup;
+			children = (
+				936686A018E91E960050FB52 /* JSONKeyMapper.h */,
+				936686A118E91E960050FB52 /* JSONKeyMapper.m */,
+				936686A218E91E960050FB52 /* JSONValueTransformer.h */,
+				936686A318E91E960050FB52 /* JSONValueTransformer.m */,
+			);
+			path = JSONModelTransformations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9366865518E91DD30050FB52 /* Entity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9366867918E91DD30050FB52 /* Build configuration list for PBXNativeTarget "Entity" */;
+			buildPhases = (
+				9366865218E91DD30050FB52 /* Sources */,
+				9366865318E91DD30050FB52 /* Frameworks */,
+				9366865418E91DD30050FB52 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Entity;
+			productName = Entity;
+			productReference = 9366865618E91DD30050FB52 /* libEntity.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9366866518E91DD30050FB52 /* EntityTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9366867C18E91DD30050FB52 /* Build configuration list for PBXNativeTarget "EntityTests" */;
+			buildPhases = (
+				9366866218E91DD30050FB52 /* Sources */,
+				9366866318E91DD30050FB52 /* Frameworks */,
+				9366866418E91DD30050FB52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9366866D18E91DD30050FB52 /* PBXTargetDependency */,
+			);
+			name = EntityTests;
+			productName = EntityTests;
+			productReference = 9366866618E91DD30050FB52 /* EntityTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9366864E18E91DD30050FB52 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = shulianyong;
+			};
+			buildConfigurationList = 9366865118E91DD30050FB52 /* Build configuration list for PBXProject "Entity" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9366864D18E91DD30050FB52;
+			productRefGroup = 9366865718E91DD30050FB52 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9366865518E91DD30050FB52 /* Entity */,
+				9366866518E91DD30050FB52 /* EntityTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9366866418E91DD30050FB52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9366867418E91DD30050FB52 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9366865218E91DD30050FB52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				936686AB18E91E960050FB52 /* JSONHTTPClient.m in Sources */,
+				936686AA18E91E960050FB52 /* JSONAPI.m in Sources */,
+				936686A818E91E960050FB52 /* JSONModelError.m in Sources */,
+				936686A918E91E960050FB52 /* NSArray+JSONModel.m in Sources */,
+				936686AD18E91E960050FB52 /* JSONKeyMapper.m in Sources */,
+				936686A518E91E960050FB52 /* JSONModel.m in Sources */,
+				936686A618E91E960050FB52 /* JSONModelArray.m in Sources */,
+				936686A718E91E960050FB52 /* JSONModelClassProperty.m in Sources */,
+				936686AC18E91E960050FB52 /* JSONModel+networking.m in Sources */,
+				936686A418E91E960050FB52 /* JSONModel+CoreData.m in Sources */,
+				9366866118E91DD30050FB52 /* Entity.m in Sources */,
+				936686AE18E91E960050FB52 /* JSONValueTransformer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9366866218E91DD30050FB52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9366867618E91DD30050FB52 /* EntityTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9366866D18E91DD30050FB52 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9366865518E91DD30050FB52 /* Entity */;
+			targetProxy = 9366866C18E91DD30050FB52 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9366867218E91DD30050FB52 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9366867318E91DD30050FB52 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9366867718E91DD30050FB52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9366867818E91DD30050FB52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9366867A18E91DD30050FB52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Entity.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Entity/Entity-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9366867B18E91DD30050FB52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Entity.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Entity/Entity-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9366867D18E91DD30050FB52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Entity/Entity-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "EntityTests/EntityTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		9366867E18E91DD30050FB52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Entity/Entity-Prefix.pch";
+				INFOPLIST_FILE = "EntityTests/EntityTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9366865118E91DD30050FB52 /* Build configuration list for PBXProject "Entity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9366867718E91DD30050FB52 /* Debug */,
+				9366867818E91DD30050FB52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9366867918E91DD30050FB52 /* Build configuration list for PBXNativeTarget "Entity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9366867A18E91DD30050FB52 /* Debug */,
+				9366867B18E91DD30050FB52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9366867C18E91DD30050FB52 /* Build configuration list for PBXNativeTarget "EntityTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9366867D18E91DD30050FB52 /* Debug */,
+				9366867E18E91DD30050FB52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9366864E18E91DD30050FB52 /* Project object */;
+}

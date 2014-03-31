@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9366862818E91DAB0050FB52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366862718E91DAB0050FB52 /* Foundation.framework */; };
+		9366862D18E91DAB0050FB52 /* AccessLayer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9366862C18E91DAB0050FB52 /* AccessLayer.h */; };
+		9366862F18E91DAB0050FB52 /* AccessLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366862E18E91DAB0050FB52 /* AccessLayer.m */; };
+		9366863618E91DAB0050FB52 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366863518E91DAB0050FB52 /* XCTest.framework */; };
+		9366863718E91DAB0050FB52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366862718E91DAB0050FB52 /* Foundation.framework */; };
+		9366863918E91DAB0050FB52 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366863818E91DAB0050FB52 /* UIKit.framework */; };
+		9366863C18E91DAB0050FB52 /* libAccessLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366862418E91DAB0050FB52 /* libAccessLayer.a */; };
+		9366864218E91DAB0050FB52 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9366864018E91DAB0050FB52 /* InfoPlist.strings */; };
+		9366864418E91DAB0050FB52 /* AccessLayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366864318E91DAB0050FB52 /* AccessLayerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9366863A18E91DAB0050FB52 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9366861C18E91DAB0050FB52 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9366862318E91DAB0050FB52;
+			remoteInfo = AccessLayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9366862218E91DAB0050FB52 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				9366862D18E91DAB0050FB52 /* AccessLayer.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9366862418E91DAB0050FB52 /* libAccessLayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAccessLayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9366862718E91DAB0050FB52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9366862B18E91DAB0050FB52 /* AccessLayer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AccessLayer-Prefix.pch"; sourceTree = "<group>"; };
+		9366862C18E91DAB0050FB52 /* AccessLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessLayer.h; sourceTree = "<group>"; };
+		9366862E18E91DAB0050FB52 /* AccessLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessLayer.m; sourceTree = "<group>"; };
+		9366863418E91DAB0050FB52 /* AccessLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9366863518E91DAB0050FB52 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		9366863818E91DAB0050FB52 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		9366863F18E91DAB0050FB52 /* AccessLayerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AccessLayerTests-Info.plist"; sourceTree = "<group>"; };
+		9366864118E91DAB0050FB52 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9366864318E91DAB0050FB52 /* AccessLayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessLayerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9366862118E91DAB0050FB52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9366862818E91DAB0050FB52 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9366863118E91DAB0050FB52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9366863618E91DAB0050FB52 /* XCTest.framework in Frameworks */,
+				9366863C18E91DAB0050FB52 /* libAccessLayer.a in Frameworks */,
+				9366863918E91DAB0050FB52 /* UIKit.framework in Frameworks */,
+				9366863718E91DAB0050FB52 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9366861B18E91DAB0050FB52 = {
+			isa = PBXGroup;
+			children = (
+				9366862918E91DAB0050FB52 /* AccessLayer */,
+				9366863D18E91DAB0050FB52 /* AccessLayerTests */,
+				9366862618E91DAB0050FB52 /* Frameworks */,
+				9366862518E91DAB0050FB52 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9366862518E91DAB0050FB52 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9366862418E91DAB0050FB52 /* libAccessLayer.a */,
+				9366863418E91DAB0050FB52 /* AccessLayerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9366862618E91DAB0050FB52 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9366862718E91DAB0050FB52 /* Foundation.framework */,
+				9366863518E91DAB0050FB52 /* XCTest.framework */,
+				9366863818E91DAB0050FB52 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9366862918E91DAB0050FB52 /* AccessLayer */ = {
+			isa = PBXGroup;
+			children = (
+				9366862C18E91DAB0050FB52 /* AccessLayer.h */,
+				9366862E18E91DAB0050FB52 /* AccessLayer.m */,
+				9366862A18E91DAB0050FB52 /* Supporting Files */,
+			);
+			path = AccessLayer;
+			sourceTree = "<group>";
+		};
+		9366862A18E91DAB0050FB52 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9366862B18E91DAB0050FB52 /* AccessLayer-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9366863D18E91DAB0050FB52 /* AccessLayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				9366864318E91DAB0050FB52 /* AccessLayerTests.m */,
+				9366863E18E91DAB0050FB52 /* Supporting Files */,
+			);
+			path = AccessLayerTests;
+			sourceTree = "<group>";
+		};
+		9366863E18E91DAB0050FB52 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9366863F18E91DAB0050FB52 /* AccessLayerTests-Info.plist */,
+				9366864018E91DAB0050FB52 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9366862318E91DAB0050FB52 /* AccessLayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9366864718E91DAB0050FB52 /* Build configuration list for PBXNativeTarget "AccessLayer" */;
+			buildPhases = (
+				9366862018E91DAB0050FB52 /* Sources */,
+				9366862118E91DAB0050FB52 /* Frameworks */,
+				9366862218E91DAB0050FB52 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AccessLayer;
+			productName = AccessLayer;
+			productReference = 9366862418E91DAB0050FB52 /* libAccessLayer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9366863318E91DAB0050FB52 /* AccessLayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9366864A18E91DAB0050FB52 /* Build configuration list for PBXNativeTarget "AccessLayerTests" */;
+			buildPhases = (
+				9366863018E91DAB0050FB52 /* Sources */,
+				9366863118E91DAB0050FB52 /* Frameworks */,
+				9366863218E91DAB0050FB52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9366863B18E91DAB0050FB52 /* PBXTargetDependency */,
+			);
+			name = AccessLayerTests;
+			productName = AccessLayerTests;
+			productReference = 9366863418E91DAB0050FB52 /* AccessLayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9366861C18E91DAB0050FB52 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = shulianyong;
+			};
+			buildConfigurationList = 9366861F18E91DAB0050FB52 /* Build configuration list for PBXProject "AccessLayer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9366861B18E91DAB0050FB52;
+			productRefGroup = 9366862518E91DAB0050FB52 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9366862318E91DAB0050FB52 /* AccessLayer */,
+				9366863318E91DAB0050FB52 /* AccessLayerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9366863218E91DAB0050FB52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9366864218E91DAB0050FB52 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9366862018E91DAB0050FB52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9366862F18E91DAB0050FB52 /* AccessLayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9366863018E91DAB0050FB52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9366864418E91DAB0050FB52 /* AccessLayerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9366863B18E91DAB0050FB52 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9366862318E91DAB0050FB52 /* AccessLayer */;
+			targetProxy = 9366863A18E91DAB0050FB52 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9366864018E91DAB0050FB52 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9366864118E91DAB0050FB52 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9366864518E91DAB0050FB52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9366864618E91DAB0050FB52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9366864818E91DAB0050FB52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AccessLayer.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AccessLayer/AccessLayer-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9366864918E91DAB0050FB52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AccessLayer.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AccessLayer/AccessLayer-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9366864B18E91DAB0050FB52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AccessLayer/AccessLayer-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AccessLayerTests/AccessLayerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		9366864C18E91DAB0050FB52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AccessLayer/AccessLayer-Prefix.pch";
+				INFOPLIST_FILE = "AccessLayerTests/AccessLayerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9366861F18E91DAB0050FB52 /* Build configuration list for PBXProject "AccessLayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9366864518E91DAB0050FB52 /* Debug */,
+				9366864618E91DAB0050FB52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9366864718E91DAB0050FB52 /* Build configuration list for PBXNativeTarget "AccessLayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9366864818E91DAB0050FB52 /* Debug */,
+				9366864918E91DAB0050FB52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9366864A18E91DAB0050FB52 /* Build configuration list for PBXNativeTarget "AccessLayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9366864B18E91DAB0050FB52 /* Debug */,
+				9366864C18E91DAB0050FB52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9366861C18E91DAB0050FB52 /* Project object */;
+}
