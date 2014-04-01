@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9315F68E18DC659700985B2E /* RegiestUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315F68D18DC659700985B2E /* RegiestUserViewController.m */; };
 		9315F69118DC662C00985B2E /* RegiestIndividualUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315F69018DC662C00985B2E /* RegiestIndividualUserViewController.m */; };
+		9341534F18EA910800C4358B /* libAccessLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9341534E18EA910800C4358B /* libAccessLayer.a */; };
 		936C78A518D94FA100F458EF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936C78A418D94FA100F458EF /* LoginViewController.m */; };
 		9399B16A18D940BC005D29DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9399B16918D940BC005D29DF /* Foundation.framework */; };
 		9399B16C18D940BC005D29DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9399B16B18D940BC005D29DF /* CoreGraphics.framework */; };
@@ -44,6 +45,7 @@
 		9315F68D18DC659700985B2E /* RegiestUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegiestUserViewController.m; sourceTree = "<group>"; };
 		9315F68F18DC662C00985B2E /* RegiestIndividualUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegiestIndividualUserViewController.h; sourceTree = "<group>"; };
 		9315F69018DC662C00985B2E /* RegiestIndividualUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegiestIndividualUserViewController.m; sourceTree = "<group>"; };
+		9341534E18EA910800C4358B /* libAccessLayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAccessLayer.a; path = "../AccessLayer/build/Debug-iphoneos/libAccessLayer.a"; sourceTree = "<group>"; };
 		936C78A318D94FA100F458EF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		936C78A418D94FA100F458EF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9399B16618D940BC005D29DF /* UserCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9341534F18EA910800C4358B /* libAccessLayer.a in Frameworks */,
 				9399B16C18D940BC005D29DF /* CoreGraphics.framework in Frameworks */,
 				9399B16E18D940BC005D29DF /* UIKit.framework in Frameworks */,
 				9399B16A18D940BC005D29DF /* Foundation.framework in Frameworks */,
@@ -130,6 +133,7 @@
 		9399B16818D940BC005D29DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9341534E18EA910800C4358B /* libAccessLayer.a */,
 				9399B16918D940BC005D29DF /* Foundation.framework */,
 				9399B16B18D940BC005D29DF /* CoreGraphics.framework */,
 				9399B16D18D940BC005D29DF /* UIKit.framework */,
@@ -444,6 +448,11 @@
 				GCC_PREFIX_HEADER = "UserCar/UserCar-Prefix.pch";
 				INFOPLIST_FILE = "UserCar/UserCar-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/shulianyong/Desktop/Other/Used,
+					"Car/usedcar/03编码/iOS/AccessLayer/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -458,6 +467,11 @@
 				GCC_PREFIX_HEADER = "UserCar/UserCar-Prefix.pch";
 				INFOPLIST_FILE = "UserCar/UserCar-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/shulianyong/Desktop/Other/Used,
+					"Car/usedcar/03编码/iOS/AccessLayer/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

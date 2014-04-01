@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9341534D18EA90F400C4358B /* libCommonLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9341534C18EA90F400C4358B /* libCommonLayer.a */; };
+		9341535618EA91F300C4358B /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9341535518EA91F300C4358B /* UserInfo.m */; };
 		9366865A18E91DD30050FB52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366865918E91DD30050FB52 /* Foundation.framework */; };
 		9366865F18E91DD30050FB52 /* EntityBase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9366865E18E91DD30050FB52 /* EntityBase.h */; };
 		9366866118E91DD30050FB52 /* EntityBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366866018E91DD30050FB52 /* EntityBase.m */; };
@@ -42,6 +44,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9341534C18EA90F400C4358B /* libCommonLayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCommonLayer.a; path = "../../../../../../../Library/Developer/Xcode/DerivedData/UserCar-avczesangxtmplbwkuobdoaqttxx/Build/Products/Debug-iphoneos/libCommonLayer.a"; sourceTree = "<group>"; };
+		9341535418EA91F300C4358B /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		9341535518EA91F300C4358B /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		9366865618E91DD30050FB52 /* libEntity.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEntity.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9366865918E91DD30050FB52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9366865D18E91DD30050FB52 /* Entity-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Entity-Prefix.pch"; sourceTree = "<group>"; };
@@ -60,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9341534D18EA90F400C4358B /* libCommonLayer.a in Frameworks */,
 				9366865A18E91DD30050FB52 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +106,7 @@
 		9366865818E91DD30050FB52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9341534C18EA90F400C4358B /* libCommonLayer.a */,
 				9366865918E91DD30050FB52 /* Foundation.framework */,
 				9366866718E91DD30050FB52 /* XCTest.framework */,
 				9366866A18E91DD30050FB52 /* UIKit.framework */,
@@ -112,6 +119,8 @@
 			children = (
 				9366865E18E91DD30050FB52 /* EntityBase.h */,
 				9366866018E91DD30050FB52 /* EntityBase.m */,
+				9341535418EA91F300C4358B /* UserInfo.h */,
+				9341535518EA91F300C4358B /* UserInfo.m */,
 				9366865C18E91DD30050FB52 /* Supporting Files */,
 			);
 			path = Entity;
@@ -224,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9341535618EA91F300C4358B /* UserInfo.m in Sources */,
 				9366866118E91DD30050FB52 /* EntityBase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +342,10 @@
 				DSTROOT = /tmp/Entity.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Entity/Entity-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/UserCar-avczesangxtmplbwkuobdoaqttxx/Build/Products/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -344,6 +358,10 @@
 				DSTROOT = /tmp/Entity.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Entity/Entity-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/UserCar-avczesangxtmplbwkuobdoaqttxx/Build/Products/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

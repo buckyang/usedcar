@@ -8,6 +8,8 @@
 
 #import <XCTest/XCTest.h>
 
+#import "UserLogin.h"
+
 @interface AccessLayerTests : XCTestCase
 
 @end
@@ -28,7 +30,19 @@
 
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+}
+
+- (void)testUserLogin
+{
+    UserLogin *login = [UserLogin createInstance];
+    UserInfo *user = [UserInfo createInstance];
+    user.userName = @"sly";
+    user.password = @"sly";
+    [login userLoginWithUserInfo:user withCallback:^(id info, HTTPAccessState isSuccess) {
+        CFRunLoopStop(CFRunLoopGetCurrent());
+    }];
+    CFRunLoopRun();
 }
 
 @end

@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9341534B18EA90E700C4358B /* libEntity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9341534A18EA90E700C4358B /* libEntity.a */; };
+		9341535318EA915800C4358B /* UserLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 9341535218EA915800C4358B /* UserLogin.m */; };
 		9366862818E91DAB0050FB52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366862718E91DAB0050FB52 /* Foundation.framework */; };
-		9366862D18E91DAB0050FB52 /* AccessLayer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9366862C18E91DAB0050FB52 /* AccessLayer.h */; };
-		9366862F18E91DAB0050FB52 /* AccessLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366862E18E91DAB0050FB52 /* AccessLayer.m */; };
+		9366862D18E91DAB0050FB52 /* AccessBase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9366862C18E91DAB0050FB52 /* AccessBase.h */; };
+		9366862F18E91DAB0050FB52 /* AccessBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366862E18E91DAB0050FB52 /* AccessBase.m */; };
 		9366863618E91DAB0050FB52 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366863518E91DAB0050FB52 /* XCTest.framework */; };
 		9366863718E91DAB0050FB52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366862718E91DAB0050FB52 /* Foundation.framework */; };
 		9366863918E91DAB0050FB52 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366863818E91DAB0050FB52 /* UIKit.framework */; };
@@ -52,18 +54,21 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				9366862D18E91DAB0050FB52 /* AccessLayer.h in CopyFiles */,
+				9366862D18E91DAB0050FB52 /* AccessBase.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9341534A18EA90E700C4358B /* libEntity.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEntity.a; path = "../Entity/build/Debug-iphoneos/libEntity.a"; sourceTree = "<group>"; };
+		9341535118EA915800C4358B /* UserLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLogin.h; sourceTree = "<group>"; };
+		9341535218EA915800C4358B /* UserLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLogin.m; sourceTree = "<group>"; };
 		9366862418E91DAB0050FB52 /* libAccessLayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAccessLayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9366862718E91DAB0050FB52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9366862B18E91DAB0050FB52 /* AccessLayer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AccessLayer-Prefix.pch"; sourceTree = "<group>"; };
-		9366862C18E91DAB0050FB52 /* AccessLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessLayer.h; sourceTree = "<group>"; };
-		9366862E18E91DAB0050FB52 /* AccessLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessLayer.m; sourceTree = "<group>"; };
+		9366862C18E91DAB0050FB52 /* AccessBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessBase.h; sourceTree = "<group>"; };
+		9366862E18E91DAB0050FB52 /* AccessBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessBase.m; sourceTree = "<group>"; };
 		9366863418E91DAB0050FB52 /* AccessLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9366863518E91DAB0050FB52 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		9366863818E91DAB0050FB52 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -113,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9341534B18EA90E700C4358B /* libEntity.a in Frameworks */,
 				9366862818E91DAB0050FB52 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +137,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9341534918EA90C500C4358B /* UserCenter */ = {
+			isa = PBXGroup;
+			children = (
+				9341535018EA912F00C4358B /* UserLogin */,
+			);
+			path = UserCenter;
+			sourceTree = "<group>";
+		};
+		9341535018EA912F00C4358B /* UserLogin */ = {
+			isa = PBXGroup;
+			children = (
+				9341535118EA915800C4358B /* UserLogin.h */,
+				9341535218EA915800C4358B /* UserLogin.m */,
+			);
+			path = UserLogin;
+			sourceTree = "<group>";
+		};
 		9366861B18E91DAB0050FB52 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +176,7 @@
 		9366862618E91DAB0050FB52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9341534A18EA90E700C4358B /* libEntity.a */,
 				9366862718E91DAB0050FB52 /* Foundation.framework */,
 				9366863518E91DAB0050FB52 /* XCTest.framework */,
 				9366863818E91DAB0050FB52 /* UIKit.framework */,
@@ -165,8 +189,9 @@
 			children = (
 				936686FA18E922370050FB52 /* AFNetworking */,
 				9366870E18E922370050FB52 /* UIKit+AFNetworking */,
-				9366862C18E91DAB0050FB52 /* AccessLayer.h */,
-				9366862E18E91DAB0050FB52 /* AccessLayer.m */,
+				9366862C18E91DAB0050FB52 /* AccessBase.h */,
+				9366862E18E91DAB0050FB52 /* AccessBase.m */,
+				9341534918EA90C500C4358B /* UserCenter */,
 				9366862A18E91DAB0050FB52 /* Supporting Files */,
 			);
 			path = AccessLayer;
@@ -338,8 +363,9 @@
 				9366872B18E922370050FB52 /* UIAlertView+AFNetworking.m in Sources */,
 				9366872018E922370050FB52 /* AFHTTPRequestOperation.m in Sources */,
 				9366872F18E922370050FB52 /* UIRefreshControl+AFNetworking.m in Sources */,
-				9366862F18E91DAB0050FB52 /* AccessLayer.m in Sources */,
+				9366862F18E91DAB0050FB52 /* AccessBase.m in Sources */,
 				9366872918E922370050FB52 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				9341535318EA915800C4358B /* UserLogin.m in Sources */,
 				9366872318E922370050FB52 /* AFNetworkReachabilityManager.m in Sources */,
 				9366872A18E922370050FB52 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				9366872818E922370050FB52 /* AFURLSessionManager.m in Sources */,
@@ -454,6 +480,11 @@
 				DSTROOT = /tmp/AccessLayer.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AccessLayer/AccessLayer-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/shulianyong/Desktop/Other/Used,
+					"Car/usedcar/03编码/iOS/Entity/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -466,6 +497,11 @@
 				DSTROOT = /tmp/AccessLayer.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AccessLayer/AccessLayer-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/shulianyong/Desktop/Other/Used,
+					"Car/usedcar/03编码/iOS/Entity/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -487,6 +523,12 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "AccessLayerTests/AccessLayerTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -503,6 +545,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AccessLayer/AccessLayer-Prefix.pch";
 				INFOPLIST_FILE = "AccessLayerTests/AccessLayerTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};

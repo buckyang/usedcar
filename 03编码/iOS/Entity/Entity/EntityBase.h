@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EntityBase : NSObject<NSCoding>
+@interface EntityBase : NSObject
 
-- (instancetype)deepCopy;
+@property (nonatomic) BOOL executionResult;
+@property (nonatomic,strong) NSString *message;
 
 @end
