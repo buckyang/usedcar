@@ -90,7 +90,7 @@ public class LoginController extends BaseController{
 			MobileToken mobileToken = new MobileToken();
 			mobileToken.setAccountId(profile.getAccountId());
 			mobileToken.setClientIdentifier(MobileToken.DEFAULT_MOBILE_IDENTIFIER);
-			mobileToken.setAccessToken(EncryptionUtil.getMD5HashValue(profile.getAccountId() + ((Long)System.currentTimeMillis()).toString()));
+			mobileToken.setAccessToken(EncryptionUtil.genRandomAccessToken());
 			mobileToken.setValidDate(DateUtils.addDays(new Date(), siteConfiguration.getMobileTokenValidDays()));
 			accountService.updateOrInsertMobileToken(mobileToken);
 			processPostJSON.put(ACCESS_TOKEN_PARAM_KEY, mobileToken.getAccessToken());
@@ -109,7 +109,7 @@ public class LoginController extends BaseController{
 			Cookie cookie = new Cookie(Profile.COOKIE_USER_ID, "");
 			if (loginDTO.getRememberUserName() != null && loginDTO.getRememberUserName()) {
 				cookie.setValue(account.getProfileHash());
-				cookie.setMaxAge(3600 * siteConfiguration.getCookieLoginValidDays());
+				cookie.setMaxAge(3600 * 24 * siteConfiguration.getCookieLoginValidDays());
 
 			}else{
 				cookie.setMaxAge(0);

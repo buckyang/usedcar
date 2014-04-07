@@ -1,0 +1,946 @@
+/* --------------------------- */
+/* ---- CCC GLOBAL STYLING ---- */
+/* --------------------------- */
+
+/* TOC
+	01. GENERIC
+	02. TEXT
+	03. HEADER
+	04. LOGIN
+	05. BUTTON
+	06. LEFT NAV
+	07. RIGHT
+	08. FOOTER
+	09. WELCOME
+	10. DETAIL PAGE
+*/
+
+
+/* 01. GENERIC
+------------------------------------------------ */
+html {}
+
+* {
+	margin: 0px; 
+	padding: 0px;
+}
+
+body {
+	background: #f7fafe;
+	color: #333;
+	font-family: Arial,Calibri,Helvetica,sans-serif;
+    font-size: 62.5%;
+	height: auto;
+    line-height: 1.5;
+	min-height: 100%;
+	margin: 0;
+	padding:0 10px;
+}
+
+body.index {
+	padding:0;
+}
+
+ol, ul {
+    list-style: none outside none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset {
+	border: none;
+}
+
+fieldset label {
+	font-size: 1.2em;
+}
+
+a {
+	color: #0b96cd;
+	text-decoration: none;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid #ccc;
+	height: 1px;
+	*+display: block;
+	*+margin: -7px 0;
+}
+
+img{
+	border: 0px;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+input[type="text"] {
+	border: 1px solid #ccc;
+	height: 20px;
+	width: 150px;
+}
+
+.clearfix {
+	clear: both;
+	display: block;
+	font-size:0; 
+	height:0px;
+	line-height:0px;
+}
+
+.hidden {
+	display: none;
+}
+
+.miniSize {
+	width: 988px;
+	height: 620px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+}
+
+/* 02. TEXT
+------------------------------------------------ */
+.whiteText {
+	color: #fff;
+}
+
+.errorText {
+	color: #ff0000;
+}
+
+/* 03. HEADER
+------------------------------------------------ */
+#header {
+	background: #12b9ea;
+	height: 58px;
+}
+
+#header a {
+	color: #fff;
+	line-height: 18px;
+	display: block;
+}
+
+#header .logo {
+	font-size: 2.4em;
+	font-weight: bold;
+	float: left;
+	padding-left: 50px;
+	padding-top: 20px;
+}
+
+#header #personalNav {
+	float: right;
+	font-size: 1.2em;
+	padding: 35px 15px 0 0;
+}
+
+#header #personalNav li {
+	display: inline-block;
+	float: left;
+	margin-left: 15px;
+}
+
+#header #personalNav li a.home {
+	background: url(../../image/admin/icon.png) 0 0 no-repeat;
+	padding-left: 20px;
+}
+
+#header #personalNav li a.logOut {
+	background: url(../../image/admin/icon.png) 0 -30px no-repeat;
+	padding-left: 18px;
+}
+
+#header #personalNav .site {
+	margin: -4px 0 0 4px;
+}
+
+#header #personalNav select {
+	background: #12b9ea;
+	border: 1px solid #ccc;
+	color: #fff;
+}
+
+/* 04. LOGIN
+------------------------------------------------ */
+
+#login {
+	height: 335px;
+	margin: 100px auto;
+	width: 480px;
+}
+
+#login .top {
+	-webkit-border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+	background: #12b9ea;
+	font-size: 2em;
+	text-align: center;
+	padding: 10px;
+}
+
+#login .content {
+	border: 1px solid #ccc;
+	-webkit-border-radius: 0px 0px 5px 5px;
+	-moz-border-radius: 0px 0px 5px 5px;
+	border-radius: 0px 0px 5px 5px;
+	background: #fff;
+	min-height: 285px;
+}
+
+#login dt, #login dd {
+	margin-top: 30px;
+	float: left;
+}
+
+#login dt {	
+	clear: both;
+	padding-right: 10px;
+	width: 120px;
+	text-align: right;
+}
+
+#login label {
+	font-size: 1.6em;
+	font-weight: bold;
+}
+
+#login input[type="text"], 
+#login input[type="password"], 
+#login select {
+	border: 1px solid #ccc;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	width: 250px;
+	height: 30px;
+	font-size: 1.6em;
+	line-height: 28px;
+}
+
+#login select {
+	-webkit-border-radius: 3px;
+	-moz-border-radius:3px;
+	border-radius: 3px;
+}
+
+
+/* 05. BUTTON
+------------------------------------------------ */
+.loginBtn{
+	background: url(../../image/admin/buttonOrtabBg.png) left -244px; 
+	height: 32px; 
+	float: left; 
+	vertical-align: middle;
+	margin-left: 50px; 
+}
+
+.loginBtn input[type="submit"] {
+	margin-right: -6px;
+	margin-left: -6px;
+	height: 32px;
+	padding: 0 10px 0 16px; 
+	background: url(../../image/admin/buttonOrtabBg.png)  right -276px; 
+	display: block; 
+	text-align: center; 
+	border: none;
+	cursor: pointer;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+
+.blackBtn {
+	background: url(../../image/admin/buttonOrtabBg.png) top left; 
+	height: 25px; 
+	float: left; 
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+.blackBtn input.whiteText,
+.blackBtn a {
+	margin-right: -5px;
+	margin-left: -5px;
+	height: 25px;
+	padding: 0 8px 0 13px; 
+	background: url(../../image/admin/buttonOrtabBg.png)  right -25px; 
+	display: block; 
+	text-align: center; 
+	border: none;
+	cursor: pointer;
+	color: #fff;
+	text-decoration: none;
+	line-height: 25px;
+	text-transform: capitalize;
+	overflow: visible;
+}
+
+.blackBtn:hover {
+	background: url(../../image/admin/buttonOrtabBg.png) left -50px; 
+}
+
+.blackBtn input.whiteText:hover,
+.blackBtn a:hover {
+	background: url(../../image/admin/buttonOrtabBg.png)  right -75px; ;
+}
+
+/* 06. LEFT NAV
+------------------------------------------------ */
+#main .left {
+	width: 202px;
+	float: left;
+}
+.leftNavigat {
+	background: url(../../image/admin/leftBg.png) right repeat-y; 
+	padding-right: 5px;
+}
+.leftNavigat dl dt { 
+	line-height: 34px;
+	height: 34px;
+	background: url(../../image/admin/leftBg.png) top left;
+	color: #FFF;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+.leftNavigat dl dt a { 
+	color: #FFF; 
+	text-decoration: none;
+	padding-left: 5px; 
+	display: block;
+}
+.leftNavigat dl dd { 
+	display: none; 
+	padding: 10px 0 10px 20px; 
+	background: #eaedf1;
+}
+.leftNavigat dl dd a { 
+	line-height: 24px; 
+	display: block;
+	padding-left: 10px;
+	font-size: 1.2em;
+	color: #333333;
+}
+.leftNavigat dl dd a.checked {
+	background: url(../../image/admin/icon.png) left -45px no-repeat;
+}
+.leftNavigat dl.first dd { 
+	display: block;
+}
+.leftNavigatFootBg {
+	background: url(../../image/admin/leftBg.png) no-repeat -18px bottom;
+	height: 10px;
+}
+
+/* 07. RIGHT
+------------------------------------------------ */
+#main .right {
+	position: relative;
+	margin-left: 202px;
+	height: 100%; 
+}
+#main .right iframe {
+	border: 0;
+	padding: 0; 
+	margin: 0;
+	width: 100%;
+}
+
+/* 08. FOOTER
+------------------------------------------------ */
+#footer {
+	height: 35px;
+	padding-top: 5px;
+	line-height: 30px;
+	background: url(../../image/admin/footerBg.png) top repeat-x;
+	margin-top: 20px;
+	font-size: 1.1em;
+	text-transform: uppercase;
+}
+
+#footer span{ margin-left:10px;}
+
+/* 09. WELCOME
+------------------------------------------------ */
+.welcome {
+	margin-top: 158px;
+	color: #000;
+	text-align: center;
+}
+
+.welcome h1 {
+	font-size: 3.0em;
+}
+
+.welcome h2 {
+	font-size: 2.5em;
+}
+
+.searchBox {
+	padding-top: 10px;
+	clear: both;
+}
+
+.searchBox dl,
+.searchBox dd,
+.searchBox dt {
+	float: left;
+	margin-right: 10px;
+}
+
+span.noSearchResult {
+	line-height: 30px;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+table.searchList {
+	font-size: 1.2em;
+	background: url(../../image/admin/border.png) repeat-y left;
+	margin-top: 10px;
+	width: 100%;
+}
+
+table.searchList thead th,
+table.searchList tfoot td,
+table.searchList tbody td {
+	border-left : 1px solid #ccc; 
+}
+
+table.searchList thead th b,
+table.searchList tfoot td b {
+	padding: 0 10px;
+	display: block;
+	line-height: 29px;
+}
+
+table.searchList thead th {
+	background: url(../../image/admin/tableBg.png) repeat-x left -150px;
+	height: 29px;
+	line-height: 29px;
+	text-align: left;
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+table.searchList th.topLeft {
+	border-left: none;
+}
+
+table.searchList th.topLeft b {
+	background: url(../../image/admin/tableBg.png) no-repeat left -120px;
+}
+
+table.searchList th.topRight b {
+	background: url(../../image/admin/tableBg.png) no-repeat right -180px;
+}
+
+table.searchList th.topRight b span.block {
+ 	padding-left:62px;
+}
+
+table.searchList tbody td {
+	border-top: 1px solid #ccc;
+	padding: 5px 10px;
+}
+
+table.searchList tbody td.last {
+	background: url(../../image/admin/border.png) repeat-y right;
+}
+
+table.searchList tfoot tr {
+	background: url(../../image/admin/tableBg.png) repeat-x left -210px;
+	padding: 0;
+	height: 8px;;
+}
+
+table.searchList tfoot td {
+	border-left: 1px solid #ccc;
+	font-size:0;
+}
+
+table.searchList tfoot td.first,
+table.searchList tbody td.first {
+	border-left: none;
+}
+
+table.searchList tfoot td b {
+	line-height: 8px;
+	display: block;
+	height: 8px;
+}
+
+table.searchList tfoot td.first b {
+	background: url(../../image/admin/tableBg.png) no-repeat left -226px;
+}
+
+table.searchList tfoot td.last b {
+	background: url(../../image/admin/tableBg.png) no-repeat right -218px;
+}
+
+
+/** 10. DETAIL PAGE
+***************************************************/
+
+.topTitle {
+	font-weight: bold;
+	font-size: 1.4em;
+	clear: both;
+	margin-top: 10px;
+}
+
+.topTitle strong {
+	float: left;
+}
+
+.topTitle span {
+	float: right;
+}
+
+/* TAB
+------------------------------------------------ */
+.tabTitle {
+	background: url(../../image/admin/tableBg.png) repeat-x left -40px;
+	height: 40px;
+	overflow:hidden;
+	margin-top: 10px;
+}
+
+.tabTitle div {
+	float: left;
+}
+
+.tabTitle .left {
+	background: url(../../image/admin/tableBg.png) no-repeat left 0px;
+}
+
+.tabTitle .left, .tabTitle .right {
+	margin: 0px;
+	height: 40px;
+	width: 6px;
+}
+
+.tabTitle .right {
+	background: url(../../image/admin/tableBg.png) no-repeat left -80px;
+	margin-right: 0px;
+	float: right;
+}
+
+.tabTitle li {
+	background: url(../../image/admin/buttonOrtabBg.png) no-repeat left -100px;
+	float: left;
+	font-size: 1.2em;
+	margin-right: 15px;
+	margin-top: 5px;
+	display: inline-block;
+	padding-left: -1px;
+	cursor: pointer;
+}
+
+.tabTitle li a {
+	background: url(../../image/admin/buttonOrtabBg.png) no-repeat right -135px;
+	margin-right: -6px;
+	padding: 8px 10px;
+	float: left;
+	color: #333;
+	text-decoration: none;
+}
+
+.tabTitle li.selected {
+	background: url(../../image/admin/buttonOrtabBg.png) repeat-x left -170px;
+	font-weight: bold;
+}
+
+.tabTitle li.selected a{
+	background: url(../../image/admin/buttonOrtabBg.png) no-repeat right -205px;
+	padding: 9px 10px;
+}
+
+.tabFooter {
+	background: url(../../image/admin/tableBg.png) repeat-x left -210px;
+	height: 8px;
+	clear: both;
+}
+
+.tabFooter div {
+	width: 6px;
+	height: 8px;
+}
+
+.tabFooter .left {
+	background: url(../../image/admin/tableBg.png) no-repeat left -226px;
+	float: left;
+}
+
+.tabFooter .right {
+	background: url(../../image/admin/tableBg.png) no-repeat right -218px;
+	float: right;
+}
+
+.tabContent {
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+.detailContent .title {
+	font-weight: bold;
+	font-size: 1.4em;
+	padding: 20px 0 0 20px;
+}
+
+.detailContent li.title{
+	padding: 0 50px;
+	font-size: 1em;
+}
+
+.detailContent .left {
+	float: left;
+}
+
+.detailContent .right {
+	float: right;
+}
+
+.detailContent .content {
+	font-size: 1.2em;
+}
+
+.detailContent li span {
+	text-align: right;
+	width: 130px;
+	display: inline-block;
+	margin-right: 8px;
+}
+
+.detailContent li.shipTo span,
+.detailContent li.shipTo dl {
+	float: left;
+}
+
+.detailContent table{
+	font-size: 1.2em;
+	padding-top: 10px;
+	width: 100%;
+}
+
+/* PAGE
+------------------------------------------------ */
+.page { 
+	margin-top: 10px;
+	font-size: 1.2em;
+	font-weight: bold; 
+}
+.page span{
+	padding: 0 2px; 
+	color: #333333;
+}
+.page a {
+	padding: 0 2px; 
+	color: #0b96cd;
+}
+
+.detailContent #payment tr:hover, 
+.detailContent #addressBook tr:hover {
+	cursor: pointer;
+}
+
+.detailContent table th {
+	border-bottom: 1px solid #ccc;
+	text-align: left;
+}
+
+.detailContent table td, 
+.detailContent table th {
+	padding: 5px 10px;
+	font-weight: normal;
+}
+
+.detailContent table td.expand {
+	padding: 0px;
+	
+	cursor: default;
+}
+
+.detailContent table td.expand div {
+	padding: 5px;
+	background: #cee7f1;
+}
+
+.detailContent input[type="checkbox"] {
+	margin-right: -10px;
+	border: 1px solid #ccc;
+}
+
+.detailContent h3 {
+	font-size: 1em;
+}
+
+.largerHeight {
+	padding:10px 0;
+}
+
+.largerHeight ul li { 
+	padding:5px 0
+}
+
+.detailContent #subscription table tbody td {
+	border-bottom: 1px solid #ccc;
+}
+
+.popup .content {
+	width: 50%;
+}
+
+.popup .title {
+	font-size: 1.6em;
+}
+
+.popup .content .title {
+	font-size: 1.2em;
+}
+
+.popup ul {
+	padding: 10px 0 10px 20px;
+}
+
+.popup ul li {
+	line-height: 20px;
+}
+
+.popup ul li span {
+	font-weight: bold;
+}
+
+.orderDetail .tab .tabTitle .title {
+	font-size: 1.4em;
+	font-weight: bold;
+	padding-top: 10px;
+}
+
+.orderDetail table {
+	font-size: 1.0em;
+}
+
+.orderDetail table th {
+	border: none;
+}
+
+.mediaList,
+.onSaleList {
+	padding-top: 10px;
+}
+.mediaList .title,
+.onSaleList .title {
+	padding: 5px 10px;
+}
+.mediaList .title span,
+.onSaleList .title span {
+	font-weight: normal;
+	padding-left: 5px;
+}
+.mediaList .list table,
+.onSaleList .list table {
+	border-top: 1px solid #CCC;
+}
+
+.mediaList .list table th,
+.onSaleList .list table th{
+	font-weight: normal;
+}
+
+.mediaList .list .first,
+.onSaleList .list .first {
+	padding-left: 40px;
+}
+
+.missingOrder table {
+	margin-top: 25px;
+}
+
+
+
+.missingOrder .searchBox, 
+.missingOrder .searchForm .errorMsg > span,
+.tabContent span.noSearchResult {
+	padding-left: 10px;
+}
+
+.missingOrder .title {
+	padding: 0;
+}
+
+.missingOrder table th,
+.slot_cache table th {
+	background: #ebeced;
+	border-bottom: none;
+}
+
+.missingOrder table a {
+	font-weight: bold;
+}
+
+table.operationList tfoot td {
+	border: none;
+}
+table.noSearchResult tfoot td {
+	border: none;
+}
+
+.operationList input.timeInput{
+	width: 80px; 
+	margin-right: 5px;
+}
+.operationBtn {
+	float: right;
+	display: inline;
+}
+
+.operationBtn .blackBtn {
+	margin-left: 10px;
+}
+
+.inlinePopup {
+	background: #fff;
+	border: 1px solid #ccc;
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	font-size: 1.2em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	box-shadow: 2px 2px 10px #ccc;
+	float: left;
+	opacity: 0;
+}
+
+.inlinePopup .title{
+	background: #fff;
+	background: -moz-linear-gradient(top, #fff, #ebeced);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#ebeced));
+	padding: 8px;
+	border-top-left-radius: 5px;
+	border-top-right-radius:5px;
+	border-bottom: 1px solid #ccc;
+	text-align: right;
+}
+
+.inlinePopup h3 {
+	white-space: nowrap;
+	padding-right: 50px;
+	float: left;
+}
+
+.inlinePopup a.close {
+	display: inline;
+	padding-top: 2px;
+}
+
+.inlinePopup div.content {
+	text-align: center;
+	padding: 10px;
+}
+
+.errorMsg {
+	position: relative;
+	font-size: 1.2em;
+}
+
+.errorMsg > span{
+	position: absolute;
+	top: 0;
+	left: 0;
+	white-space: nowrap;
+	padding: 5px 0 0 10px;
+}
+
+.errorMsg .generalError{
+	position: static;
+	top: 0;
+	left: 0;
+	white-space: nowrap;
+	padding: 5px 0 10px 10px;
+}
+.searchForm .errorMsg {
+	height: 20px; 
+	line-height: 20px;
+}
+
+.searchForm .errorMsg > span{
+	padding-left: 0;
+}
+
+#login dd .errorMsg > span {
+	padding-left: 0px;
+}
+
+.operationList .errorMsg {
+	float: left;
+	margin-left: 170px;
+	font-size: 1em;
+}
+
+.sessionOut {
+	line-height: 30px;
+	text-align: center;
+	font-size: 14px;
+	padding-top: 200px;
+	color: #333333;
+}
+
+.sessionOut a {
+	text-transform: uppercase;
+	margin: 0 5px;
+}
+
+#timeCount {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.slot_cache h2 {
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+.inventory_cache, .media_cache{
+	padding-top: 10px;
+}
+
+.inventory_cache table td, 
+.media_cache table td,
+.slot_cache table td {
+	vertical-align: middle;
+}
+
+.inventory_cache table td, .media_cache table td,.change_component_value table td,.invalidate_repository_cache table td{
+	font-weight: bold;
+}
+
+.blockUI h1 {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.couponDetail{
+	font-size: 1.2em;
+	padding-left: 20px;
+}
+input.promotionField{
+	width: 25em;
+}
+
+#addYouTubeVideo, .divRank input, .spanVideoUrl{
+	display: none;
+}
+.list a{
+	text-decoration:underline;
+}

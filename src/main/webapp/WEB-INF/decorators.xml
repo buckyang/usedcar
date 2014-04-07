@@ -8,6 +8,14 @@
 		<pattern>*/image/*</pattern>
 	</excludes>
 
+	<decorator name="adminTab" page="adminTab.jsp">
+		<pattern>*/admin/staticPage/*</pattern>
+	</decorator>
+
+	<decorator name="admin" page="adminMain.jsp">
+		<pattern>*/admin/*.jsp</pattern>
+	</decorator>
+
 	<decorator name="login" page="loginDecorator.jsp">
 		<pattern>*login.jsp</pattern>
 	</decorator>

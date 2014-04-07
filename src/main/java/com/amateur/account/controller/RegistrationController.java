@@ -108,7 +108,7 @@ public class RegistrationController extends BaseController {
 			MobileToken mobileToken = new MobileToken();
 			mobileToken.setAccountId(profile.getAccountId());
 			mobileToken.setClientIdentifier(MobileToken.DEFAULT_MOBILE_IDENTIFIER);
-			mobileToken.setAccessToken(EncryptionUtil.getMD5HashValue(profile.getAccountId() + ((Long)System.currentTimeMillis()).toString()));
+			mobileToken.setAccessToken(EncryptionUtil.genRandomAccessToken());
 			mobileToken.setValidDate(DateUtils.addDays(new Date(), siteConfiguration.getMobileTokenValidDays()));
 			accountService.updateOrInsertMobileToken(mobileToken);
 			processPostJSON.put(ACCESS_TOKEN_PARAM_KEY, mobileToken.getAccessToken());

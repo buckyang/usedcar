@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.amateur.persistence.AdminAccountMapper">
+
+	<cache />
+	<select id="selectAccountByLoginName" parameterType="string" resultMap="adminAccountMap">
+		select  a.account_id,
+				a.login_name,
+				a.password,
+				a.last_login_time,
+				a.locked,
+				p.permission
+		from admin_account a left outer join admin_account_permission p on a.account_id = p.admin_account_id where a.login_name = #{loginName}
+	</select>
+	<resultMap type="AdminAccount" id="adminAccountMap">
+		<id property="accountId" column="account_id" />
+		<result property="loginName" column="login_name" />
+		<result property="password" column="password" />
+		<result property="lastLoginTime" column="last_login_time" />
+		<result property="locked" column="locked" />
+		<collection property="permissions" ofType="AdminPermission">
+			<result property="permission" column="permission" />
+		</collection>		
+	</resultMap>
+	<select id="loadAllPagesWithPermission" resultMap="pagePermissionMap">
+		select a.url,
+			   p.permission
+		from admin_page a  left outer join admin_page_permission p on a.page_id = p.page_id
+	</select>
+	<resultMap type="AdminPage" id="pagePermissionMap">
+		<result property="url" column="url" />
+		<collection property="permissions" ofType="AdminPermission">
+			<result property="permission" column="permission" />
+		</collection>		
+	</resultMap>
+	<update id="updateLoginTime" parameterType="AdminAccount">
+		update admin_account
+			set last_login_time = #{lastLoginTime}
+		where account_id = #{accountId}
+	</update>
+	<select id="loadMenusByPermissions" parameterType="map" resultMap="menuMap">
+		select  m.name,
+				m.url,
+				cm.page_id as chl_page_id,
+				cm.name as chl_name,
+				cm.url as chl_url
+		from admin_page m join admin_page_chd_page c on m.page_id = c.primary_page_id join admin_page cm on c.child_page_id = cm.page_id
+			where not exists (select 1 from admin_page_chd_page p where p.child_page_id = m.page_id)
+			and m.type = 1 and exists (select 1 from admin_page_permission mp where m.page_id = mp.page_id and mp.permission in(${permissionsStr})) 
+			and cm.type = 1 and exists (select 1 from admin_page_permission cmp where cm.page_id = cmp.page_id and cmp.permission in(${permissionsStr})) order by  m.rank, cm.rank;
+	</select>
+	<resultMap type="AdminMenu" id="menuMap">
+		<result property="name" column="name"/>
+		<result property="url" column="url"/>
+		<collection property="childMenus" ofType="AdminMenu">
+			<id property="pageId" column="chl_page_id"/>
+			<result property="name" column="chl_name"/>
+			<result property="url" column="chl_url"/>
+		</collection>
+	</resultMap>
+	<select id="loadTabGroupByMenuId" parameterType="map" resultMap="tabMap">
+		select t.name,
+			   t.url
+		from admin_page t where exists (select 1 from admin_page_chd_page mt where mt.child_page_id = t.page_id and mt.primary_page_id = ${menuId})
+			and exists(select 1 from admin_page_permission tp where t.page_id = tp.page_id and tp.permission in(${permissionsStr}))
+			order by t.rank;
+	</select>
+	<select id="loadTabGroupByCurrentTab" parameterType="map" resultMap="tabMap">
+		select t.name,
+			   t.url
+		from admin_page t where exists (select 1 from admin_page_chd_page mt where mt.child_page_id = t.page_id and mt.primary_page_id in (
+			select abc.primary_page_id from admin_page ab join admin_page_chd_page abc on ab.page_id = abc.child_page_id where ab.type = 2 and ab.url = "${currentTabURL}"))
+			and exists(select 1 from admin_page_permission tp where t.page_id = tp.page_id and tp.permission in(${permissionsStr}) and t.type = 2)
+			order by t.rank;
+	</select>
+	<resultMap type="AdminPage" id="tabMap">
+		<result property="name" column="name"/>
+		<result property="url" column="url"/>		
+	</resultMap>
+	<select id="selectMenuById" parameterType="int" resultType="AdminMenu">
+		select  m.name,
+				m.url
+		from admin_page where page_id = #{pageID}
+	</select>
+</mapper>

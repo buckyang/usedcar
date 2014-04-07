@@ -18,12 +18,14 @@ import com.amateur.configuration.SiteConfiguration;
 import com.amateur.controller.BaseController;
 import com.amateur.domain.Account;
 import com.amateur.servlet.MobileRequestFilter.JsonHeadersRequest;
+import com.amateur.session.AdminProfile;
 import com.amateur.session.Profile;
 
 public class ProfileInitializerInterceptor extends HandlerInterceptorAdapter {
 	private static final String	SITE_CONFIGURATION		= "siteConfiguration";
 	private static Logger		logger					= Logger.getLogger(ProfileInitializerInterceptor.class);
 	public static final String	REDIRECT_ATTRIBUTES_KEY	= "tempRedirectAttributes";
+	public static final String	ADMIN_PAGE_RREFIX	= "/admin";
 
 	private SiteConfiguration	siteConfiguration;
 	private AccountService		accountService;
@@ -61,11 +63,19 @@ public class ProfileInitializerInterceptor extends HandlerInterceptorAdapter {
 		if (session.getAttribute(Profile.PROFILE_KEY) == null) {
 			logger.debug("Initialize profile from[ address: " + request.getRemoteAddr() + ", "
 					+ request.getSession().getId() + "]");
-			Profile profile = processCookieLogin(request, response);
-			if (profile == null) {
-				profile = new Profile();
+			if(request.getRequestURI().startsWith(ADMIN_PAGE_RREFIX)){
+				AdminProfile adminProfile = (AdminProfile) request.getSession().getAttribute(AdminProfile.ADMIN_PROFILE_SESSION_KEY);
+				if(adminProfile == null){
+					adminProfile = new AdminProfile();
+					session.setAttribute(AdminProfile.ADMIN_PROFILE_SESSION_KEY, adminProfile);
+				}
+			}else{
+				Profile profile = processCookieLogin(request, response);
+				if (profile == null) {
+					profile = new Profile();
+				}
+				session.setAttribute(Profile.PROFILE_KEY, profile);
 			}
-			session.setAttribute(Profile.PROFILE_KEY, profile);
 		}
 		if (session.getAttribute(REDIRECT_ATTRIBUTES_KEY) != null) {
 			Map<String, Object> tempRedirectAttributes = (Map<String, Object>) session

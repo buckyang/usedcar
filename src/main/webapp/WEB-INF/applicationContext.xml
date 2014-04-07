@@ -52,6 +52,17 @@
 				</property>
 			</bean>
 		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/**" />
+			<bean class="com.amateur.interceptor.AdminAuthorizationInteceptor">
+				<property name="accountAccessDenyURL" value="/admin/login" />
+				<property name="ingorePaths">
+					<array>
+						<value>/admin/login</value>
+					</array>
+				</property>
+			</bean>
+		</mvc:interceptor>		
 	</mvc:interceptors>
 
 	<bean
@@ -64,6 +75,11 @@
 		</property>
 	</bean>
 	<mvc:view-controller path="/index.html" view-name="index" />
+	<mvc:view-controller path="/admin/welcome"/>
+	<mvc:view-controller path="/admin/staticPage/index"/>
+	<mvc:view-controller path="/admin/staticPage/queryPage"/>
+	<mvc:view-controller path="/admin/staticPage/addPage"/>
+	<mvc:view-controller path="/admin/staticPage/deletePage"/>
 	<mvc:view-controller path="/" view-name="index" />
 	<mvc:view-controller path="/findpassword"
 		view-name="findpassword" />
@@ -79,7 +95,7 @@
 		view-name="secure/change_password" />
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/image/**" location="/image/" />
-	<mvc:resources mapping="/js/**" location="/image/" />
+	<mvc:resources mapping="/js/**" location="/js/" />
 	<mvc:resources mapping="/test/**" location="/test/" />
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">

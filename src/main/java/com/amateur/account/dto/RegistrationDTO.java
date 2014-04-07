@@ -2,6 +2,7 @@ package com.amateur.account.dto;
 
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
@@ -9,15 +10,15 @@ import org.hibernate.validator.constraints.Range;
 
 public class RegistrationDTO {
 	private Integer	accountId;
-	@Min(6)
+	@Size(min = 6)
 	private String	password;
-	@Min(6)
+	@Size(min = 6)
 	private String	repassword;
 	@NotBlank
 	private String	nickname;
 	@Email
 	private String	email;
-	@Min(11)
+	@Size(min = 6)
 	private String phone;
 	
 	private String	phoneVerifyCode;
