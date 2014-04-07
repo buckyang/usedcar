@@ -26,7 +26,7 @@ public class EncryptionUtil implements InitializingBean {
 
 	private static final String	MOBILE_TOKEN_USER_TIME_DELIMITER	= "&";
 
-	private static final int	MOBILE_TOKEN_MD5_LENGTH				= 33;
+	private static final int	MOBILE_TOKEN_MD5_LENGTH				= 32;
 
 	private Resource			passwordPublicKey;
 
@@ -96,7 +96,7 @@ public class EncryptionUtil implements InitializingBean {
 		String requestAccessToken = new String(Base64.decodeBase64(base64AccessToken));
 		int userTimeDelimeter = requestAccessToken.indexOf(MOBILE_TOKEN_USER_TIME_DELIMITER);
 		if (userTimeDelimeter > MOBILE_TOKEN_MD5_LENGTH & requestAccessToken.length() > MOBILE_TOKEN_MD5_LENGTH + 2) {
-			return requestAccessToken.substring(MOBILE_TOKEN_MD5_LENGTH - 1, userTimeDelimeter);
+			return requestAccessToken.substring(MOBILE_TOKEN_MD5_LENGTH, userTimeDelimeter);
 		}
 		return null;
 	}
@@ -107,7 +107,7 @@ public class EncryptionUtil implements InitializingBean {
 		String requestAccessToken = new String(Base64.decodeBase64(base64AccessToken));
 
 		if (requestAccessToken.length() > MOBILE_TOKEN_MD5_LENGTH + 3) {
-			String tokenMD5 = requestAccessToken.substring(0, MOBILE_TOKEN_MD5_LENGTH - 1);
+			String tokenMD5 = requestAccessToken.substring(0, MOBILE_TOKEN_MD5_LENGTH);
 			String time = org.apache.commons.lang3.StringUtils.substringAfter(requestAccessToken,
 					MOBILE_TOKEN_USER_TIME_DELIMITER);
 			if (tokenMD5.equals(getMD5HashValue(token + MOBILE_TOKEN_PRIVATE_KEY + time))) {

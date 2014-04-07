@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ import com.amateur.domain.MobileToken;
 import com.amateur.domain.Reseller;
 import com.amateur.persistence.AccountMapper;
 import com.amateur.service.SequenceService;
+import com.amateur.util.EncryptionUtil;
 
 @Service
 public class AccountService {
@@ -74,6 +76,20 @@ public class AccountService {
 			accountMapper.insertMobileToken(mobileToken);
 		}
 	}
+
+
+
+	public boolean validateMobileAccessToken(MobileToken queryMobileToken, String requestAccessToken) {
+
+		MobileToken mobileToken = accountMapper.selectMobileToken(queryMobileToken);
+		if(mobileToken != null && mobileToken.getValidDate().compareTo(new Date()) > 0){
+			if(EncryptionUtil.validMobileRequestToken(requestAccessToken, mobileToken.getAccessToken())){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public void updatePassword (Account account) {
 		accountMapper.updatePassword(account);
 	}

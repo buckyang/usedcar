@@ -18,7 +18,8 @@ public class BaseController {
 	public static final String	POST_SUCESS_KEY				= "post.sucess";
 	public static final String	EXECUTION_RESULT_PARAM_KEY	= "executionResult";
 	public static final String	MESSAGE_PARAM_KEY			= "message";
-	public static final String	ACCESS_TOKEN_PARAM_KEY		= "accessToken";
+	public static final String	SERVER_RESPONSE_ACCESS_TOKEN_PARAM_KEY		= "accessToken";
+	public static final String  CLIENT_REQUEST_ACCESS_TOKEN_PARAM = "accessToken";
 	private static final int	MAX_ERROR_MSGS				= 3;
 	private static final String	ERROR_MSG_DELIMITER			= " ";
 	@Autowired

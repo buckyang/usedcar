@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -17,9 +18,11 @@ import com.amateur.account.service.AccountService;
 import com.amateur.configuration.SiteConfiguration;
 import com.amateur.controller.BaseController;
 import com.amateur.domain.Account;
+import com.amateur.domain.MobileToken;
 import com.amateur.servlet.MobileRequestFilter.JsonHeadersRequest;
 import com.amateur.session.AdminProfile;
 import com.amateur.session.Profile;
+import com.amateur.util.EncryptionUtil;
 
 public class ProfileInitializerInterceptor extends HandlerInterceptorAdapter {
 	private static final String	SITE_CONFIGURATION		= "siteConfiguration";
@@ -45,14 +48,22 @@ public class ProfileInitializerInterceptor extends HandlerInterceptorAdapter {
 
 	private void preMobileHandler(HttpServletRequest request, HttpServletResponse response){
 		logger.debug("Handle mobile request from[ address: " + request.getRemoteAddr() + "]");
-		String accessToken = request.getParameter(BaseController.ACCESS_TOKEN_PARAM_KEY);
+		String requestAccessToken = request.getParameter(BaseController.CLIENT_REQUEST_ACCESS_TOKEN_PARAM);
 		Profile profile = new Profile();
-		if(accessToken != null){
-			Account account = accountService.getAccountByAccessToken(accessToken);
-			if(account != null){
-				profile.setAccountDatasource(account);
-				profile.setStatus(Profile.MOBILE_TOKEN_LOGIN);
+		if(requestAccessToken != null){
+			int userId = NumberUtils.toInt(EncryptionUtil.decodeUserIdFromReqeustAccessToken(requestAccessToken), -1);
+			if(userId > 0){
+				MobileToken queryMobileToken = new MobileToken();
+				queryMobileToken.setClientIdentifier(MobileToken.DEFAULT_MOBILE_IDENTIFIER);
+				queryMobileToken.setAccountId(userId);
+				if(accountService.validateMobileAccessToken(queryMobileToken, requestAccessToken)){
+					profile.setAccountDatasource(accountService.getAccountById(userId));
+					profile.setStatus(Profile.MOBILE_TOKEN_LOGIN);
+				}else{
+					logger.debug("Token invalid: " + requestAccessToken);
+				}	
 			}
+
 		}
 		request.getSession().setAttribute(Profile.PROFILE_KEY, profile);
 	}

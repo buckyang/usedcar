@@ -93,7 +93,7 @@ public class LoginController extends BaseController{
 			mobileToken.setAccessToken(EncryptionUtil.genRandomAccessToken());
 			mobileToken.setValidDate(DateUtils.addDays(new Date(), siteConfiguration.getMobileTokenValidDays()));
 			accountService.updateOrInsertMobileToken(mobileToken);
-			processPostJSON.put(ACCESS_TOKEN_PARAM_KEY, mobileToken.getAccessToken());
+			processPostJSON.put(SERVER_RESPONSE_ACCESS_TOKEN_PARAM_KEY, mobileToken.getAccessToken());
 		}
 		return processPostJSON;
 	}	
