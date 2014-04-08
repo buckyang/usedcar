@@ -40,8 +40,19 @@
 			<property name="accountService" ref="accountService" />
 		</bean>
 		<mvc:interceptor>
+			<mvc:mapping path="/account/**.json" />
+			<bean class="com.amateur.interceptor.MobileAuthorizationInteceptor">
+				<property name="accountAccessDenyURL" value="/account/login" />
+				<property name="ingorePaths">
+					<array>
+						<value>/account/login</value>
+						<value>/account/signon</value>
+					</array>
+				</property>
+			</bean>
+		</mvc:interceptor>		
+		<mvc:interceptor>
 			<mvc:mapping path="/account/**" />
-			<mvc:mapping path="/travelgroup/newtrip*" />
 			<bean class="com.amateur.interceptor.UserAuthorizationInteceptor">
 				<property name="accountAccessDenyURL" value="/account/login" />
 				<property name="ingorePaths">
