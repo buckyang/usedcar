@@ -32,6 +32,7 @@ import com.amateur.util.EncryptionUtil;
 @Controller
 @SessionAttributes("profile")
 public class LoginController extends BaseController{
+
 	@Autowired
 	private LoginValidator loginValidator;
 
@@ -94,6 +95,7 @@ public class LoginController extends BaseController{
 			mobileToken.setValidDate(DateUtils.addDays(new Date(), siteConfiguration.getMobileTokenValidDays()));
 			accountService.updateOrInsertMobileToken(mobileToken);
 			processPostJSON.put(SERVER_RESPONSE_ACCESS_TOKEN_PARAM_KEY, mobileToken.getAccessToken());
+			processPostJSON.put(SERVER_RESPONSE_USER_ID_KEY, profile.getAccountId());
 		}
 		return processPostJSON;
 	}	
