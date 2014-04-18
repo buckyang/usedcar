@@ -2,6 +2,7 @@ package com.amateur.product.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -75,22 +76,42 @@ public class ProductController extends BaseController {
 		if (result.hasErrors()) {
 			return "secure/sellcar";
 		}
+		handleUsedCar(usedCarDTO, profile);
+		return "redirect:/product/publishusedcar";
+	}
+
+	private void handleUsedCar(UsedCarDTO usedCarDTO, Profile profile) {
 		usedCarDTO.setAccountId(profile.getAccountId());
 		if (usedCarDTO.getProductId() != null
 				&& !"".equalsIgnoreCase(usedCarDTO.getProductId())) {
 			productService.updateUsedCar(usedCarDTO);
-			return "redirect:/product/publishusedcar";
 		} else {
 			productService.publishUsedCar(usedCarDTO);
-			return "redirect:/product/publishusedcar";
 		}
 	}
 
+	@RequestMapping(value = "/publishusedcar", method = RequestMethod.POST, produces = "application/json")
+	@ResponseBody
+	public Map<String, Object> publishUsedCarJSON(@Valid UsedCarDTO usedCarDTO,
+			@ModelAttribute("profile") Profile profile, BindingResult result) {
+		if (!result.hasErrors()) {
+			handleUsedCar(usedCarDTO, profile);
+		}
+		return processPostJSON(result);
+	}
+
 	@RequestMapping(value = "/deleteusedcar", method = RequestMethod.GET)
-	public String deleteUsedCar(String productId, ModelAndView modelAndView) {
+	public String deleteUsedCar(String productId, ModelAndView mav) {
 		boolean result = productService.deleteUsedCar(productId);
-		modelAndView.addObject(result);
+		mav.addObject(EXECUTION_RESULT_PARAM_KEY, result);
 		return "redirect:/product/publishusedcar";
+	}
+
+	@RequestMapping(value = "/deleteusedcar", method = RequestMethod.GET, produces = "application/json")
+	@ResponseBody
+	public Map<String, Object> deleteUsedCarJSON(String productId) {
+		boolean result = productService.deleteUsedCar(productId);
+		return processGETJSON(result);
 	}
 
 }
