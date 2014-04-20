@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.amateur.persistence.MenuMapper">
+
+  	<cache />
+
+    <select id="getTopMenuItems" resultType="MenuItem">
+	   SELECT * FROM menu WHERE parent_menu_id IS NULL ORDER BY display_order
+    </select> 
+
+    <select id="getChildMenuItems" parameterType="MenuItem" resultType="MenuItem">
+	   SELECT * FROM menu WHERE parent_menu_id = #{parentMenuId} ORDER BY display_order
+    </select> 
+   
+	<insert id="addMenuItem" parameterType="MenuItem">
+		INSERT into menu (title, contents, parent_menu_id, display_order,edit_all_property)
+		VALUES (#{title}, #{contents}, #{parentMenuId}, #{displayOrder},#{editAllProperty})
+	</insert>
+	
+	<delete id="deleteMenuItem" parameterType="MenuItem">
+		DELETE FROM menu WHERE menu_id=#{menuId}
+	</delete>
+	
+	<update id="updateMenuItemTitle" parameterType="MenuItem">
+		UPDATE menu SET
+			title = #{title}, contents = #{contents}
+		WHERE menu_id=#{menuId}
+	</update>
+	
+	<update id="batchUpdateItemOrder" parameterType="MenuItem">
+		UPDATE menu SET
+			display_order = display_order+1
+		WHERE parent_menu_id=#{parentMenuId} and display_order >= #{displayOrder}
+	</update>
+	
+	<update id="updateItemOrder" parameterType="MenuItem">
+		UPDATE menu SET
+			display_order = #{displayOrder}
+		WHERE menu_id=#{menuId}
+	</update>
+</mapper>

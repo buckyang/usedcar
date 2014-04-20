@@ -4,8 +4,8 @@ package com.amateur.account.service;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
-import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -88,6 +88,22 @@ public class AccountService {
 			}
 		}
 		return false;
+	}
+	
+	public String obtainVerificationCode() {
+		int[] array = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+		Random rand = new Random();
+		for (int i = 10; i > 1; i--) {
+			int index = rand.nextInt(i);
+			int tmp = array[index];
+			array[index] = array[i - 1];
+			array[i - 1] = tmp;
+		}
+		int result = 0;
+		for (int i = 0; i < 6; i++) {
+			result = result * 10 + array[i];
+		}
+		return String.valueOf(result);
 	}
 	
 	public void updatePassword (Account account) {
