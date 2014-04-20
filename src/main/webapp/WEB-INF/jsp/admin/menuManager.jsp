@@ -1,7 +1,7 @@
 <link href='<s:url value="/css/menuManager.css" />' type="text/css" rel="stylesheet"/>
 <%-- <script src='<s:url value="/js/lib/jquery-1.7.2.min.js" />' type="text/javascript"></script> --%>
 <script src='<s:url value="/js/lib/jquery.form.js" />' type="text/javascript"></script>
-<script src='<s:url value="/js/menuManager/menuManager.js" />' type="text/javascript"></script>
+<script src='<s:url value="/js/common/menuManager.js" />' type="text/javascript"></script>
 
 <div style="display: none;">
 	<form:form id="managerMenuForm" action="addItem" method="post"

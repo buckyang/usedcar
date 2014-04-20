@@ -1,7 +1,6 @@
 package com.amateur.account.dto;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class ManagerUserInfoDTO implements Serializable {
 
@@ -16,10 +15,15 @@ public class ManagerUserInfoDTO implements Serializable {
 	private String idNumber;
 	private String phone;
 	private Boolean bindPhone;
-	private Date birthdate;
+	private String birthyear;
+	private String birthmonth;
+	private String birthday;
 	private String certificateType;
 	private String certificateNumber;
-	private HomeAddressDTO homeAddress;
+	private String province;
+	private String city;
+	private String county;
+	private String street;
 
 	public Integer getAccountId() {
 		return accountId;
@@ -93,14 +97,6 @@ public class ManagerUserInfoDTO implements Serializable {
 		this.bindPhone = bindPhone;
 	}
 
-	public Date getBirthdate() {
-		return birthdate;
-	}
-
-	public void setBirthdate(Date birthdate) {
-		this.birthdate = birthdate;
-	}
-
 	public String getCertificateType() {
 		return certificateType;
 	}
@@ -117,12 +113,60 @@ public class ManagerUserInfoDTO implements Serializable {
 		this.certificateNumber = certificateNumber;
 	}
 
-	public HomeAddressDTO getHomeAddress() {
-		return homeAddress;
+	public String getBirthyear() {
+		return birthyear;
 	}
 
-	public void setHomeAddress(HomeAddressDTO homeAddress) {
-		this.homeAddress = homeAddress;
+	public void setBirthyear(String birthyear) {
+		this.birthyear = birthyear;
+	}
+
+	public String getBirthmonth() {
+		return birthmonth;
+	}
+
+	public void setBirthmonth(String birthmonth) {
+		this.birthmonth = birthmonth;
+	}
+
+	public String getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCounty() {
+		return county;
+	}
+
+	public void setCounty(String county) {
+		this.county = county;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
 	}
 
 }
