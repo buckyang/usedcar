@@ -1,5 +1,7 @@
 package com.amateur.account.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,7 +33,7 @@ public class VerificationCodeController extends BaseController {
 	@ResponseBody
 	public void obtainCodeJSON(@ModelAttribute("profile") Profile profile,Model mode,BindingResult result) {
 		String code=accountService.obtainVerificationCode();
-		mode.addAttribute("code",code);
-		processGETJSON(true);
+		Map<String,Object> resultMap=processGETJSON(true);
+		resultMap.put("code", code);
 	}
 }
