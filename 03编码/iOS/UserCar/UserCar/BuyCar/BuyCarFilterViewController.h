@@ -1,5 +1,5 @@
 //
-//  BuyCarMainViewController.h
+//  BuyCarFilterViewController.h
 //  UserCar
 //
 //  Created by 舒联勇 on 14-3-25.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BuyCarMainViewController : CBaseTableViewController
+@interface BuyCarFilterViewController : CBaseTableViewController
 
 @end

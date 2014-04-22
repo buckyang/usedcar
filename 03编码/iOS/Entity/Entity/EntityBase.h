@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  @brief 实体基类
+ */
 @interface EntityBase : NSObject
 
 @property (nonatomic) BOOL executionResult;

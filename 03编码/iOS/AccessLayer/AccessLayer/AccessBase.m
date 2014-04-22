@@ -7,6 +7,7 @@
 //
 
 #import "AccessBase.h"
+#import "../../Entity/Entity/UserInfo.h"
 
 @implementation AccessBase
 
@@ -21,5 +22,18 @@
     });
     return httpClient;
 }
+
+- (NSString*)accessToken:(UserInfo*)aUserInfo
+{
+    UInt64 timeNow = [[NSDate date] timeIntervalSince1970]*1000;
+    NSString *md5Value = [NSString stringWithFormat:@"%@%@%lld",aUserInfo.accessToken,PrivateKey,timeNow];
+    md5Value = [[NSString MD5:md5Value] lowercaseString];
+    
+    NSString *base64Value = [NSString stringWithFormat:@"%@%lld&%lld",md5Value,aUserInfo.userId,timeNow];
+    base64Value = [NSString base64Encode:base64Value encoding:NSUTF8StringEncoding];
+    
+    return base64Value;
+}
+
 
 @end

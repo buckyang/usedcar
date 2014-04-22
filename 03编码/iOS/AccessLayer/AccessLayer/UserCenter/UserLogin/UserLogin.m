@@ -21,6 +21,7 @@
                       
                   }
                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                      aCallback(nil,HTTPAccessStateFail);
                       INFO(@"登录失败：%@",error);
                   }];
 }

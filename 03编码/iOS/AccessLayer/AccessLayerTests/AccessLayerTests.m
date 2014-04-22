@@ -28,17 +28,19 @@
     [super tearDown];
 }
 
-- (void)testExample
-{
-//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
-
 - (void)testUserLogin
 {
     UserLogin *login = [UserLogin createInstance];
     UserInfo *user = [UserInfo createInstance];
     user.userName = @"sly";
     user.password = @"sly";
+    user.userId = 10001;
+    user.accessToken = @"dd4nfxp8";
+    
+    NSString *access = [login accessToken:user];
+    
+    XCTAssertEqualObjects(access, @"NDM4ZmVmYWQ5OGUxMDMxMjM2NmMwZjRiMWZjNDVkOTIxMDAwMSYxMzk2ODQ5ODc3MDQx", @"%@:%@",access,@"数据不正确");
+    
     [login userLoginWithUserInfo:user withCallback:^(id info, HTTPAccessState isSuccess) {
         CFRunLoopStop(CFRunLoopGetCurrent());
     }];

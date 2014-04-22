@@ -9,8 +9,21 @@
 /* Begin PBXBuildFile section */
 		9315F68E18DC659700985B2E /* RegiestUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315F68D18DC659700985B2E /* RegiestUserViewController.m */; };
 		9315F69118DC662C00985B2E /* RegiestIndividualUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315F69018DC662C00985B2E /* RegiestIndividualUserViewController.m */; };
+		9340E3C91905136900D8E5FF /* imgCheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9340E3C71905136900D8E5FF /* imgCheck@2x.png */; };
+		9340E3CA1905136900D8E5FF /* imgUncheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9340E3C81905136900D8E5FF /* imgUncheck@2x.png */; };
+		9340E3CF1905163C00D8E5FF /* ShoppingCarMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9340E3CE1905163C00D8E5FF /* ShoppingCarMainViewController.m */; };
 		9341534F18EA910800C4358B /* libAccessLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9341534E18EA910800C4358B /* libAccessLayer.a */; };
+		935FE82F18FF7072000B391F /* BuyCarMainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935FE82E18FF7072000B391F /* BuyCarMainCell.xib */; };
 		936C78A518D94FA100F458EF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936C78A418D94FA100F458EF /* LoginViewController.m */; };
+		938283E318FD65F0002824E5 /* imgBuyCarIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 938283DE18FD65F0002824E5 /* imgBuyCarIcon@2x.png */; };
+		938283E418FD65F0002824E5 /* imgMoreIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 938283DF18FD65F0002824E5 /* imgMoreIcon@2x.png */; };
+		938283E518FD65F0002824E5 /* imgSaleCarIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 938283E018FD65F0002824E5 /* imgSaleCarIcon@2x.png */; };
+		938283E618FD65F0002824E5 /* imgShoppingCartIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 938283E118FD65F0002824E5 /* imgShoppingCartIcon@2x.png */; };
+		938283E718FD65F0002824E5 /* imgUserCenter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 938283E218FD65F0002824E5 /* imgUserCenter@2x.png */; };
+		938283E918FD6A5B002824E5 /* pic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 938283E818FD6A5B002824E5 /* pic.jpg */; };
+		938283EB18FD6CDC002824E5 /* imgAbsolutePrice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 938283EA18FD6CDC002824E5 /* imgAbsolutePrice@2x.png */; };
+		938283EF18FD7293002824E5 /* searchbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 938283EE18FD7293002824E5 /* searchbg@2x.png */; };
+		938283F118FD780A002824E5 /* imgBuyCarIcon_H@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 938283F018FD780A002824E5 /* imgBuyCarIcon_H@2x.png */; };
 		9399B16A18D940BC005D29DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9399B16918D940BC005D29DF /* Foundation.framework */; };
 		9399B16C18D940BC005D29DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9399B16B18D940BC005D29DF /* CoreGraphics.framework */; };
 		9399B16E18D940BC005D29DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9399B16D18D940BC005D29DF /* UIKit.framework */; };
@@ -28,6 +41,18 @@
 		93AB023618E119EE008D3C48 /* imgBGTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AB023518E119EE008D3C48 /* imgBGTab@2x.png */; };
 		93AB023D18E13009008D3C48 /* BuyCarMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AB023C18E13009008D3C48 /* BuyCarMainViewController.m */; };
 		93AB024018E130D9008D3C48 /* BuyCarFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AB023F18E130D9008D3C48 /* BuyCarFilterViewController.m */; };
+		93D41E5019060ADD0008ED2D /* SellingCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E4F19060ADD0008ED2D /* SellingCarViewController.m */; };
+		93D41E5319060BCE0008ED2D /* UINavigationItem+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E5219060BCE0008ED2D /* UINavigationItem+CustomColor.m */; };
+		93D41E6219061CD60008ED2D /* CBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E6119061CD60008ED2D /* CBaseTableViewController.m */; };
+		93D41E6519061CE90008ED2D /* CBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E6419061CE90008ED2D /* CBaseViewController.m */; };
+		93D41E691906265B0008ED2D /* UserCenterMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E681906265B0008ED2D /* UserCenterMainView.m */; };
+		93D41E6C190629130008ED2D /* CheckButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E6B190629130008ED2D /* CheckButton.m */; };
+		93D41E7019062CFF0008ED2D /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E6F19062CFF0008ED2D /* PayViewController.m */; };
+		93D41E73190635590008ED2D /* CheckTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E72190635590008ED2D /* CheckTableViewCell.m */; };
+		93D4671118FE269500A32B3B /* UIBarButtonItem+ImageTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D4671018FE269500A32B3B /* UIBarButtonItem+ImageTitle.m */; };
+		93D4671418FE290300A32B3B /* UINavigationBar+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D4671318FE290300A32B3B /* UINavigationBar+CustomColor.m */; };
+		93D4671718FE2B0000A32B3B /* img_Back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D4671618FE2B0000A32B3B /* img_Back@2x.png */; };
+		93D4671E18FE54B600A32B3B /* BuyCarMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D4671D18FE54B600A32B3B /* BuyCarMainCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,13 +66,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9315F68C18DC659700985B2E /* RegiestUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegiestUserViewController.h; sourceTree = "<group>"; };
-		9315F68D18DC659700985B2E /* RegiestUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegiestUserViewController.m; sourceTree = "<group>"; };
-		9315F68F18DC662C00985B2E /* RegiestIndividualUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegiestIndividualUserViewController.h; sourceTree = "<group>"; };
-		9315F69018DC662C00985B2E /* RegiestIndividualUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegiestIndividualUserViewController.m; sourceTree = "<group>"; };
+		9315F68C18DC659700985B2E /* RegiestUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegiestUserViewController.h; path = Login/RegiestUserViewController.h; sourceTree = "<group>"; };
+		9315F68D18DC659700985B2E /* RegiestUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegiestUserViewController.m; path = Login/RegiestUserViewController.m; sourceTree = "<group>"; };
+		9315F68F18DC662C00985B2E /* RegiestIndividualUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegiestIndividualUserViewController.h; path = Login/RegiestIndividualUserViewController.h; sourceTree = "<group>"; };
+		9315F69018DC662C00985B2E /* RegiestIndividualUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegiestIndividualUserViewController.m; path = Login/RegiestIndividualUserViewController.m; sourceTree = "<group>"; };
+		9340E3C71905136900D8E5FF /* imgCheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgCheck@2x.png"; sourceTree = "<group>"; };
+		9340E3C81905136900D8E5FF /* imgUncheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgUncheck@2x.png"; sourceTree = "<group>"; };
+		9340E3CD1905163C00D8E5FF /* ShoppingCarMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCarMainViewController.h; sourceTree = "<group>"; };
+		9340E3CE1905163C00D8E5FF /* ShoppingCarMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCarMainViewController.m; sourceTree = "<group>"; };
 		9341534E18EA910800C4358B /* libAccessLayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAccessLayer.a; path = "../AccessLayer/build/Debug-iphoneos/libAccessLayer.a"; sourceTree = "<group>"; };
-		936C78A318D94FA100F458EF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		936C78A418D94FA100F458EF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		935FE82E18FF7072000B391F /* BuyCarMainCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyCarMainCell.xib; sourceTree = "<group>"; };
+		936C78A318D94FA100F458EF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Login/LoginViewController.h; sourceTree = "<group>"; };
+		936C78A418D94FA100F458EF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Login/LoginViewController.m; sourceTree = "<group>"; };
+		938283DE18FD65F0002824E5 /* imgBuyCarIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgBuyCarIcon@2x.png"; sourceTree = "<group>"; };
+		938283DF18FD65F0002824E5 /* imgMoreIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgMoreIcon@2x.png"; sourceTree = "<group>"; };
+		938283E018FD65F0002824E5 /* imgSaleCarIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgSaleCarIcon@2x.png"; sourceTree = "<group>"; };
+		938283E118FD65F0002824E5 /* imgShoppingCartIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgShoppingCartIcon@2x.png"; sourceTree = "<group>"; };
+		938283E218FD65F0002824E5 /* imgUserCenter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgUserCenter@2x.png"; sourceTree = "<group>"; };
+		938283E818FD6A5B002824E5 /* pic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic.jpg; sourceTree = "<group>"; };
+		938283EA18FD6CDC002824E5 /* imgAbsolutePrice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgAbsolutePrice@2x.png"; sourceTree = "<group>"; };
+		938283EE18FD7293002824E5 /* searchbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchbg@2x.png"; sourceTree = "<group>"; };
+		938283F018FD780A002824E5 /* imgBuyCarIcon_H@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgBuyCarIcon_H@2x.png"; sourceTree = "<group>"; };
 		9399B16618D940BC005D29DF /* UserCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9399B16918D940BC005D29DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9399B16B18D940BC005D29DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -71,6 +110,29 @@
 		93AB023C18E13009008D3C48 /* BuyCarMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyCarMainViewController.m; sourceTree = "<group>"; };
 		93AB023E18E130D9008D3C48 /* BuyCarFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyCarFilterViewController.h; sourceTree = "<group>"; };
 		93AB023F18E130D9008D3C48 /* BuyCarFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyCarFilterViewController.m; sourceTree = "<group>"; };
+		93D41E4E19060ADD0008ED2D /* SellingCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SellingCarViewController.h; sourceTree = "<group>"; };
+		93D41E4F19060ADD0008ED2D /* SellingCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SellingCarViewController.m; sourceTree = "<group>"; };
+		93D41E5119060BCE0008ED2D /* UINavigationItem+CustomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+CustomColor.h"; sourceTree = "<group>"; };
+		93D41E5219060BCE0008ED2D /* UINavigationItem+CustomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CustomColor.m"; sourceTree = "<group>"; };
+		93D41E6019061CD60008ED2D /* CBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBaseTableViewController.h; sourceTree = "<group>"; };
+		93D41E6119061CD60008ED2D /* CBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBaseTableViewController.m; sourceTree = "<group>"; };
+		93D41E6319061CE90008ED2D /* CBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBaseViewController.h; sourceTree = "<group>"; };
+		93D41E6419061CE90008ED2D /* CBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBaseViewController.m; sourceTree = "<group>"; };
+		93D41E671906265B0008ED2D /* UserCenterMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterMainView.h; sourceTree = "<group>"; };
+		93D41E681906265B0008ED2D /* UserCenterMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterMainView.m; sourceTree = "<group>"; };
+		93D41E6A190629130008ED2D /* CheckButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckButton.h; sourceTree = "<group>"; };
+		93D41E6B190629130008ED2D /* CheckButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckButton.m; sourceTree = "<group>"; };
+		93D41E6E19062CFF0008ED2D /* PayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
+		93D41E6F19062CFF0008ED2D /* PayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
+		93D41E71190635590008ED2D /* CheckTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckTableViewCell.h; sourceTree = "<group>"; };
+		93D41E72190635590008ED2D /* CheckTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckTableViewCell.m; sourceTree = "<group>"; };
+		93D4670F18FE269500A32B3B /* UIBarButtonItem+ImageTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ImageTitle.h"; sourceTree = "<group>"; };
+		93D4671018FE269500A32B3B /* UIBarButtonItem+ImageTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ImageTitle.m"; sourceTree = "<group>"; };
+		93D4671218FE290300A32B3B /* UINavigationBar+CustomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CustomColor.h"; sourceTree = "<group>"; };
+		93D4671318FE290300A32B3B /* UINavigationBar+CustomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomColor.m"; sourceTree = "<group>"; };
+		93D4671618FE2B0000A32B3B /* img_Back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_Back@2x.png"; sourceTree = "<group>"; };
+		93D4671C18FE54B600A32B3B /* BuyCarMainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyCarMainCell.h; sourceTree = "<group>"; };
+		93D4671D18FE54B600A32B3B /* BuyCarMainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyCarMainCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,17 +160,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9340E3CC190515DD00D8E5FF /* ShoppingCar */ = {
+			isa = PBXGroup;
+			children = (
+				9340E3CD1905163C00D8E5FF /* ShoppingCarMainViewController.h */,
+				9340E3CE1905163C00D8E5FF /* ShoppingCarMainViewController.m */,
+				93D41E6D19062BD70008ED2D /* Pay */,
+			);
+			path = ShoppingCar;
+			sourceTree = "<group>";
+		};
 		936C78A218D94F7600F458EF /* UserCenter */ = {
 			isa = PBXGroup;
 			children = (
-				936C78A318D94FA100F458EF /* LoginViewController.h */,
-				936C78A418D94FA100F458EF /* LoginViewController.m */,
-				9315F68C18DC659700985B2E /* RegiestUserViewController.h */,
-				9315F68D18DC659700985B2E /* RegiestUserViewController.m */,
-				9315F68F18DC662C00985B2E /* RegiestIndividualUserViewController.h */,
-				9315F69018DC662C00985B2E /* RegiestIndividualUserViewController.m */,
+				93D41E66190626250008ED2D /* Login */,
+				93D41E671906265B0008ED2D /* UserCenterMainView.h */,
+				93D41E681906265B0008ED2D /* UserCenterMainView.m */,
 			);
 			path = UserCenter;
+			sourceTree = "<group>";
+		};
+		9380C9D018FBD3EA00DDCAD0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				93D4670F18FE269500A32B3B /* UIBarButtonItem+ImageTitle.h */,
+				93D4671018FE269500A32B3B /* UIBarButtonItem+ImageTitle.m */,
+				93D4671218FE290300A32B3B /* UINavigationBar+CustomColor.h */,
+				93D4671318FE290300A32B3B /* UINavigationBar+CustomColor.m */,
+				93D41E5119060BCE0008ED2D /* UINavigationItem+CustomColor.h */,
+				93D41E5219060BCE0008ED2D /* UINavigationItem+CustomColor.m */,
+				93D41E6019061CD60008ED2D /* CBaseTableViewController.h */,
+				93D41E6119061CD60008ED2D /* CBaseTableViewController.m */,
+				93D41E6319061CE90008ED2D /* CBaseViewController.h */,
+				93D41E6419061CE90008ED2D /* CBaseViewController.m */,
+				93D41E6A190629130008ED2D /* CheckButton.h */,
+				93D41E6B190629130008ED2D /* CheckButton.m */,
+				93D41E71190635590008ED2D /* CheckTableViewCell.h */,
+				93D41E72190635590008ED2D /* CheckTableViewCell.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		938283DD18FD65F0002824E5 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				938283DE18FD65F0002824E5 /* imgBuyCarIcon@2x.png */,
+				938283F018FD780A002824E5 /* imgBuyCarIcon_H@2x.png */,
+				938283DF18FD65F0002824E5 /* imgMoreIcon@2x.png */,
+				938283E018FD65F0002824E5 /* imgSaleCarIcon@2x.png */,
+				938283E118FD65F0002824E5 /* imgShoppingCartIcon@2x.png */,
+				938283E218FD65F0002824E5 /* imgUserCenter@2x.png */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		9399B15D18D940BC005D29DF = {
@@ -145,8 +248,11 @@
 		9399B16F18D940BC005D29DF /* UserCar */ = {
 			isa = PBXGroup;
 			children = (
+				9380C9D018FBD3EA00DDCAD0 /* Common */,
 				936C78A218D94F7600F458EF /* UserCenter */,
 				93AB023718E12D49008D3C48 /* BuyCar */,
+				9340E3CC190515DD00D8E5FF /* ShoppingCar */,
+				93D41E4C19060ADD0008ED2D /* SaleCar */,
 				9399B17818D940BC005D29DF /* AppDelegate.h */,
 				9399B17918D940BC005D29DF /* AppDelegate.m */,
 				9399B17B18D940BC005D29DF /* Main.storyboard */,
@@ -197,8 +303,13 @@
 		93AB023218E11972008D3C48 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				938283DD18FD65F0002824E5 /* TabBar */,
+				93D4671518FE2B0000A32B3B /* Common */,
 				93AB023318E11972008D3C48 /* imgBGTab_H@2x.png */,
 				93AB023518E119EE008D3C48 /* imgBGTab@2x.png */,
+				938283E818FD6A5B002824E5 /* pic.jpg */,
+				938283EA18FD6CDC002824E5 /* imgAbsolutePrice@2x.png */,
+				938283EE18FD7293002824E5 /* searchbg@2x.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -206,12 +317,72 @@
 		93AB023718E12D49008D3C48 /* BuyCar */ = {
 			isa = PBXGroup;
 			children = (
+				93D4671818FE541900A32B3B /* BuyCarMainView */,
 				93AB023B18E13009008D3C48 /* BuyCarMainViewController.h */,
 				93AB023C18E13009008D3C48 /* BuyCarMainViewController.m */,
 				93AB023E18E130D9008D3C48 /* BuyCarFilterViewController.h */,
 				93AB023F18E130D9008D3C48 /* BuyCarFilterViewController.m */,
 			);
 			path = BuyCar;
+			sourceTree = "<group>";
+		};
+		93D41E4C19060ADD0008ED2D /* SaleCar */ = {
+			isa = PBXGroup;
+			children = (
+				93D41E4D19060ADD0008ED2D /* SellingCar */,
+			);
+			path = SaleCar;
+			sourceTree = "<group>";
+		};
+		93D41E4D19060ADD0008ED2D /* SellingCar */ = {
+			isa = PBXGroup;
+			children = (
+				93D41E4E19060ADD0008ED2D /* SellingCarViewController.h */,
+				93D41E4F19060ADD0008ED2D /* SellingCarViewController.m */,
+			);
+			path = SellingCar;
+			sourceTree = "<group>";
+		};
+		93D41E66190626250008ED2D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				936C78A318D94FA100F458EF /* LoginViewController.h */,
+				936C78A418D94FA100F458EF /* LoginViewController.m */,
+				9315F68C18DC659700985B2E /* RegiestUserViewController.h */,
+				9315F68D18DC659700985B2E /* RegiestUserViewController.m */,
+				9315F68F18DC662C00985B2E /* RegiestIndividualUserViewController.h */,
+				9315F69018DC662C00985B2E /* RegiestIndividualUserViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		93D41E6D19062BD70008ED2D /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				93D41E6E19062CFF0008ED2D /* PayViewController.h */,
+				93D41E6F19062CFF0008ED2D /* PayViewController.m */,
+			);
+			path = Pay;
+			sourceTree = "<group>";
+		};
+		93D4671518FE2B0000A32B3B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9340E3C71905136900D8E5FF /* imgCheck@2x.png */,
+				9340E3C81905136900D8E5FF /* imgUncheck@2x.png */,
+				93D4671618FE2B0000A32B3B /* img_Back@2x.png */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		93D4671818FE541900A32B3B /* BuyCarMainView */ = {
+			isa = PBXGroup;
+			children = (
+				93D4671C18FE54B600A32B3B /* BuyCarMainCell.h */,
+				93D4671D18FE54B600A32B3B /* BuyCarMainCell.m */,
+				935FE82E18FF7072000B391F /* BuyCarMainCell.xib */,
+			);
+			path = BuyCarMainView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,11 +461,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				938283F118FD780A002824E5 /* imgBuyCarIcon_H@2x.png in Resources */,
+				938283EB18FD6CDC002824E5 /* imgAbsolutePrice@2x.png in Resources */,
 				9399B18518D940BC005D29DF /* Images.xcassets in Resources */,
 				93AB023418E11972008D3C48 /* imgBGTab_H@2x.png in Resources */,
+				9340E3C91905136900D8E5FF /* imgCheck@2x.png in Resources */,
 				9399B17418D940BC005D29DF /* InfoPlist.strings in Resources */,
+				938283E618FD65F0002824E5 /* imgShoppingCartIcon@2x.png in Resources */,
+				938283E518FD65F0002824E5 /* imgSaleCarIcon@2x.png in Resources */,
 				93AB023618E119EE008D3C48 /* imgBGTab@2x.png in Resources */,
+				938283E418FD65F0002824E5 /* imgMoreIcon@2x.png in Resources */,
+				938283EF18FD7293002824E5 /* searchbg@2x.png in Resources */,
+				938283E918FD6A5B002824E5 /* pic.jpg in Resources */,
+				93D4671718FE2B0000A32B3B /* img_Back@2x.png in Resources */,
 				9399B17D18D940BC005D29DF /* Main.storyboard in Resources */,
+				938283E718FD65F0002824E5 /* imgUserCenter@2x.png in Resources */,
+				935FE82F18FF7072000B391F /* BuyCarMainCell.xib in Resources */,
+				9340E3CA1905136900D8E5FF /* imgUncheck@2x.png in Resources */,
+				938283E318FD65F0002824E5 /* imgBuyCarIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,13 +497,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93D41E6519061CE90008ED2D /* CBaseViewController.m in Sources */,
+				93D41E7019062CFF0008ED2D /* PayViewController.m in Sources */,
 				93AB024018E130D9008D3C48 /* BuyCarFilterViewController.m in Sources */,
+				93D41E6C190629130008ED2D /* CheckButton.m in Sources */,
+				93D41E73190635590008ED2D /* CheckTableViewCell.m in Sources */,
+				93D4671418FE290300A32B3B /* UINavigationBar+CustomColor.m in Sources */,
 				9399B17A18D940BC005D29DF /* AppDelegate.m in Sources */,
 				9399B17618D940BC005D29DF /* main.m in Sources */,
 				9315F69118DC662C00985B2E /* RegiestIndividualUserViewController.m in Sources */,
 				936C78A518D94FA100F458EF /* LoginViewController.m in Sources */,
+				93D4671118FE269500A32B3B /* UIBarButtonItem+ImageTitle.m in Sources */,
 				9315F68E18DC659700985B2E /* RegiestUserViewController.m in Sources */,
+				93D41E5019060ADD0008ED2D /* SellingCarViewController.m in Sources */,
+				93D41E6219061CD60008ED2D /* CBaseTableViewController.m in Sources */,
+				93D41E5319060BCE0008ED2D /* UINavigationItem+CustomColor.m in Sources */,
+				93D4671E18FE54B600A32B3B /* BuyCarMainCell.m in Sources */,
 				93AB023D18E13009008D3C48 /* BuyCarMainViewController.m in Sources */,
+				9340E3CF1905163C00D8E5FF /* ShoppingCarMainViewController.m in Sources */,
+				93D41E691906265B0008ED2D /* UserCenterMainView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,11 +644,8 @@
 				GCC_PREFIX_HEADER = "UserCar/UserCar-Prefix.pch";
 				INFOPLIST_FILE = "UserCar/UserCar-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/shulianyong/Desktop/Other/Used,
-					"Car/usedcar/03编码/iOS/AccessLayer/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -467,11 +660,8 @@
 				GCC_PREFIX_HEADER = "UserCar/UserCar-Prefix.pch";
 				INFOPLIST_FILE = "UserCar/UserCar-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/shulianyong/Desktop/Other/Used,
-					"Car/usedcar/03编码/iOS/AccessLayer/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

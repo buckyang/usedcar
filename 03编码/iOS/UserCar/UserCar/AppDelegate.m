@@ -10,15 +10,48 @@
 
 @implementation AppDelegate
 
+#pragma mark ------------ Style
+
+/**
+ *  @brief 配置Navigation的样式
+ */
+- (void)configNavigationStyle
+{
+    //设置导航栏字体颜色
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+
+    //设置导航的背景色
+    [[UINavigationBar appearance] setBarTintColor:RGBColor(56, 104, 187)];
+    
+    [UINavigationBar appearance].backItem.backBarButtonItem.tintColor =[UIColor whiteColor];
+    
+}
+
+/**
+ *  @brief 设置Tabbar的样式
+ */
+- (void)configTabbarStyle
+{
+    
+//    UITabBarController *tabController = (UITabBarController*)self.window.rootViewController;
+//    tabController.tabBar.tintColor = [UIColor blueColor];
+    
+    //
+    //    NSDictionary *dicTitle = @{NSForegroundColorAttributeName: [UIColor blackColor]};
+    //    [[UITabBarItem appearance] setTitleTextAttributes:dicTitle forState:UIControlStateNormal];
+    
+    //设置选中时的背景色
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blueColor]} forState:UIControlStateSelected];
+}
+
+#pragma mark  AppDelegate
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-//    UITabBarController *tabController = (UITabBarController*)self.window.rootViewController;
-//    tabController.tabBar.tintColor = [UIColor blueColor];
-//    
-//    NSDictionary *dicTitle = @{UITextAttributeTextColor: [UIColor whiteColor]};
-//    [[UITabBarItem appearance] setTitleTextAttributes:dicTitle forState:UIControlStateNormal];
-//    [[UITabBarItem appearance] setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor blueColor]} forState:UIControlStateSelected];
+    [self configTabbarStyle];
+    [self configNavigationStyle];
+    
     
     return YES;
 }
