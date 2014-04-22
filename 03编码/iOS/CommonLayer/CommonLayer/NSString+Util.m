@@ -33,15 +33,10 @@
 
 #pragma mark - Public Methods
 
-- (BOOL)isEmpty{
-	if (self == nil) return YES;
-    BOOL ret = ([[self trim] length]==0);
-	return ret;
-}
-
 + (BOOL)isEmpty:(NSString*)aString{
-	if (aString == nil) return YES;
-    BOOL ret = ([[aString trim] length]==0);
+    BOOL ret = NO;
+	if ((aString==nil)|| ([[aString trim] length]==0) || [aString isKindOfClass:[NSNull class]])
+        ret = YES;
 	return ret;
 }
 
@@ -235,7 +230,7 @@ static char encodingTable[64] = {
 + (NSString *) valueNotNull:(NSString*)aValue
 {
     NSString *temp = nil;
-    temp = [aValue isEmpty]?@"":aValue;
+    temp = [NSString isEmpty:aValue]?@"":aValue;
     return temp;
 }
 
@@ -278,9 +273,9 @@ static char encodingTable[64] = {
     return path;
 }
 
-+ (NSString*)pathInDocument:(NSString*)aPath
++ (NSString*)pathInDocument:(NSString*)aFolderName
 {
-    NSString *folderPath = [NSString stringWithFormat:@"%@/%@",[self documentFolderPath],aPath];
+    NSString *folderPath = [NSString stringWithFormat:@"%@/%@",[self documentFolderPath],aFolderName];
     if (![[NSFileManager defaultManager] fileExistsAtPath:folderPath])
 	{
 		NSError *err = nil;
