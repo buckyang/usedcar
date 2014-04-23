@@ -29,11 +29,12 @@ public class VerificationCodeController extends BaseController {
 		mode.addAttribute("code",code);
 	}
 	
-	@RequestMapping(value = "/obtainCode", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/obtainCode", method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
-	public void obtainCodeJSON(@ModelAttribute("profile") Profile profile,Model mode,BindingResult result) {
+	public Map<String,Object> obtainCodeJSON(@ModelAttribute("profile") Profile profile,Model mode,BindingResult result) {
 		String code=accountService.obtainVerificationCode();
 		Map<String,Object> resultMap=processGETJSON(true);
 		resultMap.put("code", code);
+		return resultMap;
 	}
 }

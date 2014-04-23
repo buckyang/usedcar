@@ -51,6 +51,7 @@
 					<array>
 						<value>/account/login</value>
 						<value>/account/signon</value>
+						<value>/account/obtainCode</value>
 					</array>
 				</property>
 			</bean>
@@ -63,6 +64,7 @@
 					<array>
 						<value>/account/login</value>
 						<value>/account/signon</value>
+						<value>/account/obtainCode</value>
 					</array>
 				</property>
 			</bean>
@@ -175,9 +177,9 @@
 		</property>
 	</bean>
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="session">
+<!-- 		<property name="session">
 			<jee:jndi-lookup id="javaMail" jndi-name="java:comp/env/mail/session" />
-		</property>
+		</property> -->
 	</bean>
 	
 </beans>
