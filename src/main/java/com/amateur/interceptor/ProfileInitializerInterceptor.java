@@ -55,7 +55,8 @@ public class ProfileInitializerInterceptor extends HandlerInterceptorAdapter {
 			int userId = NumberUtils.toInt(EncryptionUtil.decodeUserIdFromReqeustAccessToken(requestAccessToken), -1);
 			if(userId > 0){
 				MobileToken queryMobileToken = new MobileToken();
-				queryMobileToken.setClientIdentifier(MobileToken.DEFAULT_MOBILE_IDENTIFIER);
+				queryMobileToken.setClientIdentifier(ServletUtil.getMobileDeviceId(request));
+				queryMobileToken.setUserAgent(ServletUtil.getUserAgent(request));
 				queryMobileToken.setAccountId(userId);
 				if(accountService.validateMobileAccessToken(queryMobileToken, requestAccessToken)){
 					profile.setAccountDatasource(accountService.getAccountById(userId));

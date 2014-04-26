@@ -160,13 +160,13 @@
 		values (#{accountId}, #{resellerType}, #{resellerName})
 	</insert>
 	<insert id="insertMobileToken" parameterType="MobileToken">
-		insert into mobile_token (access_token,valid_date,account_id,client_identifier)
-		values (#{accessToken}, #{validDate}, #{accountId}, #{clientIdentifier})
+		insert into mobile_token (access_token,valid_date,account_id,client_identifier,user_agent)
+		values (#{accessToken}, #{validDate}, #{accountId}, #{clientIdentifier}, #{userAgent})
 	</insert>
 	<update id="updateMobileToken" parameterType="MobileToken">
 		update mobile_token set
 			access_token = #{accessToken}, valid_date = #{validDate}
-		where account_id = #{accountId} and client_identifier = #{clientIdentifier}
+		where account_id = #{accountId} and client_identifier = #{clientIdentifier} and user_agent = #{userAgent}
 	</update>
 	
 	<select id="selectMobileToken" parameterType="MobileToken" resultType="MobileToken">
@@ -174,9 +174,10 @@
 			access_token,
 			valid_date,
 			account_id,
-			client_identifier
+			client_identifier,
+			user_agent
 		from mobile_token 
-		where account_id = #{accountId} and client_identifier = #{clientIdentifier}
+		where account_id = #{accountId} and client_identifier = #{clientIdentifier} and user_agent = #{userAgent}
 	</select>
 	
 	<update id="updatePassword" parameterType="Account">

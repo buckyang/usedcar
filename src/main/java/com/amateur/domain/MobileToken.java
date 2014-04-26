@@ -15,7 +15,7 @@ public class MobileToken implements Serializable {
 	private Date	validDate;
 	private Integer	accountId;
 	private String	clientIdentifier;
-
+	private String userAgent;
 
 
 	public MobileToken() {
@@ -68,6 +68,18 @@ public class MobileToken implements Serializable {
 
 	public void setClientIdentifier(String clientIdentifier) {
 		this.clientIdentifier = clientIdentifier;
+	}
+
+
+
+	public String getUserAgent() {
+		return userAgent;
+	}
+
+
+
+	public void setUserAgent(String userAgent) {
+		this.userAgent = userAgent;
 	}
 
 }

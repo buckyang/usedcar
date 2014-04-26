@@ -5,7 +5,7 @@
 <div class="register">
 	    <div class="category">
 	        <div class="individual">
-	            <a href="<s:url value='/signon.html'/>">个人注册</a>
+	            <a href="<s:url value='/signon'/>">个人注册</a>
 	        </div>
 	        <div class="merchant">
 	        	经销商注册
@@ -33,10 +33,6 @@
 	            <label for="sellerAddress"><span>*</span>经销商地址：</label>
 	            <input id="sellerAddress" type="text" name="sellerAddress"/>
 	        </div>	        
-	        <div class="username">
-	            <label for="nickname"><span>*</span>用户名：</label>
-	            <form:input path="nickname" /><form:errors path="nickname" cssClass="error" />
-	        </div>
 	        <div class="password">
 	            <label for="password"><span>*</span>密码：</label>
 	            <form:password path="password" /><form:errors path="password" cssClass="error" />
@@ -44,6 +40,10 @@
 	        <div class="pwd-confirm">
 	            <label for="repassword"><span>*</span>确认密码：</label>
 	            <form:password path="repassword" /><form:errors path="repassword" cssClass="error" />
+	        </div>
+	        <div class="username">
+	            <label for="nickname"><span></span>用户名：</label>
+	            <form:input path="nickname" /><form:errors path="nickname" cssClass="error" />
 	        </div>
 	        <div class="email">
 	            <label for="email">邮箱：</label>

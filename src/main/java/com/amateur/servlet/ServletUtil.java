@@ -2,9 +2,13 @@ package com.amateur.servlet;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.amateur.domain.MobileToken;
+
 public class ServletUtil {
 	public static final String	PATH_EXTENSION_SEPARATOR	= ".";
-
+	public static final String HEADER_USER_AGENT = "User-Agent";
+	public static final String HEADER_USER_AGENT_DEFAULT = "Empty";
+	public static final String	MOBILE_DEVICE_ID	= "deviceId";
 
 
 	public static String getRequestURIWithoutContext(HttpServletRequest request) {
@@ -37,5 +41,19 @@ public class ServletUtil {
 		} else {
 			return "";
 		}
+	}
+	
+
+
+	public static String getUserAgent(HttpServletRequest request) {
+		String userAgent = request.getHeader(HEADER_USER_AGENT);
+		return userAgent == null ? HEADER_USER_AGENT_DEFAULT : userAgent;
+	}
+
+
+
+	public static String getMobileDeviceId(HttpServletRequest request) {
+		String deviceId = request.getParameter(MOBILE_DEVICE_ID);
+		return deviceId == null ? MobileToken.DEFAULT_MOBILE_IDENTIFIER : deviceId;
 	}
 }

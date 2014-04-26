@@ -9,8 +9,7 @@ public class LoginDTO {
 	private String	password;
 	
 	private Boolean rememberUserName;
-
-
+	
 	public String getPhoneOrEmail() {
 		return phoneOrEmail;
 	}

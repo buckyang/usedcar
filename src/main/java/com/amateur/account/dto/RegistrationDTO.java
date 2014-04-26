@@ -1,24 +1,20 @@
 package com.amateur.account.dto;
 
 import javax.validation.constraints.AssertTrue;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 
 public class RegistrationDTO {
 	private Integer	accountId;
-	@Size(min = 6)
+	@NotNull @Size(min = 6)
 	private String	password;
-	@Size(min = 6)
+	@NotNull @Size(min = 6)
 	private String	repassword;
-	@NotBlank
 	private String	nickname;
-	@Email
 	private String	email;
-	@Size(min = 6)
+	@NotNull @Size(min = 11)
 	private String phone;
 	
 	private String	phoneVerifyCode;
@@ -28,8 +24,7 @@ public class RegistrationDTO {
 	private String	resellerName;
 	@Range(min=1, max=2)
 	private Integer	accountType;
-
-
+	
 
 	public Integer getAccountId() {
 		return accountId;
@@ -160,4 +155,5 @@ public class RegistrationDTO {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
 }

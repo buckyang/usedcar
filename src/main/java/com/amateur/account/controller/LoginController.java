@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
@@ -26,6 +27,7 @@ import com.amateur.account.validator.LoginValidator;
 import com.amateur.controller.BaseController;
 import com.amateur.domain.Account;
 import com.amateur.domain.MobileToken;
+import com.amateur.servlet.ServletUtil;
 import com.amateur.session.Profile;
 import com.amateur.util.EncryptionUtil;
 
@@ -82,7 +84,7 @@ public class LoginController extends BaseController{
 	@RequestMapping(value = "/login", method = RequestMethod.POST, produces="application/json")
 	@ResponseBody
 	public  Map<String, Object> loginJSON(@Valid @ModelAttribute("loginDTO") LoginDTO loginDTO,
-			BindingResult result,@ModelAttribute("profile")Profile profile, Model m, HttpServletResponse response) {
+			BindingResult result,@ModelAttribute("profile")Profile profile, Model m, HttpServletRequest request,  HttpServletResponse response) {
 		if (!result.hasErrors()) {
 			handleLogin(loginDTO, profile, m, response);
 		}
@@ -90,7 +92,8 @@ public class LoginController extends BaseController{
 		if(!result.hasErrors()){
 			MobileToken mobileToken = new MobileToken();
 			mobileToken.setAccountId(profile.getAccountId());
-			mobileToken.setClientIdentifier(MobileToken.DEFAULT_MOBILE_IDENTIFIER);
+			mobileToken.setClientIdentifier(ServletUtil.getMobileDeviceId(request));
+			mobileToken.setUserAgent(ServletUtil.getUserAgent(request));
 			mobileToken.setAccessToken(EncryptionUtil.genRandomAccessToken());
 			mobileToken.setValidDate(DateUtils.addDays(new Date(), siteConfiguration.getMobileTokenValidDays()));
 			accountService.updateOrInsertMobileToken(mobileToken);

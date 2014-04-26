@@ -1,5 +1,6 @@
 package com.amateur.account.validator;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -23,14 +24,19 @@ public class RegistrationValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		validator.validate(target, errors);
-		RegistrationDTO registrationDTO = (RegistrationDTO) target;
-		if(registrationDTO.getAccountType() == 2){
-			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "resellerName", "account.resellerName.empty");
-		}
 		if(errors.hasErrors()){
 			return;
 		}
-		if(accountService.getAccountByEmail(registrationDTO.getEmail())!= null){
+		
+		RegistrationDTO registrationDTO = (RegistrationDTO) target;
+		if(registrationDTO.getAccountType() != null && registrationDTO.getAccountType() == 2){
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "resellerName", "account.resellerName.empty");
+		}
+		if(accountService.getAccountByPhoneOrEmail(registrationDTO.getPhone()) != null){
+			errors.rejectValue("phone", "account.phone.existing");
+		}
+		
+		if(StringUtils.isNotBlank(registrationDTO.getEmail()) && accountService.getAccountByEmail(registrationDTO.getEmail())!= null){
 			errors.rejectValue("email", "account.email.existing");
 		}
 		if(!registrationDTO.getPassword().equals(registrationDTO.getRepassword()))

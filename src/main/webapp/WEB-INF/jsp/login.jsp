@@ -17,7 +17,7 @@
         </div>
 	</form:form>
     <p>
-        <a href="<s:url value="/signon.html" />">注册</a>|
+        <a href="<s:url value="/signon" />">注册</a>|
         <a href="#">忘记用户名或密码</a>
     </p>
 </div>

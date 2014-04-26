@@ -4,8 +4,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,7 @@ import com.amateur.account.validator.RegistrationValidator;
 import com.amateur.configuration.SiteConfiguration;
 import com.amateur.controller.BaseController;
 import com.amateur.domain.MobileToken;
+import com.amateur.servlet.ServletUtil;
 import com.amateur.session.Profile;
 import com.amateur.util.EncryptionUtil;
 
@@ -86,20 +89,23 @@ public class RegistrationController extends BaseController {
 
 
 	@RequestMapping(value =  {"/signon", "/resellerSignon"}, method = RequestMethod.POST)
-	public void registerAccount(@Valid @ModelAttribute("registrationDTO") RegistrationDTO registrationDTO,
-			BindingResult result, @ModelAttribute("profile") Profile profile, Model m) {
+	public String registerAccount(@Valid @ModelAttribute("registrationDTO") RegistrationDTO registrationDTO,
+			BindingResult result, @ModelAttribute("profile") Profile profile, Model m, HttpServletRequest request) {
 		if (!result.hasErrors()) {
 			handleRegistration(registrationDTO, profile);
-			m.addAttribute("message", getPostSuccessCode());
+			//m.addAttribute("message", getPostSuccessCode());
+			return "redirect:/";
 		}
+		return ServletUtil.getRequestURIWithoutContext(request).contains("resellerSignon")? "/resellerSignon" : "/signon";
 	}
 
+	
 
 
 	@RequestMapping(value =  {"/signon", "/resellerSignon"}, method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
-	public Map<String, Object> registerAccountJSON(@Valid @ModelAttribute("registrationDTO") RegistrationDTO registrationDTO,
-			BindingResult result, @ModelAttribute("profile") Profile profile, Model m) {
+	public Map<String, Object> registerAccountJSON(@Valid @ModelAttribute("registrationDTO") RegistrationDTO registrationDTO, 
+			BindingResult result, @ModelAttribute("profile") Profile profile, Model m, HttpServletRequest request) {
 		if (!result.hasErrors()) {
 			handleRegistration(registrationDTO, profile);
 		}
@@ -107,7 +113,8 @@ public class RegistrationController extends BaseController {
 		if(!result.hasErrors()){
 			MobileToken mobileToken = new MobileToken();
 			mobileToken.setAccountId(profile.getAccountId());
-			mobileToken.setClientIdentifier(MobileToken.DEFAULT_MOBILE_IDENTIFIER);
+			mobileToken.setClientIdentifier(ServletUtil.getMobileDeviceId(request));
+			mobileToken.setUserAgent(ServletUtil.getUserAgent(request));
 			mobileToken.setAccessToken(EncryptionUtil.genRandomAccessToken());
 			mobileToken.setValidDate(DateUtils.addDays(new Date(), siteConfiguration.getMobileTokenValidDays()));
 			accountService.updateOrInsertMobileToken(mobileToken);
@@ -120,9 +127,12 @@ public class RegistrationController extends BaseController {
 
 
 	private void handleRegistration(RegistrationDTO registrationDTO, Profile profile) {
+		if(StringUtils.isBlank(registrationDTO.getEmail())){
+			registrationDTO.setEmail(null);
+		}
 		registrationDTO.setPassword(registrationDTO.getPassword().trim());
 		if (accountService.registrerAccount(registrationDTO)) {
-			profile.setAccountDatasource(accountService.getAccountByEmail(registrationDTO.getEmail()));
+			profile.setAccountDatasource(accountService.getAccountByPhoneOrEmail(registrationDTO.getPhone()));
 			profile.setStatus(Profile.EXPLICIT_LOGIN);
 		}
 	}
