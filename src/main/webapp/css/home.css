@@ -144,3 +144,12 @@ p.site-info {
     height: 53px;
 }
 
+
+.car-images {
+    display: inline-block;
+}
+
+.car-details {
+    display: inline-block;
+    width: 40%;
+}

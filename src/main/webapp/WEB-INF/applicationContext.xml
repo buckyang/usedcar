@@ -100,10 +100,9 @@
 	<mvc:view-controller path="/admin/staticPage/addPage"/>
 	<mvc:view-controller path="/admin/staticPage/deletePage"/>
 	<mvc:view-controller path="/" view-name="index" />
+	<mvc:view-controller path="/cardetails" view-name="cardetails" />
 	<mvc:view-controller path="/findpassword"
 		view-name="findpassword" />
-	<mvc:view-controller path="/sellerregister"
-		view-name="seller_register" />
 	<mvc:view-controller path="/secure/sellcar"
 		view-name="secure/sellcar" />
 	<mvc:view-controller path="/secure/basicinfo"
