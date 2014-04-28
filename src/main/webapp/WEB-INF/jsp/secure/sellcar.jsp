@@ -1,7 +1,39 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
+<script type="text/javascript" src="<s:url value="/js/lib/jquery-1.11.0.min.js" />"></script>  
+<script type="text/javascript" src="<s:url value="/js/lib/ajaxfileupload.js" />"></script>  
+
+<script type="text/javascript">  
+function ajaxFileUpload(){
+    $.ajaxFileUpload({  
+        url:'${pageContext.request.contextPath}/product/imageupload',  
+        secureuri:false,                           //是否启用安全提交,默认为false   
+        fileElementId:'image',               //文件选择框的id属性  
+        dataType:'text',                           //服务器返回的格式,可以是json或xml等  
+        success:function(data, status){            //服务器响应成功时的处理函数  
+            data = data.replace(/<pre.*?>/g, '');  //ajaxFileUpload会对服务器响应回来的text内容加上<pre style="....">text</pre>前后缀  
+            data = data.replace(/<PRE.*?>/g, '');  
+            data = data.replace("<PRE>", '');  
+            data = data.replace("</PRE>", '');  
+            data = data.replace("<pre>", '');  
+            data = data.replace("</pre>", '');     //本例中设定上传文件完毕后,服务端会返回给前台[0`filepath]  
+            if(data.substring(0, 1) == 0){         //0表示上传成功(后跟上传后的文件路径),1表示失败(后跟失败描述)  
+                $("img[id='uploadImage']").attr("src", data.substring(2) + "_regular.jpg");  
+                $("input[id='uploadImage']").attr("value", ";0;" + data.substring(2) + "_jumbo.jpg;" + data.substring(2) + "_large.jpg;" + data.substring(2) + "_regular.jpg;" + data.substring(2) + "_small.jpg;" + data.substring(2) + "_thumbnail.jpg;");  
+                $('#result').html("图片上传成功<br/>");  
+            }else{  
+                $('#result').html('图片上传失败，请重试！！');  
+            }  
+        },  
+        error:function(data, status, e){ //服务器响应失败时的处理函数  
+            $('#result').html('图片上传失败，请重试！！');  
+        }  
+    });  
+}  
+</script> 
+
 <div class="sell">
-	<form:form method="POST" modelAttribute="usedCarDTO">
+	<form:form method="POST" modelAttribute="usedCarDTO" enctype="multipart/form-data">
 	<form:hidden path="productId"/>
 		<h3>基本信息</h3>
 		<div class="basic-info">
@@ -84,20 +116,21 @@
 		<h3>车辆外观</h3>
 		<div class="appearance">
 			<div class="images">
-<!-- 				<ul>
+				<ul>
 					<li>建议上传示例</li>
-					<li><input type="file" name="image0"></li>
-					<li><img src="#" alt="右后45度" /></li>
+					<li><input type="file" name="image" id="image" onchange="ajaxFileUpload()"></li>
+					<li><img src="#" alt="右后45度" id="uploadImage"/>
+					<form:hidden path="imageUrls" id="uploadImage" />
+					</li>
 					<li><img src="#" alt="车侧正面" /></li>
 					<li><img src="#" alt="内饰前仪表台" /></li>
 					<li><img src="#" alt="发动机仓" /></li>
 					<li><img src="#" alt="后备箱" /></li>
-				</ul> -->
+				</ul>
 			</div>
 			<p>
 				请点击相应的位置图片按照要求上传至少4张对应的车源图片，推荐上传800<span class="required">*</span>600额图片获得最佳显示，大小不超过2M
 			</p>
-			<form:hidden path="imageUrls" value=";0;tobedetermined;tobedetermined;tobedetermined;tobedetermined;tobedetermined"/>
 		</div>
 
 		<h3>车主信息</h3>
