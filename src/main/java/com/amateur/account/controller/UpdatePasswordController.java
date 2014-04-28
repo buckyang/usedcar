@@ -22,9 +22,9 @@ import com.amateur.account.validator.UpdatePasswordValidator;
 import com.amateur.controller.BaseController;
 import com.amateur.domain.Account;
 import com.amateur.session.Profile;
+import com.amateur.util.EncryptionUtil;
 
 @Controller
-@RequestMapping("/account")
 @SessionAttributes("profile")
 public class UpdatePasswordController extends BaseController {
 	
@@ -66,6 +66,7 @@ public class UpdatePasswordController extends BaseController {
 			BindingResult result, Model m) {
 		if (!result.hasErrors()) {
 			handleUpdatePassword(updatePasswordDTO, m);
+			m.addAttribute("message", getPostSuccessMesage());
 		}
 	}
 	
@@ -83,9 +84,8 @@ public class UpdatePasswordController extends BaseController {
 			Model m) {
 		Account account = new Account();
 		account.setAccountId(updatePasswordDTO.getAccountId());
-		account.setPassword(updatePasswordDTO.getNewPWD());
+		account.setPassword(EncryptionUtil.encryptPassword(updatePasswordDTO.getNewPWD()));
 		accountService.updatePassword(account);
-		m.addAttribute("message", getPostSuccessMesage());
 	}
 
 }
