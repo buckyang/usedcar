@@ -34,7 +34,7 @@ import com.amateur.session.Profile;
 @SessionAttributes("profile")
 public class ManagerUserInfoController extends BaseController {
 
-	private static final Logger logger = Logger.getLogger(AccountService.class);
+	private static final Logger logger = Logger.getLogger(ManagerUserInfoController.class);
 	
 	@Autowired
 	private AccountService accountService;

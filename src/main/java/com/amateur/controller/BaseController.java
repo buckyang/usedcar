@@ -17,6 +17,7 @@ import com.amateur.configuration.SiteConfiguration;
 public class BaseController {
 	public static final String	POST_SUCESS_KEY				= "post.sucess";
 	public static final String	GET_SUCESS_KEY				= "get.sucess";
+	public static final String  GET_ERROR_KEY				= "get.error";
 	public static final String	EXECUTION_RESULT_PARAM_KEY	= "executionResult";
 	public static final String	MESSAGE_PARAM_KEY			= "message";
 	public static final String	SERVER_RESPONSE_ACCESS_TOKEN_PARAM_KEY		= "accessToken";
@@ -74,11 +75,18 @@ public class BaseController {
 		return postResultJSON;
 	}
 	
-	protected Map<String, Object> processGETJSON(Boolean result) {
+	protected Map<String, Object> processGETJSON(boolean success) {
 		Map<String, Object> postResultJSON = new LinkedHashMap<String, Object>();
-		postResultJSON.put(EXECUTION_RESULT_PARAM_KEY, result);
-		postResultJSON.put(MESSAGE_PARAM_KEY, messageSource.getMessage(getGetSuccessCode() == null ? GET_SUCESS_KEY
+		if(success){
+			postResultJSON.put(EXECUTION_RESULT_PARAM_KEY, true);
+			postResultJSON.put(MESSAGE_PARAM_KEY, messageSource.getMessage(getGetSuccessCode() == null ? GET_SUCESS_KEY
 					: getGetSuccessCode(), null, null));
+		}else{
+			postResultJSON.put(EXECUTION_RESULT_PARAM_KEY, false);
+			postResultJSON.put(MESSAGE_PARAM_KEY, messageSource.getMessage(getGetErrorCode() == null ? GET_ERROR_KEY
+					: getGetErrorCode(), null, null));			
+		}
+		
 		return postResultJSON;
 	}
 
@@ -91,7 +99,10 @@ public class BaseController {
 	protected String getGetSuccessCode() {
 		return null;
 	}
-
+	
+	protected String getGetErrorCode(){
+		return null;
+	}
 
 
 	protected String getPostSuccessMesage() {
