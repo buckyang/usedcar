@@ -23,6 +23,7 @@ import com.amateur.controller.BaseController;
 import com.amateur.session.Profile;
 
 @Controller
+@RequestMapping("account")
 @SessionAttributes("profile")
 public class VerificationCodeController extends BaseController {
 

@@ -73,15 +73,19 @@ public class ManagerUserInfoController extends BaseController {
 
 	@RequestMapping(value = "/managerUserInfo", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
-	public void viewUserInfoJSON(
+	public Map<String,Object> viewUserInfoJSON(
 			@ModelAttribute("profile") Profile profile,
 			@Valid @ModelAttribute("managerUserInfoDTO") ManagerUserInfoDTO managerUserInfoDTO,
 			Model mode, BindingResult result) {
+		Map<String , Object> resultMap=null;
 		if (!result.hasErrors()) {
-			loadUserInfo(profile, managerUserInfoDTO);
-			mode.addAttribute(managerUserInfoDTO);
-			processGETJSON(true);
+			resultMap=processGETJSON(true);
+		}else{
+			resultMap=processGETJSON(false);
 		}
+		loadUserInfo(profile, managerUserInfoDTO);
+		resultMap.put("userInfo", managerUserInfoDTO);
+		return resultMap;
 	}
 
 	@RequestMapping(value = "/managerUserInfo", method = RequestMethod.POST)
@@ -104,12 +108,12 @@ public class ManagerUserInfoController extends BaseController {
 			} catch (ParseException e) {
 				logger.error("The birthdate's pattern is error."+source);
 			}
-			account.setAccountId(1);
+			account.setAccountId(profile.getAccountId());
 			accountService.updateUserInfo(account);
 
 			Address newHomeAddress = new Address();
 			BeanUtils.copyProperties(managerUserInfoDTO, newHomeAddress,new String []{"addressId"});
-			newHomeAddress.setAccountId(1);
+			newHomeAddress.setAccountId(profile.getAccountId());
 			accountService.updateHomeAddress(newHomeAddress);
 			mode.addAttribute("message", getPostSuccessMesage());
 		}
@@ -138,21 +142,23 @@ public class ManagerUserInfoController extends BaseController {
 			} catch (ParseException e) {
 				
 			}
+			account.setAccountId(profile.getAccountId());
 			accountService.updateUserInfo(account);
 			
 			Address newHomeAddress = new Address();
+			newHomeAddress.setAccountId(profile.getAccountId());
 			BeanUtils.copyProperties(managerUserInfoDTO, newHomeAddress,new String []{"addressId"});
 			accountService.updateHomeAddress(newHomeAddress);
-			mode.addAttribute("message", getPostSuccessMesage());
 		}
 		loadUserInfo(profile, managerUserInfoDTO);
-		mode.addAttribute(managerUserInfoDTO);
-		return processPostJSON(result);
+		Map<String,Object> resultMap= processPostJSON(result);
+		resultMap.put("userInfo", managerUserInfoDTO);
+		return resultMap;
 	}
 
 	private void loadUserInfo(Profile profile,
 			ManagerUserInfoDTO managerUserInfoDTO) {
-		Integer accountId = 1;//profile.getAccountId();
+		Integer accountId = profile.getAccountId();
 		Account account = accountService.getAccountById(accountId);
 		BeanUtils.copyProperties(account, managerUserInfoDTO, new String[] {
 				"birthyear", "birthmonth", "birthday", "province", "city",

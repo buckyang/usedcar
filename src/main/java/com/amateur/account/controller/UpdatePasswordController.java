@@ -25,6 +25,7 @@ import com.amateur.session.Profile;
 import com.amateur.util.EncryptionUtil;
 
 @Controller
+@RequestMapping("account")
 @SessionAttributes("profile")
 public class UpdatePasswordController extends BaseController {
 	

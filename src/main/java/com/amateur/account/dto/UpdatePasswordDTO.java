@@ -2,20 +2,20 @@ package com.amateur.account.dto;
 
 import java.io.Serializable;
 
-import org.hibernate.validator.constraints.Length;
+import javax.validation.constraints.Size;
+
 import org.hibernate.validator.constraints.NotBlank;
 
 public class UpdatePasswordDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@NotBlank
-	@Length(min=6,max=6)
 	private String oldPWD;
 	@NotBlank
-	@Length(min=6,max=6)
+	@Size(min=6)
 	private String newPWD;
 	@NotBlank
-	@Length(min=6,max=6)
+	@Size(min=6)
 	private String confirmPWD;
 	private Integer accountId;
 
