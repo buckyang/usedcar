@@ -20,12 +20,16 @@
  */
 - (void)configBackButton
 {
-    if (self.navigationController&&self.navigationController.viewControllers.count>0) {
-        UIViewController *firstController = self.navigationController.viewControllers[0];
-        if (firstController!=self) {
-            self.navigationItem.leftBarButtonItems = @[[UIBarButtonItem barBackWithTarget:self]];
-        }
-    }
+//    if (self.navigationController&&self.navigationController.viewControllers.count>0) {
+//        UIViewController *firstController = self.navigationController.viewControllers[0];
+//        if (firstController!=self) {
+//            self.navigationItem.leftBarButtonItems = @[[UIBarButtonItem barBackWithTarget:self]];
+//        }
+//    }    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"img_Back.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [backItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateNormal];
+    self.navigationItem.backBarButtonItem = backItem;
 }
 
 
