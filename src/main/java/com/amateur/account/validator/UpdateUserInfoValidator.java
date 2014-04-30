@@ -12,17 +12,22 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
-import com.amateur.account.dto.ManagerUserInfoDTO;
+import com.amateur.account.dto.UserInfoDTO;
+import com.amateur.account.service.AccountService;
+import com.amateur.domain.Account;
 
 @Component
-public class ManagerUserInfoValidator implements Validator {
+public class UpdateUserInfoValidator implements Validator {
 
 	@Autowired
 	private LocalValidatorFactoryBean validator;
+	
+	@Autowired
+	private AccountService accountService;
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		return ManagerUserInfoDTO.class.isAssignableFrom(clazz);
+		return UserInfoDTO.class.isAssignableFrom(clazz);
 	}
 
 	@Override
@@ -31,7 +36,14 @@ public class ManagerUserInfoValidator implements Validator {
 		if (errors.hasErrors()) {
 			return;
 		}
-		ManagerUserInfoDTO userInfoDTO = (ManagerUserInfoDTO) target;
+		UserInfoDTO userInfoDTO = (UserInfoDTO) target;
+		
+		Account account=accountService.getAccountById(userInfoDTO.getAccountId());
+		if(account==null){
+			errors.reject("message", "account.invalid");
+			return;
+		}
+		
 		String year = userInfoDTO.getBirthyear();
 		String month = userInfoDTO.getBirthmonth();
 		String day = userInfoDTO.getBirthday();
@@ -49,8 +61,7 @@ public class ManagerUserInfoValidator implements Validator {
 			Pattern pattern = Pattern.compile(regex);
 			Matcher matcher = pattern.matcher(userInfoDTO.getCertificateNumber());
 			if (!matcher.matches()) {
-				errors.rejectValue("certificateNumber",
-						"certificate.number.pattern.error");
+				errors.rejectValue("certificateNumber","certificate.number.pattern.error");
 			}
 		}
 	}

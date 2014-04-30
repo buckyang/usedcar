@@ -2,15 +2,22 @@ package com.amateur.account.dto;
 
 import java.io.Serializable;
 
-public class ManagerUserInfoDTO implements Serializable {
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+public class UserInfoDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Integer accountId;
+	@NotBlank
 	private String nickname;
+	@NotBlank
 	private String realName;
 	private String email;
 	private Boolean bindEmail;
+	@NotNull
 	private Boolean sex;
 	private String idNumber;
 	private String phone;
