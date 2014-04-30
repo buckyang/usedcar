@@ -15,35 +15,33 @@ import org.springframework.validation.ObjectError;
 import com.amateur.configuration.SiteConfiguration;
 
 public class BaseController {
-	public static final String	POST_SUCESS_KEY				= "post.sucess";
-	public static final String	GET_SUCESS_KEY				= "get.sucess";
-	public static final String  GET_ERROR_KEY				= "get.error";
-	public static final String	EXECUTION_RESULT_PARAM_KEY	= "executionResult";
-	public static final String	MESSAGE_PARAM_KEY			= "message";
-	public static final String	SERVER_RESPONSE_ACCESS_TOKEN_PARAM_KEY		= "accessToken";
-	public static final String	SERVER_RESPONSE_USER_ID_KEY	= "userId";
-	public static final String  CLIENT_REQUEST_ACCESS_TOKEN_PARAM = "accessToken";
-	private static final int	MAX_ERROR_MSGS				= 3;
-	private static final String	ERROR_MSG_DELIMITER			= " ";
+	public static final String POST_SUCESS_KEY = "post.sucess";
+	public static final String GET_SUCESS_KEY = "get.sucess";
+	public static final String GET_ERROR_KEY = "get.error";
+	public static final String EXECUTION_RESULT_PARAM_KEY = "executionResult";
+	public static final String MESSAGE_PARAM_KEY = "message";
+	public static final String SERVER_RESPONSE_ACCESS_TOKEN_PARAM_KEY = "accessToken";
+	public static final String SERVER_RESPONSE_USER_ID_KEY = "userId";
+	public static final String CLIENT_REQUEST_ACCESS_TOKEN_PARAM = "accessToken";
+	private static final int MAX_ERROR_MSGS = 3;
+	private static final String ERROR_MSG_DELIMITER = " ";
 	@Autowired
-	protected MessageSource		messageSource;
+	protected MessageSource messageSource;
 	@Autowired
 	protected SiteConfiguration siteConfiguration;
-	
-	private static final Logger	logger						= Logger.getLogger(BaseController.class);
 
-
+	private static final Logger logger = Logger.getLogger(BaseController.class);
 
 	protected Map<String, Object> processPostJSON(BindingResult result) {
 		Map<String, Object> postResultJSON = new LinkedHashMap<String, Object>();
 		if (result.hasErrors()) {
 			List<ObjectError> allErrors = result.getAllErrors();
 			StringBuilder errorMsg = new StringBuilder();
-			for(int i = 0; i < allErrors.size() &&  i< MAX_ERROR_MSGS; i++){
+			for (int i = 0; i < allErrors.size() && i < MAX_ERROR_MSGS; i++) {
 				ObjectError objectError = allErrors.get(i);
 				String errorFieldOrCommand = null;
 				if (objectError instanceof FieldError) {
-					errorFieldOrCommand = ((FieldError)objectError).getField();
+					errorFieldOrCommand = ((FieldError) objectError).getField();
 				} else {
 					errorFieldOrCommand = objectError.getObjectName();
 
@@ -57,7 +55,7 @@ public class BaseController {
 					} catch (NoSuchMessageException e) {
 					}
 					if (message != null) {
-						if(i != 0){
+						if (i != 0) {
 							errorMsg.append(ERROR_MSG_DELIMITER);
 						}
 						errorMsg.append(message);
@@ -66,46 +64,48 @@ public class BaseController {
 			}
 			postResultJSON.put(EXECUTION_RESULT_PARAM_KEY, false);
 			postResultJSON.put(MESSAGE_PARAM_KEY, errorMsg.toString());
-			
-		}else{
+
+		} else {
 			postResultJSON.put(EXECUTION_RESULT_PARAM_KEY, true);
-			postResultJSON.put(MESSAGE_PARAM_KEY, messageSource.getMessage(getPostSuccessCode() == null ? POST_SUCESS_KEY
-					: getPostSuccessCode(), null, null));
+			postResultJSON.put(MESSAGE_PARAM_KEY, messageSource.getMessage(
+					getPostSuccessCode() == null ? POST_SUCESS_KEY
+							: getPostSuccessCode(), null, null));
 		}
 		return postResultJSON;
 	}
-	
-	protected Map<String, Object> processGETJSON(boolean success) {
+
+	protected Map<String, Object> processGenericJSON(boolean success) {
+
 		Map<String, Object> postResultJSON = new LinkedHashMap<String, Object>();
-		if(success){
+		if (success) {
 			postResultJSON.put(EXECUTION_RESULT_PARAM_KEY, true);
-			postResultJSON.put(MESSAGE_PARAM_KEY, messageSource.getMessage(getGetSuccessCode() == null ? GET_SUCESS_KEY
-					: getGetSuccessCode(), null, null));
-		}else{
+			postResultJSON.put(MESSAGE_PARAM_KEY, messageSource.getMessage(
+					getGetSuccessCode() == null ? GET_SUCESS_KEY
+							: getGetSuccessCode(), null, null));
+		} else {
 			postResultJSON.put(EXECUTION_RESULT_PARAM_KEY, false);
-			postResultJSON.put(MESSAGE_PARAM_KEY, messageSource.getMessage(getGetErrorCode() == null ? GET_ERROR_KEY
-					: getGetErrorCode(), null, null));			
+			postResultJSON.put(MESSAGE_PARAM_KEY, messageSource.getMessage(
+					getGetErrorCode() == null ? GET_ERROR_KEY
+							: getGetErrorCode(), null, null));
 		}
-		
+
 		return postResultJSON;
 	}
-
-
 
 	protected String getPostSuccessCode() {
 		return null;
 	}
-	
+
 	protected String getGetSuccessCode() {
 		return null;
 	}
-	
-	protected String getGetErrorCode(){
+
+	protected String getGetErrorCode() {
 		return null;
 	}
 
-
 	protected String getPostSuccessMesage() {
-		return getPostSuccessCode() == null ? null : messageSource.getMessage(getPostSuccessCode(), null, null);
+		return getPostSuccessCode() == null ? null : messageSource.getMessage(
+				getPostSuccessCode(), null, null);
 	}
 }

@@ -79,9 +79,9 @@ public class ManagerUserInfoController extends BaseController {
 			Model mode, BindingResult result) {
 		Map<String , Object> resultMap=null;
 		if (!result.hasErrors()) {
-			resultMap=processGETJSON(true);
+			resultMap=processGenericJSON(true);
 		}else{
-			resultMap=processGETJSON(false);
+			resultMap=processGenericJSON(false);
 		}
 		loadUserInfo(profile, managerUserInfoDTO);
 		resultMap.put("userInfo", managerUserInfoDTO);

@@ -1,5 +1,6 @@
 package com.amateur.product.controller;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -7,11 +8,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -29,6 +30,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.amateur.controller.BaseController;
+import com.amateur.exception.ImageUploadException;
 import com.amateur.product.dto.UsedCarDTO;
 import com.amateur.product.service.ProductService;
 import com.amateur.session.Profile;
@@ -41,10 +43,9 @@ public class ProductController extends BaseController {
 
 	@Autowired
 	private ProductService productService;
-	@Autowired
-	private ImageUtil imageUtil;
-	
-	private static final Logger logger = Logger.getLogger(ProductController.class);
+
+	private static final Logger logger = Logger
+			.getLogger(ProductController.class);
 
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) throws Exception {
@@ -85,7 +86,8 @@ public class ProductController extends BaseController {
 	}
 
 	@RequestMapping(value = "/publishusedcar", method = RequestMethod.POST)
-	public String publishUsedCar(UsedCarDTO usedCarDTO, @ModelAttribute("profile") Profile profile, BindingResult result) {
+	public String publishUsedCar(UsedCarDTO usedCarDTO,
+			@ModelAttribute("profile") Profile profile, BindingResult result) {
 
 		if (result.hasErrors()) {
 			return "secure/sellcar";
@@ -108,7 +110,7 @@ public class ProductController extends BaseController {
 	@RequestMapping(value = "/publishusedcar", method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
 	public Map<String, Object> publishUsedCarJSON(@Valid UsedCarDTO usedCarDTO,
-			@ModelAttribute("profile") Profile profile,	BindingResult result) {
+			@ModelAttribute("profile") Profile profile, BindingResult result) {
 		if (!result.hasErrors()) {
 			handleUsedCar(usedCarDTO, profile);
 		}
@@ -126,41 +128,109 @@ public class ProductController extends BaseController {
 	@ResponseBody
 	public Map<String, Object> deleteUsedCarJSON(String productId) {
 		boolean result = productService.deleteUsedCar(productId);
-		return processGETJSON(result);
+		return processGenericJSON(result);
+	}
+
+	@RequestMapping(value = "/imageUpload", method = RequestMethod.POST, produces = "application/json")
+	@ResponseBody
+	public Map<String, Object> imageUploadJSON(
+			@RequestParam MultipartFile image, HttpServletRequest request,
+			@ModelAttribute("profile") Profile profile) {
+
+		logger.debug("ProductController imageUploadJSON: beginning.");
+		Map<String, Object> resultMap = null;
+		try {
+			processImage(image, request, profile);
+		} catch (IOException e) {
+			logger.error("ProductController imageUpload: error generated. " + e);
+			return processGenericJSON(false);
+		} catch (ImageUploadException e) {
+			logger.error("ProductController imageUpload: error generated. " + e);
+			resultMap = processGenericJSON(false);
+			resultMap.put(MESSAGE_PARAM_KEY, e.getMessage());
+			return resultMap;
+		}
+		resultMap = processGenericJSON(true);
+		resultMap.put("url", request.getContextPath() + "/image/upload/"
+				+ image.getName() + "_" + profile.getAccountId()
+				+ "_regular.jpg");
+		return resultMap;
 	}
 
 	@RequestMapping(value = "/imageupload", method = RequestMethod.POST)
-	public void imageUpload(@RequestParam MultipartFile image, HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		String realPath = request.getSession().getServletContext()
-				.getRealPath("/image/upload");
-		PrintWriter out = response.getWriter();
+	public void imageUpload(@RequestParam MultipartFile image,
+			HttpServletRequest request, HttpServletResponse response,
+			@ModelAttribute("profile") Profile profile) {
+
+		logger.debug("ProductController imageUpload: beginning.");
+		PrintWriter out = null;
 		try {
-			imageUtil.createThumbnail(image.getInputStream(), realPath + "/"
-					+ image.getName() + "_jumbo.jpg", 800, 600);
-			imageUtil.createThumbnail(image.getInputStream(), realPath + "/"
-					+ image.getName() + "_large.jpg", 400, 300);
-			imageUtil.createThumbnail(image.getInputStream(), realPath + "/"
-					+ image.getName() + "_regular.jpg", 200, 150);
-			imageUtil.createThumbnail(image.getInputStream(), realPath + "/"
-					+ image.getName() + "_small.jpg", 100, 75);
-			imageUtil.createThumbnail(image.getInputStream(), realPath + "/"
-					+ image.getName() + "_thumbnail.jpg", 50, 38);
+			out = response.getWriter();
+			processImage(image, request, profile);
 		} catch (IOException e) {
 			logger.error("ProductController imageUpload: " + e);
 			out.print("1`文件上传失败，请重试！！");
 			out.flush();
 			return;
+		} catch (ImageUploadException e) {
+			logger.error("ProductController imageUpload: " + e);
+			out.print("1`" + e.getMessage());
+			out.flush();
+			return;
 		}
-		out.print("0`" + request.getContextPath()
-				+ "/image/upload/" + image.getName());
+		out.print("0`" + request.getContextPath() + "/image/upload/"
+				+ image.getName() + "_" + profile.getAccountId()
+				+ "_regular.jpg");
 		out.flush();
 	}
 
-	@RequestMapping(value = "/imageupload", method = RequestMethod.POST, produces = "application/json")
-	@ResponseBody
-	public void imageUploadJSON() {
+	private void processImage(MultipartFile image, HttpServletRequest request,
+			@ModelAttribute("profile") Profile profile) throws IOException,
+			ImageUploadException {
 
+		if (!image.isEmpty()) {
+			validateImage(image);
+			saveImage(image, request, profile);
+		}
+
+	}
+
+	private void saveImage(MultipartFile image, HttpServletRequest request,
+			@ModelAttribute("profile") Profile profile) throws IOException {
+		String realPath = request.getSession().getServletContext()
+				.getRealPath("/image/upload");
+		File file = new File(realPath);
+		if (!file.exists()) {
+			file.mkdir();
+		}
+		BufferedImage bufferedImage = ImageIO.read(image.getInputStream());
+		ImageUtil.createThumbnail(
+				bufferedImage,
+				realPath + File.separator + image.getName() + "_"
+						+ profile.getAccountId() + "_jumbo.jpg", 800, 600,
+				false);
+		ImageUtil.createThumbnail(
+				bufferedImage,
+				realPath + File.separator + image.getName() + "_"
+						+ profile.getAccountId() + "_large.jpg", 400, 300,
+				false);
+		ImageUtil.createThumbnail(bufferedImage, realPath + File.separator
+				+ image.getName() + "_" + profile.getAccountId()
+				+ "_regular.jpg", 200, 150, false);
+		ImageUtil
+				.createThumbnail(bufferedImage, realPath + File.separator
+						+ image.getName() + "_" + profile.getAccountId()
+						+ "_small.jpg", 100, 75, false);
+		ImageUtil.createThumbnail(bufferedImage, realPath + File.separator
+				+ image.getName() + "_" + profile.getAccountId()
+				+ "_thumbnail.jpg", 50, 38, false);
+	}
+
+	private void validateImage(MultipartFile image) throws ImageUploadException {
+
+		if (!image.getContentType().equals("image/jpeg")) {
+			throw new ImageUploadException("文件格式不正确， 请上传JPG或则JPEG格式图片");
+		}
 	}
 
 }

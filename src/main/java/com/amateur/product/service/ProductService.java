@@ -41,7 +41,7 @@ public class ProductService {
 	@Autowired
 	private AddressService addressService;
 
-	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public boolean publishUsedCar(UsedCarDTO usedCarDTO) {
 		logger.info("start publishing used car.");
 		usedCarDTO.setProductId(sequenceService.getProductId());
@@ -97,7 +97,7 @@ public class ProductService {
 		return usedCar;
 	}
 	
-	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public boolean updateUsedCar(UsedCarDTO usedCarDTO) {
 		logger.info("start updating used car.");
 		Product usedCar = convertToProduct(usedCarDTO);
@@ -127,7 +127,7 @@ public class ProductService {
 		return product.getDTO();
 	}
 	
-	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public boolean deleteUsedCar(String productId){
 		if(productModelMapper.deleteProductModel(productId)==1){
 			if(productImageMapper.deleteProdutImage(productId)==1){
