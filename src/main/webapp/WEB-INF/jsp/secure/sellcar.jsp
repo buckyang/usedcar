@@ -19,7 +19,7 @@ function ajaxFileUpload(){
             data = data.replace("</pre>", '');     
             if(data.substring(0, 1) == 0){  
             	var imgTxt= document.createElement("img");
-            	$(imgTxt).attr("src", data.substring(2) + "_regular.jpg");
+            	$(imgTxt).attr("src", data.substring(2));
             	var hiddenTxt= document.createElement("input");
             	$(hiddenTxt).attr("type", "hidden");
             	$(hiddenTxt).attr("name", "imageUrls");

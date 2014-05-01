@@ -134,13 +134,13 @@ public class ProductController extends BaseController {
 	@RequestMapping(value = "/imageUpload", method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
 	public Map<String, Object> imageUploadJSON(
-			@RequestParam MultipartFile image, HttpServletRequest request,
-			@ModelAttribute("profile") Profile profile) {
+			@RequestParam MultipartFile image, HttpServletRequest request) {
 
 		logger.debug("ProductController imageUploadJSON: beginning.");
 		Map<String, Object> resultMap = null;
+		String commonName = image.getName() + "_" + System.currentTimeMillis();
 		try {
-			processImage(image, request, profile);
+			processImage(image, request, commonName);
 		} catch (IOException e) {
 			logger.error("ProductController imageUpload: error generated. " + e);
 			return processGenericJSON(false);
@@ -152,21 +152,20 @@ public class ProductController extends BaseController {
 		}
 		resultMap = processGenericJSON(true);
 		resultMap.put("url", request.getContextPath() + "/image/upload/"
-				+ image.getName() + "_" + profile.getAccountId()
-				+ "_regular.jpg");
+				+ commonName + "_regular.jpg");
 		return resultMap;
 	}
 
 	@RequestMapping(value = "/imageupload", method = RequestMethod.POST)
 	public void imageUpload(@RequestParam MultipartFile image,
-			HttpServletRequest request, HttpServletResponse response,
-			@ModelAttribute("profile") Profile profile) {
+			HttpServletRequest request, HttpServletResponse response) {
 
 		logger.debug("ProductController imageUpload: beginning.");
 		PrintWriter out = null;
+		String commonName = image.getName() + "_" + System.currentTimeMillis();
 		try {
 			out = response.getWriter();
-			processImage(image, request, profile);
+			processImage(image, request, commonName);
 		} catch (IOException e) {
 			logger.error("ProductController imageUpload: " + e);
 			out.print("1`文件上传失败，请重试！！");
@@ -179,24 +178,22 @@ public class ProductController extends BaseController {
 			return;
 		}
 		out.print("0`" + request.getContextPath() + "/image/upload/"
-				+ image.getName() + "_" + profile.getAccountId()
-				+ "_regular.jpg");
+				+ commonName + "_regular.jpg");
 		out.flush();
 	}
 
 	private void processImage(MultipartFile image, HttpServletRequest request,
-			@ModelAttribute("profile") Profile profile) throws IOException,
-			ImageUploadException {
+			String commonName) throws IOException, ImageUploadException {
 
 		if (!image.isEmpty()) {
 			validateImage(image);
-			saveImage(image, request, profile);
+			saveImage(image, request, commonName);
 		}
 
 	}
 
 	private void saveImage(MultipartFile image, HttpServletRequest request,
-			@ModelAttribute("profile") Profile profile) throws IOException {
+			String commonName) throws IOException {
 		String realPath = request.getSession().getServletContext()
 				.getRealPath("/image/upload");
 		File file = new File(realPath);
@@ -204,26 +201,16 @@ public class ProductController extends BaseController {
 			file.mkdir();
 		}
 		BufferedImage bufferedImage = ImageIO.read(image.getInputStream());
-		ImageUtil.createThumbnail(
-				bufferedImage,
-				realPath + File.separator + image.getName() + "_"
-						+ profile.getAccountId() + "_jumbo.jpg", 800, 600,
-				false);
-		ImageUtil.createThumbnail(
-				bufferedImage,
-				realPath + File.separator + image.getName() + "_"
-						+ profile.getAccountId() + "_large.jpg", 400, 300,
-				false);
 		ImageUtil.createThumbnail(bufferedImage, realPath + File.separator
-				+ image.getName() + "_" + profile.getAccountId()
-				+ "_regular.jpg", 200, 150, false);
-		ImageUtil
-				.createThumbnail(bufferedImage, realPath + File.separator
-						+ image.getName() + "_" + profile.getAccountId()
-						+ "_small.jpg", 100, 75, false);
+				+ commonName + "_jumbo.jpg", 800, 600, false);
 		ImageUtil.createThumbnail(bufferedImage, realPath + File.separator
-				+ image.getName() + "_" + profile.getAccountId()
-				+ "_thumbnail.jpg", 50, 38, false);
+				+ commonName + "_large.jpg", 400, 300, false);
+		ImageUtil.createThumbnail(bufferedImage, realPath + File.separator
+				+ commonName + "_regular.jpg", 200, 150, false);
+		ImageUtil.createThumbnail(bufferedImage, realPath + File.separator
+				+ commonName + "_small.jpg", 100, 75, false);
+		ImageUtil.createThumbnail(bufferedImage, realPath + File.separator
+				+ commonName + "_thumbnail.jpg", 50, 38, false);
 	}
 
 	private void validateImage(MultipartFile image) throws ImageUploadException {

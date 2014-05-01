@@ -2,13 +2,12 @@ package com.amateur.util;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.FileOutputStream;
+import java.io.File;
 import java.io.IOException;
 
-import org.apache.log4j.Logger;
+import javax.imageio.ImageIO;
 
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
+import org.apache.log4j.Logger;
 
 public class ImageUtil {
 
@@ -35,9 +34,7 @@ public class ImageUtil {
 		bfImage.getGraphics().drawImage(
 				image.getScaledInstance(width, height, Image.SCALE_SMOOTH), 0,
 				0, null);
-		FileOutputStream os = new FileOutputStream(destination);
-		JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(os);
-		encoder.encode(bfImage);
-		os.close();
+		String formatName = destination.substring(destination.lastIndexOf(".") + 1); 
+		ImageIO.write(bfImage, formatName, new File(destination));
 	}
 }
