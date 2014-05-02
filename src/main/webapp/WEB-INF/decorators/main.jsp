@@ -15,7 +15,6 @@
 <body>
 <div class="container">
     <jsp:include page="/WEB-INF/jsp/sections/header.jsp"/>
-    <jsp:include page="/WEB-INF/jsp/sections/navigation.jsp"/>
     <decorator:body/>
     <jsp:include page="/WEB-INF/jsp/sections/footer.jsp"/>
     <p class="site-info">XXX网站备案</p>

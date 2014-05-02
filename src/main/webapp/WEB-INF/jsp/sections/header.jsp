@@ -1,7 +1,7 @@
 <div class="header">
-    <div class="logo">
-        <img src="logo.png" alt="logo"/>
-    </div>
+    <a class="logo" href="/">
+        <img src='<s:url value="/image/logo.jpg"/>' alt="logo"/>
+    </a>
 
     <div class="auth">
         <c:choose>
@@ -18,4 +18,5 @@
     	</c:choose>
 
     </div>
+    <jsp:include page="/WEB-INF/jsp/sections/navigation.jsp"/>
 </div>
