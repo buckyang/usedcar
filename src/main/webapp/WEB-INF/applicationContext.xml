@@ -46,11 +46,8 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/account/**.json" />
 			<bean class="com.amateur.interceptor.MobileAuthorizationInteceptor">
-				<property name="accountAccessDenyURL" value="/account/login" />
 				<property name="ingorePaths">
 					<array>
-						<value>/account/login</value>
-						<value>/account/signon</value>
 						<value>/account/obtainCode</value>
 					</array>
 				</property>
@@ -59,11 +56,9 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/account/**" />
 			<bean class="com.amateur.interceptor.UserAuthorizationInteceptor">
-				<property name="accountAccessDenyURL" value="/account/login" />
+				<property name="accountAccessDenyURL" value="/login" />
 				<property name="ingorePaths">
 					<array>
-						<value>/account/login</value>
-						<value>/account/signon</value>
 						<value>/account/obtainCode</value>
 					</array>
 				</property>

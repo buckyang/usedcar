@@ -2,19 +2,19 @@ package com.amateur.account.dto;
 
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 
 public class RegistrationDTO {
 	private Integer	accountId;
-	@NotNull @Length(min=6,max=6)
+	@NotNull @Size(min=6)
 	private String	password;
-	@NotNull @Length(min=6,max=6)
+	@NotNull @Size(min=6)
 	private String	repassword;
 	private String	nickname;
 	private String	email;
-	@NotNull @Length(min=11,max=11)
+	@NotNull @Size(min=11,max=11)
 	private String phone;
 	
 	private String	phoneVerifyCode;

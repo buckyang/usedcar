@@ -57,11 +57,6 @@ public class UpdatePasswordController extends BaseController {
 	public void form() {
 	}
 	
-	@RequestMapping(value = "/updatePassword", method = RequestMethod.GET,  produces="application/json")
-	@ResponseBody
-	public void formJSON() {
-	}
-
 	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
 	public void updatePassowrd(@Valid @ModelAttribute("updatePasswordDTO") UpdatePasswordDTO updatePasswordDTO,
 			BindingResult result, Model m) {
