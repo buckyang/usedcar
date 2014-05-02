@@ -75,18 +75,63 @@ a {
     font-size: 16px;
 }
 
-
+.footer-wrapper{
+    height: 157px;
+    background: #979995; /* Old browsers */
+    background: -moz-linear-gradient(top,  #979995 1%, #c8c9c1 6%, #eeefed 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#979995), color-stop(6%,#c8c9c1), color-stop(100%,#eeefed)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #979995 1%,#c8c9c1 6%,#eeefed 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #979995 1%,#c8c9c1 6%,#eeefed 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #979995 1%,#c8c9c1 6%,#eeefed 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #979995 1%,#c8c9c1 6%,#eeefed 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#979995', endColorstr='#eeefed',GradientType=0 ); /* IE6-9 */
+}
 
 .footer {
     clear: both;
-    border: 1px solid #333;
-    padding: 10px 0;
+    width: 1050px;
+    margin: 0 auto;
+    padding-top: 20px;
+    font-size: 14px;
 }
 
-.footer .about-us, .footer .companies {
+.footer a, .footer p {
+    color: #333;
+}
+
+.footer p {
+    margin-bottom: 10px;
+}
+
+.footer ul li {
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.footer .links {
+    width: 700px;
     display: inline-block;
-    width: 49%;
-    text-align: center;
+}
+
+.footer .links .company {
+    width: 190px;
+    display: inline-block;
+    border-right: 1px solid #eee;
+}
+
+.footer .links .cooperators{
+    margin-left: 30px;
+    display: inline-block;
+}
+
+.footer .copyright {
+    width: 345px;
+    display: inline-block;
+}
+
+.footer .copyright p{
+    float: right;
+    font-size: 12px;
 }
 
 p.site-info {
@@ -96,10 +141,11 @@ p.site-info {
 }
 
 .cars {
-    border: 1px solid #333;
-    height: 220px;
-    margin-top: 10px;
+    width: 1050px;
+    margin: 20px auto;
+    height: 350px;
     padding: 5px 10px;
+    background: url("/image/banner.jpg") no-repeat top left;
 }
 
 .cars form label,
@@ -113,11 +159,15 @@ p.site-info {
     font-size: 0.8em;
 }
 
+.info-wrapper {
+    background-color: #F8F8F8;
+}
+
 .info {
-    margin-top: 10px;
     border: 1px solid #333;
     padding: 5px 5px;
-    margin-bottom: 10px;
+    width: 1050px;
+    margin: 10px auto;
 }
 
 .info .messages {

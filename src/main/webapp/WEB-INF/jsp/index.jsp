@@ -27,34 +27,38 @@
     </form>
 </div>
 
-<div class="info">
-    <div class="messages">
-        <div class="recommends">
-            每日推荐/信息轮播
+<div class="info-wrapper">
+    <div class="info">
+        <div class="messages">
+            <div class="recommends">
+                每日推荐/信息轮播
+            </div>
+            <div class="contract">
+                <ul>
+                    <li><a href="#">优卡报</a></li>
+                    <li><a href="#">第三方支付</a></li>
+                    <li><a href="#">回购协议</a></li>
+                </ul>
+            </div>
+            <div class="buy">
+                买车指南
+            </div>
+            <div class="sell">
+                买车指南
+            </div>
+            <div class="loan">
+                贷款&保险
+            </div>
+            <div class="certificate">
+                认证二手车
+            </div>
         </div>
-        <div class="contract">
-            <ul>
-                <li><a href="#">优卡报</a></li>
-                <li><a href="#">第三方支付</a></li>
-                <li><a href="#">回购协议</a></li>
-            </ul>
+        <div class="barcode">
+            <p>手机app下载二维码</p>
+
+            <p>登陆</p>
+
+            <p>注册</p>
         </div>
-        <div class="buy">
-            买车指南
-        </div>
-        <div class="sell">
-            买车指南
-        </div>
-        <div class="loan">
-            贷款&保险
-        </div>
-        <div class="certificate">
-            认证二手车
-        </div>
-    </div>
-    <div class="barcode">
-        <p>手机app下载二维码</p>
-        <p>登陆</p>
-        <p>注册</p>
     </div>
 </div>

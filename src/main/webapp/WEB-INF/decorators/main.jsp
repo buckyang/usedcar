@@ -17,7 +17,6 @@
     <jsp:include page="/WEB-INF/jsp/sections/header.jsp"/>
     <decorator:body/>
     <jsp:include page="/WEB-INF/jsp/sections/footer.jsp"/>
-    <p class="site-info">XXX网站备案</p>
 </div>
 </body>
 </html>
