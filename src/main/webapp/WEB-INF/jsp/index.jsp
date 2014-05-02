@@ -23,7 +23,7 @@
         </select>
         <input type="radio" name="isCertificated" value="是否认证">
         <span class="certificate">是否认证</span>
-        <input type="submit" value="搜索"/>
+        <button type="submit" value="搜索">搜索</button>
     </form>
 </div>
 

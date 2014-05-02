@@ -25,7 +25,8 @@ a {
     width: 246px;
     float: left;
     height: 116px;
-    background: url("/image/logo.jpg")
+    background: url("/image/logo.jpg");
+    margin-left: 28px;
 }
 
 .header .auth {
@@ -48,7 +49,7 @@ a {
 
 .nav {
     clear: both;
-    width: 802px;
+    width: 776px;
     height: 66px;
     background-color: #27457B;
     display: inline-block;
@@ -57,10 +58,11 @@ a {
 
 .nav ul li {
     display: inline-block;
-    width: 115px;
+    width: 110px;
     height: 66px;
     text-align: center;
     line-height: 66px;
+    font-weight: bold;
     background: url("/image/s.jpg") no-repeat 0px 25px;
 }
 
@@ -144,19 +146,52 @@ p.site-info {
     width: 1050px;
     margin: 20px auto;
     height: 350px;
-    padding: 5px 10px;
     background: url("/image/banner.jpg") no-repeat top left;
 }
 
-.cars form label,
-.cars form select,
-.cars form input[type="submit"] {
+.cars form {
+    margin-left: 30px;
+}
+
+.cars form label {
+    display: inline-block;
+    color: #FFF;
+    padding-left: 20px;
+    width: 224px;
+    height: 37px;
+    line-height: 37px;
+    background-color: #008000;
+    margin: 20px 0;
+}
+
+.cars form button[type="submit"] {
     display: block;
-    width: 100px;
+    height: 37px;
+    width: 200px;
+}
+
+.cars form button[type="submit"],
+.cars input[type="radio"]{
+    margin-left: 10px;
+}
+
+.cars form select {
+    display: block;
+    background: white;
+    width: 244px;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
+    height: 34px;
+    -webkit-appearance: none;
 }
 
 .cars form .certificate {
     font-size: 0.8em;
+    color: #fff;
 }
 
 .info-wrapper {
@@ -164,7 +199,6 @@ p.site-info {
 }
 
 .info {
-    border: 1px solid #333;
     padding: 5px 5px;
     width: 1050px;
     margin: 10px auto;
