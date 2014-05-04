@@ -1,61 +1,106 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<script type="text/javascript" src="<s:url value="/js/lib/jquery-1.11.0.min.js" />"></script>  
-<script type="text/javascript" src="<s:url value="/js/lib/ajaxfileupload.js" />"></script>  
+<script type="text/javascript"
+	src="<s:url value="/js/lib/jquery-1.11.0.min.js" />"></script>
+<script type="text/javascript"
+	src="<s:url value="/js/lib/ajaxfileupload.js" />"></script>
 
-<script type="text/javascript">  
-function ajaxFileUpload(){
-    $.ajaxFileUpload({  
-        url:'${pageContext.request.contextPath}/product/imageupload',  
-        secureuri:false,                           
-        fileElementId:'image',               
-        dataType:'text',                           
-        success:function(data, status){            
-            data = data.replace(/<pre.*?>/g, '');  
-            data = data.replace(/<PRE.*?>/g, '');  
-            data = data.replace("<PRE>", '');  
-            data = data.replace("</PRE>", '');  
-            data = data.replace("<pre>", '');  
-            data = data.replace("</pre>", '');     
-            if(data.substring(0, 1) == 0){  
-            	var imgTxt= document.createElement("img");
-            	$(imgTxt).attr("src", data.substring(2));
-            	var hiddenTxt= document.createElement("input");
-            	$(hiddenTxt).attr("type", "hidden");
-            	$(hiddenTxt).attr("name", "imageUrls");
-            	$(hiddenTxt).attr("value", ";0;" + data.substring(2) + "_jumbo.jpg;" + data.substring(2) + "_large.jpg;" + data.substring(2) + "_regular.jpg;" + data.substring(2) + "_small.jpg;" + data.substring(2) + "_thumbnail.jpg;");
-            	$("td[id='imageId']").append(imgTxt, hiddenTxt);
-                alert("图片上传成功");
-            }else{  
-            	alert("图片上传失败，请重试！");
-            }  
-        },  
-        error:function(data, status, e){ 
-        	alert("图片上传失败，请重试！");
-        }  
-    });  
-}  
-</script> 
+<script type="text/javascript">
+	function ajaxFileUpload() {
+		$.ajaxFileUpload({
+			url : '${request.contextPath}/product/imageupload',
+			secureuri : false,
+			fileElementId : 'image',
+			dataType : 'text',
+			success : function(data, status) {
+				data = data.replace(/<pre.*?>/g, '');
+				data = data.replace(/<PRE.*?>/g, '');
+				data = data.replace("<PRE>", '');
+				data = data.replace("</PRE>", '');
+				data = data.replace("<pre>", '');
+				data = data.replace("</pre>", '');
+				if (data.substring(0, 1) == 0) {
+					var imgTxt = document.createElement("img");
+					$(imgTxt).attr("src", data.substring(2));
+					var hiddenTxt = document.createElement("input");
+					$(hiddenTxt).attr("type", "hidden");
+					$(hiddenTxt).attr("name", "imageUrls");
+					$(hiddenTxt).attr(
+							"value",
+							";0;" + data.substring(2) + "_jumbo.jpg;"
+									+ data.substring(2) + "_large.jpg;"
+									+ data.substring(2) + "_regular.jpg;"
+									+ data.substring(2) + "_small.jpg;"
+									+ data.substring(2) + "_thumbnail.jpg;");
+					$("td[id='imageId']").append(imgTxt, hiddenTxt);
+					alert("图片上传成功");
+				} else {
+					alert("图片上传失败，请重试！");
+				}
+			},
+			error : function(data, status, e) {
+				alert("图片上传失败，请重试！");
+			}
+		});
+	}
+
+	$(document).ready(function(){
+		
+		$("#brandId").change(
+			function() {
+				$("#seriesId>option").remove();
+				$("#modelId>option").remove();
+				$("#seriesId").append("<option>请选择车系</option>");
+				$("#modelId").append("<option>请选择车型</option>");
+				var brandId = $("#brandId").val();
+				$.ajax({
+					url: "${request.contextPath}/product/getSeries?brandId=" + brandId,
+					success: function(data) {
+						$.each(data,function(key,value) { 
+							$("#seriesId").append("<option value="+key+">"+ value + "</option>");
+			            }); 
+					}
+				});
+			}
+		);
+		
+		$("#seriesId").change(
+			function() {
+				$("#modelId>option").remove();
+				$("#modelId").append("<option>请选择车型</option>");
+				var seriesId = $("#seriesId").val();
+				$.ajax({
+					url: "${request.contextPath}/product/getModels?seriesId=" + seriesId,
+					success: function(data) {
+						$.each(data,function(key,value) { 
+							$("#modelId").append("<option value="+key+">"+ value + "</option>");
+				        }); 
+					}
+				});
+			}
+		);
+		
+	});
+</script>
 
 <div class="sell">
-	<form:form method="POST" modelAttribute="usedCarDTO" enctype="multipart/form-data">
-	<form:hidden path="productId"/>
+	<form:form method="POST" modelAttribute="usedCarDTO"
+		enctype="multipart/form-data">
+		<form:hidden path="productId" />
 		<h3>基本信息</h3>
 		<div class="basic-info">
 			<div class="location">
 				<label><span class="required">*</span>车辆交易地：</label>
 				<div>
 					<form:select path="provinceId" id="provinceId">
-						<form:option value="">请选择省份</form:option>
 						<form:option value="28">四川</form:option>
 					</form:select>
 					<form:select path="cityId" id="cityId">
-						<form:option value="">请选择城市</form:option>
 						<form:option value="225">成都</form:option>
 					</form:select>
 					<form:select path="countyId" id="countyId">
-						<form:option value="">请选择县区</form:option>
-						<form:option value="1878">武侯区</form:option>
+						<form:option value="">请选择区县</form:option>
+						<form:options items="${countyMap}" />
 					</form:select>
 					<form:input path="street" id="street" />
 					<form:errors path="provinceId" cssClass="error" />
@@ -69,15 +114,13 @@ function ajaxFileUpload(){
 				<label><span class="required">*</span>车型：</label>
 				<form:select path="brandId" id="brandId">
 					<form:option value="">请选择品牌</form:option>
-					<form:option value="1">大众</form:option>
+					<form:options items="${brandMap}" />
 				</form:select>
 				<form:select path="seriesId" id="seriesId">
 					<form:option value="">请选择车系</form:option>
-					<form:option value="1">高尔夫</form:option>
 				</form:select>
 				<form:select path="modelId" id="modelId">
 					<form:option value="">请选择车型</form:option>
-					<form:option value="1">2012 款 1.4T 自动豪华型</form:option>
 				</form:select>
 				<form:errors path="brandId" cssClass="error" />
 				<form:errors path="seriesId" cssClass="error" />
@@ -97,15 +140,19 @@ function ajaxFileUpload(){
 
 			<div class="mile">
 				<label><span class="required">*</span>表显里程：</label>
-				<form:input path="odometer" id="odometer" /><span>万公里</span>
+				<form:input path="odometer" id="odometer" />
+				<span>万公里</span>
 				<form:errors path="odometer" cssClass="error" />
 			</div>
 
 			<div class="price">
 				<label><span class="required">*</span>预售价格：</label>
-				<form:input path="listPrice" id="listPrice" />万
-				<form:radiobutton path="priceType" value="可议价" /><span>可议价</span>
-				<form:radiobutton path="priceType" value="一口价" /><span>一口价</span>
+				<form:input path="listPrice" id="listPrice" />
+				万
+				<form:radiobutton path="priceType" value="可议价" />
+				<span>可议价</span>
+				<form:radiobutton path="priceType" value="一口价" />
+				<span>一口价</span>
 				<form:errors path="listPrice" cssClass="error" />
 			</div>
 
@@ -123,11 +170,9 @@ function ajaxFileUpload(){
 			<div class="images">
 				<table>
 					<tr>
-						<td id="imageId">
-						</td>
-						<td>
-							<input type="file" name="image" id="image" onchange="ajaxFileUpload()">
-						</td>
+						<td id="imageId"></td>
+						<td><input type="file" name="image" id="image"
+							onchange="ajaxFileUpload()"></td>
 					</tr>
 				</table>
 			</div>
@@ -149,9 +194,9 @@ function ajaxFileUpload(){
 				<form:errors path="contactPhone" cssClass="error" />
 			</div>
 		</div>
-		<label class="agreement">
-		<form:radiobutton path="acceptTerm" value="true" />我同意XXXX服务条款<form:errors path="acceptTerm" cssClass="error" />
-		<input type="submit" value="发布" />
+		<label class="agreement"> <form:radiobutton path="acceptTerm"
+				value="true" />我同意XXXX服务条款<form:errors path="acceptTerm"
+				cssClass="error" /> <input type="submit" value="发布" />
 		</label>
 	</form:form>
 </div>

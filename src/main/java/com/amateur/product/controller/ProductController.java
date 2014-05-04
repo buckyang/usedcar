@@ -33,6 +33,8 @@ import com.amateur.controller.BaseController;
 import com.amateur.exception.ImageUploadException;
 import com.amateur.product.dto.UsedCarDTO;
 import com.amateur.product.service.ProductService;
+import com.amateur.service.AddressService;
+import com.amateur.service.BrandService;
 import com.amateur.session.Profile;
 import com.amateur.util.ImageUtil;
 
@@ -43,6 +45,10 @@ public class ProductController extends BaseController {
 
 	@Autowired
 	private ProductService productService;
+	@Autowired
+	private AddressService addressService;
+	@Autowired
+	private BrandService brandService;
 
 	private static final Logger logger = Logger
 			.getLogger(ProductController.class);
@@ -60,16 +66,32 @@ public class ProductController extends BaseController {
 		return "product.publish.success";
 	}
 
-	@RequestMapping(value = "/publishusedcar", method = RequestMethod.GET)
-	public String form(String productId, ModelAndView modelAndView) {
+	@RequestMapping(value = "/publishUsedCar", method = RequestMethod.GET)
+	public ModelAndView form(String productId) {
+		ModelAndView modelAndView = new ModelAndView("publish-usedCar-form");
 		if (productId != null && !"".equalsIgnoreCase(productId)) {
 			UsedCarDTO usedCarDTO = productService.getUsedCarById(productId);
 			modelAndView.addObject("usedCarDTO", usedCarDTO);
 		}
-		return "secure/sellcar";
+		modelAndView.addObject("countyMap", addressService.getCountyMapByCityId(225));
+		modelAndView.addObject("brandMap", brandService.getBrandMap());
+		modelAndView.setViewName("secure/sellcar");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/getSeries", method = RequestMethod.GET)
+	@ResponseBody
+	public Map<Integer, String> getSeriesMap(String brandId) {
+		return brandService.getSeriesMapByBrandId(Integer.valueOf(brandId));
+	}
+	
+	@RequestMapping(value = "/getModels", method = RequestMethod.GET)
+	@ResponseBody
+	public Map<Integer, String> getModels(String seriesId) {
+		return brandService.getModelMapBySeriesId(Integer.valueOf(seriesId));
 	}
 
-	@RequestMapping(value = "/publishusedcar", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/publishUsedCar", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public void formJSON() {
 	}
@@ -85,7 +107,7 @@ public class ProductController extends BaseController {
 		return usedCarDTO;
 	}
 
-	@RequestMapping(value = "/publishusedcar", method = RequestMethod.POST)
+	@RequestMapping(value = "/publishUsedCar", method = RequestMethod.POST)
 	public String publishUsedCar(UsedCarDTO usedCarDTO,
 			@ModelAttribute("profile") Profile profile, BindingResult result) {
 
@@ -93,7 +115,7 @@ public class ProductController extends BaseController {
 			return "secure/sellcar";
 		}
 		handleUsedCar(usedCarDTO, profile);
-		return "redirect:/product/publishusedcar";
+		return "redirect:/product/publishUsedCar";
 	}
 
 	private void handleUsedCar(UsedCarDTO usedCarDTO, Profile profile) {
@@ -107,7 +129,7 @@ public class ProductController extends BaseController {
 		}
 	}
 
-	@RequestMapping(value = "/publishusedcar", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/publishUsedCar", method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
 	public Map<String, Object> publishUsedCarJSON(@Valid UsedCarDTO usedCarDTO,
 			@ModelAttribute("profile") Profile profile, BindingResult result) {
@@ -117,14 +139,14 @@ public class ProductController extends BaseController {
 		return processPostJSON(result);
 	}
 
-	@RequestMapping(value = "/deleteusedcar", method = RequestMethod.GET)
+	@RequestMapping(value = "/deleteUsedCar", method = RequestMethod.GET)
 	public String deleteUsedCar(String productId, ModelAndView mav) {
 		boolean result = productService.deleteUsedCar(productId);
 		mav.addObject(EXECUTION_RESULT_PARAM_KEY, result);
 		return "redirect:/product/publishusedcar";
 	}
 
-	@RequestMapping(value = "/deleteusedcar", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/deleteUsedCar", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public Map<String, Object> deleteUsedCarJSON(String productId) {
 		boolean result = productService.deleteUsedCar(productId);

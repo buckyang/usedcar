@@ -14,7 +14,7 @@
 		c.city_id as cityId,
 		c.city_name as cityName,
 		ct.county_id as countyId,
-		ct.county_name as countyName,
+		ct.county_name as countyName
 		from province p
 		left join city c on p.province_id = c.province_id
 		left join county ct on c.city_id = ct.city_id
@@ -23,10 +23,13 @@
 
 	<resultMap type="Province" id="resultProvince">
 		<id property="provinceId" column="provinceId" />
+		<result property="provinceName" column="provinceName" />
 		<collection property="cityList" ofType="City">
 		    <id property="cityId" column="cityId"/>
+		    <result property="cityName" column="cityName" />
 		    <collection property="countyList" ofType="County">
 		        <id property="countyId" column="countyId"/>
+		        <result property="countyName" column="countyName" />
 		    </collection>
 		</collection>
 	</resultMap>

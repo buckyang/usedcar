@@ -1,24 +1,18 @@
-/**
- * 
- */
 package com.amateur.domain;
 
 import java.io.Serializable;
 
 public class Model implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -314678832367015371L;
 	private Integer modelId;
 	private String modelName;
 	private String subSeries;
 	private String displacement;
-	private int transmissionType;
-	private int launchYear;
-	private int drivenType;
-	private int seriesId;
+	private String transmissionType;
+	private Integer launchYear;
+	private String level;
+	private String country;
 
 	public Integer getModelId() {
 		return modelId;
@@ -52,36 +46,36 @@ public class Model implements Serializable {
 		this.displacement = displacement;
 	}
 
-	public int getTransmissionType() {
+	public String getTransmissionType() {
 		return transmissionType;
 	}
 
-	public void setTransmissionType(int transmissionType) {
+	public void setTransmissionType(String transmissionType) {
 		this.transmissionType = transmissionType;
 	}
 
-	public int getLaunchYear() {
+	public Integer getLaunchYear() {
 		return launchYear;
 	}
 
-	public void setLaunchYear(int launchYear) {
+	public void setLaunchYear(Integer launchYear) {
 		this.launchYear = launchYear;
 	}
 
-	public int getDrivenType() {
-		return drivenType;
+	public String getLevel() {
+		return level;
 	}
 
-	public void setDrivenType(int drivenType) {
-		this.drivenType = drivenType;
+	public void setLevel(String level) {
+		this.level = level;
 	}
 
-	public int getSeriesId() {
-		return seriesId;
+	public String getCountry() {
+		return country;
 	}
 
-	public void setSeriesId(int seriesId) {
-		this.seriesId = seriesId;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 }

@@ -13,7 +13,6 @@
 		b.brand_name as brandName,
 		b.brand_description as brandDescription,
 		s.series_id as seriesId,
-		s.series_initial as seriesInitial,
 		s.series_name as seriesName,
 		s.type,
 		m.model_id as modelId,
@@ -22,7 +21,8 @@
 		m.displacement,
 		m.transmission_type as transmissionType,
 		m.launch_year as launchYear,
-		m.driven_type as drivenType
+		m.level as level,
+		m.country as country
 		FROM brand b
 		left join series s on s.brand_id = b.brand_id
 		left join model m on m.series_id = s.series_id
@@ -31,10 +31,22 @@
 
 	<resultMap type="Brand" id="resultBrand">
 		<id property="brandId" column="brandId" />
+		<result property="brandName" column="brandName" />
+		<result property="brandInitial" column="brandInitial" />
+		<result property="brandDescription" column="brandDescription" />
 		<collection property="seriesList" ofType="Series">
 		    <id property="seriesId" column="seriesId"/>
+		    <result property="seriesName" column="seriesName" />
+		    <result property="type" column="type" />
 		    <collection property="modelList" ofType="Model">
 		        <id property="modelId" column="modelId"/>
+		        <result property="subSeries" column="subSeries" />
+		        <result property="modelName" column="modelName" />
+		        <result property="displacement" column="displacement" />
+		        <result property="transmissionType" column="transmissionType" />
+		        <result property="launchYear" column="launchYear" />
+		        <result property="level" column="level" />
+		        <result property="country" column="country" />
 		    </collection>
 		</collection>
 	</resultMap>

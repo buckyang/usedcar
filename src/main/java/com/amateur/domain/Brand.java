@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.amateur.domain;
 
 import java.io.Serializable;
@@ -8,9 +5,6 @@ import java.util.List;
 
 public class Brand implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 8435669008542298256L;
 	private Integer brandId;
 	private String brandInitial;
