@@ -94,6 +94,7 @@
 	<mvc:view-controller path="/admin/staticPage/queryPage"/>
 	<mvc:view-controller path="/admin/staticPage/addPage"/>
 	<mvc:view-controller path="/admin/staticPage/deletePage"/>
+	<mvc:view-controller path="/admin/search/index"/>
 	<mvc:view-controller path="/" view-name="index" />
 	<mvc:view-controller path="/cardetails" view-name="cardetails" />
 	<mvc:view-controller path="/findpassword"
@@ -149,6 +150,9 @@
 		<property name="siteName" value="二手车" />
 		<property name="cookieLoginValidDays" value="365"/>
 		<property name="mobileTokenValidDays" value="365"/>		
+	</bean>
+	<bean id="searchConfiguration" class="com.amateur.search.configuration.SearchConfiguration">
+		<property name="serverURL" value="http://localhost/solr/"/>
 	</bean>
 	<bean id="encryptionUtil" class="com.amateur.util.EncryptionUtil">
 		<property name="passwordPublicKey">

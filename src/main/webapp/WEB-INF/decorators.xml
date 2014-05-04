@@ -10,6 +10,7 @@
 
 	<decorator name="adminTab" page="adminTab.jsp">
 		<pattern>*/admin/staticPage/*</pattern>
+		<pattern>*/admin/search/*</pattern>
 	</decorator>
 
 	<decorator name="admin" page="adminMain.jsp">
