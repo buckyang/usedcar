@@ -7,7 +7,7 @@
 //
 
 #import "SellingCarViewController.h"
-#import "../../Common/UINavigationItem+CustomColor.h"
+#import "../../Common/CustomNavigationSytle/UINavigationItem+CustomColor.h"
 
 @interface SellingCarViewController ()
 
@@ -45,13 +45,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SellingCarCell" forIndexPath:indexPath];
-    
+    mqq:// 
     // Configure the cell...
     
     return cell;
 }
 
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mqq://"]];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

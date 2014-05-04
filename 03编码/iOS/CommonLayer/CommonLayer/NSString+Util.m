@@ -11,6 +11,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "spelling.h"
 #import "SimpleLogger.h"
+#import "KeychainItemWrapper.h"
 
 @interface NSString (PrivateDelegateHandling)
 + (BOOL)isSigleByte:(NSString*)character;
@@ -156,6 +157,9 @@ static char encodingTable[64] = {
 
 + (BOOL) regexWithFormat:(NSString*)aFormat ValueString:(NSString*)aValueString
 {
+//    NSAssert([NSString isEmpty:aValueString], @"内容不能为空");
+//    NSAssert([NSString isEmpty:aFormat], @"格式不能为空");
+    
     NSPredicate *_Predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",aFormat];
 	return [_Predicate evaluateWithObject:aValueString];
 }
@@ -337,5 +341,33 @@ static char encodingTable[64] = {
     return YES;
 }
 
+#pragma mark --------- udid
+
+static NSString *AccessGroup = @"A4Y4S6LD29.com.UserCar.UserCar";
+
++ (NSString*)UDID
+{
+    static NSString *udid = nil;
+    if (![NSString isEmpty:udid]) {
+        return udid;
+    }
+    
+    static KeychainItemWrapper *keyChain = nil;
+    if (keyChain==nil) {
+        keyChain = [[KeychainItemWrapper alloc] initWithIdentifier:@"UDID" accessGroup:AccessGroup];
+    }
+    
+    NSString *temp = [keyChain objectForKey:(__bridge id)kSecValueData];
+    if ([NSString isEmpty:temp]) {
+        udid = [UIDevice currentDevice].identifierForVendor.UUIDString;
+        [keyChain setObject:udid forKey:(__bridge id)kSecValueData];
+    }
+    else
+    {
+        udid = temp;
+    }
+    
+    return udid;
+}
 
 @end

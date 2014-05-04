@@ -10,6 +10,9 @@
 
 @interface CheckTableViewCell : UITableViewCell
 
+/**
+ *  @brief 是否选中
+ */
 @property (nonatomic) BOOL checked;
 
 @end

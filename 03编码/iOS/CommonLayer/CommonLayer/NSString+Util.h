@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#ifndef DCM_DOCUMENT_NAME
-#define DCM_DOCUMENT_NAME @"DCMDATADOCUMENT"
-#endif
-
 @interface NSString (Util)
 
 /**
@@ -235,5 +231,12 @@
  *  @return 是否是数字
  */
 + (BOOL)isNumberString:(NSString*)aString;
+
+/**
+ *  @brief UDID,唯一标识
+ *
+ *  @return 唯一标识
+ */
++ (NSString*)UDID;
 
 @end

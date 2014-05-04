@@ -8,6 +8,13 @@
 
 #import "AppDelegate.h"
 
+@interface AppDelegate ()<UITabBarControllerDelegate,UIViewControllerAnimatedTransitioning>
+{
+    BOOL isLeft;
+}
+
+@end
+
 @implementation AppDelegate
 
 #pragma mark ------------ Style
@@ -44,15 +51,86 @@
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blueColor]} forState:UIControlStateSelected];
 }
 
+
+#pragma mark ---------------- UITabBarControllerDelegate
+- (id <UIViewControllerAnimatedTransitioning>)tabBarController:(UITabBarController *)tabBarController
+            animationControllerForTransitionFromViewController:(UIViewController *)fromVC
+                                              toViewController:(UIViewController *)toVC
+{
+    NSUInteger oldIndex = [tabBarController.viewControllers indexOfObject:fromVC];
+    NSUInteger newIndex = [tabBarController.viewControllers indexOfObject:toVC];
+    
+    //从左到右
+    if ((oldIndex+1==newIndex)|| (oldIndex==tabBarController.viewControllers.count-1 && newIndex==0)) {
+        isLeft = NO;
+    }
+    else
+    {
+        isLeft = YES;
+    }
+    
+    return self;
+}
+
+#pragma mark --------------- UIViewControllerAnimatedTransitioning
+-(void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+    //Get references to the view hierarchy
+    UIView *containerView = [transitionContext containerView];
+    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    
+    //Insert 'to' view into the hierarchy
+    [containerView insertSubview:toViewController.view belowSubview:fromViewController.view];
+    
+    
+    if (isLeft) {
+        [self setAnchorPoint:CGPointMake(0.0, 0.5) forView:toViewController.view];
+    }
+    else
+    {
+        [self setAnchorPoint:CGPointMake(1.0, 0.5) forView:toViewController.view];
+    }
+    
+    [containerView bringSubviewToFront:toViewController.view];
+    
+    //Animate the transition, applying transform to 'from' view and removing it from 'to' view
+    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+        if (isLeft) {
+            [self setAnchorPoint:CGPointMake(1.0, 0.5) forView:toViewController.view];
+        }
+        else
+        {
+            [self setAnchorPoint:CGPointMake(0.0, 0.5) forView:toViewController.view];
+        }
+    } completion:^(BOOL finished) {
+        //Reset z indexes (otherwise this will affect other transitions)
+        [transitionContext completeTransition:YES];
+    }];
+}
+
+-(NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
+    return 0.5;
+}
+
+- (void)setAnchorPoint:(CGPoint)anchorPoint forView:(UIView *)view {
+    CGPoint oldOrigin = view.frame.origin;
+    view.layer.anchorPoint = anchorPoint;
+    CGPoint newOrigin = view.frame.origin;
+    
+    CGPoint transition;
+    transition.x = newOrigin.x - oldOrigin.x;
+    transition.y = oldOrigin.y - oldOrigin.y;
+    
+    view.center = CGPointMake (view.center.x - transition.x, view.center.y - transition.y);
+}
+
 #pragma mark  AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     [self configTabbarStyle];
-    [self configNavigationStyle];
-    
-    
+    [self configNavigationStyle];    
     return YES;
 }
 							

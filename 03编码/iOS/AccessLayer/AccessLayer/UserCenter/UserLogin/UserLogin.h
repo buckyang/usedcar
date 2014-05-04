@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 shulianyong. All rights reserved.
  */
 
-#import "AccessBase.h"
+#import "../../AccessBase.h"
 #import "../../../../Entity/Entity/UserInfo.h"
 #import "../../../../Entity/Entity/EntityBase.h"
 
@@ -22,5 +22,7 @@
  *  @param aCallback 回调函数
  */
 - (void)userLoginWithUserInfo:(UserInfo*)aUser withCallback:(HttpCallback)aCallback;
+
+
 
 @end

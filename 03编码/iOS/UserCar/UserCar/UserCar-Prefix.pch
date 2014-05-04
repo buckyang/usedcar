@@ -16,8 +16,11 @@
 #import <Foundation/Foundation.h>
 #import "../../CommonLayer/CommonLayer/CommonLayer.h"
 
-#import "Common/UIBarButtonItem+ImageTitle.h"
-#import "Common/CBaseTableViewController.h"
-#import "Common/CBaseViewController.h"
+#import "../../Entity/Entity/EntityBase.h"
+
+#import "UIBarButtonItem+ImageTitle.h"
+#import "CBaseTableViewController.h"
+#import "CBaseViewController.h"
+#import "MessageBox.h"
 
 #endif

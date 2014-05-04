@@ -28,14 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-//    self.navigationItem.backBarButtonItem.title = @"我要买车";
-//    [self.navigationItem.backBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateNormal];
-//
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
    
-    
     [self.navigationItem.backBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateNormal];    
     
     self.navigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"imgBuyCarIcon_H.png"];
@@ -50,18 +43,6 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
-{
-    if (self.navigationController.viewControllers.count == 1)//关闭主界面的右滑返回
-    {
-        return NO;
-    }
-    else
-    {
-        return YES;
-    }
 }
 
 - (void)didReceiveMemoryWarning

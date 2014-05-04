@@ -12,18 +12,20 @@
 
 - (void)userLoginWithUserInfo:(UserInfo *)aUser withCallback:(HttpCallback)aCallback
 {
-    [self.httpClient POST:@"login.json"
-               parameters:@{@"phoneOrEmail": aUser.userName,@"password":aUser.password}
-                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                      
-                      EntityBase *base = [[EntityBase alloc] initWithDictionary:responseObject];
-                      aCallback(base,HTTPAccessStateSuccess);
-                      
-                  }
-                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                      aCallback(nil,HTTPAccessStateFail);
-                      INFO(@"登录失败：%@",error);
-                  }];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"phoneOrEmail"] = aUser.userName;
+    parameters[@"password"] = aUser.password;
+    
+    [self accessURL:@"login.json" withParameters:parameters withCallback:^(id info, HTTPAccessState isSuccess) {
+        if (isSuccess==HTTPAccessStateSuccess) {
+            [aUser reflectDataFromOtherObject:info];
+            aCallback(aUser,HTTPAccessStateSuccess);
+        }
+        else
+        {
+            aCallback(info,isSuccess);
+        }
+    }];
 }
 
 @end

@@ -27,7 +27,7 @@ typedef enum
  */
 typedef enum
 {
-    RESELLEROLDCARTYPE=1, /**<表示4S店 */
+    RESELLEROLDCARTYPE=1, /**<表示二手车经销商店 */
     RESELLER4STYPE=2 /**<表示4S店 */
 }RESELLERTYPE;
 
@@ -38,6 +38,11 @@ typedef enum
  *  @return 用户信息
  */
 + (instancetype)shareInstance;
+
+/**
+ *  @brief 已经登录
+ */
+@property (nonatomic) BOOL logined;
 
 /**
  *  @brief 用户访问令牌

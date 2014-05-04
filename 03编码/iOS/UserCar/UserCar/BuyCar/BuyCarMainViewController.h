@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  @brief 我要买车主页
+ */
 @interface BuyCarMainViewController : CBaseTableViewController
 
 @end

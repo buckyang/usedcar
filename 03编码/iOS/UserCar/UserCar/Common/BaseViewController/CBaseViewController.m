@@ -8,25 +8,13 @@
 
 #import "CBaseViewController.h"
 #import "UINavigationItem+CustomColor.h"
+#import "UIViewController+CustomStyle.h"
 
 @interface CBaseViewController ()
 
 @end
 
 @implementation CBaseViewController
-
-/**
- *  @brief 配置返回按钮
- */
-- (void)configBackButton
-{
-    if (self.navigationController&&self.navigationController.viewControllers.count>0) {
-        UIViewController *firstController = self.navigationController.viewControllers[0];
-        if (firstController!=self) {
-            self.navigationItem.leftBarButtonItems = @[[UIBarButtonItem barBackWithTarget:self]];
-        }
-    }
-}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {

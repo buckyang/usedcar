@@ -10,7 +10,4 @@
 
 @interface RegiestIndividualUserViewController : CBaseViewController
 
-
-@property (strong, nonatomic) IBOutlet UIButton *btnPhoneNumber;
-
 @end

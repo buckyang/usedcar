@@ -16,7 +16,7 @@
  */
 static NSString *PrivateKey = @"uja6snx21b";
 
-static NSString *httpUrl=@"http://www.2soce.com:8080/usedcar/";
+static NSString *httpUrl=@"http://www.2soce.com:8080";
 
 /**
  *  @brief 请求状态枚举
@@ -51,5 +51,14 @@ typedef void(^HttpCallback)(id info,HTTPAccessState isSuccess);
  *  @return 令牌数据
  */
 - (NSString*)accessToken:(UserInfo*)aUserInfo;
+
+/**
+ *  @brief 网络访问
+ *
+ *  @param aUrl       地址
+ *  @param parameters 参数
+ *  @param aCallback  返回值
+ */
+- (void)accessURL:(NSString*)aUrl withParameters:(NSMutableDictionary*)parameters withCallback:(HttpCallback)aCallback;
 
 @end

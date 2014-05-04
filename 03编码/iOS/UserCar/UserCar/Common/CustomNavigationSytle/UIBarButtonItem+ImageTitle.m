@@ -52,7 +52,12 @@
     }
     
     btnCustom.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [btnCustom addTarget:target action:aSelector forControlEvents:UIControlEventTouchUpInside];
+    
+    if (target) {        
+        [btnCustom addTarget:target action:aSelector forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    
     UIBarButtonItem *barBack = [[UIBarButtonItem alloc] initWithCustomView:btnCustom];
     return barBack;
 }

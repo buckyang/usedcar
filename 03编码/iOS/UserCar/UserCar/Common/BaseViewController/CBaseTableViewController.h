@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TableRefresh.h"
+
 
 /**
  *  @brief 自定义的TableViewController,可以统一样式
  */
-@interface CBaseTableViewController : UITableViewController
+@interface CBaseTableViewController : UITableViewController<TablePagingRefresh,TableRefreshDelegate>
+
+/**
+ *  @brief 支持刷新
+ */
+- (void)supportedRefresh;
 
 @end
