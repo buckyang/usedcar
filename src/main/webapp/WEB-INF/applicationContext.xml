@@ -60,6 +60,8 @@
 				<property name="ingorePaths">
 					<array>
 						<value>/account/obtainCode</value>
+						<value>/account/resetPassword</value>
+						<value>/account/forgetPasswordByMail</value>
 					</array>
 				</property>
 			</bean>
