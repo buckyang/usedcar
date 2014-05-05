@@ -15,7 +15,9 @@ import com.amateur.domain.Account;
 import com.amateur.domain.Address;
 import com.amateur.domain.MobileToken;
 import com.amateur.domain.Reseller;
+import com.amateur.domain.ResetPasswordRecord;
 import com.amateur.persistence.AccountMapper;
+import com.amateur.persistence.ResetPasswordRecordMapper;
 import com.amateur.service.SequenceService;
 import com.amateur.util.EncryptionUtil;
 
@@ -29,6 +31,8 @@ public class AccountService {
 	private AccountMapper accountMapper;
 	@Autowired
 	private SequenceService sequenceService;
+	@Autowired
+	private ResetPasswordRecordMapper resetPasswordRecordMapper;
 	
 	public boolean registrerAccount(RegistrationDTO registrationDTO){
 		if(registrationDTO.getAccountType() == 1){
@@ -120,5 +124,21 @@ public class AccountService {
 	
 	public Address getHomeAddressByAccountId(Integer accountId){
 		return accountMapper.getHomeAddressByAccountId(accountId);
-	} 
+	}
+	
+	public ResetPasswordRecord getResetPasswordRecord(Integer accountId){
+		return resetPasswordRecordMapper.findRecordByAccountId(accountId);
+	}
+	
+	public void deleteResetPasswordRecord(ResetPasswordRecord record){
+		resetPasswordRecordMapper.deleteResetPasswordRecord(record);
+	}
+	
+	public void addResetPasswordRecord(ResetPasswordRecord record){
+		resetPasswordRecordMapper.insertResetPasswordRecord(record);
+	}
+	
+	public void updatePasswordRecord(ResetPasswordRecord record){
+		resetPasswordRecordMapper.updateResetPasswordRecod(record);
+	}
 }

@@ -5,8 +5,6 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.validation.Valid;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +53,7 @@ private static final Logger logger = Logger.getLogger(UpdateUserInfoController.c
 	}
 
 	@RequestMapping(value = "/viewUserInfo", method = RequestMethod.GET)
-	public void viewUserInfo(@Valid @ModelAttribute("userInfoDTO") UserInfoDTO userInfoDTO,Model mode) {
+	public void viewUserInfo(@ModelAttribute("userInfoDTO") UserInfoDTO userInfoDTO,Model mode) {
 			UserInfoDTO result=loadUserInfo(userInfoDTO);
 			if(result==null){
 				logger.warn("view user info failed,user id is::"+userInfoDTO.getAccountId());

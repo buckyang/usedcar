@@ -4,9 +4,9 @@
 <script src='<s:url value="/js/lib/jquery-1.7.2.min.js" />' type="text/javascript"></script>
 <script src='<s:url value="/js/common/managerUserInfo.js" />' type="text/javascript"></script>
 <script type="text/javascript">
-	var selectYear=parseInt('${managerUserInfoDTO.birthyear}');
-	var selectMonth=parseInt('${managerUserInfoDTO.birthmonth}');
-	var selectDay=parseInt('${managerUserInfoDTO.birthday}');
+	var selectYear=parseInt('${userInfoDTO.birthyear}');
+	var selectMonth=parseInt('${userInfoDTO.birthmonth}');
+	var selectDay=parseInt('${userInfoDTO.birthday}');
 </script>
 </head>
 <body>
@@ -16,13 +16,13 @@
 		</c:if>
 	</div>
 	<div class="form">
-		<form:form modelAttribute="managerUserInfoDTO" method="post"
-			action="managerUserInfo">
+		<form:form modelAttribute="userInfoDTO" method="post"
+			action="updateUserInfo">
 			<div class="item">
 				<span class="label"><em>*</em>昵称：</span>
 				<div class="fl">
 					<div>
-						<form:input path="nickname" value="${managerUserInfoDTO.nickname}"></form:input>
+						<form:input path="nickname" value="${userInfoDTO.nickname}"></form:input>
 						<form:errors path="nickname" cssClass="fieldError" />
 					</div>
 				</div>
@@ -37,7 +37,7 @@
 					<label>男</label>
 					<form:radiobutton path="sex" value="false" />
 					<label>女</label>
-					<form:errors path="nickname" cssClass="fieldError" />
+					<form:errors path="sex" cssClass="fieldError" />
 				</div>
 				<div class="clr"></div>
 			</div>
@@ -46,12 +46,14 @@
 				<span class="label"><em>*</em>手机号码：</span>
 				<div class="fl">
 					<div>
+					<c:if test="${not empty userInfoDTO.phone}">
 						<form:input path="phone"
-							value="${fn:substring(managerUserInfoDTO.phone,0,3)}*****${fn:substring(managerUserInfoDTO.phone,8,-1)}"
+							value="${fn:substring(userInfoDTO.phone,0,3)}*****${fn:substring(userInfoDTO.phone,8,-1)}"
 							disabled="true" cssStyle="background:transparent;border:0" />
+					</c:if>
 						<c:choose>
 							<c:when
-								test="${not empty managerUserInfoDTO.bindPhone and managerUserInfoDTO.bindPhone }">
+								test="${not empty userInfoDTO.bindPhone and userInfoDTO.bindPhone }">
 								<a target="_blank" class="smod" href="">修改</a>
 								<span class="ftx-03">&nbsp;&nbsp;&nbsp;已验证</span>
 							</c:when>
@@ -68,18 +70,21 @@
 				<span class="label">邮箱：</span>
 				<div class="fl">
 					<c:set var="point"
-						value="${fn:indexOf(managerUserInfoDTO.email,'@')}"></c:set>
+						value="${fn:indexOf(userInfoDTO.email,'@')}"></c:set>
 					<c:set var="emailPrefix"
-						value="${fn:substring(managerUserInfoDTO.email,0,point)}"></c:set>
+						value="${fn:substring(userInfoDTO.email,0,point)}"></c:set>
 					<c:set var="emailSufix"
-						value="${fn:substring(managerUserInfoDTO.email,point+1,-1)}"></c:set>
+						value="${fn:substring(userInfoDTO.email,point+1,-1)}"></c:set>
 					<div>
+					<c:if test="${not empty userInfoDTO.email }">
 						<form:input path="email"
 							value="${fn:substring(emailPrefix,0,2)}*****${fn:substring(emailPrefix,point-2,-1)}@${emailSufix}"
 							disabled="true" cssStyle="background:transparent;border:0" />
+					</c:if>
+						
 						<c:choose>
 							<c:when
-								test="${not empty managerUserInfoDTO.bindEmail and managerUserInfoDTO.bindEmail }">
+								test="${not empty userInfoDTO.bindEmail and userInfoDTO.bindEmail }">
 								<a target="_blank" class="smod" href="">修改</a>
 								<span class="ftx-03">&nbsp;&nbsp;&nbsp;已验证</span>
 							</c:when>
@@ -124,15 +129,15 @@
 				<span class="label">身份证号码：</span>
 				<div class="fl">
 					<c:choose>
-						<c:when test="${not empty managerUserInfoDTO.certificateNumber}">
+						<c:when test="${not empty userInfoDTO.certificateNumber}">
 							<c:set var="cerfificateNumberLen"
-								value="${fn:length(managerUserInfoDTO.certificateNumber)}"></c:set>
+								value="${fn:length(userInfoDTO.certificateNumber)}"></c:set>
 							<input id="certificateNumber"
 								style="background: transparent; border: 0" disabled="disabled"
-								value="${fn:substring(managerUserInfoDTO.certificateNumber,0,3)}******${fn:substring(managerUserInfoDTO.certificateNumber,cerfificateNumberLen-3,-1)}" />
+								value="${fn:substring(userInfoDTO.certificateNumber,0,3)}******${fn:substring(userInfoDTO.certificateNumber,cerfificateNumberLen-3,-1)}" />
 							<form:input id="certificateValue" style="display:none"
 								path="certificateNumber"
-								value="${managerUserInfoDTO.certificateNumber}" />
+								value="${userInfoDTO.certificateNumber}" />
 							<a href="javascript:void(0);"
 								onclick="modifyCertificateNumber('certificateNumber')">修改</a>
 						</c:when>

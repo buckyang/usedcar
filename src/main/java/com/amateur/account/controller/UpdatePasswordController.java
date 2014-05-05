@@ -59,9 +59,9 @@ public class UpdatePasswordController extends BaseController {
 	
 	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
 	public void updatePassowrd(@Valid @ModelAttribute("updatePasswordDTO") UpdatePasswordDTO updatePasswordDTO,
-			BindingResult result, Model m) {
+			BindingResult result,@ModelAttribute("profile") Profile profile, Model m) {
 		if (!result.hasErrors()) {
-			handleUpdatePassword(updatePasswordDTO, m);
+			handleUpdatePassword(updatePasswordDTO,profile);
 			m.addAttribute("message", getPostSuccessMesage());
 		}
 	}
@@ -69,17 +69,16 @@ public class UpdatePasswordController extends BaseController {
 	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST, produces="application/json")
 	@ResponseBody
 	public  Map<String, Object> updatePassowrdJSON(@Valid @ModelAttribute("updatePasswordDTO") UpdatePasswordDTO updatePasswordDTO,
-			BindingResult result,@ModelAttribute("profile")Profile profile, Model m) {
+			BindingResult result,@ModelAttribute("profile")Profile profile) {
 		if (!result.hasErrors()) {
-			handleUpdatePassword(updatePasswordDTO, m);
+			handleUpdatePassword(updatePasswordDTO, profile);
 		}
 		return 	processPostJSON(result);
 	}	
 	
-	private void handleUpdatePassword(UpdatePasswordDTO updatePasswordDTO,
-			Model m) {
+	private void handleUpdatePassword(UpdatePasswordDTO updatePasswordDTO,Profile profile) {
 		Account account = new Account();
-		account.setAccountId(updatePasswordDTO.getAccountId());
+		account.setAccountId(profile.getAccountId());
 		account.setPassword(EncryptionUtil.encryptPassword(updatePasswordDTO.getNewPWD()));
 		accountService.updatePassword(account);
 	}

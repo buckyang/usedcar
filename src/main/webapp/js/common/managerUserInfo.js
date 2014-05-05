@@ -30,7 +30,7 @@ $(document).ready(
 				document.getElementById('birthYear').value=selectYear;
 				document.getElementById('birthMonth').value=selectMonth;
 			}
-		    var n = MonHead[selectMonth];  
+		    var n = MonHead[selectMonth-1];  
 		    if (selectMonth ==1 && IsPinYear(selectYear))
 		    {
 		    	n++;

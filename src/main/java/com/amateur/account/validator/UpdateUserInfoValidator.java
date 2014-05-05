@@ -51,7 +51,9 @@ public class UpdateUserInfoValidator implements Validator {
 			String birthDateStr = new StringBuffer(year).append("-").append(month)
 					.append("-").append(day).toString();
 			try {
-				new SimpleDateFormat("yyyy-MM-dd").parse(birthDateStr);
+				SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+				sdf.setLenient(false);
+				sdf.parse(birthDateStr);
 			} catch (ParseException e) {
 				errors.rejectValue("birthyear","typeMismatch.birthyear");
 			}

@@ -2,7 +2,6 @@ package com.amateur.account.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -59,9 +58,13 @@ public class UpdateUserInfoController extends BaseController {
 		return userInfoDTO;
 	}
 
+	@RequestMapping(value = "/updateUserInfo", method = RequestMethod.GET)
+	public String updateUserInfo() {
+		return "redirect:viewUserInfo";
+	}
 
 	@RequestMapping(value = "/updateUserInfo", method = RequestMethod.POST)
-	public void updateUserInfo(@Valid @ModelAttribute("userInfoDTO") UserInfoDTO userInfoDTO,BindingResult result, Model mode) {
+	public String updateUserInfo(@Valid @ModelAttribute("userInfoDTO") UserInfoDTO userInfoDTO,BindingResult result, Model mode,@ModelAttribute("profile") Profile profile) {
 		if (!result.hasErrors()) {
 			Account account = new Account();
 			account.setAccountId(userInfoDTO.getAccountId());
@@ -69,8 +72,10 @@ public class UpdateUserInfoController extends BaseController {
 			String source = new StringBuilder(userInfoDTO.getBirthyear())
 					.append("-").append(userInfoDTO.getBirthmonth())
 					.append("-").append(userInfoDTO.getBirthday()).toString();
-			try {
-				account.setBirthdate(new SimpleDateFormat("yyyy-MM-dd").parse(source));
+			try {				
+				SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+				sdf.setLenient(false);
+				account.setBirthdate(sdf.parse(source));
 			} catch (ParseException e) {
 				logger.error("The birthdate's pattern is error."+source);
 			}
@@ -82,8 +87,9 @@ public class UpdateUserInfoController extends BaseController {
 			accountService.updateHomeAddress(newHomeAddress);
 			mode.addAttribute("message", getPostSuccessMesage());
 		}
-		loadUserInfo(userInfoDTO);
+		loadUserInfo(userInfoDTO,profile);
 		mode.addAttribute(userInfoDTO);
+		return "/account/viewUserInfo";
 	}
 
 	@RequestMapping(value = "/updateUserInfo", method = RequestMethod.POST, produces = "application/json")
@@ -116,23 +122,13 @@ public class UpdateUserInfoController extends BaseController {
 		return resultMap;
 	}
 
-	private void loadUserInfo(UserInfoDTO userInfoDTO) {
-		Integer accountId = userInfoDTO.getAccountId();
+	private void loadUserInfo(UserInfoDTO userInfoDTO,Profile profile) {
+		Integer accountId = profile.getAccountId();
 		Account account = accountService.getAccountById(accountId);
-		BeanUtils.copyProperties(account, userInfoDTO, new String[] {
-				"birthyear", "birthmonth", "birthday", "province", "city",
-				"county", "street" });
-		Date birthdate = account.getBirthdate();
-		if (birthdate != null) {
-			String[] year_month_day = new SimpleDateFormat("yyyy-MM-dd")
-					.format(birthdate).split("-");
-			userInfoDTO.setBirthyear(year_month_day[0]);
-			userInfoDTO.setBirthmonth(year_month_day[1]);
-			userInfoDTO.setBirthday(year_month_day[2]);
-		}
-		Address address = accountService.getHomeAddressByAccountId(accountId);
-		BeanUtils.copyProperties(address, userInfoDTO, new String[] {
-				"accountId", "addressId", "birthday" });
+		userInfoDTO.setPhone(account.getPhone());
+		userInfoDTO.setBindPhone(account.getBindPhone());
+		userInfoDTO.setEmail(account.getEmail());
+		userInfoDTO.setBindEmail(account.getBindEmail());
 	}
 
 }
