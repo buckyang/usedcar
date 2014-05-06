@@ -31,26 +31,85 @@
     <div class="info">
         <div class="messages">
             <div class="recommends">
-                每日推荐/信息轮播
+                <ul class="title">
+                    <li>每日推荐</li>
+                    <li class="middle">信息轮播</li>
+                </ul>
+                <ul class="content">
+                    <li>
+                        <a href="#">
+                            <img src="/image/banner.jpg" alt="car" width="131" height="83"/>
+                        </a>
+
+                        <p>上海大众帕萨特</p>
+
+                        <p>历程：2.5万公里</p>
+
+                        <p>购买时间：2013年9月</p>
+
+                        <p>一口价：&#65509<span class="cost">13.98万</span></p>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/image/banner.jpg" alt="car" width="131" height="83"/>
+                        </a>
+
+                        <p>上海大众帕萨特</p>
+
+                        <p>历程：2.5万公里</p>
+
+                        <p>购买时间：2013年9月</p>
+
+                        <p>一口价：&#65509<span class="cost">13.98万</span></p>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/image/banner.jpg" alt="car" width="131" height="83"/>
+                        </a>
+
+                        <p>上海大众帕萨特</p>
+
+                        <p>历程：2.5万公里</p>
+
+                        <p>购买时间：2013年9月</p>
+
+                        <p>一口价：&#65509<span class="cost">13.98万</span></p>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/image/banner.jpg" alt="car" width="131" height="83"/>
+                        </a>
+
+                        <p>上海大众帕萨特</p>
+
+                        <p>历程：2.5万公里</p>
+
+                        <p>购买时间：2013年9月</p>
+
+                        <p>一口价：&#65509<span class="cost">13.98万</span></p>
+                    </li>
+                </ul>
             </div>
             <div class="contract">
                 <ul>
-                    <li><a href="#">优卡报</a></li>
-                    <li><a href="#">第三方支付</a></li>
-                    <li><a href="#">回购协议</a></li>
+                    <li><a href="#"><img src="/image/yk.jpg" alt="youka" width="189" height="88"/></a></li>
+                    <li><a href="#"><img src="/image/ds.jpg" alt="youka" width="189" height="88"/></a></li>
+                    <li><a href="#"><img src="/image/hg.jpg" alt="youka" width="189" height="88"/></a></li>
                 </ul>
             </div>
-            <div class="buy">
-                买车指南
-            </div>
-            <div class="sell">
-                买车指南
-            </div>
-            <div class="loan">
-                贷款&保险
-            </div>
-            <div class="certificate">
-                认证二手车
+            <div class="instructions">
+                <div class="buy">
+                    <a href="#">买车指南</a>
+                </div>
+                <div class="sell">
+                    <a href="#">买车指南</a>
+                </div>
+                <div class="loan">
+                    <a href="#">贷款&保险</a>
+                </div>
+                <div class="certificate">
+                    <a href="#">认证二手车</a>
+                </div>
             </div>
         </div>
         <div class="barcode">

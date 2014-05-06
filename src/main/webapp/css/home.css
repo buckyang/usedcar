@@ -199,22 +199,20 @@ p.site-info {
 }
 
 .info {
-    padding: 5px 5px;
     width: 1050px;
     margin: 10px auto;
+    height: 400px;
 }
 
 .info .messages {
-    margin-top: 5px;
     display: inline-block;
-    width: 70%;
-    height: 100%;
+    width: 775px;
 }
 
 .info .barcode {
     display: inline-block;
     height: 100%;
-    width: 29%;
+    width: 265px;
     border: 1px solid #333;
     line-height: 100px;
     text-align: center;
@@ -222,39 +220,115 @@ p.site-info {
 }
 
 .info .messages .recommends,
-.info .messages .contract,
-.info .messages .buy,
-.info .messages .sell,
-.info .messages .loan,
-.info .messages .certificate {
+.info .messages .contract{
     display: inline-block;
-    text-align: center;
-    border: 1px solid #333;
-    margin-top: 5px;
-    text-align: center;
-    line-height: 50px;
-}
-
-.info .messages .recommends,
-.info .messages .contract {
-    height: 230px;
 }
 
 .info .messages .recommends {
-    width: 65%;
-    vertical-align: top;
+    width: 576px;
+    height: 270px;
+    background-color: white;
 }
 
-.info .messages .contract {
-    width: 33%;
+.info .messages .recommends .title{
+    background-color: #4671c3;
+    width: 576px;
+    height: 45px;
+}
+
+.info .messages .recommends .title li {
+    float: left;
+    display: inline-block;
+    height: 45px;
+    width: 120px;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+    background-color: #4671c3;
+}
+
+.info .messages .recommends .title li:hover {
+    background-color: #ec9000;
+}
+
+
+.info .messages .recommends .title li.middle {
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+}
+
+.info .messages .recommends .content li {
+    float: left;
+    width: 133px;
+    height: 183px;
+    margin-top: 18px;
+    margin-left: 8px;
+    font-size: 12px;
+    line-height: 24px;
+}
+.info .messages .recommends .content li a{
+    display: inline-block;
+    border: 2px solid #dbd8d3;
+}
+.cost {
+    color: red;
+}
+
+.info .messages .contract ul li
+{
+    display: block;
+    width: 190px;
+    height: 87px;
+    margin-bottom: 5px;
+}
+
+.info .messages .instructions {
+    background-color: #e5e5e5;
+    width: 768px;
+    height: 104px;
+    border: 1px solid #fff;
 }
 
 .info .messages .buy,
 .info .messages .sell,
 .info .messages .loan,
 .info .messages .certificate {
-    width: 24.1%;
-    height: 53px;
+    float:left;
+    width: 191px;
+    height: 103px;
+    text-align: center;
+    line-height: 103px;
+}
+
+.info .messages .sell,
+.info .messages .loan,
+.info .messages .certificate {
+    border-left: 1px solid #fff;
+}
+
+.info .messages .buy a,
+.info .messages .sell a,
+.info .messages .loan a,
+.info .messages .certificate a {
+    color: #333;
+}
+
+
+.info .messages .buy {
+    background: url("/image/mch.png") no-repeat;
+
+}
+
+.info .messages .sell {
+    background: url("/image/mic.png") no-repeat;
+}
+
+.info .messages .loan {
+    background: url("/image/dkh.png") no-repeat;
+}
+
+.info .messages .certificate {
+    background: url("/image/wuh.png") no-repeat;
 }
 
 .car-images {
