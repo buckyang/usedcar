@@ -1,23 +1,18 @@
 //
-//  ShoppingCarMainViewController.m
+//  MyFavoriteController.m
 //  UserCar
 //
-//  Created by 舒联勇 on 14-4-21.
+//  Created by 舒联勇 on 14-5-6.
 //  Copyright (c) 2014年 shulianyong. All rights reserved.
 //
 
-#import "ShoppingCarMainViewController.h"
-#import "CheckTableViewCell.h"
+#import "MyFavoriteController.h"
 
-@interface ShoppingCarMainViewController ()
-
-@property (strong, nonatomic) IBOutlet UIView *payView;
-
-
+@interface MyFavoriteController ()
 
 @end
 
-@implementation ShoppingCarMainViewController
+@implementation MyFavoriteController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,17 +26,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    CGRect payViewFrame = self.payView.bounds;
-    payViewFrame.origin.y = self.tableView.bounds.size.height-payViewFrame.size.height-44-66;
-    
-    self.payView.frame = payViewFrame;
-    [self.view addSubview:self.payView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,67 +44,37 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 9;
+    return 20;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CheckTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ShoppingCarCell" forIndexPath:indexPath];
-    cell.checked = indexPath.row%2;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyFavoriteCell" forIndexPath:indexPath];
+    
+    // Configure the cell...
     
     return cell;
 }
 
-- (void) scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGRect payViewFrame = self.payView.bounds;
-    payViewFrame.origin.y = self.tableView.bounds.size.height-payViewFrame.size.height-44+self.tableView.contentOffset.y;
-    
-    self.payView.frame = payViewFrame;
-}
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation

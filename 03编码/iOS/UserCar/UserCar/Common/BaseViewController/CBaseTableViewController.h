@@ -20,4 +20,9 @@
  */
 - (void)supportedRefresh;
 
+/**
+ *  @brief 支持分页刷新
+ */
+- (void)supportedPaging;
+
 @end

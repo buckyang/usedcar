@@ -51,13 +51,15 @@
 
 #pragma mark --------------- 支持下拉与上拉刷新
 - (void)supportedRefresh
-{   
-    //初始化刷新功能
+{
     headerRefresh = [[MJRefreshHeaderView alloc] init];
     headerRefresh.delegate = self;
     headerRefresh.scrollView = self.tableView;
-    
-    //
+}
+
+
+- (void)supportedPaging
+{
     footerRefresh = [[MJRefreshFooterView alloc] init];
     footerRefresh.delegate = self;
     footerRefresh.scrollView = self.tableView;
@@ -84,21 +86,24 @@
 #pragma mark ------------------  下拉刷新
 - (void)refreshPage
 {
-    [footerRefresh endRefreshing];
     NSAssert(![NSStringFromClass(self.class) isEqualToString:@"CBaseTableViewController"], @"请重写下拉刷新方法");
-}
-
-
-#pragma mark ------------------ 上拉翻页
-- (void)nextPage
-{
-    [headerRefresh endRefreshing];
-    NSAssert(![NSStringFromClass(self.class) isEqualToString:@"CBaseTableViewController"], @"请重写翻页方法");
+    [footerRefresh endRefreshing];
 }
 
 - (void)endRefreshing
 {
     [headerRefresh endRefreshing];
+}
+
+#pragma mark ------------------ 上拉翻页
+- (void)nextPage
+{
+    NSAssert(![NSStringFromClass(self.class) isEqualToString:@"CBaseTableViewController"], @"请重写翻页方法");
+    [headerRefresh endRefreshing];
+}
+
+- (void)endPaging
+{
     [footerRefresh endRefreshing];
 }
 

@@ -13,6 +13,5 @@
 #import "UIImage+Util.h"
 #import "NSObject+Reflect.h"
 #import "SimpleLogger.h"
-#import "UDIDTools.h"
 
 #define RGBColor(aRed,aGreen,aBlue) [UIColor colorWithRed:(aRed/255.0f) green:(aGreen/255.0f) blue:(aBlue/255.0f) alpha:1]

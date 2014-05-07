@@ -40,15 +40,24 @@
 - (void)configTabbarStyle
 {
     
-//    UITabBarController *tabController = (UITabBarController*)self.window.rootViewController;
+    UITabBarController *tabController = (UITabBarController*)self.window.rootViewController;
 //    tabController.tabBar.tintColor = [UIColor blueColor];
+//    tabController.tabBar.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
+    tabController.tabBar.backgroundImage = [UIImage imageNamed:@"imgTabBarBG.png"];
     
     //
     //    NSDictionary *dicTitle = @{NSForegroundColorAttributeName: [UIColor blackColor]};
     //    [[UITabBarItem appearance] setTitleTextAttributes:dicTitle forState:UIControlStateNormal];
     
     //设置选中时的背景色
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blueColor]} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: RGBColor(58, 107, 189)} forState:UIControlStateSelected];
+    tabController.tabBar.selectedImageTintColor = RGBColor(58, 107, 189);
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: RGBColor(55, 55, 55)}
+                                             forState:UIControlStateNormal];   
+    for (UITabBarItem *tbi in tabController.tabBar.items) {
+        tbi.image = [tbi.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
 }
 
 

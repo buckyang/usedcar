@@ -8,6 +8,6 @@
 
 #import "CBaseViewController.h"
 
-@interface ReselleSignonViewController : CBaseViewController
+@interface ReselleSignonViewController : CBaseTableViewController
 
 @end

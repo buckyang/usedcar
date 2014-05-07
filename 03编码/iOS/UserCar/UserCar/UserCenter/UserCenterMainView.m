@@ -76,16 +76,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row==3) {
-        
-        UIStoryboard *board = [UIStoryboard storyboardWithName:@"UserCenter" bundle:nil];
-        UIViewController *view = [board instantiateViewControllerWithIdentifier:@"TradeRecordMainController"];
-        [view setHidesBottomBarWhenPushed:YES];
-        [self.navigationController pushViewController:view animated:YES];
-        
-
+    UIStoryboard *board = [UIStoryboard storyboardWithName:@"UserCenter" bundle:nil];
+    UIViewController *pushController = nil;
+    switch (indexPath.row) {
+        case 0:
+            pushController = [board instantiateViewControllerWithIdentifier:@"MyMaterial"];
+            break;
+        case 2:
+            pushController = [board instantiateViewControllerWithIdentifier:@"MyFavorite"];
+            break;
+        case 3:
+            pushController = [board instantiateViewControllerWithIdentifier:@"TradeRecordMainController"];
+            break;
+            
+        default:
+            break;
     }
+    [pushController setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
-
 
 @end

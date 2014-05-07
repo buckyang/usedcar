@@ -54,7 +54,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mqq://"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"iNoknok://"]];
 }
 /*
 // Override to support conditional editing of the table view.

@@ -33,4 +33,9 @@ static NSInteger pageSize=15;
  */
 - (void)nextPage;
 
+/**
+ *  @brief 结束分页刷新
+ */
+- (void)endPaging;
+
 @end

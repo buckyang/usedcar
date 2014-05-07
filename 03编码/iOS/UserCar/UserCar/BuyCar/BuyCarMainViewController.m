@@ -26,12 +26,9 @@
 }
 
 - (void)viewDidLoad
-{
+{    
     [super viewDidLoad];
    
-    [self.navigationItem.backBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateNormal];    
-    
-    self.navigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"imgBuyCarIcon_H.png"];
     
     self.txtSearch.leftViewMode = UITextFieldViewModeAlways;
     UIImageView *rightView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"searchbg.png"]];
@@ -39,7 +36,7 @@
     self.txtSearch.leftView = rightView;
     
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -92,6 +89,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 85.f;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIStoryboard *board = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *filterController = [board instantiateViewControllerWithIdentifier:@"BuyCarFilterViewController"];
+    [filterController setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:filterController animated:YES];
 }
 
 /*

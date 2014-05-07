@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegiestIndividualUserViewController : CBaseViewController
+@interface RegiestIndividualUserViewController : CBaseTableViewController
 
 @end

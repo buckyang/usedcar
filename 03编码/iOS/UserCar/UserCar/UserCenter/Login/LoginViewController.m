@@ -36,7 +36,6 @@ static NSString *Password = @"Password";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.btnLogin.userInteractionEnabled = YES;
     self.btnLogin.layer.cornerRadius = 4;
 
@@ -58,11 +57,40 @@ static NSString *Password = @"Password";
         
     }];
 }
+
+/**
+ *  @brief 判断输入是否正确
+ *
+ *  @return 判断是否正确
+ */
+- (BOOL)verifyInput
+{
+    BOOL ret = YES;
+    
+    if ([NSString isEmpty:self.txtUserName.text.trim]) {
+        ret = NO;
+        [MessageBox showMessage:@"请输入用户名"];
+    }
+    else if ([NSString isEmpty:self.txtPassword.text.trim])
+    {
+        ret = NO;
+        [MessageBox showMessage:@"请输入密码"];
+    }
+    
+    return ret;
+}
+
 - (IBAction)click_btnLogin:(id)sender
 {
+    if (![self verifyInput]) {
+        return;
+    }
+    
     UserInfo *login = [UserInfo createInstance];
     login.userName = self.txtUserName.text.trim;
     login.password = self.txtPassword.text.trim;
+    
+    
     
     UserLogin *access = [UserLogin createInstance];
     
@@ -89,6 +117,27 @@ static NSString *Password = @"Password";
         
     }];
     
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesEnded:touches withEvent:event];
+    [self.txtUserName resignFirstResponder];
+    [self.txtPassword resignFirstResponder];
+}
+
+#pragma mark --------------------------------- UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField==self.txtPassword) {
+        [self click_btnLogin:nil];
+    }
+    else
+    {
+        UITextField *nextField = (UITextField*)[self.view viewWithTag:textField.tag+1];
+        [nextField becomeFirstResponder];
+    }
+    return YES;
 }
 
 /*

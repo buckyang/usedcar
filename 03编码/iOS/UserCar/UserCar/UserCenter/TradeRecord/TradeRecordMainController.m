@@ -61,8 +61,10 @@
     static NSString *headerIdentifier = @"UserCenterBuyCarRecordHeaderCell";
     static NSString *contentIdentifier = @"UserCenterBuyCarRecordCell";
     static NSString *statusIdentifier = @"UserCenterBuyCarRecordCompleteCell";
+    static NSString *noCompleteStatusIdentifier = @"UserCenterBuyCarRecordNoCompleteCell";
     
     NSString *identifierName = nil;
+    
     switch (indexPath.row) {
         case 0:
             identifierName = headerIdentifier;
@@ -70,9 +72,8 @@
         case 1:
             identifierName = contentIdentifier;
             break;
-            
         default:
-            identifierName = statusIdentifier;
+            identifierName = (indexPath.section%2)? statusIdentifier:noCompleteStatusIdentifier;
             break;
     }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierName forIndexPath:indexPath];
@@ -84,7 +85,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat height = indexPath.row==0?85:40;
+    CGFloat height = 0;
 
     switch (indexPath.row) {
         case 0:
@@ -99,6 +100,12 @@
     }
     return height;
     
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 20.f;
 }
 
 /*
@@ -149,6 +156,17 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark ----------------- 付款
+- (IBAction)click_btnPay:(id)sender withEvent:(UIEvent *)event
+{
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint viewPoint = [touch locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:viewPoint];
+    [MessageBox showMessage:[NSString stringWithFormat:@"section:%ld row:%ld",(long)indexPath.section,(long)indexPath.row]];
+    
+}
+
 
 #pragma mark ------------ 刷新
 - (void)EndPage

@@ -23,7 +23,6 @@
 		936686F518E9213A0050FB52 /* spelling.m in Sources */ = {isa = PBXBuildFile; fileRef = 936686ED18E9213A0050FB52 /* spelling.m */; };
 		936686F618E9213A0050FB52 /* UIImage+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 936686EF18E9213A0050FB52 /* UIImage+Util.m */; };
 		936686F918E921440050FB52 /* SimpleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 936686F818E921440050FB52 /* SimpleLogger.m */; };
-		93E05066190E24520043207B /* UDIDTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E05065190E24520043207B /* UDIDTools.m */; };
 		93E0506A190E39220043207B /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E05069190E39220043207B /* KeychainItemWrapper.m */; };
 /* End PBXBuildFile section */
 
@@ -78,8 +77,6 @@
 		936686EF18E9213A0050FB52 /* UIImage+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Util.m"; sourceTree = "<group>"; };
 		936686F718E921440050FB52 /* SimpleLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleLogger.h; sourceTree = "<group>"; };
 		936686F818E921440050FB52 /* SimpleLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleLogger.m; sourceTree = "<group>"; };
-		93E05064190E24520043207B /* UDIDTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDIDTools.h; sourceTree = "<group>"; };
-		93E05065190E24520043207B /* UDIDTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDIDTools.m; sourceTree = "<group>"; };
 		93E05068190E39220043207B /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		93E05069190E39220043207B /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,8 +156,6 @@
 				936686F818E921440050FB52 /* SimpleLogger.m */,
 				93E05068190E39220043207B /* KeychainItemWrapper.h */,
 				93E05069190E39220043207B /* KeychainItemWrapper.m */,
-				93E05064190E24520043207B /* UDIDTools.h */,
-				93E05065190E24520043207B /* UDIDTools.m */,
 				936686BE18E920F00050FB52 /* Supporting Files */,
 			);
 			path = CommonLayer;
@@ -276,7 +271,6 @@
 				936686F218E9213A0050FB52 /* NSDate+Util.m in Sources */,
 				936686F918E921440050FB52 /* SimpleLogger.m in Sources */,
 				936686F418E9213A0050FB52 /* NSString+Util.m in Sources */,
-				93E05066190E24520043207B /* UDIDTools.m in Sources */,
 				936686F018E9213A0050FB52 /* NSArray+Util.m in Sources */,
 				936686F618E9213A0050FB52 /* UIImage+Util.m in Sources */,
 				936686F318E9213A0050FB52 /* NSObject+Reflect.m in Sources */,

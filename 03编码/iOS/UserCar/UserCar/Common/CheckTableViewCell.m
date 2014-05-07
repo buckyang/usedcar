@@ -21,7 +21,8 @@
 
 - (void)awakeFromNib
 {
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    [super awakeFromNib];
+    self.checked = NO;
 }
 
 - (void)setChecked:(BOOL)checked
@@ -40,6 +41,7 @@
     if (selected) {
         self.checked = !self.checked;
     }
+    [super setSelected:NO animated:YES];
 
     // Configure the view for the selected state
 }
