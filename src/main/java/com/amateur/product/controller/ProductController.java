@@ -49,6 +49,8 @@ public class ProductController extends BaseController {
 	private AddressService addressService;
 	@Autowired
 	private BrandService brandService;
+	@Autowired
+	private ImageUtil imageUtil;
 
 	private static final Logger logger = Logger
 			.getLogger(ProductController.class);
@@ -73,18 +75,19 @@ public class ProductController extends BaseController {
 			UsedCarDTO usedCarDTO = productService.getUsedCarById(productId);
 			modelAndView.addObject("usedCarDTO", usedCarDTO);
 		}
-		modelAndView.addObject("countyMap", addressService.getCountyMapByCityId(225));
+		modelAndView.addObject("countyMap",
+				addressService.getCountyMapByCityId(225));
 		modelAndView.addObject("brandMap", brandService.getBrandMap());
 		modelAndView.setViewName("secure/sellcar");
 		return modelAndView;
 	}
-	
+
 	@RequestMapping(value = "/getSeries", method = RequestMethod.GET)
 	@ResponseBody
 	public Map<Integer, String> getSeriesMap(String brandId) {
 		return brandService.getSeriesMapByBrandId(Integer.valueOf(brandId));
 	}
-	
+
 	@RequestMapping(value = "/getModels", method = RequestMethod.GET)
 	@ResponseBody
 	public Map<Integer, String> getModels(String seriesId) {
@@ -223,16 +226,16 @@ public class ProductController extends BaseController {
 			file.mkdir();
 		}
 		BufferedImage bufferedImage = ImageIO.read(image.getInputStream());
-		ImageUtil.createThumbnail(bufferedImage, realPath + File.separator
-				+ commonName + "_jumbo.jpg", 800, 600, false);
-		ImageUtil.createThumbnail(bufferedImage, realPath + File.separator
-				+ commonName + "_large.jpg", 400, 300, false);
-		ImageUtil.createThumbnail(bufferedImage, realPath + File.separator
-				+ commonName + "_regular.jpg", 200, 150, false);
-		ImageUtil.createThumbnail(bufferedImage, realPath + File.separator
-				+ commonName + "_small.jpg", 100, 75, false);
-		ImageUtil.createThumbnail(bufferedImage, realPath + File.separator
-				+ commonName + "_thumbnail.jpg", 50, 38, false);
+		imageUtil.createThumbnail(bufferedImage, commonName + "_jumbo.jpg",
+				800, 600, false);
+		imageUtil.createThumbnail(bufferedImage, commonName + "_large.jpg",
+				400, 300, false);
+		imageUtil.createThumbnail(bufferedImage, commonName + "_regular.jpg",
+				200, 150, false);
+		imageUtil.createThumbnail(bufferedImage, commonName + "_small.jpg",
+				100, 75, false);
+		imageUtil.createThumbnail(bufferedImage, commonName + "_thumbnail.jpg",
+				50, 38, false);
 	}
 
 	private void validateImage(MultipartFile image) throws ImageUploadException {

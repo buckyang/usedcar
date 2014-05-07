@@ -200,5 +200,9 @@
           </props>        
       </property>        
 </bean> 
+
+	<bean id="imageUtil" class="com.amateur.util.ImageUtil">
+ 		<property name="destDirectory" value="d:/image" />
+	</bean>
 	
 </beans>

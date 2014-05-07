@@ -13,7 +13,9 @@ public class ImageUtil {
 
 	private static final Logger logger = Logger.getLogger(ImageUtil.class);
 
-	public static void createThumbnail(BufferedImage image, String destination,
+	private String destDirectory;
+
+	public void createThumbnail(BufferedImage image, String fileName,
 			int width, int height, boolean isRatio) throws IOException {
 
 		logger.debug("ImageUtil createThumbnail: beginning.");
@@ -34,7 +36,17 @@ public class ImageUtil {
 		bfImage.getGraphics().drawImage(
 				image.getScaledInstance(width, height, Image.SCALE_SMOOTH), 0,
 				0, null);
-		String formatName = destination.substring(destination.lastIndexOf(".") + 1); 
+		String destination = getDestDirectory()+File.separator + fileName;
+		String formatName = destination.substring(destination.lastIndexOf(".") + 1);
 		ImageIO.write(bfImage, formatName, new File(destination));
 	}
+
+	public String getDestDirectory() {
+		return destDirectory;
+	}
+
+	public void setDestDirectory(String destDirectory) {
+		this.destDirectory = destDirectory;
+	}
+
 }
