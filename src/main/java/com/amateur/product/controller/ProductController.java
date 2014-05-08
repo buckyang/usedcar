@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -176,8 +177,13 @@ public class ProductController extends BaseController {
 			return resultMap;
 		}
 		resultMap = processGenericJSON(true);
-		resultMap.put("url", request.getContextPath() + "/image/upload/"
-				+ commonName + "_regular.jpg");
+		resultMap.put(
+				"url",
+				StringUtils.substringBefore(request.getRequestURL().toString(),
+						request.getRequestURI())
+						+ "/image/"
+						+ commonName
+						+ "_regular.jpg");
 		return resultMap;
 	}
 
@@ -202,7 +208,9 @@ public class ProductController extends BaseController {
 			out.flush();
 			return;
 		}
-		out.print("0`" + request.getContextPath() + "/image/upload/"
+		out.print("0`"
+				+ StringUtils.substringBefore(request.getRequestURL()
+						.toString(), request.getRequestURI()) + "/image/"
 				+ commonName + "_regular.jpg");
 		out.flush();
 	}
