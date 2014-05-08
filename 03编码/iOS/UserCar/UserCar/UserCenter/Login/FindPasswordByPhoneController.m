@@ -1,18 +1,18 @@
 //
-//  LoginViewController.m
+//  FindPasswordByPhoneController.m
 //  UserCar
 //
-//  Created by 舒联勇 on 14-3-19.
+//  Created by 舒联勇 on 14-5-7.
 //  Copyright (c) 2014年 shulianyong. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "FindPasswordByPhoneController.h"
 
-@interface LoginViewController ()
+@interface FindPasswordByPhoneController ()
 
 @end
 
-@implementation LoginViewController
+@implementation FindPasswordByPhoneController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,11 +33,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (IBAction)click_btnCancel:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
 }
 
 /*

@@ -1,5 +1,5 @@
 //
-//  RegiestUserViewController.h
+//  RegiestIndividualUserViewController.h
 //  UserCar
 //
 //  Created by 舒联勇 on 14-3-21.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegiestUserViewController : UIViewController
+@interface RegiestIndividualUserViewController : CBaseTableViewController
 
 @end

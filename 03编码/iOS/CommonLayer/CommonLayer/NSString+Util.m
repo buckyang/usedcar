@@ -11,6 +11,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "spelling.h"
 #import "SimpleLogger.h"
+#import "KeychainItemWrapper.h"
 
 @interface NSString (PrivateDelegateHandling)
 + (BOOL)isSigleByte:(NSString*)character;
@@ -33,15 +34,10 @@
 
 #pragma mark - Public Methods
 
-- (BOOL)isEmpty{
-	if (self == nil) return YES;
-    BOOL ret = ([[self trim] length]==0);
-	return ret;
-}
-
 + (BOOL)isEmpty:(NSString*)aString{
-	if (aString == nil) return YES;
-    BOOL ret = ([[aString trim] length]==0);
+    BOOL ret = NO;
+	if ((aString==nil)|| ([[aString trim] length]==0) || [aString isKindOfClass:[NSNull class]])
+        ret = YES;
 	return ret;
 }
 
@@ -161,6 +157,9 @@ static char encodingTable[64] = {
 
 + (BOOL) regexWithFormat:(NSString*)aFormat ValueString:(NSString*)aValueString
 {
+//    NSAssert([NSString isEmpty:aValueString], @"内容不能为空");
+//    NSAssert([NSString isEmpty:aFormat], @"格式不能为空");
+    
     NSPredicate *_Predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",aFormat];
 	return [_Predicate evaluateWithObject:aValueString];
 }
@@ -235,7 +234,7 @@ static char encodingTable[64] = {
 + (NSString *) valueNotNull:(NSString*)aValue
 {
     NSString *temp = nil;
-    temp = [aValue isEmpty]?@"":aValue;
+    temp = [NSString isEmpty:aValue]?@"":aValue;
     return temp;
 }
 
@@ -278,9 +277,9 @@ static char encodingTable[64] = {
     return path;
 }
 
-+ (NSString*)pathInDocument:(NSString*)aPath
++ (NSString*)pathInDocument:(NSString*)aFolderName
 {
-    NSString *folderPath = [NSString stringWithFormat:@"%@/%@",[self documentFolderPath],aPath];
+    NSString *folderPath = [NSString stringWithFormat:@"%@/%@",[self documentFolderPath],aFolderName];
     if (![[NSFileManager defaultManager] fileExistsAtPath:folderPath])
 	{
 		NSError *err = nil;
@@ -342,5 +341,33 @@ static char encodingTable[64] = {
     return YES;
 }
 
+#pragma mark --------- udid
+
+static NSString *AccessGroup = @"A4Y4S6LD29.com.UserCar.UserCar";
+
++ (NSString*)UDID
+{
+    static NSString *udid = nil;
+    if (![NSString isEmpty:udid]) {
+        return udid;
+    }
+    
+    static KeychainItemWrapper *keyChain = nil;
+    if (keyChain==nil) {
+        keyChain = [[KeychainItemWrapper alloc] initWithIdentifier:@"UDID" accessGroup:AccessGroup];
+    }
+    
+    NSString *temp = [keyChain objectForKey:(__bridge id)kSecValueData];
+    if ([NSString isEmpty:temp]) {
+        udid = [UIDevice currentDevice].identifierForVendor.UUIDString;
+        [keyChain setObject:udid forKey:(__bridge id)kSecValueData];
+    }
+    else
+    {
+        udid = temp;
+    }
+    
+    return udid;
+}
 
 @end

@@ -7,8 +7,9 @@
 //
 
 #import "BuyCarMainViewController.h"
+#import "BuyCarMainCell.h"
 
-@interface BuyCarMainViewController ()
+@interface BuyCarMainViewController ()<UIGestureRecognizerDelegate,UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *txtSearch;
 
 @end
@@ -25,13 +26,17 @@
 }
 
 - (void)viewDidLoad
-{
+{    
     [super viewDidLoad];
+   
     
-    self.navigationItem.backBarButtonItem.title = @"我要买车";
-    [self.navigationItem.backBarButtonItem setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor whiteColor]} forState:UIControlStateNormal];
+    self.txtSearch.leftViewMode = UITextFieldViewModeAlways;
+    UIImageView *rightView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"searchbg.png"]];
+    rightView.frame = CGRectMake(20, 5, 18, 15);
+    self.txtSearch.leftView = rightView;
+    
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -64,15 +69,35 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuyCarMainCell" forIndexPath:indexPath];
-    cell.textLabel.text = @"sly";
-    cell.detailTextLabel.text = @"2014-3-25";
+    BuyCarMainCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"BuyCarMainCell"];
+    if (!cell) {
+        cell = [[NSBundle mainBundle] loadNibNamed:@"BuyCarMainCell" owner:self options:nil][0];
+    }
+    
+    if (cell)
+    {
+        cell.lblTotalMileage.text = [NSString stringWithFormat:@"%ld万公里",indexPath.row*10];
+        cell.lblFirstTime.text = [[NSDate date] descriptionLocalAsFormat:@"yyyy年MM月"];
+    }
     
     // Configure the cell...
     
     return cell;
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 85.f;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIStoryboard *board = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *filterController = [board instantiateViewControllerWithIdentifier:@"BuyCarFilterViewController"];
+    [filterController setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:filterController animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -122,5 +147,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark ----------- 搜索功能
+//- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar;
+//{
+//    [searchBar setShowsCancelButton:YES];
+//    self.searchDisplayController.active = NO;
+//}
+//
+//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+//{
+//    
+//    [searchBar setShowsCancelButton:NO];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    UIViewController *filtView = [storyboard instantiateViewControllerWithIdentifier:@"BuyCarFilterViewController"];
+//    [self.navigationController pushViewController:filtView animated:YES];
+//}
 
 @end

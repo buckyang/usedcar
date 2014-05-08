@@ -29,10 +29,11 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [super viewDidLoad];    
+    
     self.individualUserViewController=[self.childViewControllers objectAtIndex:0];
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"UserCenter" bundle:nil];
     self.busynessUserviewController = [storyboard instantiateViewControllerWithIdentifier:@"BusynessUserviewController"];
     [self addChildViewController:self.busynessUserviewController];
     

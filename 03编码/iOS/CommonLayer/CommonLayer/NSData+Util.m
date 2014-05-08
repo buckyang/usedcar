@@ -85,10 +85,10 @@
 
 #pragma mark - Public Methods
 
-- (BOOL)isEmpty {
-	if (self == nil) return YES;
-	NSString* string = [[NSString alloc] initWithData:self encoding:NSASCIIStringEncoding];
-	return [string isEmpty];
++ (BOOL)isEmpty:(NSData*)aData {
+	if (aData == nil) return YES;
+	NSString* string = [[NSString alloc] initWithData:aData encoding:NSASCIIStringEncoding];
+	return [NSString isEmpty:string];
 }
 
 + (NSData*)base64Encode:(NSString*)aString encoding:(NSStringEncoding)aEncoding {

@@ -9,8 +9,30 @@
 /* Begin PBXBuildFile section */
 		9315F68E18DC659700985B2E /* RegiestUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315F68D18DC659700985B2E /* RegiestUserViewController.m */; };
 		9315F69118DC662C00985B2E /* RegiestIndividualUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315F69018DC662C00985B2E /* RegiestIndividualUserViewController.m */; };
+		9340E3C91905136900D8E5FF /* imgCheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9340E3C71905136900D8E5FF /* imgCheck@2x.png */; };
+		9340E3CA1905136900D8E5FF /* imgUncheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9340E3C81905136900D8E5FF /* imgUncheck@2x.png */; };
+		9340E3CF1905163C00D8E5FF /* ShoppingCarMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9340E3CE1905163C00D8E5FF /* ShoppingCarMainViewController.m */; };
 		9341534F18EA910800C4358B /* libAccessLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9341534E18EA910800C4358B /* libAccessLayer.a */; };
+		935D78BA190F73EB0033567F /* TradeRecordMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 935D78B9190F73EB0033567F /* TradeRecordMainController.m */; };
+		935D78BC190F7B2B0033567F /* imgItemBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 935D78BB190F7B2B0033567F /* imgItemBackground@2x.png */; };
+		935EB3021910CC47000D42CA /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 935EB3011910CC47000D42CA /* UserInfoViewController.m */; };
+		935EB3051910D875000D42CA /* RectTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 935EB3041910D875000D42CA /* RectTextField.m */; };
+		935EB3081910E18A000D42CA /* ModifyPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 935EB3071910E18A000D42CA /* ModifyPasswordController.m */; };
+		935EB3111910F72D000D42CA /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 935EB3101910F72D000D42CA /* test.png */; };
+		935FE82F18FF7072000B391F /* BuyCarMainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935FE82E18FF7072000B391F /* BuyCarMainCell.xib */; };
 		936C78A518D94FA100F458EF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936C78A418D94FA100F458EF /* LoginViewController.m */; };
+		9372C4921907BF49009D9A4C /* MessageBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9372C4911907BF49009D9A4C /* MessageBox.m */; };
+		9380C51D190F802D001EC177 /* UIViewController+CustomStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 9380C51C190F802D001EC177 /* UIViewController+CustomStyle.m */; };
+		9380C521190F8B02001EC177 /* UserCenter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9380C520190F8B02001EC177 /* UserCenter.storyboard */; };
+		938283E318FD65F0002824E5 /* imgBuyCarIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 938283DE18FD65F0002824E5 /* imgBuyCarIcon@2x.png */; };
+		938283E418FD65F0002824E5 /* imgMoreIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 938283DF18FD65F0002824E5 /* imgMoreIcon@2x.png */; };
+		938283E518FD65F0002824E5 /* imgSaleCarIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 938283E018FD65F0002824E5 /* imgSaleCarIcon@2x.png */; };
+		938283E618FD65F0002824E5 /* imgShoppingCartIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 938283E118FD65F0002824E5 /* imgShoppingCartIcon@2x.png */; };
+		938283E718FD65F0002824E5 /* imgUserCenter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 938283E218FD65F0002824E5 /* imgUserCenter@2x.png */; };
+		938283E918FD6A5B002824E5 /* pic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 938283E818FD6A5B002824E5 /* pic.jpg */; };
+		938283EB18FD6CDC002824E5 /* imgAbsolutePrice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 938283EA18FD6CDC002824E5 /* imgAbsolutePrice@2x.png */; };
+		938283EF18FD7293002824E5 /* searchbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 938283EE18FD7293002824E5 /* searchbg@2x.png */; };
+		938283F118FD780A002824E5 /* imgBuyCarIcon_H@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 938283F018FD780A002824E5 /* imgBuyCarIcon_H@2x.png */; };
 		9399B16A18D940BC005D29DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9399B16918D940BC005D29DF /* Foundation.framework */; };
 		9399B16C18D940BC005D29DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9399B16B18D940BC005D29DF /* CoreGraphics.framework */; };
 		9399B16E18D940BC005D29DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9399B16D18D940BC005D29DF /* UIKit.framework */; };
@@ -28,6 +50,40 @@
 		93AB023618E119EE008D3C48 /* imgBGTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AB023518E119EE008D3C48 /* imgBGTab@2x.png */; };
 		93AB023D18E13009008D3C48 /* BuyCarMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AB023C18E13009008D3C48 /* BuyCarMainViewController.m */; };
 		93AB024018E130D9008D3C48 /* BuyCarFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AB023F18E130D9008D3C48 /* BuyCarFilterViewController.m */; };
+		93B0A783191618B6009A67CD /* imgToolCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B0A782191618B6009A67CD /* imgToolCell@2x.png */; };
+		93B0A786191619A6009A67CD /* ToolTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B0A785191619A6009A67CD /* ToolTableViewCell.m */; };
+		93B0A790191627BB009A67CD /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 93B0A788191627BB009A67CD /* MJRefresh.bundle */; };
+		93B0A791191627BB009A67CD /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B0A78B191627BB009A67CD /* MJRefreshBaseView.m */; };
+		93B0A792191627BB009A67CD /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B0A78D191627BB009A67CD /* MJRefreshFooterView.m */; };
+		93B0A793191627BB009A67CD /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B0A78F191627BB009A67CD /* MJRefreshHeaderView.m */; };
+		93B41BBA190F3D4F001D4DAC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B41BB9190F3D4F001D4DAC /* MBProgressHUD.m */; };
+		93B41BBD190F4B41001D4DAC /* LineTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B41BBC190F4B41001D4DAC /* LineTextField.m */; };
+		93B41BC0190F5169001D4DAC /* ReselleSignonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B41BBF190F5169001D4DAC /* ReselleSignonViewController.m */; };
+		93B5D11D1918F37400B762DF /* CornerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B5D11C1918F37400B762DF /* CornerButton.m */; };
+		93BA02C4191A1561007B0776 /* FindPasswordByPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BA02C3191A1561007B0776 /* FindPasswordByPhoneController.m */; };
+		93BA02C7191A15C2007B0776 /* FindPasswordByEmailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BA02C6191A15C2007B0776 /* FindPasswordByEmailController.m */; };
+		93C1BCFC1917594A001E5482 /* PayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C1BCFB1917594A001E5482 /* PayButton.m */; };
+		93C1BD001917627E001E5482 /* CarFilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C1BCFF1917627E001E5482 /* CarFilterTableViewCell.m */; };
+		93C1BD0219176A2F001E5482 /* imgTabBarBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93C1BD0119176A2F001E5482 /* imgTabBarBG@2x.png */; };
+		93CF21421919C3B2009A1AB6 /* FindPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CF21411919C3B2009A1AB6 /* FindPasswordController.m */; };
+		93CF21451919D152009A1AB6 /* Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CF21441919D152009A1AB6 /* Empty.m */; };
+		93CF21481919D401009A1AB6 /* FindPasswordContrainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CF21471919D401009A1AB6 /* FindPasswordContrainer.m */; };
+		93D41E5019060ADD0008ED2D /* SellingCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E4F19060ADD0008ED2D /* SellingCarViewController.m */; };
+		93D41E5319060BCE0008ED2D /* UINavigationItem+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E5219060BCE0008ED2D /* UINavigationItem+CustomColor.m */; };
+		93D41E6219061CD60008ED2D /* CBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E6119061CD60008ED2D /* CBaseTableViewController.m */; };
+		93D41E6519061CE90008ED2D /* CBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E6419061CE90008ED2D /* CBaseViewController.m */; };
+		93D41E691906265B0008ED2D /* UserCenterMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E681906265B0008ED2D /* UserCenterMainView.m */; };
+		93D41E6C190629130008ED2D /* CheckButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E6B190629130008ED2D /* CheckButton.m */; };
+		93D41E7019062CFF0008ED2D /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E6F19062CFF0008ED2D /* PayViewController.m */; };
+		93D41E73190635590008ED2D /* CheckTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E72190635590008ED2D /* CheckTableViewCell.m */; };
+		93D4671118FE269500A32B3B /* UIBarButtonItem+ImageTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D4671018FE269500A32B3B /* UIBarButtonItem+ImageTitle.m */; };
+		93D4671418FE290300A32B3B /* UINavigationBar+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D4671318FE290300A32B3B /* UINavigationBar+CustomColor.m */; };
+		93D4671718FE2B0000A32B3B /* img_Back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D4671618FE2B0000A32B3B /* img_Back@2x.png */; };
+		93D4671E18FE54B600A32B3B /* BuyCarMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D4671D18FE54B600A32B3B /* BuyCarMainCell.m */; };
+		93D7E519191884A200C3E2C9 /* RectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D7E518191884A200C3E2C9 /* RectButton.m */; };
+		93D7E51D191890FC00C3E2C9 /* MyFavoriteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D7E51C191890FC00C3E2C9 /* MyFavoriteController.m */; };
+		93E05060190E22C70043207B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E0505F190E22C70043207B /* Security.framework */; };
+		93E480651910AB9A00FB00BF /* ConfirmMessageBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E480641910AB9A00FB00BF /* ConfirmMessageBox.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,9 +101,38 @@
 		9315F68D18DC659700985B2E /* RegiestUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegiestUserViewController.m; sourceTree = "<group>"; };
 		9315F68F18DC662C00985B2E /* RegiestIndividualUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegiestIndividualUserViewController.h; sourceTree = "<group>"; };
 		9315F69018DC662C00985B2E /* RegiestIndividualUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegiestIndividualUserViewController.m; sourceTree = "<group>"; };
+		9340E3C71905136900D8E5FF /* imgCheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgCheck@2x.png"; sourceTree = "<group>"; };
+		9340E3C81905136900D8E5FF /* imgUncheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgUncheck@2x.png"; sourceTree = "<group>"; };
+		9340E3CD1905163C00D8E5FF /* ShoppingCarMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCarMainViewController.h; sourceTree = "<group>"; };
+		9340E3CE1905163C00D8E5FF /* ShoppingCarMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCarMainViewController.m; sourceTree = "<group>"; };
 		9341534E18EA910800C4358B /* libAccessLayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAccessLayer.a; path = "../AccessLayer/build/Debug-iphoneos/libAccessLayer.a"; sourceTree = "<group>"; };
+		935D78B8190F73EB0033567F /* TradeRecordMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeRecordMainController.h; sourceTree = "<group>"; };
+		935D78B9190F73EB0033567F /* TradeRecordMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeRecordMainController.m; sourceTree = "<group>"; };
+		935D78BB190F7B2B0033567F /* imgItemBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgItemBackground@2x.png"; sourceTree = "<group>"; };
+		935EB3001910CC47000D42CA /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		935EB3011910CC47000D42CA /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		935EB3031910D875000D42CA /* RectTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectTextField.h; sourceTree = "<group>"; };
+		935EB3041910D875000D42CA /* RectTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectTextField.m; sourceTree = "<group>"; };
+		935EB3061910E18A000D42CA /* ModifyPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPasswordController.h; sourceTree = "<group>"; };
+		935EB3071910E18A000D42CA /* ModifyPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordController.m; sourceTree = "<group>"; };
+		935EB3101910F72D000D42CA /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		935FE82E18FF7072000B391F /* BuyCarMainCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyCarMainCell.xib; sourceTree = "<group>"; };
 		936C78A318D94FA100F458EF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		936C78A418D94FA100F458EF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		9372C4901907BF49009D9A4C /* MessageBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBox.h; sourceTree = "<group>"; };
+		9372C4911907BF49009D9A4C /* MessageBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBox.m; sourceTree = "<group>"; };
+		9380C51B190F802D001EC177 /* UIViewController+CustomStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CustomStyle.h"; sourceTree = "<group>"; };
+		9380C51C190F802D001EC177 /* UIViewController+CustomStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CustomStyle.m"; sourceTree = "<group>"; };
+		9380C520190F8B02001EC177 /* UserCenter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserCenter.storyboard; sourceTree = "<group>"; };
+		938283DE18FD65F0002824E5 /* imgBuyCarIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgBuyCarIcon@2x.png"; sourceTree = "<group>"; };
+		938283DF18FD65F0002824E5 /* imgMoreIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgMoreIcon@2x.png"; sourceTree = "<group>"; };
+		938283E018FD65F0002824E5 /* imgSaleCarIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgSaleCarIcon@2x.png"; sourceTree = "<group>"; };
+		938283E118FD65F0002824E5 /* imgShoppingCartIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgShoppingCartIcon@2x.png"; sourceTree = "<group>"; };
+		938283E218FD65F0002824E5 /* imgUserCenter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgUserCenter@2x.png"; sourceTree = "<group>"; };
+		938283E818FD6A5B002824E5 /* pic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic.jpg; sourceTree = "<group>"; };
+		938283EA18FD6CDC002824E5 /* imgAbsolutePrice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgAbsolutePrice@2x.png"; sourceTree = "<group>"; };
+		938283EE18FD7293002824E5 /* searchbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchbg@2x.png"; sourceTree = "<group>"; };
+		938283F018FD780A002824E5 /* imgBuyCarIcon_H@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgBuyCarIcon_H@2x.png"; sourceTree = "<group>"; };
 		9399B16618D940BC005D29DF /* UserCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9399B16918D940BC005D29DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9399B16B18D940BC005D29DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -71,6 +156,72 @@
 		93AB023C18E13009008D3C48 /* BuyCarMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyCarMainViewController.m; sourceTree = "<group>"; };
 		93AB023E18E130D9008D3C48 /* BuyCarFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyCarFilterViewController.h; sourceTree = "<group>"; };
 		93AB023F18E130D9008D3C48 /* BuyCarFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyCarFilterViewController.m; sourceTree = "<group>"; };
+		93B0A782191618B6009A67CD /* imgToolCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgToolCell@2x.png"; sourceTree = "<group>"; };
+		93B0A784191619A6009A67CD /* ToolTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolTableViewCell.h; sourceTree = "<group>"; };
+		93B0A785191619A6009A67CD /* ToolTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolTableViewCell.m; sourceTree = "<group>"; };
+		93B0A788191627BB009A67CD /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		93B0A789191627BB009A67CD /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		93B0A78A191627BB009A67CD /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		93B0A78B191627BB009A67CD /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		93B0A78C191627BB009A67CD /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		93B0A78D191627BB009A67CD /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		93B0A78E191627BB009A67CD /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		93B0A78F191627BB009A67CD /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
+		93B41BB8190F3D4F001D4DAC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		93B41BB9190F3D4F001D4DAC /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		93B41BBB190F4B41001D4DAC /* LineTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineTextField.h; sourceTree = "<group>"; };
+		93B41BBC190F4B41001D4DAC /* LineTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineTextField.m; sourceTree = "<group>"; };
+		93B41BBE190F5169001D4DAC /* ReselleSignonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReselleSignonViewController.h; sourceTree = "<group>"; };
+		93B41BBF190F5169001D4DAC /* ReselleSignonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReselleSignonViewController.m; sourceTree = "<group>"; };
+		93B5D11B1918F37400B762DF /* CornerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CornerButton.h; sourceTree = "<group>"; };
+		93B5D11C1918F37400B762DF /* CornerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CornerButton.m; sourceTree = "<group>"; };
+		93BA02C2191A1561007B0776 /* FindPasswordByPhoneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPasswordByPhoneController.h; sourceTree = "<group>"; };
+		93BA02C3191A1561007B0776 /* FindPasswordByPhoneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPasswordByPhoneController.m; sourceTree = "<group>"; };
+		93BA02C5191A15C2007B0776 /* FindPasswordByEmailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPasswordByEmailController.h; sourceTree = "<group>"; };
+		93BA02C6191A15C2007B0776 /* FindPasswordByEmailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPasswordByEmailController.m; sourceTree = "<group>"; };
+		93C1BCFA1917594A001E5482 /* PayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayButton.h; sourceTree = "<group>"; };
+		93C1BCFB1917594A001E5482 /* PayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayButton.m; sourceTree = "<group>"; };
+		93C1BCFE1917627E001E5482 /* CarFilterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarFilterTableViewCell.h; sourceTree = "<group>"; };
+		93C1BCFF1917627E001E5482 /* CarFilterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarFilterTableViewCell.m; sourceTree = "<group>"; };
+		93C1BD0119176A2F001E5482 /* imgTabBarBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgTabBarBG@2x.png"; sourceTree = "<group>"; };
+		93CF21401919C3B2009A1AB6 /* FindPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPasswordController.h; sourceTree = "<group>"; };
+		93CF21411919C3B2009A1AB6 /* FindPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPasswordController.m; sourceTree = "<group>"; };
+		93CF21431919D152009A1AB6 /* Empty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Empty.h; sourceTree = "<group>"; };
+		93CF21441919D152009A1AB6 /* Empty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Empty.m; sourceTree = "<group>"; };
+		93CF21461919D401009A1AB6 /* FindPasswordContrainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPasswordContrainer.h; sourceTree = "<group>"; };
+		93CF21471919D401009A1AB6 /* FindPasswordContrainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPasswordContrainer.m; sourceTree = "<group>"; };
+		93D41E4E19060ADD0008ED2D /* SellingCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SellingCarViewController.h; sourceTree = "<group>"; };
+		93D41E4F19060ADD0008ED2D /* SellingCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SellingCarViewController.m; sourceTree = "<group>"; };
+		93D41E5119060BCE0008ED2D /* UINavigationItem+CustomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+CustomColor.h"; sourceTree = "<group>"; };
+		93D41E5219060BCE0008ED2D /* UINavigationItem+CustomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CustomColor.m"; sourceTree = "<group>"; };
+		93D41E6019061CD60008ED2D /* CBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBaseTableViewController.h; sourceTree = "<group>"; };
+		93D41E6119061CD60008ED2D /* CBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBaseTableViewController.m; sourceTree = "<group>"; };
+		93D41E6319061CE90008ED2D /* CBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBaseViewController.h; sourceTree = "<group>"; };
+		93D41E6419061CE90008ED2D /* CBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBaseViewController.m; sourceTree = "<group>"; };
+		93D41E671906265B0008ED2D /* UserCenterMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterMainView.h; sourceTree = "<group>"; };
+		93D41E681906265B0008ED2D /* UserCenterMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterMainView.m; sourceTree = "<group>"; };
+		93D41E6A190629130008ED2D /* CheckButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckButton.h; sourceTree = "<group>"; };
+		93D41E6B190629130008ED2D /* CheckButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckButton.m; sourceTree = "<group>"; };
+		93D41E6E19062CFF0008ED2D /* PayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
+		93D41E6F19062CFF0008ED2D /* PayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
+		93D41E71190635590008ED2D /* CheckTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckTableViewCell.h; sourceTree = "<group>"; };
+		93D41E72190635590008ED2D /* CheckTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckTableViewCell.m; sourceTree = "<group>"; };
+		93D4670F18FE269500A32B3B /* UIBarButtonItem+ImageTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ImageTitle.h"; sourceTree = "<group>"; };
+		93D4671018FE269500A32B3B /* UIBarButtonItem+ImageTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ImageTitle.m"; sourceTree = "<group>"; };
+		93D4671218FE290300A32B3B /* UINavigationBar+CustomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CustomColor.h"; sourceTree = "<group>"; };
+		93D4671318FE290300A32B3B /* UINavigationBar+CustomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomColor.m"; sourceTree = "<group>"; };
+		93D4671618FE2B0000A32B3B /* img_Back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_Back@2x.png"; sourceTree = "<group>"; };
+		93D4671C18FE54B600A32B3B /* BuyCarMainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyCarMainCell.h; sourceTree = "<group>"; };
+		93D4671D18FE54B600A32B3B /* BuyCarMainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyCarMainCell.m; sourceTree = "<group>"; };
+		93D7E517191884A200C3E2C9 /* RectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectButton.h; sourceTree = "<group>"; };
+		93D7E518191884A200C3E2C9 /* RectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectButton.m; sourceTree = "<group>"; };
+		93D7E51B191890FC00C3E2C9 /* MyFavoriteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFavoriteController.h; sourceTree = "<group>"; };
+		93D7E51C191890FC00C3E2C9 /* MyFavoriteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFavoriteController.m; sourceTree = "<group>"; };
+		93E0505F190E22C70043207B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		93E05067190E2E7D0043207B /* UserCar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = UserCar.entitlements; sourceTree = "<group>"; };
+		93E480631910AB9A00FB00BF /* ConfirmMessageBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmMessageBox.h; sourceTree = "<group>"; };
+		93E480641910AB9A00FB00BF /* ConfirmMessageBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmMessageBox.m; sourceTree = "<group>"; };
+		93F2952E19162C1A00D20DB8 /* TableRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableRefresh.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93E05060190E22C70043207B /* Security.framework in Frameworks */,
 				9341534F18EA910800C4358B /* libAccessLayer.a in Frameworks */,
 				9399B16C18D940BC005D29DF /* CoreGraphics.framework in Frameworks */,
 				9399B16E18D940BC005D29DF /* UIKit.framework in Frameworks */,
@@ -98,17 +250,117 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9340E3CC190515DD00D8E5FF /* ShoppingCar */ = {
+			isa = PBXGroup;
+			children = (
+				9340E3CD1905163C00D8E5FF /* ShoppingCarMainViewController.h */,
+				9340E3CE1905163C00D8E5FF /* ShoppingCarMainViewController.m */,
+				93D41E6D19062BD70008ED2D /* Pay */,
+			);
+			path = ShoppingCar;
+			sourceTree = "<group>";
+		};
+		935D78B7190F73D00033567F /* TradeRecord */ = {
+			isa = PBXGroup;
+			children = (
+				935D78B8190F73EB0033567F /* TradeRecordMainController.h */,
+				935D78B9190F73EB0033567F /* TradeRecordMainController.m */,
+				93C1BCFA1917594A001E5482 /* PayButton.h */,
+				93C1BCFB1917594A001E5482 /* PayButton.m */,
+				93D7E517191884A200C3E2C9 /* RectButton.h */,
+				93D7E518191884A200C3E2C9 /* RectButton.m */,
+			);
+			path = TradeRecord;
+			sourceTree = "<group>";
+		};
+		935EB2FF1910CBE2000D42CA /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				935EB3001910CC47000D42CA /* UserInfoViewController.h */,
+				935EB3011910CC47000D42CA /* UserInfoViewController.m */,
+				935EB3061910E18A000D42CA /* ModifyPasswordController.h */,
+				935EB3071910E18A000D42CA /* ModifyPasswordController.m */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
 		936C78A218D94F7600F458EF /* UserCenter */ = {
 			isa = PBXGroup;
 			children = (
-				936C78A318D94FA100F458EF /* LoginViewController.h */,
-				936C78A418D94FA100F458EF /* LoginViewController.m */,
-				9315F68C18DC659700985B2E /* RegiestUserViewController.h */,
-				9315F68D18DC659700985B2E /* RegiestUserViewController.m */,
-				9315F68F18DC662C00985B2E /* RegiestIndividualUserViewController.h */,
-				9315F69018DC662C00985B2E /* RegiestIndividualUserViewController.m */,
+				93D41E66190626250008ED2D /* Login */,
+				935D78B7190F73D00033567F /* TradeRecord */,
+				935EB2FF1910CBE2000D42CA /* UserInfo */,
+				93D7E51A191890E400C3E2C9 /* MyFavorite */,
+				93D41E671906265B0008ED2D /* UserCenterMainView.h */,
+				93D41E681906265B0008ED2D /* UserCenterMainView.m */,
 			);
 			path = UserCenter;
+			sourceTree = "<group>";
+		};
+		9380C51E190F8086001EC177 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9380C51B190F802D001EC177 /* UIViewController+CustomStyle.h */,
+				9380C51C190F802D001EC177 /* UIViewController+CustomStyle.m */,
+				93F2952E19162C1A00D20DB8 /* TableRefresh.h */,
+				93D41E6019061CD60008ED2D /* CBaseTableViewController.h */,
+				93D41E6119061CD60008ED2D /* CBaseTableViewController.m */,
+				93D41E6319061CE90008ED2D /* CBaseViewController.h */,
+				93D41E6419061CE90008ED2D /* CBaseViewController.m */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		9380C51F190F8099001EC177 /* CustomNavigationSytle */ = {
+			isa = PBXGroup;
+			children = (
+				93D4670F18FE269500A32B3B /* UIBarButtonItem+ImageTitle.h */,
+				93D4671018FE269500A32B3B /* UIBarButtonItem+ImageTitle.m */,
+				93D4671218FE290300A32B3B /* UINavigationBar+CustomColor.h */,
+				93D4671318FE290300A32B3B /* UINavigationBar+CustomColor.m */,
+				93D41E5119060BCE0008ED2D /* UINavigationItem+CustomColor.h */,
+				93D41E5219060BCE0008ED2D /* UINavigationItem+CustomColor.m */,
+			);
+			path = CustomNavigationSytle;
+			sourceTree = "<group>";
+		};
+		9380C9D018FBD3EA00DDCAD0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9380C51F190F8099001EC177 /* CustomNavigationSytle */,
+				9380C51E190F8086001EC177 /* BaseViewController */,
+				93B0A787191627A7009A67CD /* MJRefresh */,
+				93D41E6A190629130008ED2D /* CheckButton.h */,
+				93D41E6B190629130008ED2D /* CheckButton.m */,
+				93B5D11B1918F37400B762DF /* CornerButton.h */,
+				93B5D11C1918F37400B762DF /* CornerButton.m */,
+				93D41E71190635590008ED2D /* CheckTableViewCell.h */,
+				93D41E72190635590008ED2D /* CheckTableViewCell.m */,
+				93B0A784191619A6009A67CD /* ToolTableViewCell.h */,
+				93B0A785191619A6009A67CD /* ToolTableViewCell.m */,
+				93B41BBB190F4B41001D4DAC /* LineTextField.h */,
+				93B41BBC190F4B41001D4DAC /* LineTextField.m */,
+				935EB3031910D875000D42CA /* RectTextField.h */,
+				935EB3041910D875000D42CA /* RectTextField.m */,
+				93CF21431919D152009A1AB6 /* Empty.h */,
+				93CF21441919D152009A1AB6 /* Empty.m */,
+				93E480621910AB8300FB00BF /* MessageBox */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		938283DD18FD65F0002824E5 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				938283DE18FD65F0002824E5 /* imgBuyCarIcon@2x.png */,
+				938283F018FD780A002824E5 /* imgBuyCarIcon_H@2x.png */,
+				938283DF18FD65F0002824E5 /* imgMoreIcon@2x.png */,
+				938283E018FD65F0002824E5 /* imgSaleCarIcon@2x.png */,
+				938283E118FD65F0002824E5 /* imgShoppingCartIcon@2x.png */,
+				938283E218FD65F0002824E5 /* imgUserCenter@2x.png */,
+				93C1BD0119176A2F001E5482 /* imgTabBarBG@2x.png */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		9399B15D18D940BC005D29DF = {
@@ -133,6 +385,7 @@
 		9399B16818D940BC005D29DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93E0505F190E22C70043207B /* Security.framework */,
 				9341534E18EA910800C4358B /* libAccessLayer.a */,
 				9399B16918D940BC005D29DF /* Foundation.framework */,
 				9399B16B18D940BC005D29DF /* CoreGraphics.framework */,
@@ -145,11 +398,16 @@
 		9399B16F18D940BC005D29DF /* UserCar */ = {
 			isa = PBXGroup;
 			children = (
+				93E05067190E2E7D0043207B /* UserCar.entitlements */,
+				9380C9D018FBD3EA00DDCAD0 /* Common */,
 				936C78A218D94F7600F458EF /* UserCenter */,
 				93AB023718E12D49008D3C48 /* BuyCar */,
+				9340E3CC190515DD00D8E5FF /* ShoppingCar */,
+				93D41E4C19060ADD0008ED2D /* SaleCar */,
 				9399B17818D940BC005D29DF /* AppDelegate.h */,
 				9399B17918D940BC005D29DF /* AppDelegate.m */,
 				9399B17B18D940BC005D29DF /* Main.storyboard */,
+				9380C520190F8B02001EC177 /* UserCenter.storyboard */,
 				9399B18418D940BC005D29DF /* Images.xcassets */,
 				9399B17018D940BC005D29DF /* Supporting Files */,
 			);
@@ -197,8 +455,14 @@
 		93AB023218E11972008D3C48 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				938283DD18FD65F0002824E5 /* TabBar */,
+				93D4671518FE2B0000A32B3B /* Common */,
 				93AB023318E11972008D3C48 /* imgBGTab_H@2x.png */,
 				93AB023518E119EE008D3C48 /* imgBGTab@2x.png */,
+				935EB3101910F72D000D42CA /* test.png */,
+				938283E818FD6A5B002824E5 /* pic.jpg */,
+				938283EA18FD6CDC002824E5 /* imgAbsolutePrice@2x.png */,
+				938283EE18FD7293002824E5 /* searchbg@2x.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -206,12 +470,139 @@
 		93AB023718E12D49008D3C48 /* BuyCar */ = {
 			isa = PBXGroup;
 			children = (
+				93D4671818FE541900A32B3B /* BuyCarMainView */,
 				93AB023B18E13009008D3C48 /* BuyCarMainViewController.h */,
 				93AB023C18E13009008D3C48 /* BuyCarMainViewController.m */,
-				93AB023E18E130D9008D3C48 /* BuyCarFilterViewController.h */,
-				93AB023F18E130D9008D3C48 /* BuyCarFilterViewController.m */,
+				93C1BCFD19176240001E5482 /* CarFilter */,
 			);
 			path = BuyCar;
+			sourceTree = "<group>";
+		};
+		93B0A787191627A7009A67CD /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				93B0A788191627BB009A67CD /* MJRefresh.bundle */,
+				93B0A789191627BB009A67CD /* MJRefresh.h */,
+				93B0A78A191627BB009A67CD /* MJRefreshBaseView.h */,
+				93B0A78B191627BB009A67CD /* MJRefreshBaseView.m */,
+				93B0A78C191627BB009A67CD /* MJRefreshFooterView.h */,
+				93B0A78D191627BB009A67CD /* MJRefreshFooterView.m */,
+				93B0A78E191627BB009A67CD /* MJRefreshHeaderView.h */,
+				93B0A78F191627BB009A67CD /* MJRefreshHeaderView.m */,
+			);
+			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		93C1BCFD19176240001E5482 /* CarFilter */ = {
+			isa = PBXGroup;
+			children = (
+				93AB023E18E130D9008D3C48 /* BuyCarFilterViewController.h */,
+				93AB023F18E130D9008D3C48 /* BuyCarFilterViewController.m */,
+				93C1BCFE1917627E001E5482 /* CarFilterTableViewCell.h */,
+				93C1BCFF1917627E001E5482 /* CarFilterTableViewCell.m */,
+			);
+			path = CarFilter;
+			sourceTree = "<group>";
+		};
+		93CF21491919E0E7009A1AB6 /* FindPassword */ = {
+			isa = PBXGroup;
+			children = (
+				93CF21461919D401009A1AB6 /* FindPasswordContrainer.h */,
+				93CF21471919D401009A1AB6 /* FindPasswordContrainer.m */,
+				93CF21401919C3B2009A1AB6 /* FindPasswordController.h */,
+				93CF21411919C3B2009A1AB6 /* FindPasswordController.m */,
+				93BA02C2191A1561007B0776 /* FindPasswordByPhoneController.h */,
+				93BA02C3191A1561007B0776 /* FindPasswordByPhoneController.m */,
+				93BA02C5191A15C2007B0776 /* FindPasswordByEmailController.h */,
+				93BA02C6191A15C2007B0776 /* FindPasswordByEmailController.m */,
+			);
+			name = FindPassword;
+			sourceTree = "<group>";
+		};
+		93D41E4C19060ADD0008ED2D /* SaleCar */ = {
+			isa = PBXGroup;
+			children = (
+				93D41E4D19060ADD0008ED2D /* SellingCar */,
+			);
+			path = SaleCar;
+			sourceTree = "<group>";
+		};
+		93D41E4D19060ADD0008ED2D /* SellingCar */ = {
+			isa = PBXGroup;
+			children = (
+				93D41E4E19060ADD0008ED2D /* SellingCarViewController.h */,
+				93D41E4F19060ADD0008ED2D /* SellingCarViewController.m */,
+			);
+			path = SellingCar;
+			sourceTree = "<group>";
+		};
+		93D41E66190626250008ED2D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				936C78A318D94FA100F458EF /* LoginViewController.h */,
+				936C78A418D94FA100F458EF /* LoginViewController.m */,
+				9315F68C18DC659700985B2E /* RegiestUserViewController.h */,
+				9315F68D18DC659700985B2E /* RegiestUserViewController.m */,
+				9315F68F18DC662C00985B2E /* RegiestIndividualUserViewController.h */,
+				9315F69018DC662C00985B2E /* RegiestIndividualUserViewController.m */,
+				93B41BBE190F5169001D4DAC /* ReselleSignonViewController.h */,
+				93B41BBF190F5169001D4DAC /* ReselleSignonViewController.m */,
+				93CF21491919E0E7009A1AB6 /* FindPassword */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		93D41E6D19062BD70008ED2D /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				93D41E6E19062CFF0008ED2D /* PayViewController.h */,
+				93D41E6F19062CFF0008ED2D /* PayViewController.m */,
+			);
+			path = Pay;
+			sourceTree = "<group>";
+		};
+		93D4671518FE2B0000A32B3B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				93B0A782191618B6009A67CD /* imgToolCell@2x.png */,
+				9340E3C71905136900D8E5FF /* imgCheck@2x.png */,
+				9340E3C81905136900D8E5FF /* imgUncheck@2x.png */,
+				93D4671618FE2B0000A32B3B /* img_Back@2x.png */,
+				935D78BB190F7B2B0033567F /* imgItemBackground@2x.png */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		93D4671818FE541900A32B3B /* BuyCarMainView */ = {
+			isa = PBXGroup;
+			children = (
+				93D4671C18FE54B600A32B3B /* BuyCarMainCell.h */,
+				93D4671D18FE54B600A32B3B /* BuyCarMainCell.m */,
+				935FE82E18FF7072000B391F /* BuyCarMainCell.xib */,
+			);
+			path = BuyCarMainView;
+			sourceTree = "<group>";
+		};
+		93D7E51A191890E400C3E2C9 /* MyFavorite */ = {
+			isa = PBXGroup;
+			children = (
+				93D7E51B191890FC00C3E2C9 /* MyFavoriteController.h */,
+				93D7E51C191890FC00C3E2C9 /* MyFavoriteController.m */,
+			);
+			path = MyFavorite;
+			sourceTree = "<group>";
+		};
+		93E480621910AB8300FB00BF /* MessageBox */ = {
+			isa = PBXGroup;
+			children = (
+				9372C4901907BF49009D9A4C /* MessageBox.h */,
+				9372C4911907BF49009D9A4C /* MessageBox.m */,
+				93E480631910AB9A00FB00BF /* ConfirmMessageBox.h */,
+				93E480641910AB9A00FB00BF /* ConfirmMessageBox.m */,
+				93B41BB8190F3D4F001D4DAC /* MBProgressHUD.h */,
+				93B41BB9190F3D4F001D4DAC /* MBProgressHUD.m */,
+			);
+			name = MessageBox;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +652,20 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = shulianyong;
 				TargetAttributes = {
+					9399B16518D940BC005D29DF = {
+						DevelopmentTeam = A4Y4S6LD29;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
 					9399B18918D940BC005D29DF = {
 						TestTargetID = 9399B16518D940BC005D29DF;
 					};
@@ -290,11 +695,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				938283F118FD780A002824E5 /* imgBuyCarIcon_H@2x.png in Resources */,
+				93C1BD0219176A2F001E5482 /* imgTabBarBG@2x.png in Resources */,
+				938283EB18FD6CDC002824E5 /* imgAbsolutePrice@2x.png in Resources */,
+				93B0A790191627BB009A67CD /* MJRefresh.bundle in Resources */,
+				93B0A783191618B6009A67CD /* imgToolCell@2x.png in Resources */,
+				935EB3111910F72D000D42CA /* test.png in Resources */,
 				9399B18518D940BC005D29DF /* Images.xcassets in Resources */,
 				93AB023418E11972008D3C48 /* imgBGTab_H@2x.png in Resources */,
+				9340E3C91905136900D8E5FF /* imgCheck@2x.png in Resources */,
 				9399B17418D940BC005D29DF /* InfoPlist.strings in Resources */,
+				938283E618FD65F0002824E5 /* imgShoppingCartIcon@2x.png in Resources */,
+				938283E518FD65F0002824E5 /* imgSaleCarIcon@2x.png in Resources */,
 				93AB023618E119EE008D3C48 /* imgBGTab@2x.png in Resources */,
+				938283E418FD65F0002824E5 /* imgMoreIcon@2x.png in Resources */,
+				938283EF18FD7293002824E5 /* searchbg@2x.png in Resources */,
+				938283E918FD6A5B002824E5 /* pic.jpg in Resources */,
+				9380C521190F8B02001EC177 /* UserCenter.storyboard in Resources */,
+				93D4671718FE2B0000A32B3B /* img_Back@2x.png in Resources */,
 				9399B17D18D940BC005D29DF /* Main.storyboard in Resources */,
+				938283E718FD65F0002824E5 /* imgUserCenter@2x.png in Resources */,
+				935D78BC190F7B2B0033567F /* imgItemBackground@2x.png in Resources */,
+				935FE82F18FF7072000B391F /* BuyCarMainCell.xib in Resources */,
+				9340E3CA1905136900D8E5FF /* imgUncheck@2x.png in Resources */,
+				938283E318FD65F0002824E5 /* imgBuyCarIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,13 +737,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93B5D11D1918F37400B762DF /* CornerButton.m in Sources */,
+				93CF21451919D152009A1AB6 /* Empty.m in Sources */,
+				93B0A792191627BB009A67CD /* MJRefreshFooterView.m in Sources */,
+				93BA02C4191A1561007B0776 /* FindPasswordByPhoneController.m in Sources */,
+				93D41E6519061CE90008ED2D /* CBaseViewController.m in Sources */,
+				93D41E7019062CFF0008ED2D /* PayViewController.m in Sources */,
+				93CF21421919C3B2009A1AB6 /* FindPasswordController.m in Sources */,
 				93AB024018E130D9008D3C48 /* BuyCarFilterViewController.m in Sources */,
+				93B0A786191619A6009A67CD /* ToolTableViewCell.m in Sources */,
+				93D41E6C190629130008ED2D /* CheckButton.m in Sources */,
+				93CF21481919D401009A1AB6 /* FindPasswordContrainer.m in Sources */,
+				93D41E73190635590008ED2D /* CheckTableViewCell.m in Sources */,
+				93D4671418FE290300A32B3B /* UINavigationBar+CustomColor.m in Sources */,
+				93B41BC0190F5169001D4DAC /* ReselleSignonViewController.m in Sources */,
 				9399B17A18D940BC005D29DF /* AppDelegate.m in Sources */,
+				935EB3021910CC47000D42CA /* UserInfoViewController.m in Sources */,
 				9399B17618D940BC005D29DF /* main.m in Sources */,
 				9315F69118DC662C00985B2E /* RegiestIndividualUserViewController.m in Sources */,
+				93D7E51D191890FC00C3E2C9 /* MyFavoriteController.m in Sources */,
+				93D7E519191884A200C3E2C9 /* RectButton.m in Sources */,
 				936C78A518D94FA100F458EF /* LoginViewController.m in Sources */,
+				93C1BCFC1917594A001E5482 /* PayButton.m in Sources */,
+				93E480651910AB9A00FB00BF /* ConfirmMessageBox.m in Sources */,
+				93D4671118FE269500A32B3B /* UIBarButtonItem+ImageTitle.m in Sources */,
 				9315F68E18DC659700985B2E /* RegiestUserViewController.m in Sources */,
+				93D41E5019060ADD0008ED2D /* SellingCarViewController.m in Sources */,
+				935D78BA190F73EB0033567F /* TradeRecordMainController.m in Sources */,
+				93BA02C7191A15C2007B0776 /* FindPasswordByEmailController.m in Sources */,
+				93B0A791191627BB009A67CD /* MJRefreshBaseView.m in Sources */,
+				935EB3051910D875000D42CA /* RectTextField.m in Sources */,
+				93B41BBA190F3D4F001D4DAC /* MBProgressHUD.m in Sources */,
+				9380C51D190F802D001EC177 /* UIViewController+CustomStyle.m in Sources */,
+				93D41E6219061CD60008ED2D /* CBaseTableViewController.m in Sources */,
+				93B0A793191627BB009A67CD /* MJRefreshHeaderView.m in Sources */,
+				93D41E5319060BCE0008ED2D /* UINavigationItem+CustomColor.m in Sources */,
+				93D4671E18FE54B600A32B3B /* BuyCarMainCell.m in Sources */,
 				93AB023D18E13009008D3C48 /* BuyCarMainViewController.m in Sources */,
+				93C1BD001917627E001E5482 /* CarFilterTableViewCell.m in Sources */,
+				9372C4921907BF49009D9A4C /* MessageBox.m in Sources */,
+				9340E3CF1905163C00D8E5FF /* ShoppingCarMainViewController.m in Sources */,
+				93D41E691906265B0008ED2D /* UserCenterMainView.m in Sources */,
+				93B41BBD190F4B41001D4DAC /* LineTextField.m in Sources */,
+				935EB3081910E18A000D42CA /* ModifyPasswordController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,16 +904,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = UserCar/UserCar.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UserCar/UserCar-Prefix.pch";
 				INFOPLIST_FILE = "UserCar/UserCar-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/shulianyong/Desktop/Other/Used,
-					"Car/usedcar/03编码/iOS/AccessLayer/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -463,16 +924,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = UserCar/UserCar.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UserCar/UserCar-Prefix.pch";
 				INFOPLIST_FILE = "UserCar/UserCar-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/shulianyong/Desktop/Other/Used,
-					"Car/usedcar/03编码/iOS/AccessLayer/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

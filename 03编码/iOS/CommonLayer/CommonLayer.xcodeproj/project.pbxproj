@@ -23,6 +23,7 @@
 		936686F518E9213A0050FB52 /* spelling.m in Sources */ = {isa = PBXBuildFile; fileRef = 936686ED18E9213A0050FB52 /* spelling.m */; };
 		936686F618E9213A0050FB52 /* UIImage+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 936686EF18E9213A0050FB52 /* UIImage+Util.m */; };
 		936686F918E921440050FB52 /* SimpleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 936686F818E921440050FB52 /* SimpleLogger.m */; };
+		93E0506A190E39220043207B /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E05069190E39220043207B /* KeychainItemWrapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		936686EF18E9213A0050FB52 /* UIImage+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Util.m"; sourceTree = "<group>"; };
 		936686F718E921440050FB52 /* SimpleLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleLogger.h; sourceTree = "<group>"; };
 		936686F818E921440050FB52 /* SimpleLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleLogger.m; sourceTree = "<group>"; };
+		93E05068190E39220043207B /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		93E05069190E39220043207B /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 				936686EF18E9213A0050FB52 /* UIImage+Util.m */,
 				936686F718E921440050FB52 /* SimpleLogger.h */,
 				936686F818E921440050FB52 /* SimpleLogger.m */,
+				93E05068190E39220043207B /* KeychainItemWrapper.h */,
+				93E05069190E39220043207B /* KeychainItemWrapper.m */,
 				936686BE18E920F00050FB52 /* Supporting Files */,
 			);
 			path = CommonLayer;
@@ -270,6 +275,7 @@
 				936686F618E9213A0050FB52 /* UIImage+Util.m in Sources */,
 				936686F318E9213A0050FB52 /* NSObject+Reflect.m in Sources */,
 				936686F118E9213A0050FB52 /* NSData+Util.m in Sources */,
+				93E0506A190E39220043207B /* KeychainItemWrapper.m in Sources */,
 				936686F518E9213A0050FB52 /* spelling.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,6 +457,7 @@
 				936686DD18E920F00050FB52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		936686DE18E920F00050FB52 /* Build configuration list for PBXNativeTarget "CommonLayerTests" */ = {
 			isa = XCConfigurationList;
@@ -459,6 +466,7 @@
 				936686E018E920F00050FB52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,21 +1,18 @@
 //
-//  RegiestIndividualUserViewController.m
+//  FindPasswordByEmailController.m
 //  UserCar
 //
-//  Created by 舒联勇 on 14-3-21.
+//  Created by 舒联勇 on 14-5-7.
 //  Copyright (c) 2014年 shulianyong. All rights reserved.
 //
 
-#import "RegiestIndividualUserViewController.h"
+#import "FindPasswordByEmailController.h"
 
-@interface RegiestIndividualUserViewController ()
-
-@property (strong, nonatomic) IBOutlet UITextField *txtPhoneNumber;
-@property (weak, nonatomic) IBOutlet UIButton *btnRegist;
+@interface FindPasswordByEmailController ()
 
 @end
 
-@implementation RegiestIndividualUserViewController
+@implementation FindPasswordByEmailController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,11 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.btnRegist.userInteractionEnabled = YES;
-    self.btnRegist.layer.cornerRadius = 8;
-    self.btnRegist.layer.borderWidth=1;
-    self.btnRegist.layer.borderColor=[UIColor redColor].CGColor;
-    
     // Do any additional setup after loading the view.
 }
 

@@ -59,7 +59,7 @@
 	return thumbnail;
 }
 
-//计算适合的大小。并保留其原始图片大小
+
 + (CGSize)fitSize:(CGSize)aThisSize inSize:(CGSize)aSize
 {
     CGFloat scale;
