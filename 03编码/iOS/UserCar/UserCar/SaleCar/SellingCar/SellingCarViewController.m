@@ -21,6 +21,7 @@
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     [self.navigationItem setButtonColor:[UIColor whiteColor]];
+//    self.navigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"imgSaleCarIcon_H.png"];
 }
 
 - (void)didReceiveMemoryWarning

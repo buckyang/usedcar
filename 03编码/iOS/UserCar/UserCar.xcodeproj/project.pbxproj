@@ -59,6 +59,7 @@
 		93B41BBA190F3D4F001D4DAC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B41BB9190F3D4F001D4DAC /* MBProgressHUD.m */; };
 		93B41BBD190F4B41001D4DAC /* LineTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B41BBC190F4B41001D4DAC /* LineTextField.m */; };
 		93B41BC0190F5169001D4DAC /* ReselleSignonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B41BBF190F5169001D4DAC /* ReselleSignonViewController.m */; };
+		93B5389D191B69B800A46672 /* imgSaleCarIcon_H@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B5389C191B69B800A46672 /* imgSaleCarIcon_H@2x.png */; };
 		93B5D11D1918F37400B762DF /* CornerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B5D11C1918F37400B762DF /* CornerButton.m */; };
 		93BA02C4191A1561007B0776 /* FindPasswordByPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BA02C3191A1561007B0776 /* FindPasswordByPhoneController.m */; };
 		93BA02C7191A15C2007B0776 /* FindPasswordByEmailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BA02C6191A15C2007B0776 /* FindPasswordByEmailController.m */; };
@@ -173,6 +174,7 @@
 		93B41BBC190F4B41001D4DAC /* LineTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineTextField.m; sourceTree = "<group>"; };
 		93B41BBE190F5169001D4DAC /* ReselleSignonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReselleSignonViewController.h; sourceTree = "<group>"; };
 		93B41BBF190F5169001D4DAC /* ReselleSignonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReselleSignonViewController.m; sourceTree = "<group>"; };
+		93B5389C191B69B800A46672 /* imgSaleCarIcon_H@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgSaleCarIcon_H@2x.png"; sourceTree = "<group>"; };
 		93B5D11B1918F37400B762DF /* CornerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CornerButton.h; sourceTree = "<group>"; };
 		93B5D11C1918F37400B762DF /* CornerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CornerButton.m; sourceTree = "<group>"; };
 		93BA02C2191A1561007B0776 /* FindPasswordByPhoneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPasswordByPhoneController.h; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				938283DE18FD65F0002824E5 /* imgBuyCarIcon@2x.png */,
+				93B5389C191B69B800A46672 /* imgSaleCarIcon_H@2x.png */,
 				938283F018FD780A002824E5 /* imgBuyCarIcon_H@2x.png */,
 				938283DF18FD65F0002824E5 /* imgMoreIcon@2x.png */,
 				938283E018FD65F0002824E5 /* imgSaleCarIcon@2x.png */,
@@ -703,6 +706,7 @@
 				935EB3111910F72D000D42CA /* test.png in Resources */,
 				9399B18518D940BC005D29DF /* Images.xcassets in Resources */,
 				93AB023418E11972008D3C48 /* imgBGTab_H@2x.png in Resources */,
+				93B5389D191B69B800A46672 /* imgSaleCarIcon_H@2x.png in Resources */,
 				9340E3C91905136900D8E5FF /* imgCheck@2x.png in Resources */,
 				9399B17418D940BC005D29DF /* InfoPlist.strings in Resources */,
 				938283E618FD65F0002824E5 /* imgShoppingCartIcon@2x.png in Resources */,

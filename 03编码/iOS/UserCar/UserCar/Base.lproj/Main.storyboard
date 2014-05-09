@@ -10,7 +10,7 @@
             <objects>
                 <tabBarController id="8YX-ce-x5E" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" backgroundImage="imgTabBarBG.png" itemPositioning="fill" id="JQR-rB-NYL">
+                    <tabBar key="tabBar" contentMode="scaleToFill" itemPositioning="fill" id="JQR-rB-NYL">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     </tabBar>
@@ -818,13 +818,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="imgBuyCarIcon.png" width="19" height="19"/>
-        <image name="imgMoreIcon.png" width="19" height="19"/>
-        <image name="imgSaleCarIcon.png" width="19" height="19"/>
-        <image name="imgShoppingCartIcon.png" width="19" height="19"/>
-        <image name="imgTabBarBG.png" width="10" height="36"/>
+        <image name="imgBuyCarIcon.png" width="25" height="25"/>
+        <image name="imgMoreIcon.png" width="25" height="25"/>
+        <image name="imgSaleCarIcon.png" width="25" height="25"/>
+        <image name="imgShoppingCartIcon.png" width="25" height="25"/>
         <image name="imgUncheck.png" width="23" height="23"/>
-        <image name="imgUserCenter.png" width="19" height="19"/>
+        <image name="imgUserCenter.png" width="25" height="25"/>
         <image name="pic.jpg" width="151" height="90"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

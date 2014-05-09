@@ -18,7 +18,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgy-Hz-9vt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1721" y="2155"/>
+            <point key="canvasLocation" x="-1721" y="1511"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="PqU-UM-cXJ">
@@ -33,7 +33,7 @@
                             <rect key="frame" x="0.0" y="133" width="320" height="84"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ec-tF-Jkp" customClass="CornerButton">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ec-tF-Jkp" customClass="CornerButton">
                                     <rect key="frame" x="20" y="20" width="280" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.14546157830000001" green="0.43218595679999999" blue="0.6825772524" alpha="1" colorSpace="calibratedRGB"/>
@@ -46,6 +46,12 @@
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="1ec-tF-Jkp" firstAttribute="top" secondItem="MJv-VO-i1N" secondAttribute="top" constant="20" symbolic="YES" id="GgP-26-ay8"/>
+                                <constraint firstAttribute="bottom" secondItem="1ec-tF-Jkp" secondAttribute="bottom" constant="20" symbolic="YES" id="IJe-e0-PrR"/>
+                                <constraint firstAttribute="trailing" secondItem="1ec-tF-Jkp" secondAttribute="trailing" constant="20" symbolic="YES" id="NK2-3T-ylT"/>
+                                <constraint firstItem="1ec-tF-Jkp" firstAttribute="leading" secondItem="MJv-VO-i1N" secondAttribute="leading" constant="20" symbolic="YES" id="lZt-UL-XZP"/>
+                            </constraints>
                         </view>
                         <sections>
                             <tableViewSection id="I3c-IC-GUg">
@@ -99,7 +105,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="74a-KS-SVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1721" y="1425"/>
+            <point key="canvasLocation" x="-1721" y="781"/>
         </scene>
         <!--Find Password Controller-->
         <scene sceneID="F19-nZ-QGr">
@@ -143,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6nZ-5W-DCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1322" y="1425"/>
+            <point key="canvasLocation" x="-1235" y="821"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="LvF-no-wzx">
@@ -269,7 +275,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZf-4q-Vs9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-898" y="1489"/>
+            <point key="canvasLocation" x="-748" y="853"/>
         </scene>
         <!--Login View Controller - 登录-->
         <scene sceneID="Evd-ib-YyX">
@@ -283,7 +289,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pr3-U0-cJp">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pr3-U0-cJp" userLabel="ContentView">
                                 <rect key="frame" x="0.0" y="101" width="320" height="77"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -395,7 +401,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wkd-C6-MBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1235" y="2155"/>
+            <point key="canvasLocation" x="-1235" y="1511"/>
         </scene>
         <!--Regiest User View Controller-->
         <scene sceneID="a4Y-Rh-cUk">
@@ -439,7 +445,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SY9-uf-WGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-724" y="2155"/>
+            <point key="canvasLocation" x="-724" y="1511"/>
         </scene>
         <!--Regiest Individual User View Controller-->
         <scene sceneID="zDg-9L-mfv">
@@ -597,7 +603,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIj-gq-ifn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-281" y="2219"/>
+            <point key="canvasLocation" x="-281" y="1575"/>
         </scene>
         <!--Trade Record Main Controller-->
         <scene sceneID="Lfg-gL-TPO">
@@ -771,7 +777,7 @@
                     </connections>
                 </button>
             </objects>
-            <point key="canvasLocation" x="-1721" y="3589"/>
+            <point key="canvasLocation" x="-1697" y="3821"/>
         </scene>
         <!--My Favorite Controller - 我的收藏-->
         <scene sceneID="ql8-JV-5bF">
@@ -782,39 +788,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyFavoriteCell" editingAccessoryType="checkmark" rowHeight="85" id="bp9-C6-sPy">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyFavoriteCell" rowHeight="85" id="bp9-C6-sPy">
                                 <rect key="frame" x="0.0" y="86" width="320" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bp9-C6-sPy" id="RW9-mn-eUg">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="预售价格：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvk-dC-kDl">
-                                            <rect key="frame" x="109" y="2" width="81" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="预售价格:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvk-dC-kDl">
+                                            <rect key="frame" x="109" y="2" width="72" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="16"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="行驶里程：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6f-NB-rpn">
-                                            <rect key="frame" x="109" y="31" width="72" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="行驶里程:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6f-NB-rpn">
+                                            <rect key="frame" x="109" y="31" width="66" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="首次购买时间：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFM-8q-tJ6">
-                                            <rect key="frame" x="109" y="60" width="99" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="首次购买时间:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFM-8q-tJ6">
+                                            <rect key="frame" x="109" y="60" width="93" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1111.1万" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETE-cL-imW">
-                                            <rect key="frame" x="182" y="2" width="129" height="21"/>
+                                            <rect key="frame" x="183" y="2" width="129" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="16"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2.5万公里" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lc-o0-xMq">
-                                            <rect key="frame" x="182" y="31" width="72" height="21"/>
+                                            <rect key="frame" x="172" y="31" width="72" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="14"/>
                                             <nil key="highlightedColor"/>
@@ -829,9 +835,13 @@
                                             <rect key="frame" x="7" y="12" width="94" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="20" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSo-AB-giz" customClass="RectButton">
-                                            <rect key="frame" x="252" y="32" width="65" height="20"/>
+                                        <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="20" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSo-AB-giz" customClass="RectButton">
+                                            <rect key="frame" x="0.0" y="0.0" width="65" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="EeW-I7-rCB"/>
+                                                <constraint firstAttribute="width" constant="65" id="u6d-Tg-fZY"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <state key="normal" title="添加购物车">
                                                 <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -842,8 +852,15 @@
                                             </state>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="YSo-AB-giz" firstAttribute="top" secondItem="RW9-mn-eUg" secondAttribute="top" id="X5F-jA-Cr6"/>
+                                        <constraint firstItem="YSo-AB-giz" firstAttribute="leading" secondItem="RW9-mn-eUg" secondAttribute="leading" id="wHp-FT-7zM"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="accessoryView" destination="YSo-AB-giz" id="eDK-BY-ALZ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -856,7 +873,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Avi-Q0-4aN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1739" y="4305"/>
+            <point key="canvasLocation" x="-1697" y="4537"/>
         </scene>
         <!--Reselle Signon View Controller-->
         <scene sceneID="Iwh-LR-tkM">
@@ -1086,7 +1103,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ao-To-PyS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="107" y="2155"/>
+            <point key="canvasLocation" x="107" y="1511"/>
         </scene>
         <!--User Info View Controller - 我的资料-->
         <scene sceneID="961-sR-d1n">
@@ -1346,7 +1363,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bd8-gO-Vmx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1721" y="2873"/>
+            <point key="canvasLocation" x="-1697" y="3105"/>
         </scene>
         <!--Modify Password Controller - 修改密码-->
         <scene sceneID="gdg-lj-0Oy">
@@ -1360,10 +1377,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7D-2X-auC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7D-2X-auC">
                                 <rect key="frame" x="20" y="219" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14546157830000001" green="0.43218595679999999" blue="0.6825772524" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="qWy-Fc-0aR"/>
+                                </constraints>
                                 <state key="normal" title="修改">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1374,23 +1394,26 @@
                                     <action selector="click_btnModify:" destination="ckQ-Kc-EbX" eventType="touchUpInside" id="1wt-Na-Mgx"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zm4-G9-4nv">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zm4-G9-4nv">
                                 <rect key="frame" x="0.0" y="83" width="320" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入旧密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sob-kF-4zc" customClass="LineTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入旧密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sob-kF-4zc" customClass="LineTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="bMg-HK-gTP"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入新密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KGY-Pk-3Sh" customClass="LineTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入新密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KGY-Pk-3Sh" customClass="LineTextField">
                                         <rect key="frame" x="0.0" y="40" width="320" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请确认新密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Y3-Ob-JfY" customClass="LineTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请确认新密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Y3-Ob-JfY" customClass="LineTextField">
                                         <rect key="frame" x="0.0" y="80" width="320" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1398,9 +1421,31 @@
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="7Y3-Ob-JfY" firstAttribute="top" secondItem="KGY-Pk-3Sh" secondAttribute="bottom" id="3EQ-9T-5MZ"/>
+                                    <constraint firstItem="KGY-Pk-3Sh" firstAttribute="top" secondItem="Sob-kF-4zc" secondAttribute="bottom" id="3aE-Hg-tt4"/>
+                                    <constraint firstItem="KGY-Pk-3Sh" firstAttribute="centerY" secondItem="Zm4-G9-4nv" secondAttribute="centerY" id="5aj-hs-0Yz"/>
+                                    <constraint firstItem="KGY-Pk-3Sh" firstAttribute="leading" secondItem="7Y3-Ob-JfY" secondAttribute="leading" id="NfL-cA-50u"/>
+                                    <constraint firstItem="Sob-kF-4zc" firstAttribute="leading" secondItem="Zm4-G9-4nv" secondAttribute="leading" id="OuF-1h-UrI"/>
+                                    <constraint firstItem="Sob-kF-4zc" firstAttribute="leading" secondItem="KGY-Pk-3Sh" secondAttribute="leading" id="RsP-69-Reh"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Y3-Ob-JfY" secondAttribute="bottom" id="Z81-fH-vnc"/>
+                                    <constraint firstItem="KGY-Pk-3Sh" firstAttribute="trailing" secondItem="Sob-kF-4zc" secondAttribute="trailing" id="bcM-yG-mdB"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Y3-Ob-JfY" secondAttribute="trailing" id="esW-xf-UgO"/>
+                                    <constraint firstItem="KGY-Pk-3Sh" firstAttribute="trailing" secondItem="7Y3-Ob-JfY" secondAttribute="trailing" id="iSE-G2-bYD"/>
+                                    <constraint firstItem="Sob-kF-4zc" firstAttribute="top" secondItem="Zm4-G9-4nv" secondAttribute="top" id="rfq-ck-wHF"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92549026010000002" green="0.92549026010000002" blue="0.92549026010000002" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="F7D-2X-auC" firstAttribute="leading" secondItem="GM2-6G-wKt" secondAttribute="leading" constant="20" symbolic="YES" id="2uu-qN-aH9"/>
+                            <constraint firstItem="lTR-VX-MpC" firstAttribute="top" secondItem="F7D-2X-auC" secondAttribute="bottom" constant="305" id="4HV-l4-KiV"/>
+                            <constraint firstItem="Zm4-G9-4nv" firstAttribute="leading" secondItem="GM2-6G-wKt" secondAttribute="leading" id="LHg-5j-gpc"/>
+                            <constraint firstItem="Zm4-G9-4nv" firstAttribute="top" secondItem="2H4-dW-hdS" secondAttribute="bottom" constant="19" id="a2R-Du-3jC"/>
+                            <constraint firstItem="Zm4-G9-4nv" firstAttribute="centerX" secondItem="F7D-2X-auC" secondAttribute="centerX" id="dwM-A0-TST"/>
+                            <constraint firstAttribute="trailing" secondItem="F7D-2X-auC" secondAttribute="trailing" constant="20" symbolic="YES" id="ime-8p-I5l"/>
+                            <constraint firstItem="F7D-2X-auC" firstAttribute="top" secondItem="Zm4-G9-4nv" secondAttribute="bottom" constant="16" id="xYt-bi-bTE"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="修改密码" id="Fc0-jP-EST"/>
                     <connections>
@@ -1412,7 +1457,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QVj-iV-Lfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1235" y="2881"/>
+            <point key="canvasLocation" x="-1235" y="2341"/>
         </scene>
         <!--Table View Controller - 修改手机绑定-->
         <scene sceneID="oPm-lx-wKX">
@@ -1501,7 +1546,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WrO-Qf-m60" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-790" y="2883"/>
+            <point key="canvasLocation" x="-724" y="2319"/>
         </scene>
         <!--Table View Controller - 修改邮件绑定-->
         <scene sceneID="lgj-kp-xL7">
@@ -1590,7 +1635,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8YS-qj-pIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-397" y="2881"/>
+            <point key="canvasLocation" x="-281" y="2319"/>
         </scene>
     </scenes>
     <resources>

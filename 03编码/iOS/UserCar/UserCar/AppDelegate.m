@@ -43,7 +43,7 @@
     UITabBarController *tabController = (UITabBarController*)self.window.rootViewController;
 //    tabController.tabBar.tintColor = [UIColor blueColor];
 //    tabController.tabBar.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
-    tabController.tabBar.backgroundImage = [UIImage imageNamed:@"imgTabBarBG.png"];
+//    tabController.tabBar.backgroundImage = [UIImage imageNamed:@"imgTabBarBG.png"];
     
     //
     //    NSDictionary *dicTitle = @{NSForegroundColorAttributeName: [UIColor blackColor]};
@@ -56,6 +56,7 @@
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: RGBColor(55, 55, 55)}
                                              forState:UIControlStateNormal];   
     for (UITabBarItem *tbi in tabController.tabBar.items) {
+        [tbi setTitlePositionAdjustment:UIOffsetMake(0, -2)];
         tbi.image = [tbi.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
 }
