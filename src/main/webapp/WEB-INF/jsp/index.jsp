@@ -113,11 +113,23 @@
             </div>
         </div>
         <div class="barcode">
-            <p>手机app下载二维码</p>
+            <h3>扫描二维码下载手机APP</h3>
+            <img src="/image/ewm.jpg" alt="barcode" width="140" height="140"/>
 
-            <p>登陆</p>
+            <p class="service">登陆享受更多专属服务<a href="#">了解更多</a></p>
 
-            <p>注册</p>
+            <div class="login">
+                <div class="username">
+                    <input type="text" id="username" placeholder="用户名"/>
+                </div>
+                <div class="password">
+                    <input type="password" id="password" placeholder="******"/>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="logon">登陆</button>
+                <button class="register">注册</button>
+            </div>
         </div>
     </div>
 </div>
