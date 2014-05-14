@@ -5,15 +5,19 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -36,6 +40,7 @@ import com.amateur.product.dto.UsedCarDTO;
 import com.amateur.product.service.ProductService;
 import com.amateur.service.AddressService;
 import com.amateur.service.BrandService;
+import com.amateur.service.SequenceService;
 import com.amateur.session.Profile;
 import com.amateur.util.ImageUtil;
 
@@ -43,7 +48,10 @@ import com.amateur.util.ImageUtil;
 @RequestMapping(value = "/product")
 @SessionAttributes("profile")
 public class ProductController extends BaseController {
-
+	public static final String PRODUCT_IMAGE_LIST_SESSION_KEY = "imageList";
+	
+	public static final String PRODUCT_ID_SESSION_KEY = "productId";
+	
 	@Autowired
 	private ProductService productService;
 	@Autowired
@@ -53,6 +61,8 @@ public class ProductController extends BaseController {
 	@Autowired
 	private ImageUtil imageUtil;
 
+	@Autowired
+	private SequenceService sequenceService;
 	private static final Logger logger = Logger
 			.getLogger(ProductController.class);
 
@@ -157,100 +167,5 @@ public class ProductController extends BaseController {
 		return processGenericJSON(result);
 	}
 
-	@RequestMapping(value = "/imageUpload", method = RequestMethod.POST, produces = "application/json")
-	@ResponseBody
-	public Map<String, Object> imageUploadJSON(
-			@RequestParam MultipartFile image, HttpServletRequest request) {
-
-		logger.debug("ProductController imageUploadJSON: beginning.");
-		Map<String, Object> resultMap = null;
-		String commonName = image.getName() + "_" + System.currentTimeMillis();
-		try {
-			processImage(image, request, commonName);
-		} catch (IOException e) {
-			logger.error("ProductController imageUpload: error generated. " + e);
-			return processGenericJSON(false);
-		} catch (ImageUploadException e) {
-			logger.error("ProductController imageUpload: error generated. " + e);
-			resultMap = processGenericJSON(false);
-			resultMap.put(MESSAGE_PARAM_KEY, e.getMessage());
-			return resultMap;
-		}
-		resultMap = processGenericJSON(true);
-		resultMap.put(
-				"url",
-				StringUtils.substringBefore(request.getRequestURL().toString(),
-						request.getRequestURI())
-						+ "/image/"
-						+ commonName
-						+ "_regular.jpg");
-		return resultMap;
-	}
-
-	@RequestMapping(value = "/imageupload", method = RequestMethod.POST)
-	public void imageUpload(@RequestParam MultipartFile image,
-			HttpServletRequest request, HttpServletResponse response) {
-
-		logger.debug("ProductController imageUpload: beginning.");
-		PrintWriter out = null;
-		String commonName = image.getName() + "_" + System.currentTimeMillis();
-		try {
-			out = response.getWriter();
-			processImage(image, request, commonName);
-		} catch (IOException e) {
-			logger.error("ProductController imageUpload: " + e);
-			out.print("1`文件上传失败，请重试！！");
-			out.flush();
-			return;
-		} catch (ImageUploadException e) {
-			logger.error("ProductController imageUpload: " + e);
-			out.print("1`" + e.getMessage());
-			out.flush();
-			return;
-		}
-		out.print("0`"
-				+ StringUtils.substringBefore(request.getRequestURL()
-						.toString(), request.getRequestURI()) + "/image/"
-				+ commonName + "_regular.jpg");
-		out.flush();
-	}
-
-	private void processImage(MultipartFile image, HttpServletRequest request,
-			String commonName) throws IOException, ImageUploadException {
-
-		if (!image.isEmpty()) {
-			validateImage(image);
-			saveImage(image, request, commonName);
-		}
-
-	}
-
-	private void saveImage(MultipartFile image, HttpServletRequest request,
-			String commonName) throws IOException {
-		String realPath = request.getSession().getServletContext()
-				.getRealPath("/image/upload");
-		File file = new File(realPath);
-		if (!file.exists()) {
-			file.mkdir();
-		}
-		BufferedImage bufferedImage = ImageIO.read(image.getInputStream());
-		imageUtil.createThumbnail(bufferedImage, commonName + "_jumbo.jpg",
-				800, 600, false);
-		imageUtil.createThumbnail(bufferedImage, commonName + "_large.jpg",
-				400, 300, false);
-		imageUtil.createThumbnail(bufferedImage, commonName + "_regular.jpg",
-				200, 150, false);
-		imageUtil.createThumbnail(bufferedImage, commonName + "_small.jpg",
-				100, 75, false);
-		imageUtil.createThumbnail(bufferedImage, commonName + "_thumbnail.jpg",
-				50, 38, false);
-	}
-
-	private void validateImage(MultipartFile image) throws ImageUploadException {
-
-		if (!image.getContentType().equals("image/jpeg")) {
-			throw new ImageUploadException("文件格式不正确， 请上传JPG或则JPEG格式图片");
-		}
-	}
 
 }

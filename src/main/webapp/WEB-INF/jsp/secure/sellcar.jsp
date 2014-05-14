@@ -8,7 +8,7 @@
 <script type="text/javascript">
 	function ajaxFileUpload() {
 		$.ajaxFileUpload({
-			url : '${request.contextPath}/product/imageupload',
+			url : '${request.contextPath}/product/imageUpload',
 			secureuri : false,
 			fileElementId : 'image',
 			dataType : 'text',
