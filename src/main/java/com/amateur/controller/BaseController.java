@@ -80,13 +80,13 @@ public class BaseController {
 		if (success) {
 			postResultJSON.put(EXECUTION_RESULT_PARAM_KEY, true);
 			postResultJSON.put(MESSAGE_PARAM_KEY, messageSource.getMessage(
-					getGetSuccessCode() == null ? GET_SUCESS_KEY
-							: getGetSuccessCode(), null, null));
+					getSuccessCode() == null ? GET_SUCESS_KEY
+							: getSuccessCode(), null, null));
 		} else {
 			postResultJSON.put(EXECUTION_RESULT_PARAM_KEY, false);
 			postResultJSON.put(MESSAGE_PARAM_KEY, messageSource.getMessage(
-					getGetErrorCode() == null ? GET_ERROR_KEY
-							: getGetErrorCode(), null, null));
+					getErrorCode() == null ? GET_ERROR_KEY
+							: getErrorCode(), null, null));
 		}
 
 		return postResultJSON;
@@ -96,11 +96,11 @@ public class BaseController {
 		return null;
 	}
 
-	protected String getGetSuccessCode() {
+	protected String getSuccessCode() {
 		return null;
 	}
 
-	protected String getGetErrorCode() {
+	protected String getErrorCode() {
 		return null;
 	}
 

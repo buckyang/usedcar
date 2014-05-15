@@ -8,46 +8,58 @@
 
 	<insert id="insertProduct" parameterType="Product">
 		insert into product
-		(product_id, product_name, purchase_date, odometer, list_price, price_type, car_vin, 
-		car_contact, contact_phone, status, update_time, account_id)
+		(product_id, product_name, purchase_date, odometer, list_price,
+		price_type, car_vin,
+		car_contact, contact_phone, status, update_time,
+		account_id)
 		values
-		(#{productId}, #{productName}, #{purchaseDate}, #{odometer}, #{listPrice}, #{priceType}, #{carVin}, 
-		#{carContact}, #{contactPhone}, #{status}, #{updateTime}, #{accountId})
+		(#{productId},
+		#{productName}, #{purchaseDate},
+		#{odometer}, #{listPrice},
+		#{priceType}, #{carVin},
+		#{carContact},
+		#{contactPhone}, #{status}, #{updateTime}, #{accountId})
 	</insert>
 
 	<update id="updateProdut" parameterType="Product">
-	    update product set 
-	    	product_name = #{productName},
-	    	purchase_date = #{purchaseDate},
-	    	odometer = #{odometer},
-	    	list_price = #{listPrice},
-	    	price_type = #{priceType},
-	    	car_vin = #{carVin},
-			car_contact = #{carContact},
-			contact_phone = #{contactPhone},
-			update_time = #{updateTime}
-		where product_id = #{productId}
+		update product set
+		product_name = #{productName},
+		purchase_date = #{purchaseDate},
+		odometer = #{odometer},
+		list_price = #{listPrice},
+		price_type =
+		#{priceType},
+		car_vin = #{carVin},
+		car_contact = #{carContact},
+		contact_phone = #{contactPhone},
+		update_time = #{updateTime}
+		where
+		product_id = #{productId}
 	</update>
-	
+
 	<delete id="deleteProduct" parameterType="String">
-		delete from product where product_id = #{productId}
+		delete from product
+		where product_id = #{productId}
 	</delete>
-	
+
 	<select id="getProductById" parameterType="String" resultMap="resultProduct">
 		select
 		p.product_id as productId,
 		p.product_name as productName,
 		p.purchase_date as purchaseDate,
 		p.odometer as odometer,
-		p.list_price as listPrice,
+		p.list_price as
+		listPrice,
 		p.price_type as priceType,
 		p.car_vin as carVin,
-		p.car_contact as carContact,
+		p.car_contact
+		as carContact,
 		p.contact_phone as contactPhone,
 		p.status as status,
 		p.update_time as updateTime,
 		p.account_id as accountId,
-		pi.image_id as imageId,
+		pi.image_id as
+		imageId,
 		pi.name,
 		pi.description,
 		pi.size_jumbo as sizeJumbo,
@@ -59,7 +71,8 @@
 		pm.model_id as modelId,
 		pm.brand_name as brandName,
 		pm.series_name as seriesName,
-		pm.model_display_name as modelDisplayName,
+		pm.model_display_name as
+		modelDisplayName,
 		pm.series_id as seriesId,
 		pm.brand_id as brandId,
 		pa.address_id as addressId,
@@ -68,66 +81,72 @@
 		pa.county,
 		pa.street
 		from product p
-		left join product_image pi on pi.product_id = p.product_id
+		left join product_image pi on pi.product_id =
+		p.product_id
 		left join product_model pm on pm.product_id = p.product_id
 		left join product_address pa on pa.product_id = p.product_id
-		where p.product_id = #{productId}
+		where
+		p.product_id = #{productId}
 	</select>
-	
-	<select id="getProductListByAccountId" parameterType="int" resultType="hashmap" >
-	    select 
-	    p.product_id as productId,
-	    p.product_name as productName,
-	    p.update_time as updateTime,
-	    p.status as status,
-	    pi.size_thumbnail as sizeThumbnail
-	    from product p 
-	    left join product_image pi on pi.product_id = p.product_id
-	    where p.account_id = #{accountId}
+
+	<select id="getProductListByAccountId" parameterType="String"
+		resultType="hashmap">
+		select
+		p.product_id as productId,
+		p.product_name as
+		productName,
+		p.update_time as updateTime,
+		p.status as status,
+		pi.size_thumbnail as sizeThumbnail
+		from product p
+		left join
+		product_image pi on pi.product_id = p.product_id
+		where p.account_id =
+		#{accountId}
 	</select>
-	
+
 	<resultMap type="Product" id="resultProduct">
-	    <id property="productId" column="productId" />
-	    <result property="productName" column="productName" />
-	    <result property="purchaseDate" column="purchaseDate" />
-	    <result property="odometer" column="odometer" />
-	    <result property="listPrice" column="listPrice" />
-	    <result property="priceType" column="priceType" />
-	    <result property="carVin" column="carVin" />
-	    <result property="carContact" column="carContact" />
-	    <result property="contactPhone" column="contactPhone" />
-	    <result property="status" column="status" />
-	    <result property="updateTime" column="updateTime" />
-	    <result property="accountId" column="accountId" javaType="Integer"/>
-	    <association property="productModel" javaType="ProductModel">
-	        <id property="productId" column="productId"/>
-	        <id property="modelId" column="modelId"/>
-	        <result property="brandName" column="brandName"/>
-	        <result property="seriesName" column="seriesName"/>
-	        <result property="modelDisplayName" column="modelDisplayName"/>
-	        <result property="seriesId" column="seriesId"/>
-	        <result property="brand_id" column="brand_id"/>
-	    </association>
-	    <association property="productAddress" javaType="ProductAddress">
-	        <id property="addressId" column="addressId"/>
-	        <result property="productId" column="productId"/>
-	        <result property="province" column="province"/>
-	        <result property="city" column="city"/>
-	        <result property="county" column="county"/>
-	        <result property="street" column="street"/>
-	    </association>
-	    <collection property="productImageList" ofType="ProductImage">
-	        <id property="imageId" column="imageId"/>
-	        <result property="name" column="name"/>
-	        <result property="produtId" column="produtId"/>
-	        <result property="description" column="description"/>
-	        <result property="sizeJumbo" column="sizeJumbo"/>
-	        <result property="sizeLarge" column="sizeLarge"/>
-	        <result property="sizeRegular" column="sizeRegular"/>
-	        <result property="sizeSmall" column="sizeSmall"/>
-	        <result property="sizeThumbnail" column="sizeThumbnail"/>
-	        <result property="type" column="type"/>
-	    </collection>
+		<id property="productId" column="productId" />
+		<result property="productName" column="productName" />
+		<result property="purchaseDate" column="purchaseDate" />
+		<result property="odometer" column="odometer" />
+		<result property="listPrice" column="listPrice" />
+		<result property="priceType" column="priceType" />
+		<result property="carVin" column="carVin" />
+		<result property="carContact" column="carContact" />
+		<result property="contactPhone" column="contactPhone" />
+		<result property="status" column="status" />
+		<result property="updateTime" column="updateTime" />
+		<result property="accountId" column="accountId" javaType="Integer" />
+		<association property="productModel" javaType="ProductModel">
+			<id property="productId" column="productId" />
+			<id property="modelId" column="modelId" />
+			<result property="brandName" column="brandName" />
+			<result property="seriesName" column="seriesName" />
+			<result property="modelDisplayName" column="modelDisplayName" />
+			<result property="seriesId" column="seriesId" />
+			<result property="brand_id" column="brand_id" />
+		</association>
+		<association property="productAddress" javaType="ProductAddress">
+			<id property="addressId" column="addressId" />
+			<result property="productId" column="productId" />
+			<result property="province" column="province" />
+			<result property="city" column="city" />
+			<result property="county" column="county" />
+			<result property="street" column="street" />
+		</association>
+		<collection property="productImageList" ofType="ProductImage">
+			<id property="imageId" column="imageId" />
+			<result property="name" column="name" />
+			<result property="produtId" column="produtId" />
+			<result property="description" column="description" />
+			<result property="sizeJumbo" column="sizeJumbo" />
+			<result property="sizeLarge" column="sizeLarge" />
+			<result property="sizeRegular" column="sizeRegular" />
+			<result property="sizeSmall" column="sizeSmall" />
+			<result property="sizeThumbnail" column="sizeThumbnail" />
+			<result property="type" column="type" />
+		</collection>
 	</resultMap>
 
 </mapper>

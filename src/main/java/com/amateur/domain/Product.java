@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 
 import com.amateur.product.dto.UsedCarDTO;
@@ -158,29 +159,53 @@ public class Product implements Serializable {
 		productImageList = new ArrayList<ProductImage>();
 		List<String> imageList = usedCarDTO.getImageUrls();
 		for (String imageUrl : imageList) {
-			String[] urls = imageUrl.split(";");
+			populateProductImage(imageUrl, "0");
+		}
+		populateProductImage(usedCarDTO.getLicenseImage(), "1");
+		populateProductImage(usedCarDTO.getCertificateImage(), "2");
+	}
+
+	private void populateProductImage(String imageUrl, String type) {
+
+		if (imageUrl != null && !"".equalsIgnoreCase(imageUrl)) {
 			ProductImage productImage = new ProductImage();
 			productImage.setProductId(productId);
-			if(urls[0]!=null && !"".equalsIgnoreCase(urls[0].trim())){
-				productImage.setImageId(Integer.valueOf(urls[0]));
-			}
-			productImage.setType(urls[1]);
-			productImage.setSizeJumbo(urls[2]);
-			productImage.setSizeLarge(urls[3]);
-			productImage.setSizeRegular(urls[4]);
-			productImage.setSizeSmall(urls[5]);
-			productImage.setSizeThumbnail(urls[6]);
+			productImage.setType(type);
+			productImage.setSizeJumbo(StringUtils.replace(imageUrl, "regular",
+					"jumbo"));
+			productImage.setSizeLarge(StringUtils.replace(imageUrl, "regular",
+					"large"));
+			productImage.setSizeRegular(imageUrl);
+			productImage.setSizeSmall(StringUtils.replace(imageUrl, "regular",
+					"small"));
+			productImage.setSizeThumbnail(StringUtils.replace(imageUrl,
+					"regular", "thumbnail"));
 			productImage.setName(productName);
-			productImage.setDescription(productName+urls[1]);
+			productImage.setDescription(productName);
 			productImageList.add(productImage);
 		}
 	}
-	
-	public UsedCarDTO getDTO(){
+
+	public UsedCarDTO getDTO() {
 		UsedCarDTO usedCarDTO = new UsedCarDTO();
 		BeanUtils.copyProperties(this, usedCarDTO);
 		BeanUtils.copyProperties(this.getProductAddress(), usedCarDTO);
 		BeanUtils.copyProperties(this.getProductModel(), usedCarDTO);
+		List<ProductImage> imageList = this.getProductImageList();
+		List<String> imageUrls = new ArrayList<String>();
+		for (ProductImage productImage : imageList) {
+			if (productImage != null
+					&& "0".equalsIgnoreCase(productImage.getType())) {
+				imageUrls.add(productImage.getSizeRegular());
+			} else if (productImage != null
+					&& "1".equalsIgnoreCase(productImage.getType())) {
+				usedCarDTO.setLicenseImage(productImage.getSizeRegular());
+			} else if (productImage != null
+					&& "2".equalsIgnoreCase(productImage.getType())) {
+				usedCarDTO.setCertificateImage(productImage.getSizeRegular());
+			}
+		}
+		usedCarDTO.setImageUrls(imageUrls);
 		return usedCarDTO;
 	}
 

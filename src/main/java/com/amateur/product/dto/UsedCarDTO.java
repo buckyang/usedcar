@@ -3,8 +3,11 @@ package com.amateur.product.dto;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -14,41 +17,50 @@ public class UsedCarDTO {
 
 	private String productId;
 	private String productName;
-	@NotBlank
+	@NotNull
 	private Integer modelId;
 	private String brandName;
 	private String seriesName;
 	private String modelDisplayName;
-	@NotBlank
+	@NotNull
 	private Integer seriesId;
-	@NotBlank
+	@NotNull
 	private Integer brandId;
 	@NotEmpty
 	private List<String> imageUrls;
+	@NotBlank
+	private String licenseImage;
+	private String certificateImage;
 	@Past
 	private Date purchaseDate;
 	@Min(0)
 	private Double odometer;
 	@Min(0)
 	private Double listPrice;
+	@NotBlank
 	private String priceType;
+	@NotBlank
 	@Size(min = 17, max = 17)
 	private String carVin;
 	@NotBlank
 	private String carContact;
-	@NotBlank
+	@Pattern(regexp = "^[1]([3][0-9]{1}|59|58|88|89)[0-9]{8}$")
 	private String contactPhone;
 	private Integer status;
 	private Date updateTime;
 	private Integer accountId;
 	private Integer addressId;
+	@NotNull
 	private Integer provinceId;
 	private String province;
+	@NotNull
 	private Integer cityId;
 	private String city;
+	@NotNull
 	private Integer countyId;
 	private String county;
 	private String street;
+	@AssertTrue
 	private Boolean acceptTerm;
 
 	public String getProductId() {
@@ -273,6 +285,22 @@ public class UsedCarDTO {
 
 	public void setAcceptTerm(Boolean acceptTerm) {
 		this.acceptTerm = acceptTerm;
+	}
+
+	public String getLicenseImage() {
+		return licenseImage;
+	}
+
+	public void setLicenseImage(String licenseImage) {
+		this.licenseImage = licenseImage;
+	}
+
+	public String getCertificateImage() {
+		return certificateImage;
+	}
+
+	public void setCertificateImage(String certificateImage) {
+		this.certificateImage = certificateImage;
 	}
 
 }

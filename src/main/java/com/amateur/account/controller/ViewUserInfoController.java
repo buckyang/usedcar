@@ -36,12 +36,12 @@ private static final Logger logger = Logger.getLogger(UpdateUserInfoController.c
 	private AccountService accountService;
 	
 	@Override
-	protected String getGetErrorCode() {
+	protected String getErrorCode() {
 		return "view.user.info.failed";
 	}
 
 	@Override
-	protected String getGetSuccessCode() {
+	protected String getSuccessCode() {
 		return "view.user.info.success";
 	}
 	

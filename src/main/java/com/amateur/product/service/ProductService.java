@@ -1,5 +1,6 @@
 package com.amateur.product.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -43,6 +44,7 @@ public class ProductService {
 
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public boolean publishUsedCar(UsedCarDTO usedCarDTO) {
+
 		logger.info("start publishing used car.");
 		usedCarDTO.setProductId(sequenceService.getProductId());
 		Product usedCar = convertToProduct(usedCarDTO);
@@ -52,14 +54,7 @@ public class ProductService {
 					.insertProductModel(usedCar.getProductModel()) == 1) {
 				if (productAddressMapper.insertProductAddress(usedCar
 						.getProductAddress()) == 1) {
-					List<ProductImage> imageList = usedCar
-							.getProductImageList();
-					for (ProductImage productImage : imageList) {
-						if (productImageMapper.insertProdutImage(productImage) == 0) {
-							result = false;
-							break;
-						}
-					}
+					result = insertProductImage(usedCar);
 				}
 			} else {
 				result = false;
@@ -70,20 +65,31 @@ public class ProductService {
 		return result;
 	}
 
+	private Boolean insertProductImage(Product usedCar) {
+
+		boolean result = true;
+		List<ProductImage> imageList = usedCar.getProductImageList();
+		for (ProductImage productImage : imageList) {
+			if (productImageMapper.insertProdutImage(productImage) == 0) {
+				result = false;
+				break;
+			}
+		}
+		return result;
+	}
+
 	private Product convertToProduct(UsedCarDTO usedCarDTO) {
+
 		usedCarDTO.setBrandName(brandService.getBrandNameById(usedCarDTO
 				.getBrandId()));
 		usedCarDTO.setSeriesName(brandService.getSeriesNameById(
 				usedCarDTO.getBrandId(), usedCarDTO.getSeriesId()));
 		usedCarDTO.setModelDisplayName(brandService.getModelDisplayNameById(
 				usedCarDTO.getSeriesId(), usedCarDTO.getModelId()));
-		StringBuilder productName = new StringBuilder();
-		productName.append(usedCarDTO.getBrandName());
-		productName.append(" ");
-		productName.append(usedCarDTO.getSeriesName());
-		productName.append(" ");
-		productName.append(usedCarDTO.getModelDisplayName());
-		usedCarDTO.setProductName(productName.toString());
+		String productName = usedCarDTO.getBrandName() + " "
+				+ usedCarDTO.getSeriesName() + " "
+				+ usedCarDTO.getModelDisplayName();
+		usedCarDTO.setProductName(productName);
 		usedCarDTO.setStatus(0);
 		usedCarDTO.setProvince(addressService.getProvinceById(usedCarDTO
 				.getProvinceId()));
@@ -98,6 +104,7 @@ public class ProductService {
 
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public boolean updateUsedCar(UsedCarDTO usedCarDTO) {
+
 		logger.info("start updating used car.");
 		Product usedCar = convertToProduct(usedCarDTO);
 		Boolean result = true;
@@ -106,15 +113,10 @@ public class ProductService {
 					.updateProductModel(usedCar.getProductModel()) == 1) {
 				if (productAddressMapper.updateProdutAddress(usedCar
 						.getProductAddress()) == 1) {
-					// List<ProductImage> imageList =
-					// usedCar.getProductImageList();
-					// for(ProductImage productImage: imageList){
-					// if(productImageMapper.insertProdutImage(productImage) ==
-					// 0){
-					// result = false;
-					// break;
-					// }
-					// }
+					if (productImageMapper.deleteProdutImage(usedCar
+							.getProductId()) == 1) {
+						result = insertProductImage(usedCar);
+					}
 				}
 			} else {
 				result = false;
@@ -126,12 +128,14 @@ public class ProductService {
 	}
 
 	public UsedCarDTO getUsedCarById(String productId) {
+
 		Product product = productMapper.getProductById(productId);
 		return product.getDTO();
 	}
 
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public boolean deleteUsedCar(String productId) {
+
 		if (productModelMapper.deleteProductModel(productId) == 1) {
 			if (productImageMapper.deleteProdutImage(productId) == 1) {
 				if (productAddressMapper.deleteProductAddress(productId) == 1) {
@@ -142,6 +146,12 @@ public class ProductService {
 			}
 		}
 		return false;
+	}
+
+	public List<HashMap<String, String>> getProductListByAccountId(
+			String accountId) {
+
+		return productMapper.getProductListByAccountId(accountId);
 	}
 
 }

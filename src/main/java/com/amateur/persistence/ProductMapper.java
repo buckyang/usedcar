@@ -11,5 +11,5 @@ public interface ProductMapper {
 	int updateProdut(Product product);
 	int deleteProduct(String productId);
 	Product getProductById(String productId);	
-	List<HashMap<String, String>> getProductListByAccountId(Integer productId);
+	List<HashMap<String, String>> getProductListByAccountId(String accountId);
 }
