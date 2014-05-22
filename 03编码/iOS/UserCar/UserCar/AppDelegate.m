@@ -42,8 +42,11 @@
     
     UITabBarController *tabController = (UITabBarController*)self.window.rootViewController;
 //    tabController.tabBar.tintColor = [UIColor blueColor];
-//    tabController.tabBar.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
+//    tabController.tabBar.backgroundColor = [UIColor clearColor];
 //    tabController.tabBar.backgroundImage = [UIImage imageNamed:@"imgTabBarBG.png"];
+    
+    
+
     
     //
     //    NSDictionary *dicTitle = @{NSForegroundColorAttributeName: [UIColor blackColor]};
