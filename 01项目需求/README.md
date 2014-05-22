@@ -1,4 +1,4 @@
 TripShare
 =========
 
-a trip application,
+used car application,
