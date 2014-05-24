@@ -22,33 +22,44 @@ import com.amateur.configuration.SiteConfiguration;
 
 @Component
 public class ImageUtil {
-	private static final String	IMAGE_EXTENSION			= ".jpg";
 
-	public static final String	WEB_RESOURCE_SEPARATOR	= "/";
+	private static final String IMAGE_EXTENSION = ".jpg";
 
-	private static final Logger	logger					= Logger.getLogger(ImageUtil.class);
+	public static final String WEB_RESOURCE_SEPARATOR = "/";
 
-	private Resource			productImageLocation;
+	private static final Logger logger = Logger.getLogger(ImageUtil.class);
 
-	private Resource			productImageOriginalLocation;
+	private Resource productImageLocation;
+
+	private Resource productImageOriginalLocation;
 	@Autowired
-	private SiteConfiguration	siteConfiguration;
+	private SiteConfiguration siteConfiguration;
 
+	public Map<String, String> saveProductImage(MultipartFile imageSource,
+			String imageName) throws IOException {
 
-
-	public Map<String, String> saveProductImage(MultipartFile imageSource, String imageSubDir, String imageName)
-			throws IOException {
+		logger.debug("ImageUtil saveProductImage: begin!");
 		boolean isRatio = false;
 		BufferedImage image = ImageIO.read(imageSource.getInputStream());
 		Map<String, String> imageSizeMap = new HashMap<String, String>();
-		String productImageDir = getProductImageLocation().getFile().getAbsolutePath() + File.separator + imageSubDir;
-		FileUtils.forceMkdir(new File(productImageDir));
-		for (Entry<String, List<Integer>> imageDimension : siteConfiguration.getImageSizeDimension().entrySet()) {
-			String destinationFile = productImageDir + File.separator + imageName
-					+ siteConfiguration.getImageSizeSuffixMap().get(imageDimension.getKey()) + IMAGE_EXTENSION;
-			String generatedImageURL = siteConfiguration.getProductImageContext() + WEB_RESOURCE_SEPARATOR
-					+ imageSubDir + WEB_RESOURCE_SEPARATOR + imageName
-					+ siteConfiguration.getImageSizeSuffixMap().get(imageDimension.getKey()) + IMAGE_EXTENSION;
+		File productImageDir = new File(getProductImageLocation().getFile()
+				.getAbsolutePath());
+		if (!productImageDir.exists()) {
+			FileUtils.forceMkdir(productImageDir);
+		}
+		for (Entry<String, List<Integer>> imageDimension : siteConfiguration
+				.getImageSizeDimension().entrySet()) {
+			String destinationFile = productImageDir.getAbsolutePath()
+					+ File.separator
+					+ imageName
+					+ siteConfiguration.getImageSizeSuffixMap().get(
+							imageDimension.getKey()) + IMAGE_EXTENSION;
+			String generatedImageURL = siteConfiguration
+					.getProductImageContext()
+					+ WEB_RESOURCE_SEPARATOR
+					+ imageName
+					+ siteConfiguration.getImageSizeSuffixMap().get(
+							imageDimension.getKey()) + IMAGE_EXTENSION;
 			int width = imageDimension.getValue().get(0);
 			int height = imageDimension.getValue().get(1);
 			if (isRatio) {
@@ -63,39 +74,36 @@ public class ImageUtil {
 				width = (int) (image.getWidth() * ratio);
 				height = (int) (image.getHeight() * ratio);
 			}
-			BufferedImage bfImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-			bfImage.getGraphics().drawImage(image.getScaledInstance(width, height, Image.SCALE_SMOOTH), 0, 0, null);
-
+			BufferedImage bfImage = new BufferedImage(width, height,
+					BufferedImage.TYPE_INT_RGB);
+			bfImage.getGraphics().drawImage(
+					image.getScaledInstance(width, height, Image.SCALE_SMOOTH),
+					0, 0, null);
 			ImageIO.write(bfImage, "jpg", new File(destinationFile));
 			imageSizeMap.put(imageDimension.getKey(), generatedImageURL);
 		}
 		FileUtils.forceMkdir(getProductImageOriginalLocation().getFile());
-		FileUtils.writeByteArrayToFile(new File(getProductImageOriginalLocation().getFile().getAbsolutePath() + File.separator + imageName
-				+ IMAGE_EXTENSION), imageSource.getBytes());
+		FileUtils.writeByteArrayToFile(new File(
+				getProductImageOriginalLocation().getFile().getAbsolutePath()
+						+ File.separator + imageName + IMAGE_EXTENSION),
+				imageSource.getBytes());
 		return imageSizeMap;
 	}
-
-
 
 	public Resource getProductImageLocation() {
 		return productImageLocation;
 	}
 
-
-
 	public void setProductImageLocation(Resource productImageLocation) {
 		this.productImageLocation = productImageLocation;
 	}
-
-
 
 	public Resource getProductImageOriginalLocation() {
 		return productImageOriginalLocation;
 	}
 
-
-
-	public void setProductImageOriginalLocation(Resource productImageOriginalLocation) {
+	public void setProductImageOriginalLocation(
+			Resource productImageOriginalLocation) {
 		this.productImageOriginalLocation = productImageOriginalLocation;
 	}
 

@@ -19,20 +19,20 @@
 				data = data.replace("</PRE>", '');
 				data = data.replace("<pre>", '');
 				data = data.replace("</pre>", '');
-				if (data.substring(0, 1) == 0) {
+				if (data.substring(19, 23)) {
 					var imgTxt = document.createElement("img");
-					$(imgTxt).attr("src", data.substring(2));
-					var hiddenTxt = document.createElement("input");
+					$(imgTxt).attr("src", data.substring(60, data.length-2));
+					/* var hiddenTxt = document.createElement("input");
 					$(hiddenTxt).attr("type", "hidden");
-					$(hiddenTxt).attr("name", "imageUrls");
+					$(hiddenTxt).attr("name", "imageUrl");
 					$(hiddenTxt).attr(
 							"value",
 							";0;" + data.substring(2) + "_jumbo.jpg;"
 									+ data.substring(2) + "_large.jpg;"
 									+ data.substring(2) + "_regular.jpg;"
 									+ data.substring(2) + "_small.jpg;"
-									+ data.substring(2) + "_thumbnail.jpg;");
-					$("td[id='imageId']").append(imgTxt, hiddenTxt);
+									+ data.substring(2) + "_thumbnail.jpg;");*/
+					$("td[id='imageId']").append(imgTxt); 
 					alert("图片上传成功");
 				} else {
 					alert("图片上传失败，请重试！");

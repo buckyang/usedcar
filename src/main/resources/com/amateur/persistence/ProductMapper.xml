@@ -34,12 +34,13 @@
 		contact_phone = #{contactPhone},
 		update_time = #{updateTime}
 		where
-		product_id = #{productId}
+		product_id = #{productId} and account_id= #{accountId}
 	</update>
 
-	<delete id="deleteProduct" parameterType="String">
+	<delete id="deleteProduct">
 		delete from product
 		where product_id = #{productId}
+		and account_id= #{accountId}
 	</delete>
 
 	<select id="getProductById" parameterType="String" resultMap="resultProduct">
@@ -67,6 +68,7 @@
 		pi.size_regular as sizeRegular,
 		pi.size_small as sizeSmall,
 		pi.size_thumbnail as sizeThumbnail,
+		pi.update_time as updateTime,
 		pi.type,
 		pm.model_id as modelId,
 		pm.brand_name as brandName,
@@ -81,10 +83,13 @@
 		pa.county,
 		pa.street
 		from product p
-		left join product_image pi on pi.product_id =
+		left join product_image pi on
+		pi.product_id =
 		p.product_id
-		left join product_model pm on pm.product_id = p.product_id
-		left join product_address pa on pa.product_id = p.product_id
+		left join product_model pm on pm.product_id
+		= p.product_id
+		left join product_address pa on pa.product_id =
+		p.product_id
 		where
 		p.product_id = #{productId}
 	</select>
@@ -145,6 +150,7 @@
 			<result property="sizeRegular" column="sizeRegular" />
 			<result property="sizeSmall" column="sizeSmall" />
 			<result property="sizeThumbnail" column="sizeThumbnail" />
+			<result property="updateTime" column="updateTime" />
 			<result property="type" column="type" />
 		</collection>
 	</resultMap>

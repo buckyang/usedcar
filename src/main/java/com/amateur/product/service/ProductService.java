@@ -70,7 +70,7 @@ public class ProductService {
 		boolean result = true;
 		List<ProductImage> imageList = usedCar.getProductImageList();
 		for (ProductImage productImage : imageList) {
-			if (productImageMapper.insertProdutImage(productImage) == 0) {
+			if (productImageMapper.updateProdutImage(productImage) == 0) {
 				result = false;
 				break;
 			}
@@ -134,12 +134,12 @@ public class ProductService {
 	}
 
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-	public boolean deleteUsedCar(String productId) {
+	public boolean deleteUsedCar(String productId, String accountId) {
 
 		if (productModelMapper.deleteProductModel(productId) == 1) {
 			if (productImageMapper.deleteProdutImage(productId) == 1) {
 				if (productAddressMapper.deleteProductAddress(productId) == 1) {
-					if (productMapper.deleteProduct(productId) == 1) {
+					if (productMapper.deleteProduct(productId, accountId) == 1) {
 						return true;
 					}
 				}

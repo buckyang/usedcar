@@ -4,63 +4,62 @@ import java.util.Date;
 import java.util.List;
 
 import javax.validation.constraints.AssertTrue;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 
 public class UsedCarDTO {
 
 	private String productId;
 	private String productName;
-	@NotNull
+	@NotNull(message = "请选择车型")
 	private Integer modelId;
 	private String brandName;
 	private String seriesName;
 	private String modelDisplayName;
-	@NotNull
+	@NotNull(message = "请选择车系")
 	private Integer seriesId;
-	@NotNull
+	@NotNull(message = "请选择品牌")
 	private Integer brandId;
-	@NotEmpty
+	@Size(min = 4, max = 8, message = "请上传4-8张车辆图片")
+	private List<String> imageIds;
+	@NotBlank(message = "请上传行驶证")
+	private String licenseImageId;
+	private String certificateImageId;
 	private List<String> imageUrls;
-	@NotBlank
 	private String licenseImage;
 	private String certificateImage;
 	@Past
 	private Date purchaseDate;
-	@Min(0)
+	@Digits(integer = 2, fraction = 1, message = "请输入最多2位整数及1位小数")
 	private Double odometer;
-	@Min(0)
+	@Digits(integer = 4, fraction = 1, message = "请输入最多4位整数及1位小数")
 	private Double listPrice;
 	@NotBlank
 	private String priceType;
-	@NotBlank
-	@Size(min = 17, max = 17)
+	@Size(min = 17, max = 17, message = "请输入17位的车辆识别码")
 	private String carVin;
-	@NotBlank
+	@NotBlank(message = "请输入联系人姓名")
 	private String carContact;
-	@Pattern(regexp = "^[1]([3][0-9]{1}|59|58|88|89)[0-9]{8}$")
+	@Size(min = 11, max = 11, message = "请输入11位电话号码")
 	private String contactPhone;
 	private Integer status;
 	private Date updateTime;
 	private Integer accountId;
-	private Integer addressId;
-	@NotNull
+	@NotNull(message="请选择省份")
 	private Integer provinceId;
 	private String province;
-	@NotNull
+	@NotNull(message="请选择城市")
 	private Integer cityId;
 	private String city;
-	@NotNull
+	@NotNull(message="请选择区县")
 	private Integer countyId;
 	private String county;
 	private String street;
-	@AssertTrue
+	@AssertTrue(message="你必须接受协议")
 	private Boolean acceptTerm;
 
 	public String getProductId() {
@@ -125,14 +124,6 @@ public class UsedCarDTO {
 
 	public void setBrandId(Integer brandId) {
 		this.brandId = brandId;
-	}
-
-	public List<String> getImageUrls() {
-		return imageUrls;
-	}
-
-	public void setImageUrls(List<String> imageUrls) {
-		this.imageUrls = imageUrls;
 	}
 
 	public Date getPurchaseDate() {
@@ -215,14 +206,6 @@ public class UsedCarDTO {
 		this.accountId = accountId;
 	}
 
-	public Integer getAddressId() {
-		return addressId;
-	}
-
-	public void setAddressId(Integer addressId) {
-		this.addressId = addressId;
-	}
-
 	public Integer getProvinceId() {
 		return provinceId;
 	}
@@ -285,6 +268,38 @@ public class UsedCarDTO {
 
 	public void setAcceptTerm(Boolean acceptTerm) {
 		this.acceptTerm = acceptTerm;
+	}
+
+	public List<String> getImageIds() {
+		return imageIds;
+	}
+
+	public void setImageIds(List<String> imageIds) {
+		this.imageIds = imageIds;
+	}
+
+	public String getLicenseImageId() {
+		return licenseImageId;
+	}
+
+	public void setLicenseImageId(String licenseImageId) {
+		this.licenseImageId = licenseImageId;
+	}
+
+	public String getCertificateImageId() {
+		return certificateImageId;
+	}
+
+	public void setCertificateImageId(String certificateImageId) {
+		this.certificateImageId = certificateImageId;
+	}
+
+	public List<String> getImageUrls() {
+		return imageUrls;
+	}
+
+	public void setImageUrls(List<String> imageUrls) {
+		this.imageUrls = imageUrls;
 	}
 
 	public String getLicenseImage() {

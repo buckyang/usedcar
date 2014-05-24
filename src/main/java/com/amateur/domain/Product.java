@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 
 import com.amateur.product.dto.UsedCarDTO;
@@ -157,31 +156,24 @@ public class Product implements Serializable {
 		productAddress = new ProductAddress();
 		BeanUtils.copyProperties(usedCarDTO, productAddress);
 		productImageList = new ArrayList<ProductImage>();
-		List<String> imageList = usedCarDTO.getImageUrls();
-		for (String imageUrl : imageList) {
-			populateProductImage(imageUrl, "0");
+		List<String> imageIdList = usedCarDTO.getImageIds();
+		for (String imageId : imageIdList) {
+			populateProductImage(imageId, "0");
 		}
-		populateProductImage(usedCarDTO.getLicenseImage(), "1");
-		populateProductImage(usedCarDTO.getCertificateImage(), "2");
+		populateProductImage(usedCarDTO.getLicenseImageId(), "1");
+		populateProductImage(usedCarDTO.getCertificateImageId(), "2");
 	}
 
-	private void populateProductImage(String imageUrl, String type) {
+	private void populateProductImage(String imageId, String type) {
 
-		if (imageUrl != null && !"".equalsIgnoreCase(imageUrl)) {
+		if (imageId != null && !"".equalsIgnoreCase(imageId)) {
 			ProductImage productImage = new ProductImage();
+			productImage.setImageId(Integer.valueOf(imageId));
 			productImage.setProductId(productId);
 			productImage.setType(type);
-			productImage.setSizeJumbo(StringUtils.replace(imageUrl, "regular",
-					"jumbo"));
-			productImage.setSizeLarge(StringUtils.replace(imageUrl, "regular",
-					"large"));
-			productImage.setSizeRegular(imageUrl);
-			productImage.setSizeSmall(StringUtils.replace(imageUrl, "regular",
-					"small"));
-			productImage.setSizeThumbnail(StringUtils.replace(imageUrl,
-					"regular", "thumbnail"));
 			productImage.setName(productName);
 			productImage.setDescription(productName);
+			productImage.setUpdateTime(new Date());
 			productImageList.add(productImage);
 		}
 	}

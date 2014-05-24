@@ -1,6 +1,7 @@
 package com.amateur.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class ProductImage implements Serializable {
 
@@ -15,6 +16,7 @@ public class ProductImage implements Serializable {
 	private String sizeThumbnail;
 	private String productId;
 	private String type;
+	private Date updateTime;
 
 	public Integer getImageId() {
 		return imageId;
@@ -94,6 +96,14 @@ public class ProductImage implements Serializable {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
 }
