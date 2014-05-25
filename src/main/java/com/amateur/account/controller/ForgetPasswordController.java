@@ -47,7 +47,7 @@ public class ForgetPasswordController extends BaseController {
 	private AccountService accountService;
 	
 	@Override
-	protected String getGetSuccessCode() {
+	protected String getSuccessCode() {
 		return "apply.reset.password.success";
 	}
 	
