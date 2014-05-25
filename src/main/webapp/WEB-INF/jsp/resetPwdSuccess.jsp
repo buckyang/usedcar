@@ -1,0 +1,1 @@
+<div><h1>密码重置成功<a href="javascript:void(0);" onclick='window.location.href="login";'>点周这返回登录页面</a></h1></div>

@@ -54,11 +54,11 @@
 						<c:choose>
 							<c:when
 								test="${not empty userInfoDTO.bindPhone and userInfoDTO.bindPhone }">
-								<a target="_blank" class="smod" href="">修改</a>
+								<a onclick="bindPhone();" class="smod" href="javascript:void(0);" style="color: #000000;">修改</a>
 								<span class="ftx-03">&nbsp;&nbsp;&nbsp;已验证</span>
 							</c:when>
 							<c:otherwise>
-								<a target="_blank" class="smod" href="">立即绑定</a>
+								<a onclick="bindPhone();" class="smod" href="javascript:void(0);" style="color: #000000;">立即绑定</a>
 							</c:otherwise>
 						</c:choose>
 					</div>
@@ -85,11 +85,11 @@
 						<c:choose>
 							<c:when
 								test="${not empty userInfoDTO.bindEmail and userInfoDTO.bindEmail }">
-								<a target="_blank" class="smod" href="">修改</a>
+								<a onclick="bindMail();" class="smod" href="javascript:void(0);" style="color: #000000;">修改</a>
 								<span class="ftx-03">&nbsp;&nbsp;&nbsp;已验证</span>
 							</c:when>
 							<c:otherwise>
-								<a target="_blank" class="smod" href="">立即绑定</a>
+								<a onclick="bindMail();" class="smod" href="javascript:void(0);" style="color: #000000;">立即绑定</a>
 							</c:otherwise>
 						</c:choose>
 					</div>

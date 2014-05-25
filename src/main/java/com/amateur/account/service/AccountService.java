@@ -1,8 +1,10 @@
 
 package com.amateur.account.service;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -15,9 +17,9 @@ import com.amateur.domain.Account;
 import com.amateur.domain.Address;
 import com.amateur.domain.MobileToken;
 import com.amateur.domain.Reseller;
-import com.amateur.domain.ResetPasswordRecord;
+import com.amateur.domain.VerificationCode;
 import com.amateur.persistence.AccountMapper;
-import com.amateur.persistence.ResetPasswordRecordMapper;
+import com.amateur.persistence.VerificationCodeMapper;
 import com.amateur.service.SequenceService;
 import com.amateur.util.EncryptionUtil;
 
@@ -32,7 +34,7 @@ public class AccountService {
 	@Autowired
 	private SequenceService sequenceService;
 	@Autowired
-	private ResetPasswordRecordMapper resetPasswordRecordMapper;
+	private VerificationCodeMapper verificationCodeMapper;
 	
 	public boolean registrerAccount(RegistrationDTO registrationDTO){
 		if(registrationDTO.getAccountType() == 1){
@@ -126,19 +128,38 @@ public class AccountService {
 		return accountMapper.getHomeAddressByAccountId(accountId);
 	}
 	
-	public ResetPasswordRecord getResetPasswordRecord(Integer accountId){
-		return resetPasswordRecordMapper.findRecordByAccountId(accountId);
+	public void addVerificationCode(VerificationCode code){
+		verificationCodeMapper.addVerificationCode(code);
 	}
 	
-	public void deleteResetPasswordRecord(ResetPasswordRecord record){
-		resetPasswordRecordMapper.deleteResetPasswordRecord(record);
+	public List<VerificationCode> getCodeByPrinciple(VerificationCode tempCodeCarrier){
+		return verificationCodeMapper.getCodeByPrinciple(tempCodeCarrier);
 	}
 	
-	public void addResetPasswordRecord(ResetPasswordRecord record){
-		resetPasswordRecordMapper.insertResetPasswordRecord(record);
+	public boolean checkCodeVaild(VerificationCode tempCodeCarrier){
+		List<VerificationCode>codes=getCodeByPrinciple(tempCodeCarrier);
+		if(codes==null||codes.isEmpty()){
+			return false;
+		}
+		for(VerificationCode code:codes){
+			if(code.getVerificationCode().equals(tempCodeCarrier.getVerificationCode())){
+				return true;
+			}
+		}
+		return false;
 	}
 	
-	public void updatePasswordRecord(ResetPasswordRecord record){
-		resetPasswordRecordMapper.updateResetPasswordRecod(record);
+	public void updateVerificationStatus(VerificationCode code){
+		verificationCodeMapper.updateVerificationStatus(code);
+	}
+	
+	public void updateAccountPhoneBinding(Account account,VerificationCode code){
+		accountMapper.updateAccountPhoneBinding(account);
+		updateVerificationStatus(code);
+	}
+	
+	public void updateAccountMailBinding(Account account,VerificationCode code){
+		accountMapper.updateAccountMailBinding(account);
+		updateVerificationStatus(code);
 	}
 }

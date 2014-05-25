@@ -32,13 +32,15 @@ CREATE TABLE IF NOT EXISTS `usedcar`.`static_page` (
   PRIMARY KEY (`page_id`))
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `usedcar`.`verification_code` (
-  `id` VARCHAR(20) NOT NULL,
-  `type` TINYINT NULL,
-  `verification_code` VARCHAR(45) NULL,
-  `valid_date` TIMESTAMP NULL,
-  `used` TINYINT(1) NULL,
-  `principle` VARCHAR(45) NULL,
-  `used_date` TIMESTAMP NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
+
+CREATE TABLE `NewTable` (
+`id`  int(11) NOT NULL AUTO_INCREMENT ,
+`type`  tinyint(4) NULL DEFAULT NULL ,
+`verification_code`  varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+`valid_date`  timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP ,
+`used`  bit(1) NULL DEFAULT NULL ,
+`principle`  varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`used_date`  timestamp NULL DEFAULT NULL ,
+PRIMARY KEY (`id`)
+)
+ENGINE=InnoDB

@@ -5,11 +5,11 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class RestPasswordDTO implements Serializable{
+public class RestPasswordDTO implements Serializable {
 
 	private static final long serialVersionUID = 1668155526141555779L;
 
-	private String mail;
+	private String principle;
 
 	private String activeCode;
 
@@ -37,20 +37,20 @@ public class RestPasswordDTO implements Serializable{
 		this.confirmPassword = confirmPassword;
 	}
 
-	public String getMail() {
-		return mail;
-	}
-
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-
 	public String getActiveCode() {
 		return activeCode;
 	}
 
 	public void setActiveCode(String activeCode) {
 		this.activeCode = activeCode;
+	}
+
+	public String getPrinciple() {
+		return principle;
+	}
+
+	public void setPrinciple(String principle) {
+		this.principle = principle;
 	}
 
 }

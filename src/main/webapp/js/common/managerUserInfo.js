@@ -79,3 +79,12 @@ function IsPinYear(year)// 判断是否闰平年
 {
 	return (0 == year % 4 && (year % 100 != 0 || year % 400 == 0));
 }
+
+
+function bindPhone(){
+	window.location.href="bindPhone";
+}
+
+function bindMail(){
+	window.location.href="bindMail";
+}

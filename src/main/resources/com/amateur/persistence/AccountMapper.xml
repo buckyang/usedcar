@@ -197,5 +197,15 @@
 	</update>	
 	<select id="getHomeAddressByAccountId" parameterType="int" resultType="Address">
 		select * from address where account_id = #{accountId}
-	</select>		
+	</select>
+	<update id="updateAccountPhoneBinding" parameterType="Account">
+		update account set 
+			phone = #{phone} ,bind_phone = #{bindPhone}
+		where account_id = #{accountId}
+	</update>
+	<update id="updateAccountMailBinding" parameterType="Account">
+		update account set 
+			email = #{email} ,bind_email = #{bindEmail} 
+		where account_id = #{accountId}
+	</update>		
 </mapper>
