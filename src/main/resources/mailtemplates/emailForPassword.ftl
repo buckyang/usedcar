@@ -7,7 +7,7 @@
 
     要使用新的密码, 请使用以下链接启用密码。
 
-    https://www.2soce.com/account/resetPassword?user=${username}&amp;active=${activeCode}
+    http://www.2soce.com/resetPasswordByMail?user=${username}&amp;activeCode=${activeCode}
 
     (如果无法点击该URL链接地址，请将它复制并粘帖到浏览器的地址输入框，然后单击回车即可。该链接使用后将立即失效。)
     

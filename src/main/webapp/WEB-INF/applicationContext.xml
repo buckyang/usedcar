@@ -222,6 +222,12 @@
               <prop key="locale">zh_CN</prop>                          
           </props>        
       </property>        
+</bean>
+
+<bean id="messageSender" class="com.amateur.service.impl.MessageSenderServiceImpl">		
+	<property name="userid" value="2346" />
+	<property name="account" value="scwl" />
+	<property name="password" value="ytw567kmnb" />
 </bean> 
 
 	<bean id="imageUtil" class="com.amateur.util.ImageUtil">

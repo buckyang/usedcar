@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.amateur.persistence.VerificationCodeMapper">
+
+  	<cache />
+
+    <select id="getCodeByPrinciple" parameterType="VerificationCode" resultType="VerificationCode">
+	    SELECT
+			*
+	    FROM verification_code
+	    WHERE unix_timestamp(date_add(valid_date,interval 1 hour))>unix_timestamp(now()) and principle=#{principle} and type=#{type} and used=#{used}
+    </select>
+    <insert id="addVerificationCode" parameterType="VerificationCode">
+		INSERT INTO verification_code (principle,type,verification_code,valid_date,used,used_date)
+		VALUES (${principle},#{type}, #{verificationCode}, #{validDate}, #{used},#{usedDate})
+	</insert> 
+	<update id="updateVerificationStatus" parameterType="VerificationCode">
+		update verification_code set 
+			used = #{used} , used_date=#{usedDate}
+		where verification_code = #{verificationCode} and type=#{type} and principle=#{principle}
+	</update>
+</mapper>

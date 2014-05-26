@@ -36,9 +36,14 @@ public class ForgetPasswordValidator implements Validator {
 		Account account=accountService.getAccountByPhoneOrEmail(loginName);
 		if(account==null){
 			errors.rejectValue("loginName", "forget.password.invalid.name");
-		}else if(loginName.indexOf('@')>-1&&!account.getBindEmail()){
-			errors.rejectValue("loginName", "forget.password.invalid.name");
+			return;
+		}
+		if(loginName.indexOf('@')>-1&&(account.getBindEmail()==null||!account.getBindEmail())){
+			errors.rejectValue("loginName", "forget.password.mail.unbind");
+			return;
+		}
+		if(account.getBindPhone()!=null && !account.getBindPhone()){
+			errors.rejectValue("loginName", "forget.password.phone.unbind");
 		}
 	}
-
 }

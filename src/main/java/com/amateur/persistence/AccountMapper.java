@@ -23,4 +23,6 @@ public interface AccountMapper {
 	int insertMobileToken(MobileToken mobileToken);
 	int updateMobileToken(MobileToken mobileToken);
 	MobileToken selectMobileToken(MobileToken mobileToken);
+	void updateAccountPhoneBinding(Account account);
+	void updateAccountMailBinding(Account account);
 }

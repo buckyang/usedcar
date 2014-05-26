@@ -4,12 +4,14 @@ import java.io.Serializable;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-public class PhoneNumberDTO implements Serializable {
+public class BindPhoneDTO implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-	private static final long serialVersionUID = 2115948593331689141L;
-	
 	@NotBlank
 	private String phoneNumber;
+
+	@NotBlank
+	private String code;
 
 	public String getPhoneNumber() {
 		return phoneNumber;
@@ -17,6 +19,14 @@ public class PhoneNumberDTO implements Serializable {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 }
