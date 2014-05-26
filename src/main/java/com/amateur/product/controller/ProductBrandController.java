@@ -17,6 +17,13 @@ public class ProductBrandController {
 	@Autowired
 	private BrandService brandService;
 
+	@RequestMapping(value = "/getBrands", method = RequestMethod.GET)
+	@ResponseBody
+	public Map<Integer, String> getBrandMap(String brandId) {
+		
+		return brandService.getBrandMap();
+	}
+	
 	@RequestMapping(value = "/getSeries", method = RequestMethod.GET)
 	@ResponseBody
 	public Map<Integer, String> getSeriesMap(String brandId) {
