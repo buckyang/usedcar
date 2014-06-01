@@ -154,6 +154,12 @@ p.site-info {
     position: relative;
 }
 
+.cars form .inputs{
+    width: 244px;
+    height: 350px;
+    background: rgba(117, 137, 148, 0.7) url("/image/bannertbg.png") no-repeat;
+}
+
 .cars form label {
     display: inline-block;
     color: #FFF;

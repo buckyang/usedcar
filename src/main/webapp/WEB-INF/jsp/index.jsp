@@ -1,14 +1,16 @@
 <div class="cars">
     <form action="search" method="post">
-        <label>我理想的座驾:</label>
-        <input type="text" name="brand" id="carBrand" value="品牌" readonly="readonly" style="height:20px;">
-        <input type="text" name="type" id="carType" value="车型" readonly="readonly" style="height:20px;">
-        <input type="text" name="price" id="carPrice" value="价格" readonly="readonly" style="height:20px;">
-        <input type="text" name="age" id="carAge" value="车龄或里程" readonly="readonly" style="height:20px;">
+        <div class="inputs">
+            <label>我理想的座驾:</label>
+            <input type="text" name="brand" id="carBrand" value="品牌" readonly="readonly" style="height:20px;">
+            <input type="text" name="type" id="carType" value="车型" readonly="readonly" style="height:20px;">
+            <input type="text" name="price" id="carPrice" value="价格" readonly="readonly" style="height:20px;">
+            <input type="text" name="age" id="carAge" value="车龄或里程" readonly="readonly" style="height:20px;">
 
-        <input type="radio" name="isCertificated" value="是">
-        <span class="certificate">是否认证</span>
-        <button type="submit" value="搜索">搜索</button>
+            <input type="radio" name="isCertificated" value="是">
+            <span class="certificate">是否认证</span>
+            <button type="submit" value="搜索">搜索</button>
+        </div>
         <div id="carDetails">
             <ul></ul>
         </div>
