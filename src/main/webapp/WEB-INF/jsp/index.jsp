@@ -1,29 +1,17 @@
 <div class="cars">
     <form action="search" method="post">
         <label>我理想的座驾:</label>
-        <select name="brand" id="carBrand">
-            <option value="品牌">品牌</option>
-            <option value="宝马">宝马</option>
-            <option value="奥迪">奥迪</option>
-        </select>
-        <select name="type" id="carType">
-            <option value="车型">车型</option>
-            <option value="大">大</option>
-            <option value="小">小</option>
-        </select>
-        <select name="price" id="carPrice">
-            <option value="价格">价格</option>
-            <option value="9999999">999999</option>
-            <option value="999999">99999</option>
-        </select>
-        <select name="age" id="carAge">
-            <option value="车龄或者里程">车龄或里程</option>
-            <option value="10000km">10000km</option>
-            <option value="1000000km">100000km</option>
-        </select>
-        <input type="radio" name="isCertificated" value="是否认证">
+        <input type="text" name="brand" id="carBrand" value="品牌" readonly="readonly" style="height:20px;">
+        <input type="text" name="type" id="carType" value="车型" readonly="readonly" style="height:20px;">
+        <input type="text" name="price" id="carPrice" value="价格" readonly="readonly" style="height:20px;">
+        <input type="text" name="age" id="carAge" value="车龄或里程" readonly="readonly" style="height:20px;">
+
+        <input type="radio" name="isCertificated" value="是">
         <span class="certificate">是否认证</span>
         <button type="submit" value="搜索">搜索</button>
+        <div id="carDetails">
+            <ul></ul>
+        </div>
     </form>
 </div>
 
@@ -133,3 +121,5 @@
         </div>
     </div>
 </div>
+
+<script src='<s:url value="/js/index.js" />' type="text/javascript"></script>
