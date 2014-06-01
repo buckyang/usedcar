@@ -10,7 +10,7 @@ $(document).ready(function(){
     var hoverIn = function(event){
         var target = $(event.target);
 
-        target.width(250);
+        target.width(255);
 
         var data = [];
         var currentTagId = target.attr('id');
@@ -20,7 +20,7 @@ $(document).ready(function(){
             }
         }
         if (currentTagId == 'carType'){
-            for (var i = 0; i < 50; i++){
+            for (i = 0; i < 50; i++){
                 data.push('type' + i);
             }
         }
@@ -64,7 +64,7 @@ $(document).ready(function(){
         target.width(234);
         carDetailsList.empty();
         carDetails.hide();
-    }
+    };
 
     var hoverOut = function(event){
         if (insideArea(event.pageX, event.pageY)){
@@ -75,14 +75,15 @@ $(document).ready(function(){
             restore(event);
         }
     };
-//
-//    $.ajax({
-//        url: '/product/getBrands',
-//        type: 'GET',
-//        data: {brandId: 'hello'}
-//    }).done(function(data){
-//        console.log('data', data);
-//    });
+
+    $.ajax({
+        url: '/product/getBrands',
+        type: 'GET',
+        dataType: 'json',
+        data: {brandId: 'hello'}
+    }).done(function(data){
+        console.log('data', data);
+    });
 
     _.each(['carBrand', 'carType', 'carPrice', 'carAge'], function(val){
         $('#' + val).hover(hoverIn, hoverOut);
