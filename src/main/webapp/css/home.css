@@ -151,6 +151,7 @@ p.site-info {
 
 .cars form {
     margin-left: 30px;
+    position: relative;
 }
 
 .cars form label {
@@ -175,23 +176,41 @@ p.site-info {
     margin-left: 10px;
 }
 
-.cars form select {
+.cars form input[type="text"] {
     display: block;
     background: white;
-    width: 244px;
+    width: 234px;
     padding: 5px;
     margin-bottom: 10px;
     font-size: 16px;
     line-height: 1;
     border: 0;
     border-radius: 0;
-    height: 34px;
     -webkit-appearance: none;
 }
 
 .cars form .certificate {
     font-size: 0.8em;
     color: #fff;
+}
+
+.cars #carDetails {
+    position: absolute;
+    top: 20px;
+    left: 260px;
+    background-color: #fff;
+    opacity: 0.9;
+    /*width: 700px;*/
+    /*height: 250px;*/
+    /*border-radius: 5px;*/
+    padding: 10px 10px;
+}
+
+.cars #carDetails ul li{
+    display: inline-block;
+    margin: 5px 5px;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .info-wrapper {
