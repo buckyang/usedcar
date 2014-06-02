@@ -82,9 +82,9 @@
             </div>
             <div class="contract">
                 <ul>
-                    <li><a href="#"><img src="/image/yk.jpg" alt="youka" width="189" height="88"/></a></li>
-                    <li><a href="#"><img src="/image/ds.jpg" alt="youka" width="189" height="88"/></a></li>
-                    <li><a href="#"><img src="/image/hg.jpg" alt="youka" width="189" height="88"/></a></li>
+                    <li class="you_ka"><a href="#"></a></li>
+                    <li class="di_san_fang"><a href="#"></a></li>
+                    <li class="hui_gou"><a href="#"></a></li>
                 </ul>
             </div>
             <div class="instructions">

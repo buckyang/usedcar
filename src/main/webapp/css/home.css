@@ -66,8 +66,10 @@ a {
     background: url("/image/s.jpg") no-repeat 0px 25px;
 }
 
+
 .nav ul li:first-child {
     width: 86px;
+    background: none;
 }
 
 .nav ul li a {
@@ -369,6 +371,37 @@ p.site-info {
     margin-bottom: 5px;
 }
 
+.info .messages .contract ul li a
+{
+    display: block;
+    width: 190px;
+    height: 87px;
+}
+
+.info .messages .contract .you_ka {
+    background: url("/image/yk.jpg");
+}
+
+.info .messages .contract .you_ka:hover {
+    background: url("/image/ykh.jpg");
+}
+
+.info .messages .contract .di_san_fang {
+    background: url("/image/ds.jpg");
+}
+
+.info .messages .contract .di_san_fang:hover {
+    background: url("/image/dsh.jpg");
+}
+
+.info .messages .contract .hui_gou {
+    background: url("/image/hg.jpg");
+}
+
+.info .messages .contract .hui_gou:hover {
+    background: url("/image/hgh.jpg");
+}
+
 .info .messages .instructions {
     background-color: #e5e5e5;
     width: 768px;
@@ -397,24 +430,42 @@ p.site-info {
 .info .messages .sell a,
 .info .messages .loan a,
 .info .messages .certificate a {
+    display: block;
+    height: 103px;
+    padding-left: 60px;
     color: #333;
 }
 
 
 .info .messages .buy {
-    background: url("/image/mch.png") no-repeat;
+    background: url("/image/mc.png") no-repeat;
+}
 
+.info .messages .buy:hover {
+    background: url("/image/mch.png") no-repeat;
 }
 
 .info .messages .sell {
     background: url("/image/mic.png") no-repeat;
 }
 
+.info .messages .sell:hover {
+    background: url("/image/mich.png") no-repeat;
+}
+
 .info .messages .loan {
+    background: url("/image/dk.png") no-repeat;
+}
+
+.info .messages .loan:hover {
     background: url("/image/dkh.png") no-repeat;
 }
 
 .info .messages .certificate {
+    background: url("/image/wu.png") no-repeat;
+}
+
+.info .messages .certificate:hover {
     background: url("/image/wuh.png") no-repeat;
 }
 
