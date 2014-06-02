@@ -434,8 +434,8 @@ p.site-info {
     height: 103px;
     padding-left: 60px;
     color: #333;
+    font-size: 20px;
 }
-
 
 .info .messages .buy {
     background: url("/image/mc.png") no-repeat;
@@ -443,6 +443,10 @@ p.site-info {
 
 .info .messages .buy:hover {
     background: url("/image/mch.png") no-repeat;
+}
+
+.info .messages .buy a:hover {
+    color: #3868be;
 }
 
 .info .messages .sell {
@@ -453,6 +457,10 @@ p.site-info {
     background: url("/image/mich.png") no-repeat;
 }
 
+.info .messages .sell a:hover {
+    color: #e9ab25;
+}
+
 .info .messages .loan {
     background: url("/image/dk.png") no-repeat;
 }
@@ -461,12 +469,20 @@ p.site-info {
     background: url("/image/dkh.png") no-repeat;
 }
 
+.info .messages .loan a:hover {
+    color: #3868be;
+}
+
 .info .messages .certificate {
     background: url("/image/wu.png") no-repeat;
 }
 
 .info .messages .certificate:hover {
     background: url("/image/wuh.png") no-repeat;
+}
+
+.info .messages .certificate a:hover {
+    color: #e9ab25;
 }
 
 .car-images {
