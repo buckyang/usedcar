@@ -19,7 +19,7 @@ public class ProductBrandController {
 
 	@RequestMapping(value = "/getBrands", method = RequestMethod.GET)
 	@ResponseBody
-	public Map<Integer, String> getBrandMap(String brandId) {
+	public Map<Integer, String> getBrandMap() {
 		
 		return brandService.getBrandMap();
 	}
