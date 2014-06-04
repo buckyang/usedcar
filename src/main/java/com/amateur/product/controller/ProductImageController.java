@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.amateur.configuration.SiteConfiguration;
@@ -24,10 +25,12 @@ import com.amateur.domain.ProductImage;
 import com.amateur.persistence.ProductImageMapper;
 import com.amateur.product.dto.ProductImageDTO;
 import com.amateur.product.validator.ProductImageValidator;
+import com.amateur.session.Profile;
 import com.amateur.util.ImageUtil;
 
 @Controller
 @RequestMapping(value = "/product")
+@SessionAttributes("profile")
 public class ProductImageController extends BaseController {
 
 	private static final Logger logger = Logger
@@ -59,13 +62,13 @@ public class ProductImageController extends BaseController {
 	@ResponseBody
 	public Map<String, Object> imageUpload(
 			@Valid @ModelAttribute("productImageDTO") ProductImageDTO productImageDTO,
-			BindingResult result, HttpServletRequest request) {
+			BindingResult result, HttpServletRequest request, @ModelAttribute("profile") Profile profile) {
 
 		Map<String, String> savedImages = null;
 		String imageId = null;
 		if (!result.hasErrors()) {
 			try {
-				savedImages = saveImage(productImageDTO.getImage(), request);
+				savedImages = saveImage(productImageDTO.getImage(), request, profile);
 				ProductImage productImage = new ProductImage();
 				productImage.setSizeJumbo(savedImages
 						.get(SiteConfiguration.IMAGE_JUMBO_SIZE_KEY));
@@ -93,10 +96,10 @@ public class ProductImageController extends BaseController {
 	}
 
 	private Map<String, String> saveImage(MultipartFile image,
-			HttpServletRequest request) throws IOException {
+			HttpServletRequest request, Profile profile) throws IOException {
 
 		Map<String, String> savedImageMap = imageUtil.saveProductImage(image,
-				image.getName() + System.currentTimeMillis());
+				image.getName() + System.currentTimeMillis(), profile.getAccountId().toString());
 		return savedImageMap;
 	}
 

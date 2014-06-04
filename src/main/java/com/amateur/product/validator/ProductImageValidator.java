@@ -22,7 +22,9 @@ public class ProductImageValidator implements Validator {
 		if(productImageDTO.getImage() == null || productImageDTO.getImage().isEmpty()){
 			errors.rejectValue("image", "product.uploadimage.empty");
 			return;
-		}else if(!"image/jpeg".equalsIgnoreCase(productImageDTO.getImage().getContentType())){
+		}
+		String imageType = productImageDTO.getImage().getContentType();
+		if(!"image/jpeg".equalsIgnoreCase(imageType)&&!"image/png".equalsIgnoreCase(imageType)){
 			errors.rejectValue("image", "product.uploadimage.format.invalid");
 		}
 		

@@ -36,14 +36,14 @@ public class ImageUtil {
 	private SiteConfiguration siteConfiguration;
 
 	public Map<String, String> saveProductImage(MultipartFile imageSource,
-			String imageName) throws IOException {
+			String imageName, String accountId) throws IOException {
 
 		logger.debug("ImageUtil saveProductImage: begin!");
 		boolean isRatio = false;
 		BufferedImage image = ImageIO.read(imageSource.getInputStream());
 		Map<String, String> imageSizeMap = new HashMap<String, String>();
 		File productImageDir = new File(getProductImageLocation().getFile()
-				.getAbsolutePath());
+				.getAbsolutePath() + File.separator + accountId);
 		if (!productImageDir.exists()) {
 			FileUtils.forceMkdir(productImageDir);
 		}
@@ -85,7 +85,7 @@ public class ImageUtil {
 		FileUtils.forceMkdir(getProductImageOriginalLocation().getFile());
 		FileUtils.writeByteArrayToFile(new File(
 				getProductImageOriginalLocation().getFile().getAbsolutePath()
-						+ File.separator + imageName + IMAGE_EXTENSION),
+						+ File.separator + accountId + File.separator + imageName + IMAGE_EXTENSION),
 				imageSource.getBytes());
 		return imageSizeMap;
 	}
