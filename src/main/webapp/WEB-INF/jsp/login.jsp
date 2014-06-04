@@ -1,24 +1,37 @@
 <head>
-    <title><c:out value="${siteConfiguration.siteName }" /> -- 用户登录</title>
+    <title><c:out value="${siteConfiguration.siteName }"/> -- 用户登录</title>
+    <link href="<s:url value="/css/login.css" />" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-<div class="login">
-	<form:form id="loginForm" method="post" modelAttribute="loginDTO">
-		<label for="username">用户名</label>
-		<form:input path="phoneOrEmail"  placeholder="请输入手机号/注册邮箱"/>
-		<form:errors path="phoneOrEmail" cssClass="error" />
-		<label for="password">密码</label>
-		<form:password path="password"/>
-		<form:errors path="password" cssClass="error" />
-        <div>
-        	<form:checkbox path="rememberUserName" value="true"/>
-            <label for="rememberUserName">记住用户名</label>
-            <button type="submit" value="登陆">登陆</button>
+<div class="login-box">
+    <h3>登陆</h3>
+    <form:form id="loginForm" method="post" modelAttribute="loginDTO">
+        <div class="error">用户名或密码不对</div>
+        <div class="necessary-info">
+            <div>
+                <img src='<s:url value="/image/yhmbg.jpg" />' alt="username"/>
+                <form:input path="phoneOrEmail" placeholder="请输入手机号/注册邮箱"/>
+                <form:errors path="phoneOrEmail" cssClass="error"/>
+            </div>
+
+            <div>
+                <img src='<s:url value="/image/mmbg.jpg" />' alt="password"/>
+                <form:password path="password" placeholder="******"/>
+                <form:errors path="password" cssClass="error"/>
+            </div>
         </div>
-	</form:form>
+
+        <div class="remember">
+            <form:checkbox path="rememberUserName" value="true"/>
+            <label for="rememberUserName">记住用户名和密码</label>
+            <a href="#">忘记用户名或密码?</a>
+        </div>
+        <div class="buttons">
+            <button type="submit" value="登陆">登陆</button>
+            <a href="<s:url value="/signon" />">注册</a>
+        </div>
+    </form:form>
     <p>
-        <a href="<s:url value="/signon" />">注册</a>|
-        <a href="#">忘记用户名或密码</a>
     </p>
 </div>
 </body>

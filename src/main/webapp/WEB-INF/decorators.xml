@@ -17,11 +17,6 @@
 		<pattern>*/admin/*.jsp</pattern>
 	</decorator>
 
-	<decorator name="login" page="loginDecorator.jsp">
-		<pattern>*login.jsp</pattern>
-	</decorator>
-
-
     <decorator name="secure" page="secure.jsp">
         <pattern>*/secure/*.jsp</pattern>
     </decorator>
