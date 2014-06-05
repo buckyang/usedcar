@@ -10,6 +10,7 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.bind.annotation.RequestBody;
 
 public class UsedCarDTO {
 
@@ -24,7 +25,6 @@ public class UsedCarDTO {
 	private Integer seriesId;
 	@NotNull(message = "请选择品牌")
 	private Integer brandId;
-	@Size(min = 4, max = 8, message = "请上传4-8张车辆图片")
 	private List<String> imageIds;
 	@NotBlank(message = "请上传行驶证")
 	private String licenseImageId;

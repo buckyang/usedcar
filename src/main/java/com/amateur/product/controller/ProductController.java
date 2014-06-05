@@ -1,6 +1,7 @@
 package com.amateur.product.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;
 
@@ -12,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,6 +28,8 @@ import com.amateur.product.service.ProductService;
 import com.amateur.service.AddressService;
 import com.amateur.service.BrandService;
 import com.amateur.session.Profile;
+
+import org.apache.commons.lang3.StringUtils;
 
 @Controller
 @RequestMapping(value = "/product")
@@ -177,10 +179,16 @@ public class ProductController extends BaseController {
 
 	@RequestMapping(value = "/publishUsedCar", method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
-	public Map<String, Object> publishUsedCarJSON(@Valid UsedCarDTO usedCarDTO,
+	public Map<String, Object> publishUsedCarJSON(@Valid UsedCarDTO usedCarDTO, String productImageIds,
 			@ModelAttribute("profile") Profile profile, BindingResult result,
 			HttpServletRequest request) {
 
+		if(productImageIds==null || "".equalsIgnoreCase(productImageIds.trim())){
+			result.rejectValue("imageIds", "product.publish.failure");
+		}
+		String imageIdStr = StringUtils.substringBetween(productImageIds,"[", "]");
+		String[] imageIds = StringUtils.split(imageIdStr, ",");
+		usedCarDTO.setImageIds(Arrays.asList(imageIds));
 		if (!result.hasErrors()) {
 			boolean handleResult = handleUsedCar(usedCarDTO, profile, request);
 			if(!handleResult){
