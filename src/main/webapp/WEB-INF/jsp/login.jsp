@@ -4,7 +4,7 @@
 </head>
 <body>
 <div class="login-box">
-    <h3>登陆</h3>
+    <h3 class="green-gradient">登陆</h3>
     <form:form id="loginForm" method="post" modelAttribute="loginDTO">
         <div class="error">用户名或密码不对</div>
         <div class="necessary-info">
@@ -27,8 +27,8 @@
             <a href="#">忘记用户名或密码?</a>
         </div>
         <div class="buttons">
-            <button type="submit" value="登陆">登陆</button>
-            <a href="<s:url value="/signon" />">注册</a>
+            <button class="orange-gradient" type="submit" value="登陆">登陆</button>
+            <a class="gray-gradient" href="<s:url value="/signon" />">注册</a>
         </div>
     </form:form>
     <p>

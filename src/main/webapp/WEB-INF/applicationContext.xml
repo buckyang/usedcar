@@ -100,8 +100,8 @@
 	<mvc:view-controller path="/admin/search/index"/>
 	<mvc:view-controller path="/" view-name="index" />
 	<mvc:view-controller path="/cardetails" view-name="cardetails" />
-	<mvc:view-controller path="/findpassword"
-		view-name="findpassword" />
+	<mvc:view-controller path="/loginfailed"
+		view-name="loginfailed" />
 	<mvc:view-controller path="/secure/sellcar"
 		view-name="secure/sellcar" />
 	<mvc:view-controller path="/secure/basicinfo"
