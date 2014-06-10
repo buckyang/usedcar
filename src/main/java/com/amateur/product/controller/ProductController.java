@@ -156,10 +156,10 @@ public class ProductController extends BaseController {
 			return "secure/sellcar";
 		}
 		boolean handleResult = handleUsedCar(usedCarDTO, profile, request);
-		if(handleResult){
+		if (handleResult) {
 			modelAndView.addObject(EXECUTION_RESULT_PARAM_KEY, "发布成功");
 			return "redirect:/product/publishUsedCar";
-		}else{
+		} else {
 			modelAndView.addObject(EXECUTION_RESULT_PARAM_KEY, "发布失败");
 			return "redirect:/product/publishUsedCar";
 		}
@@ -179,19 +179,13 @@ public class ProductController extends BaseController {
 
 	@RequestMapping(value = "/publishUsedCar", method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
-	public Map<String, Object> publishUsedCarJSON(@Valid UsedCarDTO usedCarDTO, String productImageIds,
+	public Map<String, Object> publishUsedCarJSON(@Valid UsedCarDTO usedCarDTO,
 			@ModelAttribute("profile") Profile profile, BindingResult result,
 			HttpServletRequest request) {
 
-		if(productImageIds==null || "".equalsIgnoreCase(productImageIds.trim())){
-			result.rejectValue("imageIds", "product.publish.failure");
-		}
-		String imageIdStr = StringUtils.substringBetween(productImageIds,"[", "]");
-		String[] imageIds = StringUtils.split(imageIdStr, ",");
-		usedCarDTO.setImageIds(Arrays.asList(imageIds));
 		if (!result.hasErrors()) {
 			boolean handleResult = handleUsedCar(usedCarDTO, profile, request);
-			if(!handleResult){
+			if (!handleResult) {
 				result.rejectValue("productId", "product.publish.failure");
 			}
 		}

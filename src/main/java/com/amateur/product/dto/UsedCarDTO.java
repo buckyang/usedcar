@@ -25,6 +25,7 @@ public class UsedCarDTO {
 	private Integer seriesId;
 	@NotNull(message = "请选择品牌")
 	private Integer brandId;
+	@Size(min = 4, max = 8, message = "请上传4到8张车辆图片")
 	private List<String> imageIds;
 	@NotBlank(message = "请上传行驶证")
 	private String licenseImageId;
@@ -49,17 +50,17 @@ public class UsedCarDTO {
 	private Integer status;
 	private Date updateTime;
 	private Integer accountId;
-	@NotNull(message="请选择省份")
+	@NotNull(message = "请选择省份")
 	private Integer provinceId;
 	private String province;
-	@NotNull(message="请选择城市")
+	@NotNull(message = "请选择城市")
 	private Integer cityId;
 	private String city;
-	@NotNull(message="请选择区县")
+	@NotNull(message = "请选择区县")
 	private Integer countyId;
 	private String county;
 	private String street;
-	@AssertTrue(message="你必须接受协议")
+	@AssertTrue(message = "你必须接受协议")
 	private Boolean acceptTerm;
 
 	public String getProductId() {
