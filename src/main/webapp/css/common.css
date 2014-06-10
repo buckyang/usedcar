@@ -35,6 +35,10 @@
     background-color: #f8f8f8;
 }
 
+.white-background {
+    background-color: #fff;
+}
+
 a {
     color: #FFF;
 }
@@ -42,7 +46,7 @@ a {
 body{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    color: #1d1007;
+    color: #7f7f7f;
     line-height: 24px;
 }
 
@@ -52,7 +56,15 @@ body{
     margin: 80px auto;
 }
 
-.box1 h3 {
+.box2 {
+    width: 1050px;
+    height: 550px;
+    margin: 80px auto;
+}
+
+.box1 h3,
+.box-title
+{
     height: 48px;
     line-height: 48px;
     text-align: center;
@@ -69,7 +81,8 @@ body{
     font-size: 18px;
 }
 
-.box1 a {
+.box1 a
+{
     display: block;
     width: 290px;
     height: 40px;
@@ -89,3 +102,93 @@ body{
 .box1 div p.font-14 {
     font-size: 14px;
 }
+
+.span4 {
+    width: 40%;
+}
+
+.span6 {
+    width: 60%;
+}
+
+.link-button {
+    display: inline-block;
+    width: 133px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 18px;
+    border: 1px solid #e7e7e7;
+}
+
+.mute {
+    color: #7f7f7f;
+}
+
+form#findPwd{
+    width: 974px;
+    height: 404px;
+    border: 7px solid #e7e7e7;
+    margin: 40px auto;
+    font-size: 18px;
+}
+
+form#findPwd div.choices {
+    margin-top: 22px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+form#findPwd div.choices a{
+    margin-right: 20px;
+}
+
+form#findPwd div.email{
+    margin-top: 80px;
+}
+
+form#findPwd div.verification-code{
+    margin-top: 40px;
+}
+
+form#findPwd input[type="text"]{
+    height: 38px;
+    font-size: 16px;
+}
+
+form#findPwd div.email input{
+    width: 342px;
+}
+
+form#findPwd div.verification-code input{
+    width: 160px;
+}
+
+form#findPwd div.verification-code span{
+    display: inline-block;
+    line-height: 40px;
+}
+
+
+form#findPwd label{
+    display: inline-block;
+    text-align: right;
+    line-height: 48px;
+}
+
+form#findPwd button{
+    display: block;
+    text-align: center;
+    width: 288px;
+    height: 38px;
+    line-height: 38px;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    font-size: 18px;
+    color: #FFF;
+    letter-spacing: 10px;
+    border: 1px solid #e7e7e7;
+}
+
