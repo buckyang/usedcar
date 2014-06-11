@@ -108,6 +108,10 @@
 		view-name="registerfailed" />
     <mvc:view-controller path="/findpwdbyemail"
 		view-name="findpwdbyemail" />
+    <mvc:view-controller path="/findpwdbyphone"
+		view-name="findpwdbyphone" />
+    <mvc:view-controller path="/newpassword"
+		view-name="newpassword" />
     <mvc:view-controller path="/findpwdsuccess"
 		view-name="findpwdsuccess" />
 	<mvc:view-controller path="/secure/sellcar"

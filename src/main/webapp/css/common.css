@@ -39,6 +39,18 @@
     background-color: #fff;
 }
 
+.error {
+    color: #ff3f3f;
+}
+
+.error-input {
+    border: 1px solid #ff3f3f;
+}
+
+span.error {
+    display: block;
+}
+
 a {
     color: #FFF;
 }
@@ -104,11 +116,15 @@ body{
 }
 
 .span4 {
-    width: 40%;
+    width: 33%;
 }
 
 .span6 {
     width: 60%;
+}
+
+.offset4 {
+    margin-left: 33%;
 }
 
 .link-button {
@@ -124,12 +140,16 @@ body{
     color: #7f7f7f;
 }
 
-form#findPwd{
+.box2 form{
     width: 974px;
     height: 404px;
     border: 7px solid #e7e7e7;
     margin: 40px auto;
     font-size: 18px;
+}
+
+.box2 form div.new-password {
+    margin-top: 80px;
 }
 
 form#findPwd div.choices {
@@ -151,9 +171,41 @@ form#findPwd div.verification-code{
     margin-top: 40px;
 }
 
-form#findPwd input[type="text"]{
+form#findPwd div.phone-number .get-code{
+    font-size: 14px;
+    text-align: center;
+    color: #3d7ea8;
+}
+
+form#findPwd div.phone-number{
+    position: relative;
+}
+
+form#findPwd div.phone-number .code-message{
+    position: absolute;
+    top: 35px;
+    right: 188px;
+    font-size: 12px;
+    color: #DEDEDE;
+}
+
+.box2 form input[type="text"],
+.box2 form input[type="password"]{
     height: 38px;
     font-size: 16px;
+    width: 342px;
+}
+
+.box2.phone{
+    height: 650px;
+}
+
+form#findPwd.phone div {
+    margin-top: 20px;
+}
+
+form#findPwd.phone {
+    height: 500px;
 }
 
 form#findPwd div.email input{
@@ -170,22 +222,21 @@ form#findPwd div.verification-code span{
 }
 
 
-form#findPwd label{
+.box2 form label{
     display: inline-block;
     text-align: right;
     line-height: 48px;
 }
 
-form#findPwd button{
+.box2 form button{
     display: block;
     text-align: center;
     width: 288px;
     height: 38px;
     line-height: 38px;
-    margin-top: 80px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    border: none;
     font-size: 18px;
     color: #FFF;
     letter-spacing: 10px;
