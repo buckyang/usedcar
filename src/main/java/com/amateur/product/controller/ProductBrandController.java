@@ -17,23 +17,23 @@ public class ProductBrandController {
 	@Autowired
 	private BrandService brandService;
 
-	@RequestMapping(value = "/getBrands", method = RequestMethod.GET)
+	@RequestMapping(value = "/getBrands", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<Integer, String> getBrandMap() {
 		
 		return brandService.getBrandMap();
 	}
 	
-	@RequestMapping(value = "/getSeries", method = RequestMethod.GET)
+	@RequestMapping(value = "/getSeries", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<Integer, String> getSeriesMap(String brandId) {
 
 		return brandService.getSeriesMapByBrandId(Integer.valueOf(brandId));
 	}
 
-	@RequestMapping(value = "/getModels", method = RequestMethod.GET)
+	@RequestMapping(value = "/getModels", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<Integer, String> getModels(String seriesId) {
+	public Map<Integer, String> getModelMap(String seriesId) {
 
 		return brandService.getModelMapBySeriesId(Integer.valueOf(seriesId));
 	}
