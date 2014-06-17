@@ -7,7 +7,7 @@
 
     <form action="newpassword" id="newPassword" class="white-background">
         <div class="new-password">
-            <span class="error offset4">输入邮箱地址不存在</span>
+            <span class="error offset4">两次输入密码不一致</span>
             <label for="password" class="span4">输入新密码：</label>
             <input type="password" id="password" name="password" class="span6 error-input"/>
         </div>

@@ -6,7 +6,7 @@
 <div class="login-box">
     <h3 class="green-gradient">登陆</h3>
     <form:form id="loginForm" method="post" modelAttribute="loginDTO">
-        <div class="error">用户名或密码不对</div>
+        <span class="error offset4">用户名或密码不对</span>
         <div class="necessary-info">
             <div>
                 <img src='<s:url value="/image/yhmbg.jpg" />' alt="username"/>
