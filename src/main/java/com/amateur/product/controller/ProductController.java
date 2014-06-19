@@ -1,7 +1,6 @@
 package com.amateur.product.controller;
 
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;
 
@@ -28,8 +27,6 @@ import com.amateur.product.service.ProductService;
 import com.amateur.service.AddressService;
 import com.amateur.service.BrandService;
 import com.amateur.session.Profile;
-
-import org.apache.commons.lang3.StringUtils;
 
 @Controller
 @RequestMapping(value = "/product")
