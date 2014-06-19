@@ -43,4 +43,4 @@ CREATE TABLE `NewTable` (
 `used_date`  timestamp NULL DEFAULT NULL ,
 PRIMARY KEY (`id`)
 )
-ENGINE=InnoDB
+ENGINE=InnoDB;
