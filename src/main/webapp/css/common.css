@@ -39,6 +39,10 @@
     background-color: #fff;
 }
 
+.button-border {
+    border: 1px solid #efefef;
+}
+
 .error {
     color: #ff3f3f;
 }

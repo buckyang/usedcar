@@ -9,7 +9,6 @@
     <link href="<s:url value="/css/reset.css" />" type="text/css" rel="stylesheet"/>
     <link href="<s:url value="/css/common.css" />" type="text/css" rel="stylesheet"/>
     <link href="<s:url value="/css/home.css" />" type="text/css" rel="stylesheet"/>
-    <link href='<s:url value="/css/register.css" />' type="text/css" rel="stylesheet"/>
     <script src='<s:url value="/js/lib/jquery-1.11.0.min.js" />' type="text/javascript"></script>
     <script src='<s:url value="/js/lib/underscore-min.js" />' type="text/javascript"></script>
     <decorator:head/>
