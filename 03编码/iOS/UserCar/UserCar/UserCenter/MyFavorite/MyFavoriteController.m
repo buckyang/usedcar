@@ -42,6 +42,14 @@
 
 #pragma mark - Table view data source
 
+- (UITableViewCell*)cellAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    static NSString *identifierName = @"MyFavoriteCell";
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:identifierName];
+    return cell;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -56,11 +64,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyFavoriteCell" forIndexPath:indexPath];
     
-    // Configure the cell...
-    
-    return cell;
+    return [self cellAtIndexPath:indexPath];
 }
 
 

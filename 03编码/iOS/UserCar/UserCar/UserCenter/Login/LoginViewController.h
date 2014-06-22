@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : CBaseViewController
+@interface LoginViewController : CBaseTableViewController
 
 @end

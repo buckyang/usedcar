@@ -21,6 +21,8 @@
 // THE SOFTWARE.
 
 #import "AFURLRequestSerialization.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <SystemConfiguration/SystemConfiguration.h>
 
 extern NSString * const AFNetworkingErrorDomain;
 
@@ -492,6 +494,7 @@ static inline NSString * AFMultipartFormFinalBoundary(NSString *boundary) {
 
 static inline NSString * AFContentTypeForPathExtension(NSString *extension) {
 #ifdef __UTTYPE__
+    
     NSString *UTI = (__bridge_transfer NSString *)UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef)extension, NULL);
     NSString *contentType = (__bridge_transfer NSString *)UTTypeCopyPreferredTagWithClass((__bridge CFStringRef)UTI, kUTTagClassMIMEType);
     if (!contentType) {

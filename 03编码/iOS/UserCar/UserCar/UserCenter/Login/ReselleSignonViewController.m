@@ -233,10 +233,21 @@
     
 }
 
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *header = nil;
+    if (section>0) {
+        header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+        header.backgroundColor = [UIColor whiteColor];
+    }
+    return header;
+}
+
+
 #pragma mark --------------------------------- UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (textField==self.txtRepassword) {
+    if (textField.returnKeyType==UIReturnKeyDone) {
         [textField resignFirstResponder];
     }
     else

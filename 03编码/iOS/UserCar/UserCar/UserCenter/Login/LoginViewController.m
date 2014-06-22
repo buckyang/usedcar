@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;
 
+@property (strong, nonatomic) IBOutlet UIView *vOtherFunction;
+@property (strong, nonatomic) IBOutlet UIView *vFoot;
 
 @end
 
@@ -33,6 +35,27 @@ static NSString *Password = @"Password";
     return self;
 }
 
+#pragma mark --------------- 设置样式 
+
+/**
+ *  @brief 设置UI样式，如文框
+ */
+- (void)setUIStyle
+{
+    [self.vFoot addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:@"vfoot"];
+}
+
+//设置下面找回密码和注册的位置
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if([(__bridge NSString*)context isEqualToString:@"vfoot"])
+    {
+        CGRect vOtherFunctionFrame = self.vOtherFunction.frame;
+        vOtherFunctionFrame.origin.y = self.vFoot.frame.size.height-vOtherFunctionFrame.size.height;
+        self.vOtherFunction.frame = vOtherFunctionFrame;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -45,6 +68,12 @@ static NSString *Password = @"Password";
         self.txtUserName.text = userName;
         self.txtPassword.text = password;
     }
+    [self setUIStyle];
+    
+    
+//    CGRect vfootFrame = self.vFoot.frame;
+//    vfootFrame.size.height = self.view.bounds.size.height-vfootFrame.origin.y;
+//    self.vFoot.frame = vfootFrame;
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,6 +109,7 @@ static NSString *Password = @"Password";
     return ret;
 }
 
+//登录
 - (IBAction)click_btnLogin:(id)sender
 {
     if (![self verifyInput]) {
@@ -119,13 +149,6 @@ static NSString *Password = @"Password";
     
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [super touchesEnded:touches withEvent:event];
-    [self.txtUserName resignFirstResponder];
-    [self.txtPassword resignFirstResponder];
-}
-
 #pragma mark --------------------------------- UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -134,21 +157,15 @@ static NSString *Password = @"Password";
     }
     else
     {
-        UITextField *nextField = (UITextField*)[self.view viewWithTag:textField.tag+1];
+        UITextField *nextField = self.txtPassword;
         [nextField becomeFirstResponder];
     }
     return YES;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)dealloc
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [self.vFoot removeObserver:self forKeyPath:@"frame" context:@"vfoot"];
 }
-*/
 
 @end

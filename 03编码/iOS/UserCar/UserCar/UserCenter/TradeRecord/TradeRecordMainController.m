@@ -43,6 +43,43 @@
 
 #pragma mark - Table view data source
 
+- (UITableViewCell*)cellAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *OrderHeaderCell = @"OrderHeaderCell";
+    static NSString *OrderNumberCell = @"OrderNumberCell";
+    static NSString *OrderPriceCell = @"OrderPriceCell";
+    static NSString *OrderDatetimeCell = @"OrderDatetimeCell";
+    static NSString *OrderCompleteCell = @"OrderCompleteCell";
+    static NSString *OrderNoCompleteCell = @"OrderNoCompleteCell";
+    
+    
+    NSString *identifierName = nil;
+    
+    switch (indexPath.row) {
+        case 0:
+            identifierName = OrderHeaderCell;
+            break;
+        case 1:
+            identifierName = OrderNumberCell;
+            break;
+        case 2:
+            identifierName = OrderPriceCell;
+            break;
+        case 3:
+            identifierName = OrderDatetimeCell;
+            break;
+        case 4:
+            identifierName = (indexPath.section%2)? OrderCompleteCell:OrderNoCompleteCell;
+            break;
+    }
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:identifierName];
+    
+
+    // Configure the cell...
+    
+    return cell;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -52,62 +89,31 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 3;
+    return 5;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *headerIdentifier = @"UserCenterBuyCarRecordHeaderCell";
-    static NSString *contentIdentifier = @"UserCenterBuyCarRecordCell";
-    static NSString *statusIdentifier = @"UserCenterBuyCarRecordCompleteCell";
-    static NSString *noCompleteStatusIdentifier = @"UserCenterBuyCarRecordNoCompleteCell";
-    
-    NSString *identifierName = nil;
-    
-    switch (indexPath.row) {
-        case 0:
-            identifierName = headerIdentifier;
-            break;
-        case 1:
-            identifierName = contentIdentifier;
-            break;
-        default:
-            identifierName = (indexPath.section%2)? statusIdentifier:noCompleteStatusIdentifier;
-            break;
-    }
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierName forIndexPath:indexPath];
-    
-    // Configure the cell...
+    UITableViewCell *cell = [self cellAtIndexPath:indexPath];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat height = 0;
-
-    switch (indexPath.row) {
-        case 0:
-            height = 90;
-            break;
-            case 1:
-            height = 85;
-            break;
-        default:
-            height = 40;
-            break;
-    }
-    return height;
+    UITableViewCell *cell = [self cellAtIndexPath:indexPath];
     
+    return cell.bounds.size.height;
 }
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+- (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    return 20.f;
+    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40.f)];
+    footView.backgroundColor = [UIColor whiteColor];
+    return footView;
 }
-
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

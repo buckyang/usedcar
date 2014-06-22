@@ -35,6 +35,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *header = nil;
+    if (section==1) {
+        header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+        header.backgroundColor = [UIColor whiteColor];
+    }
+    return header;
+}
+
 /*
 #pragma mark - Navigation
 

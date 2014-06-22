@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "../../AccessLayer/AccessLayer/UploadImage.h"
 
 @interface AppDelegate ()<UITabBarControllerDelegate,UIViewControllerAnimatedTransitioning>
 {
@@ -28,7 +29,7 @@
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
 
     //设置导航的背景色
-    [[UINavigationBar appearance] setBarTintColor:RGBColor(56, 104, 187)];
+    [[UINavigationBar appearance] setBarTintColor:RGBColor(21, 107, 255)];
     
     [UINavigationBar appearance].backItem.backBarButtonItem.tintColor =[UIColor whiteColor];
     
@@ -141,6 +142,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSString *testImage = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"png"];
+    
+    NSURL *aFileURL = [NSURL fileURLWithPath:testImage];
+    
+    [UploadImage uploadImageWithURL:aFileURL withUploadProcess:^(float aProcessValue) {
+        
+    }];
+    
     // Override point for customization after application launch.
     [self configTabbarStyle];
     [self configNavigationStyle];    

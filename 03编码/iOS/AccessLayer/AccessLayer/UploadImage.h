@@ -15,4 +15,6 @@ static NSString *uploadURL = @"/product/imageUpload.json";
 
 + (void)uploadImageWithData:(NSData*)aData withUploadProcess:(UploadProcess)processBlock;
 
++ (void)uploadImageWithURL:(NSURL*)aFileURL withUploadProcess:(UploadProcess)processBlock;
+
 @end

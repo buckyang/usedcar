@@ -50,7 +50,6 @@
     [self.httpClient POST:aUrl
                parameters:parameters
                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                      
                       INFO(@"%@ Parameters:\n%@ Resonse:%@",aUrl,parameters,responseObject);
                       
                       
@@ -64,6 +63,7 @@
                       }
     }
                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                      
                       EntityBase *base = [[EntityBase alloc] init];
                       base.message = @"网络连接失败";
                       base.executionResult = NO;

@@ -15,8 +15,8 @@
  */
 - (void)configButtonEvent
 {
-    [self setImage:[UIImage imageNamed:@"imgUncheck.png"] forState:UIControlStateNormal];
-    [self setImage:[UIImage imageNamed:@"imgCheck.png"] forState:UIControlStateSelected];
+    [self setImage:[UIImage imageNamed:@"imgUnSelected.png"] forState:UIControlStateNormal];
+    [self setImage:[UIImage imageNamed:@"imgSelected.png"] forState:UIControlStateSelected];
     [self addTarget:self action:@selector(click_button:) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -34,13 +34,10 @@
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)coder
+- (void)awakeFromNib
 {
-    self = [super initWithCoder:coder];
-    if (self) {
-        [self configButtonEvent];
-    }
-    return self;
+    [super awakeFromNib];
+    [self configButtonEvent];
 }
 
 @end

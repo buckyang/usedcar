@@ -18,6 +18,11 @@
 		9366866E18E91DD30050FB52 /* libEntity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366865618E91DD30050FB52 /* libEntity.a */; };
 		9366867418E91DD30050FB52 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9366867218E91DD30050FB52 /* InfoPlist.strings */; };
 		9366867618E91DD30050FB52 /* EntityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366867518E91DD30050FB52 /* EntityTests.m */; };
+		93B72D801943299D0037ACCD /* ImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B72D7F1943299D0037ACCD /* ImageInfo.m */; };
+		93B72D8319432A530037ACCD /* UsedCarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B72D8219432A530037ACCD /* UsedCarInfo.m */; };
+		93B72D86194331B30037ACCD /* Brand.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B72D85194331B30037ACCD /* Brand.m */; };
+		93B72D891943326E0037ACCD /* Series.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B72D881943326E0037ACCD /* Series.m */; };
+		93B72D8C194332BC0037ACCD /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B72D8B194332BC0037ACCD /* Model.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,16 @@
 		9366867118E91DD30050FB52 /* EntityTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EntityTests-Info.plist"; sourceTree = "<group>"; };
 		9366867318E91DD30050FB52 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9366867518E91DD30050FB52 /* EntityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntityTests.m; sourceTree = "<group>"; };
+		93B72D7E1943299D0037ACCD /* ImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageInfo.h; sourceTree = "<group>"; };
+		93B72D7F1943299D0037ACCD /* ImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageInfo.m; sourceTree = "<group>"; };
+		93B72D8119432A530037ACCD /* UsedCarInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsedCarInfo.h; sourceTree = "<group>"; };
+		93B72D8219432A530037ACCD /* UsedCarInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsedCarInfo.m; sourceTree = "<group>"; };
+		93B72D84194331B30037ACCD /* Brand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brand.h; sourceTree = "<group>"; };
+		93B72D85194331B30037ACCD /* Brand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brand.m; sourceTree = "<group>"; };
+		93B72D871943326E0037ACCD /* Series.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Series.h; sourceTree = "<group>"; };
+		93B72D881943326E0037ACCD /* Series.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Series.m; sourceTree = "<group>"; };
+		93B72D8A194332BC0037ACCD /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		93B72D8B194332BC0037ACCD /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +136,16 @@
 				9366866018E91DD30050FB52 /* EntityBase.m */,
 				9341535418EA91F300C4358B /* UserInfo.h */,
 				9341535518EA91F300C4358B /* UserInfo.m */,
+				93B72D7E1943299D0037ACCD /* ImageInfo.h */,
+				93B72D7F1943299D0037ACCD /* ImageInfo.m */,
+				93B72D8119432A530037ACCD /* UsedCarInfo.h */,
+				93B72D8219432A530037ACCD /* UsedCarInfo.m */,
+				93B72D84194331B30037ACCD /* Brand.h */,
+				93B72D85194331B30037ACCD /* Brand.m */,
+				93B72D871943326E0037ACCD /* Series.h */,
+				93B72D881943326E0037ACCD /* Series.m */,
+				93B72D8A194332BC0037ACCD /* Model.h */,
+				93B72D8B194332BC0037ACCD /* Model.m */,
 				9366865C18E91DD30050FB52 /* Supporting Files */,
 			);
 			path = Entity;
@@ -233,8 +258,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93B72D891943326E0037ACCD /* Series.m in Sources */,
+				93B72D86194331B30037ACCD /* Brand.m in Sources */,
 				9341535618EA91F300C4358B /* UserInfo.m in Sources */,
+				93B72D801943299D0037ACCD /* ImageInfo.m in Sources */,
+				93B72D8C194332BC0037ACCD /* Model.m in Sources */,
 				9366866118E91DD30050FB52 /* EntityBase.m in Sources */,
+				93B72D8319432A530037ACCD /* UsedCarInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

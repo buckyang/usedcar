@@ -39,6 +39,9 @@
 		9366873018E922370050FB52 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366871F18E922370050FB52 /* UIWebView+AFNetworking.m */; };
 		9372C48D1907B347009D9A4C /* UserRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 9372C48C1907B347009D9A4C /* UserRegister.m */; };
 		9372C48F1907B54B009D9A4C /* UserRegisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9372C48E1907B54B009D9A4C /* UserRegisterTests.m */; };
+		93783E831955579B00F86D4E /* CarFilterAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 93783E821955579B00F86D4E /* CarFilterAccess.m */; };
+		93857198193C71EF00228FAC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93857197193C71EF00228FAC /* MobileCoreServices.framework */; };
+		9385719A193C72A700228FAC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93857199193C72A700228FAC /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +125,10 @@
 		9372C48B1907B347009D9A4C /* UserRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRegister.h; sourceTree = "<group>"; };
 		9372C48C1907B347009D9A4C /* UserRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRegister.m; sourceTree = "<group>"; };
 		9372C48E1907B54B009D9A4C /* UserRegisterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRegisterTests.m; sourceTree = "<group>"; };
+		93783E811955579B00F86D4E /* CarFilterAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarFilterAccess.h; sourceTree = "<group>"; };
+		93783E821955579B00F86D4E /* CarFilterAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarFilterAccess.m; sourceTree = "<group>"; };
+		93857197193C71EF00228FAC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		93857199193C72A700228FAC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +136,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9385719A193C72A700228FAC /* SystemConfiguration.framework in Frameworks */,
+				93857198193C71EF00228FAC /* MobileCoreServices.framework in Frameworks */,
 				9341534B18EA90E700C4358B /* libEntity.a in Frameworks */,
 				9366862818E91DAB0050FB52 /* Foundation.framework in Frameworks */,
 			);
@@ -198,6 +207,8 @@
 		9366862618E91DAB0050FB52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93857199193C72A700228FAC /* SystemConfiguration.framework */,
+				93857197193C71EF00228FAC /* MobileCoreServices.framework */,
 				9341534A18EA90E700C4358B /* libEntity.a */,
 				9366862718E91DAB0050FB52 /* Foundation.framework */,
 				9366863518E91DAB0050FB52 /* XCTest.framework */,
@@ -215,6 +226,7 @@
 				9366862E18E91DAB0050FB52 /* AccessBase.m */,
 				935EB30D1910EDF6000D42CA /* UploadImage.h */,
 				935EB30E1910EDF6000D42CA /* UploadImage.m */,
+				93783E801955576F00F86D4E /* ByCar */,
 				9341534918EA90C500C4358B /* UserCenter */,
 				9366862A18E91DAB0050FB52 /* Supporting Files */,
 			);
@@ -307,6 +319,15 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		93783E801955576F00F86D4E /* ByCar */ = {
+			isa = PBXGroup;
+			children = (
+				93783E811955579B00F86D4E /* CarFilterAccess.h */,
+				93783E821955579B00F86D4E /* CarFilterAccess.m */,
+			);
+			path = ByCar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -395,6 +416,7 @@
 				9366872718E922370050FB52 /* AFURLResponseSerialization.m in Sources */,
 				9366872C18E922370050FB52 /* UIButton+AFNetworking.m in Sources */,
 				935EB30C1910E47B000D42CA /* UserInfoAccess.m in Sources */,
+				93783E831955579B00F86D4E /* CarFilterAccess.m in Sources */,
 				9366872B18E922370050FB52 /* UIAlertView+AFNetworking.m in Sources */,
 				9366872018E922370050FB52 /* AFHTTPRequestOperation.m in Sources */,
 				9366872F18E922370050FB52 /* UIRefreshControl+AFNetworking.m in Sources */,

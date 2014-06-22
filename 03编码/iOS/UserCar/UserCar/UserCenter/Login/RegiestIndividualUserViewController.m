@@ -15,8 +15,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnPhoneNumber;
 @property (strong, nonatomic) IBOutlet UITextField *txtPhoneNumber;
 
-
-@property (weak, nonatomic) IBOutlet UIButton *btnRegist;
 /**
  *  @brief 验证码
  */
@@ -42,12 +40,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.btnRegist.userInteractionEnabled = YES;
-    self.btnRegist.layer.cornerRadius = 4;
-//    self.btnRegist.layer.borderWidth=1;
-//    self.btnRegist.layer.borderColor=[UIColor whiteColor].CGColor;
-    
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -189,6 +181,16 @@
             [MessageBox showMessage:errorRet.message];
         }
     }];
+}
+
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *header = nil;
+    if (section==1) {
+        header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+        header.backgroundColor = [UIColor whiteColor];
+    }
+    return header;
 }
 
 #pragma mark --------------------------------- UITextFieldDelegate
