@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- *  @brief <#Description#>
+ *  @brief 原型
  */
 @interface Model : NSObject
 
