@@ -1,0 +1,56 @@
+.container .content{
+    margin: 0 auto;
+}
+
+.container .content .user-info .logo,
+.container .content .user-info .private
+{
+    height: 158px;
+}
+
+.container .content .user-info .logo{
+    width: 200px;
+    text-align: center;
+    background: url("/image/avatar.png") no-repeat;
+}
+
+.container .content .user-info .private{
+    width: 850px;
+    background: url("/image/profile_background.png") no-repeat;
+}
+
+.container .content .user-info .private div{
+    margin-left: 70px;
+    margin-top: 30px;
+}
+
+.container .content .user-nav {
+    width: 200px;
+    display: inline-block;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px 0px;
+}
+
+.container .content .user-nav ul li {
+    height: 48px;
+    display: block;
+    text-align: center;
+    line-height: 48px;
+    border-bottom: 1px solid rgba(239, 239, 239, 0.36);
+}
+
+.right-content {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.user-info .logo,
+.user-info .private {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.nav-and-info {
+    background-color: #27467c;
+}

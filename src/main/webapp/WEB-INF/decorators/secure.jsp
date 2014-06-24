@@ -9,43 +9,47 @@
     <title><decorator:title default="${siteConfiguration.siteName }"/></title>
     <link href="<s:url value="/css/reset.css" />" type="text/css" rel="stylesheet"/>
     <link href="<s:url value="/css/home.css" />" type="text/css" rel="stylesheet"/>
+    <link href="<s:url value="/css/common.css" />" type="text/css" rel="stylesheet"/>
+    <link href="<s:url value="/css/secure.css" />" type="text/css" rel="stylesheet"/>
     <link href="<s:url value="/css/sellcar.css" />" type="text/css" rel="stylesheet"/>
     <link href="<s:url value="/css/userinfo.css" />" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 <div class="container">
     <jsp:include page="/WEB-INF/jsp/sections/header.jsp"/>
-    <jsp:include page="/WEB-INF/jsp/sections/navigation.jsp"/>
+    <div class="content">
 
-    <div class="user-info">
-        <div class="logo">
-            Logo个人中心
+
+        <div class="user-info">
+            <div class="logo">
+                Logo个人中心
+            </div><div class="private">
+                <div>
+                    <p>昵称：大师兄</p>
+                    <p>性别：男</p>
+                    <p>手机号码：18888888888</p>
+                    <p>邮箱：123456@123.com</p>
+                </div>
+            </div>
         </div>
-        <div class="private">
-            昵称、消息等个人相关信息
-        </div>
+        <%--<div class="user-nav">--%>
+            <%--<ul>--%>
+                <%--<li><a href="#">账号管理</a></li>--%>
+                <%--<li><a href="/secure/basicinfo">个人信息</a></li>--%>
+                <%--<li><a href="/secure/changepassword">密码修改</a></li>--%>
+                <%--<li><a href="#">身份认证</a></li>--%>
+                <%--<li><a href="#">出售二手车</a></li>--%>
+                <%--<li><a href="#">我的收藏</a></li>--%>
+                <%--<li><a href="#">购物车</a></li>--%>
+                <%--<li><a href="#">买卖记录</a></li>--%>
+                <%--<li><a href="#">出售中车辆</a></li>--%>
+            <%--</ul>--%>
+        <%--</div>--%>
+        <decorator:body/>
+
     </div>
-    <div class="user-nav">
-        <ul>
-            <li class="submenu">
-                <a href="#">账号管理</a>
-                <ul>
-                    <li><a href="/secure/basicinfo">基本信息</a></li>
-                    <li><a href="/secure/detailinfo">详细信息</a></li>
-                    <li><a href="/secure/changepassword">修改密码</a></li>
-                </ul>
-            </li>
-            <li><a href="#">出售二手车</a></li>
-            <li><a href="#">身份认证</a></li>
-            <li><a href="#">我的收藏</a></li>
-            <li><a href="#">我的订单</a></li>
-            <li><a href="#">买卖记录</a></li>
-        </ul>
-    </div>
-    <decorator:body/>
 
     <jsp:include page="/WEB-INF/jsp/sections/footer.jsp"/>
-    <p class="site-info">XXX网站备案</p>
 </div>
 </body>
 </html>

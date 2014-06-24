@@ -1,77 +1,75 @@
-.right-content {
-display: inline-block;
-    width: 79.212345%;
-    border-right: 1px solid #333;
-    height: 750px;
-    vertical-align: top;
+.basic-info {
+    padding-top: 20px;
+    padding-left: 30px;
+    width: 820px;
+    color: #666666;
+    font-size: 18px;
+    background-color: white;
 }
 
-.user-info {
-    border: 1px solid #333;
-    width: 100%;
-    height: 100px;
+.basic-info a {
+    color: #666666;
+}
+
+.basic-info h3 {
+    border-bottom: 1px solid #EFEFEF;
+    padding-bottom: 10px;
+    font-size: 25px;
+}
+
+.basic-info form {
+    margin-top: 60px;
+    padding-bottom: 40px;
+}
+
+.basic-info form div {
+    height: 70px;
+}
+
+.basic-info form div label {
+    width: 185px;
+    text-align: right;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.basic-info form div.bind-email a,
+.basic-info form div.bind-mobile a
+{
+    margin-left: 20px;
+}
+
+.basic-info form div.bind-email span.unbind {
+    color: #f7f7f7;
+}
+
+.basic-info form div input[type="text"] {
+    width: 438px;
+    height: 35px;
+    font-size: 18px;
+}
+
+.basic-info form div.nickname,
+.basic-info form div.real-name,
+.basic-info form div.id
+{
+    line-height: 43px;
+}
+
+.basic-info form div.location div {
+    margin-left: 202px;
     margin-top: 10px;
 }
 
-.user-info .logo{
-    border-right: 1px solid #333;
-    width: 30%;
-    text-align: center;
-    line-height: 100px;
-}
-
-.user-info .logo,
-.user-info .private{
-    display: inline-block;
-    vertical-align: top;
-}
-
-.user-info .private {
-    margin: 0;
-    width: 68%;
-    height: 100px;
-    text-align: center;
-    line-height: 100px;
-}
-
-.user-nav {
-    display: inline-block;
-    width: 20%;
-    height: 750px;
-    border-right: 1px solid #333;
-    border-left: 1px solid #333;
-}
-
-.user-nav>ul{
-    width: 80%;
-    margin: 0 auto;
+.basic-info form button {
+    width: 288px;
+    height: 38px;
+    margin-left: 202px;
+    border: 1px solid #EFEFEF;
+    margin-top: 30px;
+    font-size: 20px;
+    letter-spacing: 10px;
+    color: #fff;
 }
 
 
-.user-nav>ul>li{
-    display: block;
-    width: 6em;
-    border: 3px double #333;
-    text-align: center;
-    padding: 5px;
-    margin: 20px auto;
-    position: relative;
-}
-
-.user-nav ul ul{
-    display: none;
-    z-index: 1;
-    border: 1px solid #333;
-    position: absolute;
-    background-color: #FFF;
-}
-
-.user-nav ul ul li{
-    border-bottom: 1px solid #333;
-    margin-top: 10px;
-    padding: 2px 10px;
-}
-
-.user-nav ul li.submenu:hover ul{
-    display: block;
-}
